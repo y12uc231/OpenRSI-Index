@@ -2,7 +2,9 @@
 
 Research prepared on 2026-09-23 for an OpenRSI contribution from the personal GitHub account **y12uc231**.
 
-**Status: researched task design, not a submitted or approved proposal.** Publication metadata, contributor confirmation of the selected project, approved dataset access, and available compute remain unresolved. No training or model evaluation has been run. Once these are resolved, the final proposal should use the repository's exact [Section / Field / Proposal template](../../.agents/skills/proposal-agent/references/proposal-template.md), preserving every row and its order. Do not submit this research note as that proposal.
+**Status: rejected direction. The contributor excluded speech tasks on 2026-09-23. This research is retained only as history; it will not be submitted.**
+
+Previous research status: not a submitted or approved proposal. Publication metadata, contributor confirmation of the selected project, approved dataset access, and available compute remain unresolved. No training or model evaluation has been run. Once these are resolved, the final proposal should use the repository's exact [Section / Field / Proposal template](../../.agents/skills/proposal-agent/references/proposal-template.md), preserving every row and its order. Do not submit this research note as that proposal.
 
 ## The task
 
