@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "case_id": "relayrepair_01",
+      "message": "My authoritative sources: E8673 revision 7: count 15, requires >=16, false. E2299 revision 4: count 15, requires <=12, false. Rule R7415 holds iff E8774 AND R3341. Team reports establish E7574 revision 2, E8774 revision 7, and E4191 revision 4 as true. Since R3341 holds iff E7574 OR E8673, R3341 is true; therefore R7415 is true. R7720 holds iff R7415 AND E4191, so it is true. Select P6670, utility 68: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_02",
+      "message": "My authoritative sources: E9683 revision 2: count 20, requires >=18, true. E7442 revision 2: count 13, requires <=9, false. Rule R1174 holds iff E6551 AND R2079. Team rules give R2079 iff E5502 OR E9683, so R2079 is true through E9683 revision 2. Team reports establish E6551 revision 5 and E9772 revision 3 as true. Thus R1174 is true, and R2315, which holds iff R1174 AND E9772, is true. Select P5972, utility 66: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_03",
+      "message": "My authoritative sources: E8460 revision 4: count 18, requires <=20, true. E4176 revision 6: count 8, requires <=12, true. My rules: R8837 holds iff E4544 OR E4562; R7461 holds iff R7731 AND E8460. The team reports E4544 revision 3 as true, making R8837 true. The team rule R7731 iff E4176 AND R8837 then makes R7731 true, and consequently R7461 is true. Select P5819, utility 81: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_04",
+      "message": "Correction to my previous report: E3109 revision 8 has count 9, requires <=7, and is false. It supersedes revision 5 (count 4, true), including every retransmission of revision 5. My other authoritative sources: E1450 revision 8: count 14, requires >=10, true; E5785 revision 4: count 6, requires <=7, true. Rule R8864 holds iff (E5785 AND E6599) OR (E1326 AND E1450). Team evidence gives E9691 revision 2=false and E6599 revision 2=true. Therefore R3540=(E3109 OR E9691)=false; R5610=(E6944 AND R3540)=false; R8099=(R5610 AND E6599)=false. P5725, utility 95, is ineligible. R8864 is true through E5785 AND E6599. Select P9674, utility 37, the highest-utility eligible plan."
+    },
+    {
+      "case_id": "relayrepair_05",
+      "message": "My authoritative sources: E8232 revision 2: count 13, requires >=9, true. E2695 revision 8: count 12, requires >=13, false. Rule R6791 holds iff E4945 AND R3227. The team rule R3227 iff E6187 OR E8232 makes R3227 true through E8232 revision 2. Team reports establish E4945 revision 7 and E2626 revision 5 as true. Therefore R6791 is true, and R1026, which holds iff R6791 AND E2626, is true. Select P4590, utility 77: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_06",
+      "message": "My authoritative sources: E9811 revision 2: count 18, requires <=17, false. E6710 revision 7: count 4, requires >=6, false. Rule R5745 holds iff E9551 AND R8505. Team reports establish E9311 revision 6, E9551 revision 6, and E2852 revision 4 as true. The team rule R8505 iff E9311 OR E9811 makes R8505 true despite E9811 being false. Therefore R5745 is true, and R7694, which holds iff R5745 AND E2852, is true. Select P6976, utility 86: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_07",
+      "message": "My authoritative sources: E9649 revision 6: count 7, requires <=6, false. E3179 revision 3: count 24, requires <=20, false. Rule R3098 holds iff E6176 AND R2562. Team reports establish E2625 revision 5, E6176 revision 4, and E6595 revision 6 as true. The team rule R2562 iff E2625 OR E9649 makes R2562 true through E2625. Therefore R3098 is true, and R6058, which holds iff R3098 AND E6595, is true. Select P6890, utility 73: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_08",
+      "message": "My authoritative sources: E1001 revision 7: count 11, requires >=8, true. E8169 revision 7: count 6, requires >=10, false. Rule R9836 holds iff E2664 AND R9217. The team rule R9217 iff E6817 OR E1001 makes R9217 true through E1001 revision 7. Team reports establish E2664 revision 6 and E2966 revision 8 as true. Therefore R9836 is true, and R9219, which holds iff R9836 AND E2966, is true. Select P5149, utility 80: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_09",
+      "message": "Correction to my previous report: E6937 revision 6 has count 13, requires <=11, and is false. It supersedes revision 3 (count 7, true), including every retransmission of revision 3. My other authoritative sources: E7398 revision 5: count 16, requires <=18, true; E1971 revision 5: count 19, requires >=17, true. Rule R3603 holds iff (E7398 AND E6415) OR (E8518 AND E6937). Team rules give R5537 iff E1971 OR E1587, R7766 iff E9210 AND R5537, and R6863 iff R7766 AND E6415. E1971 revision 5 makes R5537 true. Team reports E9210 revision 7 and E6415 revision 2 are true, so R7766 and R6863 are true. Select P7250, utility 62: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_10",
+      "message": "Correction to my previous report: E6178 revision 5 has count 10, requires <=8, and is false. It supersedes revision 2 (count 6, true), including every retransmission of revision 2. My other authoritative sources: E1146 revision 6: count 13, requires <=17, true; E3710 revision 4: count 7, requires <=11, true. Rule R1305 holds iff (E3710 AND E3876) OR (E5025 AND E1146). Team evidence gives E5714 revision 5=false and E3876 revision 7=true. Therefore R7577=(E6178 OR E5714)=false; R5068=(E2319 AND R7577)=false; R8318=(R5068 AND E3876)=false. P3363, utility 86, is ineligible. R1305 is true through E3710 AND E3876. Select P9838, utility 37, the highest-utility eligible plan."
+    },
+    {
+      "case_id": "relayrepair_11",
+      "message": "Correction to my previous report: E6203 revision 8 has count 17, requires <=15, and is false. It supersedes revision 5 (count 14, true), including every retransmission of revision 5. My other authoritative sources: E8017 revision 6: count 22, requires >=18, true; E4393 revision 3: count 9, requires >=5, true. Rule R5080 holds iff (E4393 AND E4197) OR (E9955 AND E8017). Team reports establish E7624 revision 7, E2544 revision 2, and E4197 revision 3 as true. Thus R7863=(E6203 OR E7624)=true; R2628=(E2544 AND R7863)=true; R2425=(R2628 AND E4197)=true. Select P1001, utility 83: it remains eligible after the correction and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_12",
+      "message": "My authoritative sources: E8795 revision 8: count 23, requires <=19, false. E1453 revision 4: count 13, requires >=15, false. Rule R1005 holds iff E4613 AND R9091. Team reports establish E1235 revision 6, E4613 revision 7, and E9952 revision 3 as true. The team rule R9091 iff E1235 OR E1453 makes R9091 true through E1235. Therefore R1005 is true, and R7766, which holds iff R1005 AND E9952, is true. Select P3815, utility 97: it is eligible and has the highest public utility."
+    }
+  ]
+}

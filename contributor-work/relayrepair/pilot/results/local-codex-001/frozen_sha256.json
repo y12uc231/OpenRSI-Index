@@ -1,0 +1,8 @@
+{
+  "prototype/generated/model_observations.json": "e2efd293324698390bba75991a0f584a417f6722c56460fef3688ad8700a70b0",
+  "prototype/generated/cases_with_oracle.json": "ba577dd212b75f0d8f9613e119d45e0241de2bdd090258052f34637ce2f5b009",
+  "prototype/relayrepair.py": "9cfd7531e3f4ec9db629af561a47efaf83ae01428a0e0502954e73f514494da5",
+  "pilot/PROTOCOL.md": "c0ade3bdc868f527da30e6c3e6edb77fd25b7d23cc27f09d5e0e3e95df6f0f38",
+  "pilot/run_pilot.py": "6baf322f0e8ae30d5a9976dfdad00cdd2fe632d01223b75c6dc5d020c084fab8",
+  "pilot/codex_runner.py": "82a26d2294a452fa7b88eb809408395e4e07ba1c724a1103f6931196e7b296ee"
+}

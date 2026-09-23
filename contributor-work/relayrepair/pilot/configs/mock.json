@@ -1,0 +1,7 @@
+{
+  "execution_kind": "mock",
+  "model": "DETERMINISTIC_STUB_NOT_A_MODEL",
+  "command": ["{python}", "{pilot_dir}/mock_command.py"],
+  "params": {},
+  "timeout_seconds": 10
+}

@@ -1,0 +1,523 @@
+{
+  "measurement_type": "ONE_MODEL_BATCHED_SMOKE_TEST_NOT_BENCHMARK_VALIDATION",
+  "summary": [
+    {
+      "configuration": "team_initial",
+      "mechanism": "all",
+      "correct": 12,
+      "n": 12,
+      "feasible": 12
+    },
+    {
+      "configuration": "team_initial",
+      "mechanism": "required_support_lost",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "team_initial",
+      "mechanism": "alternate_support_survives",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "team_initial",
+      "mechanism": "irrelevant_revision",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "team_final",
+      "mechanism": "all",
+      "correct": 12,
+      "n": 12,
+      "feasible": 12
+    },
+    {
+      "configuration": "team_final",
+      "mechanism": "required_support_lost",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "team_final",
+      "mechanism": "alternate_support_survives",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "team_final",
+      "mechanism": "irrelevant_revision",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "centralized_final",
+      "mechanism": "all",
+      "correct": 12,
+      "n": 12,
+      "feasible": 12
+    },
+    {
+      "configuration": "centralized_final",
+      "mechanism": "required_support_lost",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "centralized_final",
+      "mechanism": "alternate_support_survives",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    },
+    {
+      "configuration": "centralized_final",
+      "mechanism": "irrelevant_revision",
+      "correct": 4,
+      "n": 4,
+      "feasible": 4
+    }
+  ],
+  "rows": [
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_01",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 68,
+      "optimal_utility": 68,
+      "normalized_utility": 1.0,
+      "answer": "P6670",
+      "expected": "P6670"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_02",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 66,
+      "optimal_utility": 66,
+      "normalized_utility": 1.0,
+      "answer": "P5972",
+      "expected": "P5972"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_03",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 81,
+      "optimal_utility": 81,
+      "normalized_utility": 1.0,
+      "answer": "P5819",
+      "expected": "P5819"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_04",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 95,
+      "optimal_utility": 95,
+      "normalized_utility": 1.0,
+      "answer": "P5725",
+      "expected": "P5725"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_05",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 77,
+      "optimal_utility": 77,
+      "normalized_utility": 1.0,
+      "answer": "P4590",
+      "expected": "P4590"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_06",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 86,
+      "optimal_utility": 86,
+      "normalized_utility": 1.0,
+      "answer": "P6976",
+      "expected": "P6976"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_07",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 73,
+      "optimal_utility": 73,
+      "normalized_utility": 1.0,
+      "answer": "P6890",
+      "expected": "P6890"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_08",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 80,
+      "optimal_utility": 80,
+      "normalized_utility": 1.0,
+      "answer": "P5149",
+      "expected": "P5149"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_09",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 62,
+      "optimal_utility": 62,
+      "normalized_utility": 1.0,
+      "answer": "P7250",
+      "expected": "P7250"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_10",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 86,
+      "optimal_utility": 86,
+      "normalized_utility": 1.0,
+      "answer": "P3363",
+      "expected": "P3363"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_11",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 83,
+      "optimal_utility": 83,
+      "normalized_utility": 1.0,
+      "answer": "P1001",
+      "expected": "P1001"
+    },
+    {
+      "configuration": "team_initial",
+      "case_id": "relayrepair_12",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 97,
+      "optimal_utility": 97,
+      "normalized_utility": 1.0,
+      "answer": "P3815",
+      "expected": "P3815"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_01",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 48,
+      "optimal_utility": 48,
+      "normalized_utility": 1.0,
+      "answer": "P3462",
+      "expected": "P3462"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_02",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 66,
+      "optimal_utility": 66,
+      "normalized_utility": 1.0,
+      "answer": "P5972",
+      "expected": "P5972"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_03",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 81,
+      "optimal_utility": 81,
+      "normalized_utility": 1.0,
+      "answer": "P5819",
+      "expected": "P5819"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_04",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 37,
+      "optimal_utility": 37,
+      "normalized_utility": 1.0,
+      "answer": "P9674",
+      "expected": "P9674"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_05",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 77,
+      "optimal_utility": 77,
+      "normalized_utility": 1.0,
+      "answer": "P4590",
+      "expected": "P4590"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_06",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 86,
+      "optimal_utility": 86,
+      "normalized_utility": 1.0,
+      "answer": "P6976",
+      "expected": "P6976"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_07",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 48,
+      "optimal_utility": 48,
+      "normalized_utility": 1.0,
+      "answer": "P7300",
+      "expected": "P7300"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_08",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 80,
+      "optimal_utility": 80,
+      "normalized_utility": 1.0,
+      "answer": "P5149",
+      "expected": "P5149"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_09",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 62,
+      "optimal_utility": 62,
+      "normalized_utility": 1.0,
+      "answer": "P7250",
+      "expected": "P7250"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_10",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 37,
+      "optimal_utility": 37,
+      "normalized_utility": 1.0,
+      "answer": "P9838",
+      "expected": "P9838"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_11",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 83,
+      "optimal_utility": 83,
+      "normalized_utility": 1.0,
+      "answer": "P1001",
+      "expected": "P1001"
+    },
+    {
+      "configuration": "team_final",
+      "case_id": "relayrepair_12",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 97,
+      "optimal_utility": 97,
+      "normalized_utility": 1.0,
+      "answer": "P3815",
+      "expected": "P3815"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_01",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 48,
+      "optimal_utility": 48,
+      "normalized_utility": 1.0,
+      "answer": "P3462",
+      "expected": "P3462"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_02",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 66,
+      "optimal_utility": 66,
+      "normalized_utility": 1.0,
+      "answer": "P5972",
+      "expected": "P5972"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_03",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 81,
+      "optimal_utility": 81,
+      "normalized_utility": 1.0,
+      "answer": "P5819",
+      "expected": "P5819"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_04",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 37,
+      "optimal_utility": 37,
+      "normalized_utility": 1.0,
+      "answer": "P9674",
+      "expected": "P9674"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_05",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 77,
+      "optimal_utility": 77,
+      "normalized_utility": 1.0,
+      "answer": "P4590",
+      "expected": "P4590"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_06",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 86,
+      "optimal_utility": 86,
+      "normalized_utility": 1.0,
+      "answer": "P6976",
+      "expected": "P6976"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_07",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 48,
+      "optimal_utility": 48,
+      "normalized_utility": 1.0,
+      "answer": "P7300",
+      "expected": "P7300"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_08",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 80,
+      "optimal_utility": 80,
+      "normalized_utility": 1.0,
+      "answer": "P5149",
+      "expected": "P5149"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_09",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 62,
+      "optimal_utility": 62,
+      "normalized_utility": 1.0,
+      "answer": "P7250",
+      "expected": "P7250"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_10",
+      "mechanism": "required_support_lost",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 37,
+      "optimal_utility": 37,
+      "normalized_utility": 1.0,
+      "answer": "P9838",
+      "expected": "P9838"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_11",
+      "mechanism": "alternate_support_survives",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 83,
+      "optimal_utility": 83,
+      "normalized_utility": 1.0,
+      "answer": "P1001",
+      "expected": "P1001"
+    },
+    {
+      "configuration": "centralized_final",
+      "case_id": "relayrepair_12",
+      "mechanism": "irrelevant_revision",
+      "exact_success": true,
+      "valid_plan": true,
+      "utility": 97,
+      "optimal_utility": 97,
+      "normalized_utility": 1.0,
+      "answer": "P3815",
+      "expected": "P3815"
+    }
+  ]
+}

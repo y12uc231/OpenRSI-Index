@@ -1,0 +1,18 @@
+{
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort": "ultra",
+  "model_identity_source": "local user configuration; CLI requested identifier; no server snapshot ID exposed",
+  "return_code": 0,
+  "seconds": 27.726,
+  "tool_free": true,
+  "usage": [
+    {
+      "input_tokens": 21185,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 810,
+      "reasoning_output_tokens": 613
+    }
+  ],
+  "status": "completed"
+}

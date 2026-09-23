@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "case_id": "relayrepair_01",
+      "message": "Correction: E7574 revision 4 reports 14, requirement >=16, so false. It supersedes revision 2, including retransmissions; my previous true report is obsolete. My other authoritative sources: E3337 revision 7 reports 9, requirement <=11, true; E3735 revision 3 reports 12, requirement >=11, true. Rule R9309 holds iff (E3337 AND E4191) OR (E2299 AND E3735). From teammate reports, E8673 revision 7 is false. Therefore R3341 = E7574 OR E8673 is false; R7415 = E8774 AND R3341 and R7720 = R7415 AND E4191 are false, excluding P6670. E4191 revision 4 is true, so E3337 AND E4191 establishes R9309. Select P3462, utility 48: it is eligible and the only higher-utility plan is ineligible."
+    },
+    {
+      "case_id": "relayrepair_02",
+      "message": "My authoritative sources: E9772 revision 3 reports 14, requirement >=12, true; E6551 revision 5 reports 2, requirement <=6, true. Rules: R2079 holds iff E5502 OR E9683; R2315 holds iff R1174 AND E9772. From teammate reports, E5502 revision 8 is true and E9683 revision 2 is true, establishing R2079. Their rule R1174 = E6551 AND R2079 therefore holds, and R2315 holds. Select P5972, utility 66, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_03",
+      "message": "Correction: E8051 revision 10 reports 9, requirement <=7, so false. It supersedes revision 8, including retransmissions; my previous true report is obsolete. My other authoritative sources: E4544 revision 3 reports 19, requirement >=18, true; E3841 revision 2 reports 12, requirement <=16, true. Rule R2031 holds iff (E3841 AND E8460) OR (E2285 AND E8051); its corrected simplification is E8460. From teammate rules, R8837 = E4544 OR E4562 is true. E4176 revision 6 is true, so R7731 = E4176 AND R8837 holds. E8460 revision 4 is true, so R7461 = R7731 AND E8460 holds. Select P5819, utility 81, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_04",
+      "message": "My authoritative sources: E6599 revision 2 reports 13, requirement >=11, true; E6944 revision 7 reports 11, requirement <=13, true. Rules: R3540 holds iff E3109 OR E9691; R8099 holds iff R5610 AND E6599. From teammate reports, E3109 revision 5 is true, establishing R3540. Their rule R5610 = E6944 AND R3540 therefore holds, and R8099 holds. Select P5725, utility 95, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_05",
+      "message": "Correction: E6187 revision 9 reports 19, requirement <=17, so false. It supersedes revision 7, including retransmissions; my previous true report is obsolete. My other authoritative sources: E1072 revision 3 reports 13, requirement <=16, true; E7223 revision 5 reports 9, requirement >=7, true. Rule R8310 holds iff (E7223 AND E2626) OR (E2695 AND E1072). From teammate reports, E8232 revision 2 is true, so R3227 = E6187 OR E8232 still holds. E4945 revision 7 is true, establishing R6791 = E4945 AND R3227. E2626 revision 5 is true, establishing R1026 = R6791 AND E2626. Select P4590, utility 77, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_06",
+      "message": "Correction: E9680 revision 9 reports 11, requirement <=9, so false. It supersedes revision 6, including retransmissions; my previous true report is obsolete. My other authoritative sources: E4201 revision 4 reports 15, requirement <=19, true; E9311 revision 6 reports 21, requirement >=20, true. Rule R7829 holds iff (E4201 AND E2852) OR (E6710 AND E9680); its corrected simplification is E2852. From teammate rules, R8505 = E9311 OR E9811 holds. E9551 revision 6 is true, establishing R5745 = E9551 AND R8505. E2852 revision 4 is true, establishing R7694 = R5745 AND E2852. Select P6976, utility 86, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_07",
+      "message": "Correction: E2625 revision 8 reports 21, requirement <=19, so false. It supersedes revision 5, including retransmissions; my previous true report is obsolete. My other authoritative sources: E6734 revision 7 reports 15, requirement <=18, true; E7411 revision 4 reports 13, requirement >=9, true. Rule R4969 holds iff (E7411 AND E6595) OR (E3179 AND E6734). From teammate reports, E9649 revision 6 is false. Therefore R2562 = E2625 OR E9649 is false; R3098 = E6176 AND R2562 and R6058 = R3098 AND E6595 are false, excluding P6890. E6595 revision 6 is true, so E7411 AND E6595 establishes R4969. Select P7300, utility 48: it is eligible and the only higher-utility plan is ineligible."
+    },
+    {
+      "case_id": "relayrepair_08",
+      "message": "My authoritative sources: E2664 revision 6 reports 19, requirement >=16, true; E2966 revision 8 reports 11, requirement <=14, true. Rules: R9217 holds iff E6817 OR E1001; R9219 holds iff R9836 AND E2966. From teammate reports, E6817 revision 6 is true and E1001 revision 7 is true, establishing R9217. Their rule R9836 = E2664 AND R9217 therefore holds, and R9219 holds. Select P5149, utility 80, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_09",
+      "message": "My authoritative sources: E8518 revision 2 reports 15, requirement <=14, false; E1587 revision 8 reports 9, requirement <=7, false. Rule R7766 holds iff E9210 AND R5537. From teammate reports, E1971 revision 5 is true, establishing R5537 = E1971 OR E1587. E9210 revision 7 is true, so R7766 holds. E6415 revision 2 is true, establishing their rule R6863 = R7766 AND E6415. Select P7250, utility 62, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_10",
+      "message": "My authoritative sources: E5714 revision 5 reports 12, requirement >=15, false; E5025 revision 2 reports 19, requirement >=20, false. Rule R5068 holds iff E2319 AND R7577. From teammate reports, E6178 revision 2 is true, establishing R7577 = E6178 OR E5714. E2319 revision 2 is true, so R5068 holds. E3876 revision 7 is true, establishing their rule R8318 = R5068 AND E3876. Select P3363, utility 86, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_11",
+      "message": "My authoritative sources: E9955 revision 8 reports 18, requirement >=19, false; E7624 revision 7 reports 15, requirement >=11, true. Rule R2628 holds iff E2544 AND R7863. The teammate rule R7863 = E6203 OR E7624 holds because E7624 holds. From teammate reports, E2544 revision 2 is true, establishing R2628. E4197 revision 3 is true, establishing their rule R2425 = R2628 AND E4197. Select P1001, utility 83, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_12",
+      "message": "Correction: E9754 revision 6 reports 7, requirement >=9, so false. It supersedes revision 3, including retransmissions; my previous true report is obsolete. My other authoritative sources: E8304 revision 2 reports 13, requirement >=9, true; E1235 revision 6 reports 22, requirement >=20, true. Rule R2597 holds iff (E8304 AND E9952) OR (E8795 AND E9754); its corrected simplification is E9952. From teammate rules, R9091 = E1235 OR E1453 holds. E4613 revision 7 is true, establishing R1005 = E4613 AND R9091. E9952 revision 3 is true, establishing R7766 = R1005 AND E9952. Select P3815, utility 97, the highest-utility public plan."
+    }
+  ]
+}

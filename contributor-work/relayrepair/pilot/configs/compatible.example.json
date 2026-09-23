@@ -1,0 +1,8 @@
+{
+  "execution_kind": "external_model",
+  "model": "YOUR_COMPATIBLE_MODEL_IDENTIFIER",
+  "command": ["{python}", "{pilot_dir}/compatible_chat_command.py"],
+  "params": {},
+  "timeout_seconds": 480
+}
+

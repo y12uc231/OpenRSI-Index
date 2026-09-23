@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "case_id": "relayrepair_01",
+      "message": "Authoritative latest sources: E4191 revision 4: count 11, requires >=8, true; E8774 revision 7: count 18, requires <=20, true. My rules: R7720 iff R7415 AND E4191; R3341 iff E7574 OR E8673. Supplied team evidence: E7574 revision 2: count 20, requires >=16, true; R7415 iff E8774 AND R3341. Therefore R3341, R7415, and R7720 are true. Select P6670, utility 68: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_02",
+      "message": "Correction: authoritative E5502 revision 9 has count 6, requires >=8, and is false. It supersedes revision 8, whose count 12 satisfied >=8, including the retransmitted revision 8 and my previous message. Other authoritative latest sources: E3385 revision 5: count 2, requires <=5, true; E4791 revision 7: count 9, requires >=8, true. My rule: R8100 iff (E4791 AND E9772) OR (E7442 AND E3385). Supplied team evidence: E9683 revision 2: count 20, requires >=18, true; E6551 revision 5: count 2, requires <=6, true; E9772 revision 3: count 14, requires >=12, true. Team rules: R2079 iff E5502 OR E9683; R1174 iff E6551 AND R2079; R2315 iff R1174 AND E9772. E9683 keeps R2079 true despite the correction; R1174 and R2315 are true. Select P5972, utility 66, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_03",
+      "message": "Authoritative latest sources: E4562 revision 8: count 5, requires >=8, false; E2285 revision 7: count 19, requires <=17, false. My rule: R7731 iff E4176 AND R8837. Supplied team evidence: E4176 revision 6: count 8, requires <=12, true; E4544 revision 3: count 19, requires >=18, true; E8460 revision 4: count 18, requires <=20, true. Team rules: R8837 iff E4544 OR E4562; R7461 iff R7731 AND E8460. E4544 establishes R8837, so R7731 and R7461 are true. Select P5819, utility 81: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_04",
+      "message": "Authoritative latest sources: E9691 revision 2: count 8, requires >=12, false; E1326 revision 6: count 4, requires >=8, false. My rule: R5610 iff E6944 AND R3540. Supplied team evidence: E3109 revision 5: count 4, requires <=7, true; E6944 revision 7: count 11, requires <=13, true; E6599 revision 2: count 13, requires >=11, true. Team rules: R3540 iff E3109 OR E9691; R8099 iff R5610 AND E6599. E3109 establishes R3540, so R5610 and R8099 are true. Select P5725, utility 95: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_05",
+      "message": "Authoritative latest sources: E4945 revision 7: count 6, requires <=7, true; E2626 revision 5: count 22, requires >=18, true. My rules: R1026 iff R6791 AND E2626; R3227 iff E6187 OR E8232. Supplied team evidence: E8232 revision 2: count 13, requires >=9, true; R6791 iff E4945 AND R3227. E8232 establishes R3227, so R6791 and R1026 are true. Select P4590, utility 77: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_06",
+      "message": "Authoritative latest sources: E2852 revision 4: count 20, requires >=18, true; E9551 revision 6: count 13, requires <=14, true. My rules: R8505 iff E9311 OR E9811; R7694 iff R5745 AND E2852. Supplied team evidence: E9311 revision 6: count 21, requires >=20, true; R5745 iff E9551 AND R8505. E9311 establishes R8505, so R5745 and R7694 are true. Select P6976, utility 86: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_07",
+      "message": "Authoritative latest sources: E6176 revision 4: count 10, requires <=11, true; E6595 revision 6: count 14, requires <=16, true. My rules: R2562 iff E2625 OR E9649; R6058 iff R3098 AND E6595. Supplied team evidence: E2625 revision 5: count 17, requires <=19, true; R3098 iff E6176 AND R2562. E2625 establishes R2562, so R3098 and R6058 are true. Select P6890, utility 73: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_08",
+      "message": "Correction: authoritative E6817 revision 7 has count 12, requires <=10, and is false. It supersedes revision 6, whose count 9 satisfied <=10, including both retransmitted revision 6 cards and my previous message. Other authoritative latest sources: E7519 revision 3: count 10, requires >=8, true; E4069 revision 2: count 6, requires <=10, true. My rule: R5454 iff (E7519 AND E2966) OR (E8169 AND E4069). Supplied team evidence: E1001 revision 7: count 11, requires >=8, true; E2664 revision 6: count 19, requires >=16, true; E2966 revision 8: count 11, requires <=14, true. Team rules: R9217 iff E6817 OR E1001; R9836 iff E2664 AND R9217; R9219 iff R9836 AND E2966. E1001 keeps R9217 true despite the correction; R9836 and R9219 are true. Select P5149, utility 80, the highest-utility public plan."
+    },
+    {
+      "case_id": "relayrepair_09",
+      "message": "Authoritative latest sources: E9210 revision 7: count 7, requires <=9, true; E6415 revision 2: count 2, requires <=5, true. My rules: R5537 iff E1971 OR E1587; R6863 iff R7766 AND E6415. Supplied team evidence: E1971 revision 5: count 19, requires >=17, true; R7766 iff E9210 AND R5537. E1971 establishes R5537, so R7766 and R6863 are true. Select P7250, utility 62: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_10",
+      "message": "Authoritative latest sources: E3876 revision 7: count 10, requires >=9, true; E2319 revision 2: count 10, requires >=6, true. My rules: R8318 iff R5068 AND E3876; R7577 iff E6178 OR E5714. Supplied team evidence: E6178 revision 2: count 6, requires <=8, true; R5068 iff E2319 AND R7577. E6178 establishes R7577, so R5068 and R8318 are true. Select P3363, utility 86: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_11",
+      "message": "Authoritative latest sources: E4197 revision 3: count 10, requires <=13, true; E2544 revision 2: count 18, requires >=15, true. My rules: R2425 iff R2628 AND E4197; R7863 iff E6203 OR E7624. Supplied team evidence: E6203 revision 5: count 14, requires <=15, true; R2628 iff E2544 AND R7863. E6203 establishes R7863, so R2628 and R2425 are true. Select P1001, utility 83: it is eligible and has the highest public utility."
+    },
+    {
+      "case_id": "relayrepair_12",
+      "message": "Authoritative latest sources: E9952 revision 3: count 11, requires >=10, true; E4613 revision 7: count 13, requires >=11, true. My rules: R9091 iff E1235 OR E1453; R7766 iff R1005 AND E9952. Supplied team evidence: E1235 revision 6: count 22, requires >=20, true; R1005 iff E4613 AND R9091. E1235 establishes R9091, so R1005 and R7766 are true. Select P3815, utility 97: it is eligible and has the highest public utility."
+    }
+  ]
+}

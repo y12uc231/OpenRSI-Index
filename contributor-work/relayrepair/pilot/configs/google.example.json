@@ -1,0 +1,7 @@
+{
+  "execution_kind": "external_model",
+  "model": "YOUR_GOOGLE_MODEL_IDENTIFIER",
+  "command": ["/absolute/path/to/your-google-json-wrapper"],
+  "params": {},
+  "timeout_seconds": 480
+}
