@@ -137,4 +137,3 @@ class CommandRunner:
                     value = value.decode('utf-8', errors='replace')
                 (output_dir / name).write_text(value)
             (output_dir / 'metadata.json').write_text(json.dumps(metadata, indent=2) + '\n')
-

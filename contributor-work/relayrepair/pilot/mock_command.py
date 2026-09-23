@@ -12,4 +12,3 @@ response = {'results': [
     for record in records
 ]}
 json.dump({'response': response, 'usage': {}, 'model': 'DETERMINISTIC_STUB_NOT_A_MODEL'}, sys.stdout)
-
