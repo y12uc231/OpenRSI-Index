@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "seeds": [
+    1103,
+    2207,
+    3301,
+    4409,
+    5501,
+    6607,
+    7703,
+    8803,
+    9901,
+    10103,
+    11113,
+    12109
+  ],
+  "cases": 12,
+  "conditions": [
+    "initial",
+    "final_ordered",
+    "final_shuffled",
+    "no_update_shuffled"
+  ],
+  "exact_success_denominator_per_condition": 12,
+  "optimum_changed_cases": 4,
+  "preregistered_before_model_runs": true,
+  "note": "Twelve seeds and case mechanisms fixed before any actual model calls. No model runs included."
+}
