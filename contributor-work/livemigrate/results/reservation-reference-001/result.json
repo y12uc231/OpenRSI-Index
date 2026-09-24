@@ -1,0 +1,170 @@
+{
+  "artifact_type": "trusted_reference_validation_not_a_model_result",
+  "source_revision": "6a5c4e9c0750be7ef39f8216f073946e6fa4f667",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "image": "python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62",
+  "seconds": 297.17100100000243,
+  "source_unchanged": true,
+  "source_hashes_verified_against_git": true,
+  "source_hash_verification_method": "SHA256 of git show at exact source_revision for every source path",
+  "candidate_callbacks": 3071,
+  "outcome": {
+    "status": "scored",
+    "suite": "all",
+    "passed": 4,
+    "total": 4,
+    "score": 1.0,
+    "cases": [
+      {
+        "name": "public_prepared_hold_handoff",
+        "status": "scored",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "trace": {
+          "passed": true,
+          "violation_count": 0,
+          "physical_fulfillments": 4,
+          "violations": []
+        },
+        "completion": {
+          "passed": true,
+          "candidate_callbacks": 744,
+          "resolved_calls": 8,
+          "total_calls": 8,
+          "fair_rounds": 113,
+          "queued_messages": 2
+        },
+        "history": {
+          "explored": 12,
+          "passed": true,
+          "exhaustive": true,
+          "reason": "linearizable"
+        },
+        "faults": {
+          "replayed_packets": 0,
+          "lost_output": false,
+          "lost_effect_ack": false,
+          "lost_output_trigger": null
+        }
+      },
+      {
+        "name": "replayed_handoff_and_decisions",
+        "status": "scored",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "trace": {
+          "passed": true,
+          "violation_count": 0,
+          "physical_fulfillments": 4,
+          "violations": []
+        },
+        "completion": {
+          "passed": true,
+          "candidate_callbacks": 790,
+          "resolved_calls": 8,
+          "total_calls": 8,
+          "fair_rounds": 113,
+          "queued_messages": 2
+        },
+        "history": {
+          "explored": 12,
+          "passed": true,
+          "exhaustive": true,
+          "reason": "linearizable"
+        },
+        "faults": {
+          "replayed_packets": 45,
+          "lost_output": false,
+          "lost_effect_ack": false,
+          "lost_output_trigger": null
+        }
+      },
+      {
+        "name": "lost_committed_reply",
+        "status": "scored",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "trace": {
+          "passed": true,
+          "violation_count": 0,
+          "physical_fulfillments": 4,
+          "violations": []
+        },
+        "completion": {
+          "passed": true,
+          "candidate_callbacks": 745,
+          "resolved_calls": 8,
+          "total_calls": 8,
+          "fair_rounds": 113,
+          "queued_messages": 2
+        },
+        "history": {
+          "explored": 12,
+          "passed": true,
+          "exhaustive": true,
+          "reason": "linearizable"
+        },
+        "faults": {
+          "replayed_packets": 0,
+          "lost_output": false,
+          "lost_effect_ack": true,
+          "lost_output_trigger": null
+        }
+      },
+      {
+        "name": "lost_source_send_after_fence",
+        "status": "scored",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "trace": {
+          "passed": true,
+          "violation_count": 0,
+          "physical_fulfillments": 4,
+          "violations": []
+        },
+        "completion": {
+          "passed": true,
+          "candidate_callbacks": 792,
+          "resolved_calls": 8,
+          "total_calls": 8,
+          "fair_rounds": 113,
+          "queued_messages": 2
+        },
+        "history": {
+          "explored": 12,
+          "passed": true,
+          "exhaustive": true,
+          "reason": "linearizable"
+        },
+        "faults": {
+          "replayed_packets": 45,
+          "lost_output": true,
+          "lost_effect_ack": false,
+          "lost_output_trigger": {
+            "step": 54,
+            "node": "source",
+            "input_kind": "move",
+            "sku": "X"
+          }
+        }
+      }
+    ]
+  }
+}

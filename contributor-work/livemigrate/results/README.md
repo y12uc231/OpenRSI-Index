@@ -49,3 +49,17 @@ final-state-only check misses, but that instrument property did not translate
 into failures for this local model. Preserve this negative research finding.
 The separate-owner reservation prototype is a new, explicitly disclosed design
 iteration; these successful earlier families are not removed from the record.
+
+## Third-family reference validation
+
+The [separate-owner reservation reference](reservation-reference-001/result.json)
+passes all four declared schedules in 297.171 seconds through the actual Docker
+boundary: 3,071 callbacks, all eight client calls resolved per schedule, zero
+static/trace violations and a valid exhaustively checked observed history in
+each case. Replay, lost fulfillment acknowledgement and output loss after source
+fencing were all observed. This is a trusted reference result, **not a model score**.
+
+Source revision: `6a5c4e9c0750be7ef39f8216f073946e6fa4f667`. All 18 recorded
+reference/task/driver hashes remained unchanged during the run and were verified
+against that Git revision. The [declared model study](../pilot/RESERVATION-PROTOCOL.md)
+uses this frozen version and reports every arm separately when complete.
