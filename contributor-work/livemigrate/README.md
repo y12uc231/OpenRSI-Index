@@ -73,6 +73,11 @@ are not advertised as independent tasks. See the separately declared
 - [Pilot protocol](pilot/PROTOCOL.md): model, calls, visibility, accounting and
   reporting rules fixed before local inference.
 
+The [independent checker cross-check](diagnostics/history_crosscheck.py) compares
+the memoized history oracle with full permutation enumeration on 2,000 seeded
+histories of up to five calls: 218 linearizable, 1,782 non-linearizable and zero
+disagreements. This is a reproducible finite validation, not a formal proof.
+
 The environment is CPU-only and uses Python's standard library. It deliberately
 does not claim to simulate PostgreSQL locking, production latency or arbitrary
 network schedules. The deterministic scheduler interleaves real SQLite callback
