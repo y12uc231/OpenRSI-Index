@@ -51,6 +51,25 @@ claim of equal realized token usage, adaptive depth or latency. Changing wave
 dependencies is the experimental intervention. Actual tokens, invalidity and
 latency remain reported. Cached input and reasoning subsets are not counted twice.
 
+Each evaluation copies the protected Python, Markdown and JSON sources from
+explicit source directories into `OUTPUT/frozen/contributor-work/livemigrate`,
+plus the required sibling CLI transport source. Results, caches, nested model
+directories and weight files are excluded. The controller compares the original
+read hashes before and after copying, verifies the copy before each family, and
+checks it again after execution. Every pilot and adapter runs from this copy
+using its copied model profile. A changed source or scaffold makes the evaluation
+unscored; completed calls and their reported consumption remain recorded.
+
+Budget verification reads exactly `call-00` through `call-05` for each family.
+Each must attest one generation, zero retries, complete inclusive token accounting,
+the expected worker revision, and matching serving version. Input reservation,
+generated-token caps, total arithmetic and token subsets are checked per call.
+Missing, extra, partial or inconsistent records make `bounded_usage_verified`
+false and the evaluation unscored. All families retain diagnostics, including
+those after an invalid first family. `known_input_plus_output` preserves reported
+complete input/output pairs; the complete total is null when accounting cannot
+be verified. These checks do not attest the server's actual weight bytes.
+
 Once GPU preflight succeeds, from the LiveMigrate root:
 
 ```sh
