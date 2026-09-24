@@ -5,6 +5,8 @@ are mounted. Consumers use a separate container with a read-only database mount.
 Each callback starts a fresh interpreter. Persistent state belongs in SQLite.
 """
 import argparse
+from contextlib import contextmanager
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -13,6 +15,7 @@ import selectors
 import shutil
 import sqlite3
 import subprocess
+import sys
 import tempfile
 import time
 import uuid
@@ -20,6 +23,7 @@ import uuid
 PINNED_IMAGE = "python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62"
 CALLS = {"db": {"expand", "backfill", "contract"}, "api": {"handle"}, "consumer": {"consume"}}
 MAX_RPC_BYTES = 1024 * 1024
+CORE_ROOT = Path(__file__).resolve().parent
 
 
 class IsolationError(RuntimeError):
@@ -33,6 +37,43 @@ class CandidateError(RuntimeError):
 
 class CandidateTimeout(IsolationError):
     """Unattributed RPC deadline; unscored until infrastructure is excluded."""
+
+
+@contextmanager
+def task_runtime(task_root=CORE_ROOT):
+    """Load one trusted task's oracle on the host, without import-cache mixing.
+
+    The CLI runs one suite per process. Scope the conventional ``scenarios``
+    import to the selected task, then restore any caller's existing module.
+    This path is never passed to Docker or added to candidate import paths.
+    """
+    task_root = Path(task_root).resolve()
+    paths = {name: task_root / (name + ".py") for name in ("runtime", "scenarios")}
+    for name, path in paths.items():
+        if not path.is_file():
+            raise IsolationError("task root requires " + name + ".py")
+    old_scenarios = sys.modules.get("scenarios")
+    names = []
+
+    def load(name):
+        unique = "livemigrate_task_" + name + "_" + uuid.uuid4().hex
+        spec = importlib.util.spec_from_file_location(unique, paths[name])
+        module = importlib.util.module_from_spec(spec)
+        names.append(unique)
+        sys.modules[unique] = module
+        spec.loader.exec_module(module)
+        return module
+
+    try:
+        sys.modules["scenarios"] = load("scenarios")
+        yield load("runtime")
+    finally:
+        if old_scenarios is None:
+            sys.modules.pop("scenarios", None)
+        else:
+            sys.modules["scenarios"] = old_scenarios
+        for name in names:
+            sys.modules.pop(name, None)
 
 
 def _bounded(command, *, payload=None, timeout=15, max_bytes=MAX_RPC_BYTES):
@@ -226,16 +267,18 @@ class DockerInvoker:
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", type=Path, required=True)
-    parser.add_argument("--suite", choices=("public", "heldout"), default="public")
+    parser.add_argument("--suite", choices=("public", "heldout", "all"), default="public")
     parser.add_argument("--image", default=PINNED_IMAGE)
     parser.add_argument("--callback-timeout", type=float, default=30)
+    parser.add_argument("--task-root", type=Path, default=CORE_ROOT,
+                        help="Trusted task folder containing runtime.py and scenarios.py; defaults to this family")
     args = parser.parse_args(argv)
     if args.callback_timeout <= 0 or args.callback_timeout > 60:
         parser.error("callback timeout must be between 0 and 60 seconds")
-    # Delayed import ensures ordinary parser/tests never import candidate code.
-    import runtime
-    with DockerInvoker(args.candidate, args.image, args.callback_timeout) as invoke:
-        output = runtime.run_suite(args.candidate, args.suite, invoke=invoke)
+    # Only trusted task files are imported here; candidates remain in Docker.
+    with task_runtime(args.task_root) as runtime:
+        with DockerInvoker(args.candidate, args.image, args.callback_timeout) as invoke:
+            output = runtime.run_suite(args.candidate, args.suite, invoke=invoke)
     print(json.dumps(output, allow_nan=False, sort_keys=True))
 
 

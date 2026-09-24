@@ -37,11 +37,11 @@ idea exists anywhere.
 
 ## Current scope
 
-One genuine migration family: order amounts change from integer cents to integer
-micros. Several traffic schedules exercise stale backfill, version coexistence,
-revision conflicts, delayed delivery, duplicate delivery and rollback. These
-schedules are not advertised as independent task families. Two additional
-families are designed in the research note but are not implemented.
+Two semantic families are implemented: order amounts change from integer cents
+to integer micros; [request identity](families/identity/README.md) changes from
+global keys to tenant-scoped keys while preserving legacy retries and effects.
+Each has one public and three held-out traffic traces. These schedules are not
+advertised as independent tasks. A third family remains a design direction.
 
 - [API contract](API_CONTRACT.md): complete public specification.
 - `starter/`: three unfinished role modules.
@@ -66,7 +66,7 @@ the three modules, evaluate, inspect bounded feedback, and revise the scaffold.
 The optimized artifact is the reusable scaffold, not a hard-coded solution to
 one published cents-to-micros example.
 
-This one-family demonstrator can validate the instrument. A generalization claim
+This two-family demonstrator can validate the instrument. A generalization claim
 requires independently authored semantic migration families and matched model
 budgets. Local pilot outcomes must be reported even if the model solves every
 case. No intentionally defective control is a model-performance result.

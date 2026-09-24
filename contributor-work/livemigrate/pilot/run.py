@@ -16,7 +16,7 @@ import subprocess
 import sys
 import time
 
-ROOT = Path(__file__).resolve().parents[1]
+CORE_ROOT = Path(__file__).resolve().parents[1]
 ROLES = ('db', 'api', 'consumer')
 IMAGE = 'python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62'
 
@@ -31,21 +31,26 @@ def schema(roles):
             'required': keys, 'additionalProperties': False}
 
 
-def source_hashes():
-    hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-              for p in sorted(ROOT.rglob('*')) if p.is_file()
+def source_hashes(task_root=CORE_ROOT):
+    hashes = {str(p.relative_to(CORE_ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+              for p in sorted(CORE_ROOT.rglob('*')) if p.is_file()
               and '__pycache__' not in p.parts and p.suffix in ('.py', '.md', '.json')}
-    adapter = ROOT.parent / 'relayrepair' / 'pilot' / 'codex_runner.py'
+    task_root = Path(task_root).resolve()
+    if task_root != CORE_ROOT:
+        hashes.update({'task/' + str(p.relative_to(task_root)): hashlib.sha256(p.read_bytes()).hexdigest()
+                       for p in sorted(task_root.rglob('*')) if p.is_file()
+                       and '__pycache__' not in p.parts and p.suffix in ('.py', '.md', '.json')})
+    adapter = CORE_ROOT.parent / 'relayrepair' / 'pilot' / 'codex_runner.py'
     hashes['../relayrepair/pilot/codex_runner.py'] = hashlib.sha256(adapter.read_bytes()).hexdigest()
     return hashes
 
 
-def check(candidate, suite, destination):
+def check(candidate, suite, destination, task_root=CORE_ROOT):
     # Keep expected operation history outside the candidate process and mounts.
-    if not (ROOT / 'isolated.py').exists():
+    if not (CORE_ROOT / 'isolated.py').exists():
         raise RuntimeError('Isolated evaluator must be implemented before model inference')
-    cmd = [sys.executable, str(ROOT / 'isolated.py'), '--candidate', str(candidate),
-           '--suite', suite, '--image', IMAGE]
+    cmd = [sys.executable, str(CORE_ROOT / 'isolated.py'), '--candidate', str(candidate),
+           '--suite', suite, '--image', IMAGE, '--task-root', str(Path(task_root).resolve())]
     start = time.monotonic()
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
@@ -61,7 +66,7 @@ def check(candidate, suite, destination):
 
 def load_backend():
     # Reuse the already audited tool-free CLI transport, not the earlier task.
-    path = ROOT.parent / 'relayrepair' / 'pilot' / 'codex_runner.py'
+    path = CORE_ROOT.parent / 'relayrepair' / 'pilot' / 'codex_runner.py'
     spec = importlib.util.spec_from_file_location('livemigrate_codex_transport', path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -71,54 +76,91 @@ def load_backend():
 def usage_summary(directory):
     totals = {}
     recorded = 0
+    incomplete = 0
     for path in sorted(directory.glob('call-*/metadata.json')):
         metadata = json.loads(path.read_text())
+        incomplete += metadata.get('usage_complete') is False
         for usage in metadata.get('usage', []):
             recorded += 1
             for key, value in usage.items():
                 if type(value) is int:
                     totals[key] = totals.get(key, 0) + value
-    return {'calls_with_usage': recorded, 'reported_totals': totals,
+    return {'calls_with_usage': recorded, 'calls_marked_incomplete_usage': incomplete, 'reported_totals': totals,
             'total_input_plus_output': (totals['input_tokens'] + totals['output_tokens'])
                 if 'input_tokens' in totals and 'output_tokens' in totals else None,
             'cached_input_is_subset_not_added_again': True}
 
 
-def main():
+def public_packet(task_root=CORE_ROOT):
+    """Build an explicit allowlist; solutions and schedules never enter prompts."""
+    task_root = Path(task_root).resolve()
+    required = ['API_CONTRACT.md', 'runtime.py', 'scenarios.py', 'reference/immutable_v1.py']
+    required += ['starter/' + role + '.py' for role in ROLES]
+    for name in required:
+        if not (task_root / name).is_file():
+            raise RuntimeError('Task root requires ' + name)
+    packet = (task_root / 'API_CONTRACT.md').read_text()
+    name = 'reference/immutable_v1.py'
+    packet += '\nIMMUTABLE PUBLIC SOURCE ' + name + '\n' + (task_root / name).read_text()
+    code = {role: (task_root / 'starter' / (role + '.py')).read_text() for role in ROLES}
+    return packet, code
+
+
+def record_adapter_response(value, call_dir):
+    """Accept legacy schema output or one strict response/metadata envelope."""
+    if not isinstance(value, dict):
+        raise ValueError('Adapter stdout must be a JSON object')
+    if 'response' in value or 'metadata' in value:
+        if set(value) != {'response', 'metadata'} or not isinstance(value['response'], dict) or not isinstance(value['metadata'], dict):
+            raise ValueError('Adapter envelope requires exactly response and metadata objects')
+        response = value['response']
+        # Metadata comes only from the operator-selected adapter executable.
+        # A model's source/message fields are never interpreted as usage data.
+        dump(call_dir / 'metadata.json', value['metadata'])
+    else:
+        response = value
+    dump(call_dir / 'response.json', response)
+    return response
+
+
+def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--mode', choices=('team', 'centralized'), required=True)
     ap.add_argument('--output', type=Path, required=True)
     ap.add_argument('--adapter-command', nargs='+', help='Optional JSON stdin/stdout model adapter; see PROTOCOL.md.')
-    args = ap.parse_args()
+    ap.add_argument('--task-root', type=Path, default=CORE_ROOT,
+                    help='Trusted task folder; defaults to the original migration family')
+    ap.add_argument('--inference-timeout', type=int, default=480,
+                    help='Per-call transport deadline in seconds for either backend (default: 480)')
+    args = ap.parse_args(argv)
+    if args.inference_timeout <= 0:
+        ap.error('--inference-timeout must be positive')
+    task_root = args.task_root.resolve()
     out = args.output.resolve()
-    if not (ROOT / 'isolated.py').exists():
+    if not (CORE_ROOT / 'isolated.py').exists():
         raise RuntimeError('Missing isolated evaluator; refusing to start pilot')
+    packet, code = public_packet(task_root)
     out.mkdir(parents=True, exist_ok=False)
     start = time.monotonic()
-    hashes = source_hashes()
+    hashes = source_hashes(task_root)
     dump(out / 'source-sha256.json', hashes)
-    packet = (ROOT / 'API_CONTRACT.md').read_text()
-    name = 'reference/immutable_v1.py'
-    packet += '\nIMMUTABLE PUBLIC SOURCE ' + name + '\n' + (ROOT / name).read_text()
-    code = {r: (ROOT / 'starter' / (r + '.py')).read_text() for r in ROLES}
     backend = None if args.adapter_command else load_backend()
     observations, messages = [], []
     call_index = 0
 
     def infer(prompt, call_dir, output_schema):
         if backend:
-            return backend.infer(prompt, call_dir, output_schema)
+            return backend.infer(prompt, call_dir, output_schema, timeout=args.inference_timeout)
         call_dir.mkdir()
-        dump(call_dir / 'request.json', {'prompt': prompt, 'schema': output_schema})
-        process = subprocess.run(args.adapter_command, input=json.dumps(
-            {'prompt': prompt, 'schema': output_schema}), capture_output=True,
-            text=True, timeout=480)
+        request = {'prompt': prompt, 'schema': output_schema,
+                   'metadata_path': str(call_dir / 'metadata.json')}
+        dump(call_dir / 'request.json', request)
+        process = subprocess.run(args.adapter_command, input=json.dumps(request), capture_output=True,
+            text=True, timeout=args.inference_timeout)
         (call_dir / 'stdout.json').write_text(process.stdout)
         (call_dir / 'stderr.local.txt').write_text(process.stderr)
         process.check_returncode()
-        response = json.loads(process.stdout)
-        dump(call_dir / 'response.json', response)
-        return response
+        return record_adapter_response(json.loads(process.stdout), call_dir)
 
     def task(owned, snapshot, index, stage):
         prompt = (
@@ -158,13 +200,17 @@ def main():
             candidate.mkdir()
             for role, source in code.items():
                 (candidate / (role + '.py')).write_text(source)
-            observation = check(candidate, 'public', out / f'public-{stage}.json')
+            observation = check(candidate, 'public', out / f'public-{stage}.json', task_root)
             observations.append(observation)
         frozen_candidate = {role: hashlib.sha256(source.encode()).hexdigest() for role, source in code.items()}
         dump(out / 'candidate-sha256.json', frozen_candidate)
-        final = check(candidate, 'heldout', out / 'heldout.json')
+        final = check(candidate, 'heldout', out / 'heldout.json', task_root)
         result = {'status': final.get('status', 'unknown_check_status'),
                   'generation_completed': True, 'mode': args.mode, 'calls': call_index,
+                  'task_root': str(task_root), 'core_root': str(CORE_ROOT),
+                  'inference_timeout_seconds': args.inference_timeout,
+                  'infrastructure_affected': any(observation.get('status') in
+                      ('check_error', 'infrastructure_or_incomplete') for observation in observations),
                   'requested_model': backend.MODEL if backend else 'external_adapter',
                   'reasoning_effort': backend.EFFORT if backend else 'adapter_declared',
                   'candidate_sha256': frozen_candidate, 'public': observations, 'heldout': final,
@@ -175,7 +221,8 @@ def main():
         print(json.dumps(result), flush=True)
     except Exception as exc:
         dump(out / 'failure.json', {'status': 'incomplete', 'error': type(exc).__name__,
-                                   'message': str(exc), 'seconds': time.monotonic() - start})
+                                   'message': str(exc), 'seconds': time.monotonic() - start,
+                                   'usage': usage_summary(out)})
         raise
 
 
