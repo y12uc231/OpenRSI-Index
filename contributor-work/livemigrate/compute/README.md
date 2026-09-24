@@ -49,8 +49,13 @@ The launcher rejects every remaining symlink or non-regular entry, requires the
 model/tokenizer configuration files, and checks that every shard named in the
 safetensors index exists as a nonempty regular file. This checks mount
 completeness; the revision directory name alone does **not** attest that the
-bytes are the expected model. Keep the acquisition record and verify content
-hashes separately. The pinned vLLM image must already be available locally;
+bytes are the expected model. Before actual launch it also verifies all 32
+published asset hashes against `qwen38-assets.json`: SHA256 for LFS assets and
+Git blob hashes for ordinary files. The manifest was retrieved from the official
+Hugging Face revision metadata on 23 September 2026; no weights were downloaded
+to create it. Hashing the 55.6 GB snapshot adds disk-reading time to startup.
+`--print-only` checks mount completeness but deliberately skips full content hashing.
+The pinned vLLM image must already be available locally;
 `--pull=never` prevents an implicit image download.
 
 Inspect the validated launch command before starting the GPU server:
@@ -71,8 +76,8 @@ python3 pilot/run.py --mode team --inference-timeout 1800 \
   --adapter-command python3 pilot/compatible_adapter.py compute/qwen38.json
 ```
 
-Use `--task-root families/identity` for the independent identity task once that
-family is released. The central diagnostic replaces `--mode team` with
+Use `--task-root families/identity` for the independent identity task. The
+central diagnostic replaces `--mode team` with
 `--mode centralized`. Freeze each run's exact model profile and task revision.
 
 The prepared profile caps each call at 32,768 total context tokens and 16,384

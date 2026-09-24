@@ -139,7 +139,7 @@ def call_metadata(run):
         row.update(scalar_fields(raw, ('status', 'seconds', 'return_code', 'tool_free',
                    'usage_complete', 'usage_reported_complete', 'generation_requests_started',
                    'automatic_retries', 'all_generated_token_ids_counted', 'error_type')))
-        for name in ('model_requested', 'model_revision_expected', 'reasoning_effort', 'vllm_version'):
+        for name in ('model_requested', 'model_revision_expected', 'reasoning_effort', 'vllm_version', 'model_selection_source'):
             row[name] = label(raw.get(name), identifier=True)
         row['usage'] = []
         entries = raw.get('usage', [])
@@ -259,8 +259,13 @@ def prepare(run, revision):
     calls = call_metadata(run)
     metadata_models = sorted({row['model_requested'] for row in calls if row['model_requested']})
     metadata_efforts = sorted({row['reasoning_effort'] for row in calls if row['reasoning_effort']})
-    requested = label(summary.get('requested_model'), identifier=True)
-    effort = label(summary.get('reasoning_effort'))
+    metadata_selections = sorted({row['model_selection_source'] for row in calls if row['model_selection_source']})
+    record = summary or failure
+    requested = label(record.get('requested_model'), identifier=True)
+    effort = label(record.get('reasoning_effort'))
+    selection = label(record.get('model_selection_source'))
+    if selection is None and len(metadata_selections) == 1:
+        selection = metadata_selections[0]
     if requested in (None, 'external_adapter'):
         requested = metadata_models[0] if len(metadata_models) == 1 else None
     if effort in (None, 'adapter_declared'):
@@ -276,19 +281,21 @@ def prepare(run, revision):
     candidate, files = candidate_sources(run, summary)
     statuses = [item['outcome']['status'] for item in public] + [heldout['status']]
     coverage = len(public) == 2 and all(status != 'not_recorded' for status in statuses)
-    infrastructure = (True if summary.get('infrastructure_affected') is True or any(status in INFRASTRUCTURE for status in statuses)
+    infrastructure = (True if record.get('infrastructure_affected') is True or any(status in INFRASTRUCTURE for status in statuses)
                       else False if summary and coverage else None)
     result = {
         'schema_version': 1, 'source_revision': revision, 'source_revision_source': 'operator_supplied',
         'source_hashes_available': hashes_raw is not None,
         'run': scalar_fields(summary or failure, ('status', 'generation_completed', 'mode', 'calls', 'seconds', 'inference_timeout_seconds')),
         'model': {'requested_identifier': requested, 'reasoning_effort': effort,
+                  'model_selection_source': selection, 'metadata_selection_sources': metadata_selections,
                   'metadata_identifiers': metadata_models, 'metadata_efforts': metadata_efforts,
                   'identity_consistent': len(metadata_models) <= 1 and (not metadata_models or requested in metadata_models),
                   'immutable_revision_expected': sorted({row['model_revision_expected'] for row in calls if row['model_revision_expected']}),
                   'server_weight_attestation': 'not_provided'},
         'validity': {'generation_completed': summary.get('generation_completed') if type(summary.get('generation_completed')) is bool else None,
                      'failure_recorded': bool(failure), 'failure_type': label(failure.get('error')),
+                     'failure_category': label(failure.get('failure_category')),
                      'infrastructure_affected': infrastructure,
                      'check_coverage_complete': coverage,
                      'candidate_invalid': any(status == 'candidate_invalid' for status in statuses),

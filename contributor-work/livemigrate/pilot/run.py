@@ -19,6 +19,11 @@ import time
 CORE_ROOT = Path(__file__).resolve().parents[1]
 ROLES = ('db', 'api', 'consumer')
 IMAGE = 'python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62'
+LOCAL_MODELS = ('gpt-6-astra', 'gpt-6-sol')
+
+
+class LocalInferenceInfrastructureError(RuntimeError):
+    infrastructure_error = True
 
 
 def dump(path, value):
@@ -128,6 +133,8 @@ def main(argv=None):
     ap.add_argument('--mode', choices=('team', 'centralized'), required=True)
     ap.add_argument('--output', type=Path, required=True)
     ap.add_argument('--adapter-command', nargs='+', help='Optional JSON stdin/stdout model adapter; see PROTOCOL.md.')
+    ap.add_argument('--local-model', choices=LOCAL_MODELS,
+                    help='Local CLI model alias; defaults to gpt-6-astra, both use ultra reasoning')
     ap.add_argument('--task-root', type=Path, default=CORE_ROOT,
                     help='Trusted task folder; defaults to the original migration family')
     ap.add_argument('--inference-timeout', type=int, default=480,
@@ -137,6 +144,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.inference_timeout <= 0:
         ap.error('--inference-timeout must be positive')
+    if args.local_model is not None and args.adapter_command:
+        ap.error('--local-model cannot be combined with --adapter-command')
     policy = None
     if args.scaffold:
         if args.mode != 'team':
@@ -157,12 +166,46 @@ def main(argv=None):
     if policy is not None:
         dump(out / 'scaffold.json', policy)
     backend = None if args.adapter_command else load_backend()
+    model_selection_source = ('local_model_argument' if args.local_model is not None else
+                              'local_cli_default' if backend else 'external_adapter')
+    if backend:
+        # load_backend returns a fresh module; only this run's request globals
+        # change. The shared transport file and prior run artifacts stay intact.
+        backend.MODEL = args.local_model or LOCAL_MODELS[0]
+        backend.EFFORT = 'ultra'
     observations, messages = [], []
     call_index = 0
 
     def infer(prompt, call_dir, output_schema):
         if backend:
-            return backend.infer(prompt, call_dir, output_schema, timeout=args.inference_timeout)
+            metadata = None
+            try:
+                return backend.infer(prompt, call_dir, output_schema, timeout=args.inference_timeout)
+            except Exception as exc:
+                path = call_dir / 'metadata.json'
+                if path.is_file():
+                    try:
+                        metadata = json.loads(path.read_text())
+                        if not isinstance(metadata, dict):
+                            metadata = None
+                    except (ValueError, UnicodeError):
+                        pass
+                if (metadata is None or metadata.get('status') == 'timeout' or
+                        (type(metadata.get('return_code')) is int and metadata['return_code'] != 0)):
+                    raise LocalInferenceInfrastructureError('Local CLI inference did not complete; see local call metadata') from exc
+                raise
+            finally:
+                path = call_dir / 'metadata.json'
+                if path.is_file():
+                    try:
+                        metadata = json.loads(path.read_text())
+                    except (ValueError, UnicodeError):
+                        metadata = None
+                    if isinstance(metadata, dict):
+                        metadata.setdefault('model_requested', backend.MODEL)
+                        metadata.setdefault('reasoning_effort', backend.EFFORT)
+                        metadata['model_selection_source'] = model_selection_source
+                        dump(path, metadata)
         call_dir.mkdir()
         request = {'prompt': prompt, 'schema': output_schema,
                    'metadata_path': str(call_dir / 'metadata.json')}
@@ -233,6 +276,7 @@ def main(argv=None):
                       ('check_error', 'infrastructure_or_incomplete') for observation in observations),
                   'requested_model': backend.MODEL if backend else 'external_adapter',
                   'reasoning_effort': backend.EFFORT if backend else 'adapter_declared',
+                  'model_selection_source': model_selection_source,
                   'candidate_sha256': frozen_candidate, 'public': observations, 'heldout': final,
                   'usage': usage_summary(out),
                   'seconds': round(time.monotonic() - start, 3),
@@ -244,6 +288,11 @@ def main(argv=None):
     except Exception as exc:
         dump(out / 'failure.json', {'status': 'incomplete', 'error': type(exc).__name__,
                                    'message': str(exc), 'seconds': time.monotonic() - start,
+                                   'failure_category': 'infrastructure' if getattr(exc, 'infrastructure_error', False) else 'incomplete_or_invalid_generation',
+                                   'infrastructure_affected': bool(getattr(exc, 'infrastructure_error', False)),
+                                   'requested_model': backend.MODEL if backend else 'external_adapter',
+                                   'reasoning_effort': backend.EFFORT if backend else 'adapter_declared',
+                                   'model_selection_source': model_selection_source,
                                    'usage': usage_summary(out)})
         raise
 

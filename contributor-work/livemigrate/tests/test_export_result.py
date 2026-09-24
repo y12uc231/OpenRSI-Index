@@ -55,6 +55,52 @@ def fixture(root):
 
 
 class ExportTests(unittest.TestCase):
+    def test_local_model_selection_provenance_survives_summary_and_call_export(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            run = fixture(base / 'run')
+            summary = json.loads((run / 'summary.json').read_text())
+            summary.update(requested_model='gpt-6-sol', reasoning_effort='ultra',
+                           model_selection_source='local_model_argument')
+            write(run / 'summary.json', summary)
+            for path in run.glob('call-*/metadata.json'):
+                metadata = json.loads(path.read_text())
+                metadata.update(model_requested='gpt-6-sol', reasoning_effort='ultra',
+                                model_selection_source='local_model_argument')
+                write(path, metadata)
+            result = exporter.export(run, base / 'export', REVISION)
+            self.assertEqual(result['model']['requested_identifier'], 'gpt-6-sol')
+            self.assertEqual(result['model']['model_selection_source'], 'local_model_argument')
+            self.assertEqual(result['model']['metadata_selection_sources'], ['local_model_argument'])
+            self.assertTrue(all(call['model_selection_source'] == 'local_model_argument' for call in result['calls']))
+            (run / 'summary.json').unlink()
+            write(run / 'failure.json', {'status': 'incomplete', 'requested_model': 'gpt-6-sol',
+                  'reasoning_effort': 'ultra', 'model_selection_source': 'local_model_argument',
+                  'infrastructure_affected': True})
+            failed = exporter.export(run, base / 'failure-export', REVISION)
+            self.assertEqual(failed['model']['model_selection_source'], 'local_model_argument')
+            self.assertTrue(failed['validity']['infrastructure_affected'])
+
+    def test_failure_without_call_metadata_retains_intended_model_and_unknown_usage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            run = base / 'run'
+            run.mkdir()
+            write(run / 'failure.json', {'status': 'incomplete', 'error': 'LocalInferenceInfrastructureError',
+                  'failure_category': 'infrastructure', 'infrastructure_affected': True,
+                  'requested_model': 'gpt-6-sol', 'reasoning_effort': 'ultra',
+                  'model_selection_source': 'local_model_argument'})
+            result = exporter.export(run, base / 'export', REVISION)
+            self.assertEqual(result['model']['requested_identifier'], 'gpt-6-sol')
+            self.assertEqual(result['model']['reasoning_effort'], 'ultra')
+            self.assertEqual(result['model']['model_selection_source'], 'local_model_argument')
+            self.assertEqual(result['validity']['failure_category'], 'infrastructure')
+            self.assertTrue(result['validity']['infrastructure_affected'])
+            self.assertFalse(result['usage']['complete'])
+            self.assertIsNone(result['usage']['total_input_plus_output'])
+            self.assertIsNone(result['usage']['known_input_plus_output'])
+            self.assertEqual(result['calls'], [])
+
     def test_success_preserves_scores_code_and_complete_usage_without_private_logs(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)

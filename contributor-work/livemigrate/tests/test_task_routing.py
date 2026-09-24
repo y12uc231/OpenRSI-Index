@@ -52,6 +52,73 @@ def run_suite(candidate, suite, invoke):
 
 
 class TaskRoutingTests(unittest.TestCase):
+    def test_local_model_default_and_sol_record_requested_alias_and_provenance(self):
+        for requested, expected, source in ((None, 'gpt-6-astra', 'local_cli_default'),
+                                            ('gpt-6-sol', 'gpt-6-sol', 'local_model_argument')):
+            with self.subTest(requested=requested), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                task = family(root / 'task', 'CUSTOM')
+                seen = []
+                backend = types.SimpleNamespace(MODEL='unused', EFFORT='unused')
+                def infer(prompt, call_dir, output_schema, timeout):
+                    seen.append((backend.MODEL, backend.EFFORT))
+                    call_dir.mkdir()
+                    (call_dir / 'metadata.json').write_text(json.dumps({'model_requested': backend.MODEL,
+                        'reasoning_effort': backend.EFFORT, 'status': 'completed', 'usage': []}))
+                    return {key: '# generated ' + key for key in output_schema['required']}
+                backend.infer = infer
+                arguments = ['--task-root', str(task), '--mode', 'centralized', '--output', str(root / 'output')]
+                if requested:
+                    arguments += ['--local-model', requested]
+                with mock.patch.object(pilot, 'load_backend', return_value=backend), \
+                     mock.patch.object(pilot, 'source_hashes', return_value={'fixture': 'hash'}), \
+                     mock.patch.object(pilot, 'check', return_value={'status': 'scored', 'score': 1.0}), \
+                     contextlib.redirect_stdout(io.StringIO()):
+                    pilot.main(arguments)
+                self.assertEqual(seen, [(expected, 'ultra')] * 6)
+                summary = json.loads((root / 'output' / 'summary.json').read_text())
+                self.assertEqual(summary['requested_model'], expected)
+                self.assertEqual(summary['reasoning_effort'], 'ultra')
+                self.assertEqual(summary['model_selection_source'], source)
+                for path in (root / 'output').glob('call-*/metadata.json'):
+                    self.assertEqual(json.loads(path.read_text())['model_selection_source'], source)
+
+    def test_local_model_and_adapter_are_rejected_before_any_work(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'must-not-exist'
+            with mock.patch.object(pilot, 'load_backend') as backend, \
+                 contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as stopped:
+                pilot.main(['--mode', 'team', '--output', str(output), '--local-model', 'gpt-6-sol',
+                            '--adapter-command', 'adapter'])
+            self.assertEqual(stopped.exception.code, 2)
+            backend.assert_not_called()
+            self.assertFalse(output.exists())
+
+    def test_cli_alias_failure_is_infrastructure_and_never_a_model_score(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            task = family(root / 'task', 'CUSTOM')
+            backend = types.SimpleNamespace(MODEL='unused', EFFORT='unused')
+            def infer(prompt, call_dir, output_schema, timeout):
+                call_dir.mkdir()
+                (call_dir / 'metadata.json').write_text(json.dumps({'status': 'invalid', 'return_code': 1, 'usage': []}))
+                raise RuntimeError('CLI rejected requested alias')
+            backend.infer = infer
+            with mock.patch.object(pilot, 'load_backend', return_value=backend), \
+                 mock.patch.object(pilot, 'source_hashes', return_value={'fixture': 'hash'}), \
+                 self.assertRaises(pilot.LocalInferenceInfrastructureError):
+                pilot.main(['--task-root', str(task), '--mode', 'centralized', '--output', str(root / 'output'),
+                            '--local-model', 'gpt-6-sol'])
+            failure = json.loads((root / 'output' / 'failure.json').read_text())
+            self.assertEqual(failure['status'], 'incomplete')
+            self.assertEqual(failure['failure_category'], 'infrastructure')
+            self.assertTrue(failure['infrastructure_affected'])
+            self.assertEqual(failure['requested_model'], 'gpt-6-sol')
+            self.assertNotIn('score', failure)
+            metadata = json.loads((root / 'output' / 'call-00' / 'metadata.json').read_text())
+            self.assertEqual(metadata['model_requested'], 'gpt-6-sol')
+            self.assertEqual(metadata['model_selection_source'], 'local_model_argument')
+
     def test_adapter_envelope_records_usage_but_legacy_does_not_invent_it(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -136,6 +203,38 @@ class TaskRoutingTests(unittest.TestCase):
             self.assertTrue(any(str(CORE / 'candidate_driver.py') in mount for mount in mounts))
             self.assertFalse(any(str(task) in mount or str(candidate) in mount for mount in mounts))
             self.assertNotIn('HIDDEN', json.dumps(requests))
+
+    def test_optional_history_is_exact_scoped_and_restored_for_distinct_tasks(self):
+        with tempfile.TemporaryDirectory() as directory:
+            first = family(Path(directory) / 'first', 'FIRST')
+            second = family(Path(directory) / 'second', 'SECOND')
+            for root, marker in ((first, 'FIRST HISTORY'), (second, 'SECOND HISTORY')):
+                (root / 'history.py').write_text('MARKER = ' + repr(marker) + '\n')
+                with (root / 'runtime.py').open('a') as stream:
+                    stream.write('\nimport history\n')
+                with (root / 'scenarios.py').open('a') as stream:
+                    stream.write('\nimport history\n')
+            previous = types.ModuleType('history')
+            previous.MARKER = 'UNRELATED'
+            before_path = list(sys.path)
+            before_modules = {name for name in sys.modules if name.startswith('livemigrate_task_')}
+            with mock.patch.dict(sys.modules, {'history': previous}):
+                with isolated.task_runtime(first) as first_runtime:
+                    self.assertEqual(first_runtime.history.MARKER, 'FIRST HISTORY')
+                    self.assertIs(first_runtime.scenarios.history, first_runtime.history)
+                    with isolated.task_runtime(second) as second_runtime:
+                        self.assertEqual(second_runtime.history.MARKER, 'SECOND HISTORY')
+                        self.assertIs(second_runtime.scenarios.history, second_runtime.history)
+                        self.assertIsNot(second_runtime.history, first_runtime.history)
+                    self.assertIs(sys.modules['history'], first_runtime.history)
+                self.assertIs(sys.modules['history'], previous)
+                (second / 'runtime.py').write_text('import history\nraise RuntimeError("load failure")\n')
+                with self.assertRaisesRegex(RuntimeError, 'load failure'):
+                    with isolated.task_runtime(second):
+                        self.fail('broken runtime must not yield')
+                self.assertIs(sys.modules['history'], previous)
+            self.assertEqual(sys.path, before_path)
+            self.assertEqual({name for name in sys.modules if name.startswith('livemigrate_task_')}, before_modules)
 
     def test_public_packet_excludes_solutions_schedules_and_oracle(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -65,4 +65,9 @@ if __name__ == '__main__':
     if args.print_only:
         print(json.dumps(argv, indent=2))
     else:
+        from verify_assets import verify
+        manifest = json.loads(Path(__file__).with_name('qwen38-assets.json').read_text())
+        if manifest['revision'] != profile['model_revision'] or manifest['model_id'] != profile['model_id']:
+            raise ValueError('asset manifest and model profile disagree')
+        print(json.dumps(verify(args.weights, manifest)), flush=True)
         raise SystemExit(subprocess.call(argv))

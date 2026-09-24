@@ -44,8 +44,8 @@ class CandidateTimeout(IsolationError):
 def task_runtime(task_root=CORE_ROOT):
     """Load one trusted task's oracle on the host, without import-cache mixing.
 
-    The CLI runs one suite per process. Scope the conventional ``scenarios``
-    import to the selected task, then restore any caller's existing module.
+    The CLI runs one suite per process. Scope conventional ``scenarios`` and
+    optional ``history`` imports to this task, then restore existing modules.
     This path is never passed to Docker or added to candidate import paths.
     """
     task_root = Path(task_root).resolve()
@@ -53,7 +53,12 @@ def task_runtime(task_root=CORE_ROOT):
     for name, path in paths.items():
         if not path.is_file():
             raise IsolationError("task root requires " + name + ".py")
-    old_scenarios = sys.modules.get("scenarios")
+    dependencies = ["scenarios"]
+    if (task_root / "history.py").is_file():
+        paths["history"] = task_root / "history.py"
+        dependencies.insert(0, "history")
+    missing = object()
+    previous = {name: sys.modules.get(name, missing) for name in dependencies}
     names = []
 
     def load(name):
@@ -66,13 +71,15 @@ def task_runtime(task_root=CORE_ROOT):
         return module
 
     try:
-        sys.modules["scenarios"] = load("scenarios")
+        for name in dependencies:
+            sys.modules[name] = load(name)
         yield load("runtime")
     finally:
-        if old_scenarios is None:
-            sys.modules.pop("scenarios", None)
-        else:
-            sys.modules["scenarios"] = old_scenarios
+        for name, module in previous.items():
+            if module is missing:
+                sys.modules.pop(name, None)
+            else:
+                sys.modules[name] = module
         for name in names:
             sys.modules.pop(name, None)
 
