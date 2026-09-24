@@ -85,6 +85,12 @@ def violations(items):
     return result
 
 
+def counts(source, names):
+    """Fixed-name nonnegative counters, never arbitrary strings or booleans."""
+    return {name: source[name] for name in names
+            if type(source.get(name)) is int and source[name] >= 0}
+
+
 def outcome(raw, suite=None):
     if not isinstance(raw, dict):
         return {'status': 'not_recorded', 'suite': suite, 'score': None}
@@ -103,11 +109,39 @@ def outcome(raw, suite=None):
                 if isinstance(case.get(component), dict):
                     row[component] = scalar_fields(case[component],
                         ('passed', 'accepted_payments', 'accepted_operations', 'physical_effects'))
+                    row[component].update(counts(case[component],
+                        ('violation_count', 'physical_fulfillments')))
                     row[component]['violations'] = violations(case[component].get('violations', []))
             if isinstance(case.get('completion'), dict):
                 row['completion'] = scalar_fields(case['completion'],
                     ('passed', 'expanded', 'contracted', 'completed_steps', 'total_steps',
                      'candidate_callbacks', 'deliveries'))
+                row['completion'].update(counts(case['completion'],
+                    ('resolved_calls', 'total_calls', 'fair_rounds', 'queued_messages')))
+            if isinstance(case.get('history'), dict):
+                history = case['history']
+                row['history'] = counts(history, ('explored',))
+                row['history'].update({key: history[key] for key in ('passed', 'exhaustive')
+                                       if type(history.get(key)) is bool})
+                if history.get('reason') in ('linearizable', 'not_linearizable', 'incomplete_history',
+                                              'invalid_history', 'bound_exhausted'):
+                    row['history']['reason'] = history['reason']
+            if isinstance(case.get('faults'), dict):
+                faults = case['faults']
+                row['faults'] = counts(faults, ('replayed_packets',))
+                row['faults'].update({key: faults[key] for key in ('lost_output', 'lost_effect_ack')
+                                     if type(faults.get(key)) is bool})
+                trigger = faults.get('lost_output_trigger')
+                if trigger is None:
+                    row['faults']['lost_output_trigger'] = None
+                elif isinstance(trigger, dict):
+                    safe_trigger = counts(trigger, ('step',))
+                    for key, options in (('node', ('source', 'gateway', 'A', 'B')),
+                                         ('input_kind', ('init', 'client', 'move', 'tick', 'reply_ack')),
+                                         ('sku', ('X', 'Y', 'Z'))):
+                        if trigger.get(key) in options:
+                            safe_trigger[key] = trigger[key]
+                    row['faults']['lost_output_trigger'] = safe_trigger
             clean['cases'].append(row)
     return clean
 
@@ -280,13 +314,16 @@ def prepare(run, revision):
     heldout = outcome(summary.get('heldout') if isinstance(summary.get('heldout'), dict) else read_json(run / 'heldout.json'), 'heldout')
     candidate, files = candidate_sources(run, summary)
     statuses = [item['outcome']['status'] for item in public] + [heldout['status']]
+    case_statuses = [case.get('status') for report in [item['outcome'] for item in public] + [heldout]
+                     for case in report.get('cases', [])]
     coverage = len(public) == 2 and all(status != 'not_recorded' for status in statuses)
     infrastructure = (True if record.get('infrastructure_affected') is True or any(status in INFRASTRUCTURE for status in statuses)
                       else False if summary and coverage else None)
     result = {
         'schema_version': 1, 'source_revision': revision, 'source_revision_source': 'operator_supplied',
         'source_hashes_available': hashes_raw is not None,
-        'run': scalar_fields(summary or failure, ('status', 'generation_completed', 'mode', 'calls', 'seconds', 'inference_timeout_seconds')),
+        'run': scalar_fields(summary or failure, ('status', 'generation_completed', 'mode', 'calls', 'seconds',
+                             'inference_timeout_seconds', 'check_timeout_seconds')),
         'model': {'requested_identifier': requested, 'reasoning_effort': effort,
                   'model_selection_source': selection, 'metadata_selection_sources': metadata_selections,
                   'metadata_identifiers': metadata_models, 'metadata_efforts': metadata_efforts,
@@ -298,7 +335,7 @@ def prepare(run, revision):
                      'failure_category': label(failure.get('failure_category')),
                      'infrastructure_affected': infrastructure,
                      'check_coverage_complete': coverage,
-                     'candidate_invalid': any(status == 'candidate_invalid' for status in statuses),
+                     'candidate_invalid': any(status == 'candidate_invalid' for status in statuses + case_statuses),
                      'source_hashes_verified_against_git': False},
         'public': public, 'heldout': heldout, 'usage': usage_summary(calls, summary),
         'calls': calls, 'candidate': candidate,
@@ -306,6 +343,8 @@ def prepare(run, revision):
         'scope': 'Schedules within a family are correlated stress cases, not independent tasks.',
     }
     result['run'].setdefault('status', 'incomplete')
+    if isinstance(record.get('scaffold_sha256'), str) and re.fullmatch(r'[0-9a-f]{64}', record['scaffold_sha256']):
+        result['run']['scaffold_sha256'] = record['scaffold_sha256']
     return result, hashes, files
 
 

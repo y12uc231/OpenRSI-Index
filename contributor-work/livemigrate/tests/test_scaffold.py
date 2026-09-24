@@ -49,7 +49,7 @@ class ScaffoldTests(unittest.TestCase):
                 seen[index] = (role, prompt)
                 return {role: '# revision ' + str(index), 'message': 'message-' + str(index)}
 
-            def check(candidate, suite, destination, task_root):
+            def check(candidate, suite, destination, task_root, timeout=180):
                 checks.append((len(seen), suite))
                 return {'status': 'scored', 'score': 1.0, 'marker': 'PUBLIC_FEEDBACK' if suite == 'public' else 'SECRET_FINAL'}
 

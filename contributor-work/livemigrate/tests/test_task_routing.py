@@ -80,6 +80,7 @@ class TaskRoutingTests(unittest.TestCase):
                 self.assertEqual(summary['requested_model'], expected)
                 self.assertEqual(summary['reasoning_effort'], 'ultra')
                 self.assertEqual(summary['model_selection_source'], source)
+                self.assertEqual(summary['check_timeout_seconds'], 180)
                 for path in (root / 'output').glob('call-*/metadata.json'):
                     self.assertEqual(json.loads(path.read_text())['model_selection_source'], source)
 
@@ -108,12 +109,13 @@ class TaskRoutingTests(unittest.TestCase):
                  mock.patch.object(pilot, 'source_hashes', return_value={'fixture': 'hash'}), \
                  self.assertRaises(pilot.LocalInferenceInfrastructureError):
                 pilot.main(['--task-root', str(task), '--mode', 'centralized', '--output', str(root / 'output'),
-                            '--local-model', 'gpt-6-sol'])
+                            '--local-model', 'gpt-6-sol', '--check-timeout', '900'])
             failure = json.loads((root / 'output' / 'failure.json').read_text())
             self.assertEqual(failure['status'], 'incomplete')
             self.assertEqual(failure['failure_category'], 'infrastructure')
             self.assertTrue(failure['infrastructure_affected'])
             self.assertEqual(failure['requested_model'], 'gpt-6-sol')
+            self.assertEqual(failure['check_timeout_seconds'], 900)
             self.assertNotIn('score', failure)
             metadata = json.loads((root / 'output' / 'call-00' / 'metadata.json').read_text())
             self.assertEqual(metadata['model_requested'], 'gpt-6-sol')
@@ -148,6 +150,9 @@ class TaskRoutingTests(unittest.TestCase):
             completed = types.SimpleNamespace(returncode=0, stdout='{"status":"scored","score":1.0}', stderr='')
             with mock.patch.object(pilot.subprocess, 'run', return_value=completed) as run:
                 self.assertEqual(pilot.check(root / 'candidate', 'public', root / 'result.json', task)['score'], 1.0)
+                self.assertEqual(run.call_args.kwargs['timeout'], 180)
+                pilot.check(root / 'candidate', 'heldout', root / 'result.json', task, timeout=900)
+                self.assertEqual(run.call_args.kwargs['timeout'], 900)
             command = run.call_args.args[0]
             self.assertEqual(command[1], str(CORE / 'isolated.py'))
             self.assertEqual(command[command.index('--task-root') + 1], str(task))
@@ -239,13 +244,18 @@ class TaskRoutingTests(unittest.TestCase):
     def test_public_packet_excludes_solutions_schedules_and_oracle(self):
         with tempfile.TemporaryDirectory() as directory:
             task = family(Path(directory) / 'task', 'CUSTOM')
+            (task / 'PUBLIC_SCENARIO.json').write_text('{"name":"PUBLIC_EXAMPLE"}')
+            (task / 'heldout.json').write_text('{"name":"SECRET_EXTRA_SCHEDULE"}')
+            (task / 'history.py').write_text('SECRET = "HIDDEN HISTORY ORACLE"\n')
             packet, code = pilot.public_packet(task)
             visible = packet + json.dumps(code)
             self.assertIn('PUBLIC CONTRACT CUSTOM', visible)
             self.assertIn('PUBLIC LEGACY CUSTOM', visible)
             self.assertIn('PUBLIC STARTER CUSTOM', visible)
+            self.assertIn('PUBLIC_EXAMPLE', visible)
             self.assertNotIn('HIDDEN', visible)
             self.assertNotIn('SECRET SOLUTION', visible)
+            self.assertNotIn('SECRET_EXTRA_SCHEDULE', visible)
             (task / 'scenarios.py').unlink()
             with self.assertRaisesRegex(RuntimeError, 'scenarios.py'):
                 pilot.public_packet(task)
@@ -283,8 +293,8 @@ class TaskRoutingTests(unittest.TestCase):
                 timeouts.append(timeout)
                 return {key: '# generated ' + key for key in output_schema['required']}
 
-            def check(candidate, suite, destination, task_root):
-                checks.append((suite, task_root))
+            def check(candidate, suite, destination, task_root, timeout=180):
+                checks.append((suite, task_root, timeout))
                 return {'status': 'scored', 'score': 1.0}
 
             backend = types.SimpleNamespace(infer=infer, MODEL='mock', EFFORT='none')
@@ -292,8 +302,8 @@ class TaskRoutingTests(unittest.TestCase):
                  mock.patch.object(pilot, 'source_hashes', return_value={'fixture': 'hash'}), \
                  mock.patch.object(pilot, 'check', side_effect=check), contextlib.redirect_stdout(io.StringIO()):
                 pilot.main(['--task-root', str(task), '--mode', 'centralized', '--output', str(root / 'output'),
-                            '--inference-timeout', '1800'])
-            self.assertEqual(checks, [('public', task), ('public', task), ('heldout', task)])
+                            '--inference-timeout', '1800', '--check-timeout', '900'])
+            self.assertEqual(checks, [('public', task, 900), ('public', task, 900), ('heldout', task, 900)])
             self.assertEqual(len(prompts), 6)
             self.assertEqual(timeouts, [1800] * 6)
             self.assertTrue(all('PUBLIC CONTRACT CUSTOM' in prompt for prompt in prompts))
@@ -301,7 +311,18 @@ class TaskRoutingTests(unittest.TestCase):
             summary = json.loads((root / 'output' / 'summary.json').read_text())
             self.assertEqual(summary['task_root'], str(task))
             self.assertEqual(summary['inference_timeout_seconds'], 1800)
+            self.assertEqual(summary['check_timeout_seconds'], 900)
             self.assertFalse(summary['infrastructure_affected'])
+
+    def test_nonpositive_check_timeout_is_rejected_before_any_work(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'must-not-exist'
+            with mock.patch.object(pilot, 'load_backend') as backend, \
+                 contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as stopped:
+                pilot.main(['--mode', 'team', '--output', str(output), '--check-timeout', '0'])
+            self.assertEqual(stopped.exception.code, 2)
+            backend.assert_not_called()
+            self.assertFalse(output.exists())
 
     def test_adapter_timeout_and_lost_public_feedback_are_reported(self):
         with tempfile.TemporaryDirectory() as directory:

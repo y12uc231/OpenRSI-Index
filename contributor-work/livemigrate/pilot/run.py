@@ -50,7 +50,7 @@ def source_hashes(task_root=CORE_ROOT):
     return hashes
 
 
-def check(candidate, suite, destination, task_root=CORE_ROOT):
+def check(candidate, suite, destination, task_root=CORE_ROOT, timeout=180):
     # Keep expected operation history outside the candidate process and mounts.
     if not (CORE_ROOT / 'isolated.py').exists():
         raise RuntimeError('Isolated evaluator must be implemented before model inference')
@@ -58,7 +58,7 @@ def check(candidate, suite, destination, task_root=CORE_ROOT):
            '--suite', suite, '--image', IMAGE, '--task-root', str(Path(task_root).resolve())]
     start = time.monotonic()
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
         destination.write_text(proc.stdout)
         destination.with_suffix('.stderr.txt').write_text(proc.stderr)
         if proc.returncode:
@@ -105,6 +105,10 @@ def public_packet(task_root=CORE_ROOT):
         if not (task_root / name).is_file():
             raise RuntimeError('Task root requires ' + name)
     packet = (task_root / 'API_CONTRACT.md').read_text()
+    # A declared public example is visible; hidden schedule modules are not.
+    public_scenario = task_root / 'PUBLIC_SCENARIO.json'
+    if public_scenario.is_file():
+        packet += '\nPUBLIC SCENARIO PUBLIC_SCENARIO.json\n' + public_scenario.read_text()
     name = 'reference/immutable_v1.py'
     packet += '\nIMMUTABLE PUBLIC SOURCE ' + name + '\n' + (task_root / name).read_text()
     code = {role: (task_root / 'starter' / (role + '.py')).read_text() for role in ROLES}
@@ -139,11 +143,15 @@ def main(argv=None):
                     help='Trusted task folder; defaults to the original migration family')
     ap.add_argument('--inference-timeout', type=int, default=480,
                     help='Per-call transport deadline in seconds for either backend (default: 480)')
+    ap.add_argument('--check-timeout', type=int, default=180,
+                    help='Per-suite isolated evaluator deadline in seconds (default: 180)')
     ap.add_argument('--scaffold', type=Path,
                     help='Optional declarative instructions/wave schedule; requires team mode')
     args = ap.parse_args(argv)
     if args.inference_timeout <= 0:
         ap.error('--inference-timeout must be positive')
+    if args.check_timeout <= 0:
+        ap.error('--check-timeout must be positive')
     if args.local_model is not None and args.adapter_command:
         ap.error('--local-model cannot be combined with --adapter-command')
     policy = None
@@ -263,15 +271,16 @@ def main(argv=None):
             candidate.mkdir()
             for role, source in code.items():
                 (candidate / (role + '.py')).write_text(source)
-            observation = check(candidate, 'public', out / f'public-{stage}.json', task_root)
+            observation = check(candidate, 'public', out / f'public-{stage}.json', task_root, timeout=args.check_timeout)
             observations.append(observation)
         frozen_candidate = {role: hashlib.sha256(source.encode()).hexdigest() for role, source in code.items()}
         dump(out / 'candidate-sha256.json', frozen_candidate)
-        final = check(candidate, 'heldout', out / 'heldout.json', task_root)
+        final = check(candidate, 'heldout', out / 'heldout.json', task_root, timeout=args.check_timeout)
         result = {'status': final.get('status', 'unknown_check_status'),
                   'generation_completed': True, 'mode': args.mode, 'calls': call_index,
                   'task_root': str(task_root), 'core_root': str(CORE_ROOT),
                   'inference_timeout_seconds': args.inference_timeout,
+                  'check_timeout_seconds': args.check_timeout,
                   'infrastructure_affected': any(observation.get('status') in
                       ('check_error', 'infrastructure_or_incomplete') for observation in observations),
                   'requested_model': backend.MODEL if backend else 'external_adapter',
@@ -293,6 +302,8 @@ def main(argv=None):
                                    'requested_model': backend.MODEL if backend else 'external_adapter',
                                    'reasoning_effort': backend.EFFORT if backend else 'adapter_declared',
                                    'model_selection_source': model_selection_source,
+                                   'inference_timeout_seconds': args.inference_timeout,
+                                   'check_timeout_seconds': args.check_timeout,
                                    'usage': usage_summary(out)})
         raise
 

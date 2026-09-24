@@ -55,6 +55,54 @@ def fixture(root):
 
 
 class ExportTests(unittest.TestCase):
+    def test_reservation_history_faults_counts_and_timeout_are_allowlisted(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            run = fixture(base / 'run')
+            summary = json.loads((run / 'summary.json').read_text())
+            summary.update(check_timeout_seconds=900, scaffold_sha256='d' * 64)
+            for report in summary['public'] + [summary['heldout']]:
+                case = report['cases'][0]
+                case['history'] = {'passed': False, 'reason': 'not_linearizable', 'explored': 18,
+                                   'exhaustive': True, 'raw_calls': 'PRIVATE_HISTORY /Users/private/state'}
+                case['faults'] = {'lost_output': True, 'lost_effect_ack': False, 'replayed_packets': 20,
+                                 'lost_output_trigger': {'step': 80, 'node': 'source', 'input_kind': 'move',
+                                                        'sku': 'X', 'body': 'PRIVATE_MESSAGE'}}
+                case['completion'].update(resolved_calls=6, total_calls=6, fair_rounds=95,
+                                          queued_messages=2, private_state='/Users/private/database')
+                case['trace'].update(violation_count=3, physical_fulfillments=4)
+            summary['heldout'].update(status='unscored', score=None)
+            summary['heldout']['cases'][0].update(status='candidate_invalid', score=None)
+            write(run / 'summary.json', summary)
+            result = exporter.export(run, base / 'export', REVISION)
+            self.assertEqual(result['run']['check_timeout_seconds'], 900)
+            self.assertEqual(result['run']['scaffold_sha256'], 'd' * 64)
+            self.assertTrue(result['validity']['candidate_invalid'])
+            for report in [entry['outcome'] for entry in result['public']] + [result['heldout']]:
+                case = report['cases'][0]
+                self.assertEqual(case['history'], {'passed': False, 'reason': 'not_linearizable',
+                                                  'explored': 18, 'exhaustive': True})
+                self.assertEqual(case['faults']['lost_output_trigger'],
+                                 {'step': 80, 'node': 'source', 'input_kind': 'move', 'sku': 'X'})
+                self.assertEqual(case['completion']['resolved_calls'], 6)
+                self.assertEqual(case['trace']['violation_count'], 3)
+                self.assertEqual(case['trace']['physical_fulfillments'], 4)
+            self.assertNotIn('PRIVATE_', json.dumps(result))
+            self.assertNotIn('/Users/private', json.dumps(result))
+
+    def test_reservation_extensions_reject_wrong_types_and_unknown_labels(self):
+        result = exporter.outcome({'cases': [{
+            'history': {'passed': 'PRIVATE', 'exhaustive': 1, 'explored': True, 'reason': '/Users/private'},
+            'faults': {'lost_output': 1, 'lost_effect_ack': 'PRIVATE', 'replayed_packets': -1,
+                       'lost_output_trigger': {'step': 'PRIVATE', 'node': '/Users/private',
+                                              'input_kind': 'PRIVATE_BODY', 'sku': 'PRIVATE_SKU'}},
+            'completion': {'resolved_calls': True, 'total_calls': 'PRIVATE', 'fair_rounds': -1},
+        }]})
+        row = result['cases'][0]
+        self.assertEqual(row['history'], {})
+        self.assertEqual(row['faults'], {'lost_output_trigger': {}})
+        self.assertEqual(row['completion'], {})
+
     def test_local_model_selection_provenance_survives_summary_and_call_export(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)
