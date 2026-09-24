@@ -1,0 +1,369 @@
+{
+  "calls": [
+    {
+      "index": 0,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 247.608,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 11520,
+          "input_tokens": 24169,
+          "output_tokens": 7930,
+          "reasoning_output_tokens": 6317
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 1,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 120.434,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 0,
+          "input_tokens": 11738,
+          "output_tokens": 3900,
+          "reasoning_output_tokens": 2409
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 2,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 21.609,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 0,
+          "input_tokens": 11738,
+          "output_tokens": 548,
+          "reasoning_output_tokens": 280
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 3,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 92.354,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 14720,
+          "input_tokens": 30637,
+          "output_tokens": 2899,
+          "reasoning_output_tokens": 1348
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 4,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 92.34,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 14720,
+          "input_tokens": 30692,
+          "output_tokens": 2876,
+          "reasoning_output_tokens": 1254
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 5,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 20.37,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 0,
+          "input_tokens": 14881,
+          "output_tokens": 560,
+          "reasoning_output_tokens": 302
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    }
+  ],
+  "candidate": {
+    "available": true,
+    "is_final": true,
+    "recorded_hashes_verified": true,
+    "sha256": {
+      "api": "814932c5e06bcd2974ae5c9409c49c49aaff1111b44849d447c0da9bf667cc29",
+      "consumer": "77c15d04068dcf057521bdd4157d30eed05bfa176123d79aa0306bdf61379957",
+      "db": "92ac5cd77ca1b70c055f4a904d47cf0289971db5ffb8b4b3f10766a4ee075313"
+    },
+    "stage": 1
+  },
+  "candidate_source_review": "Absolute-path scan only; separate secrets/PII review required before publication.",
+  "heldout": {
+    "cases": [
+      {
+        "completion": {
+          "candidate_callbacks": 40,
+          "completed_steps": 35,
+          "contracted": true,
+          "deliveries": 23,
+          "expanded": true,
+          "passed": true,
+          "total_steps": 35
+        },
+        "name": "late_write_and_rollback",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "status": "scored",
+        "trace": {
+          "accepted_payments": 6,
+          "passed": true,
+          "physical_effects": 6,
+          "violations": []
+        }
+      },
+      {
+        "completion": {
+          "candidate_callbacks": 40,
+          "completed_steps": 35,
+          "contracted": true,
+          "deliveries": 23,
+          "expanded": true,
+          "passed": true,
+          "total_steps": 35
+        },
+        "name": "reordered_delivery",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "status": "scored",
+        "trace": {
+          "accepted_payments": 6,
+          "passed": true,
+          "physical_effects": 6,
+          "violations": []
+        }
+      },
+      {
+        "completion": {
+          "candidate_callbacks": 36,
+          "completed_steps": 31,
+          "contracted": true,
+          "deliveries": 19,
+          "expanded": true,
+          "passed": true,
+          "total_steps": 31
+        },
+        "name": "delayed_legacy_event",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "status": "scored",
+        "trace": {
+          "accepted_payments": 5,
+          "passed": true,
+          "physical_effects": 5,
+          "violations": []
+        }
+      }
+    ],
+    "passed": 3,
+    "score": 1.0,
+    "status": "scored",
+    "suite": "heldout",
+    "total": 3
+  },
+  "model": {
+    "identity_consistent": true,
+    "immutable_revision_expected": [],
+    "metadata_efforts": [
+      "ultra"
+    ],
+    "metadata_identifiers": [
+      "gpt-6-astra"
+    ],
+    "reasoning_effort": "ultra",
+    "requested_identifier": "gpt-6-astra",
+    "server_weight_attestation": "not_provided"
+  },
+  "public": [
+    {
+      "outcome": {
+        "cases": [
+          {
+            "completion": {
+              "candidate_callbacks": 36,
+              "completed_steps": 31,
+              "contracted": true,
+              "deliveries": 19,
+              "expanded": true,
+              "passed": true,
+              "total_steps": 31
+            },
+            "name": "public_overlap",
+            "passed": true,
+            "score": 1.0,
+            "static": {
+              "passed": true,
+              "violations": []
+            },
+            "status": "scored",
+            "trace": {
+              "accepted_payments": 5,
+              "passed": true,
+              "physical_effects": 5,
+              "violations": []
+            }
+          }
+        ],
+        "passed": 1,
+        "score": 1.0,
+        "status": "scored",
+        "suite": "public",
+        "total": 1
+      },
+      "stage": 0
+    },
+    {
+      "outcome": {
+        "cases": [
+          {
+            "completion": {
+              "candidate_callbacks": 36,
+              "completed_steps": 31,
+              "contracted": true,
+              "deliveries": 19,
+              "expanded": true,
+              "passed": true,
+              "total_steps": 31
+            },
+            "name": "public_overlap",
+            "passed": true,
+            "score": 1.0,
+            "static": {
+              "passed": true,
+              "violations": []
+            },
+            "status": "scored",
+            "trace": {
+              "accepted_payments": 5,
+              "passed": true,
+              "physical_effects": 5,
+              "violations": []
+            }
+          }
+        ],
+        "passed": 1,
+        "score": 1.0,
+        "status": "scored",
+        "suite": "public",
+        "total": 1
+      },
+      "stage": 1
+    }
+  ],
+  "run": {
+    "calls": 6,
+    "generation_completed": true,
+    "mode": "team",
+    "seconds": 360.466,
+    "status": "scored"
+  },
+  "schema_version": 1,
+  "scope": "Schedules within a family are correlated stress cases, not independent tasks.",
+  "source_hashes_available": true,
+  "source_revision": "728c2a5c70667a879c1bbfe548502432508aa526",
+  "source_revision_source": "operator_supplied",
+  "usage": {
+    "cached_input_is_subset_not_added_again": true,
+    "calls_with_complete_usage": 6,
+    "calls_with_unknown_usage": 0,
+    "complete": true,
+    "complete_for_observed_calls": true,
+    "known_input_plus_output": 142568,
+    "observed_calls": 6,
+    "reasoning_output_is_subset_not_added_again": true,
+    "reported_call_count_verified": true,
+    "reported_totals": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 40960,
+      "input_tokens": 123855,
+      "output_tokens": 18713,
+      "reasoning_output_tokens": 11910
+    },
+    "summary_totals_match": true,
+    "total_input_plus_output": 142568
+  },
+  "validity": {
+    "candidate_invalid": false,
+    "check_coverage_complete": true,
+    "failure_recorded": false,
+    "failure_type": null,
+    "generation_completed": true,
+    "infrastructure_affected": false,
+    "source_hash_verification_method": "Every recorded source hash compared with git show at source_revision before publication",
+    "source_hashes_verified_against_git": true
+  }
+}

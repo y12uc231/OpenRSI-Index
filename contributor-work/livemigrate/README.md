@@ -4,6 +4,10 @@
 frontier-model weakness.** This contribution was developed from a fresh audit of
 current external work. It does not extend the contributor's older research.
 
+The [complete first pilot results](results/README.md) are all successes: local
+`gpt-6-astra` at `ultra` passed both families in both team and centralized modes.
+The examples validate the instrument but do not meet a high model-difficulty bar.
+
 Three coding agents own the database migration, API, and background consumer.
 They must jointly implement a data-contract change that works throughout a
 running upgrade, while old and new components coexist. A trusted driver supplies
@@ -65,6 +69,11 @@ form a hypothesis, change how agents agree on cross-version contracts, generate
 the three modules, evaluate, inspect bounded feedback, and revise the scaffold.
 The optimized artifact is the reusable scaffold, not a hard-coded solution to
 one published cents-to-micros example.
+
+The [declarative research lane](research/README.md) now implements that artifact
+and a fixed-controller evaluation command. It includes a conventional
+contract-first reference policy and a [pinned current open-model lane](compute/README.md).
+GPU execution and the Harbor integration remain unvalidated.
 
 This two-family demonstrator can validate the instrument. A generalization claim
 requires independently authored semantic migration families and matched model
