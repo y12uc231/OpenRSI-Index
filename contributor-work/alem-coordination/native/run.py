@@ -1,22 +1,48 @@
 """Single-container controller evaluation. No Docker client/socket is used here."""
+import sys
+if __name__ == "__main__" and not sys.flags.isolated:
+    raise SystemExit("native supervisor requires python -I -B")
 import argparse
+import importlib.util
 import json
 import hashlib
 import os
 from pathlib import Path
 import shutil
 import signal
-import sys
 import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT.parent / "controller"))
-from launcher import (FrameProcess, SUITES, checked_worker_reply, digest,
-                      incomplete_case, provenance, worker_error)
-from feedback import public_feedback
-from wire import decode
-from sandbox import actor_root, copy_runtime
+_spec = importlib.util.spec_from_file_location("alem_native_support", ROOT / "runtime_support.py")
+_support = importlib.util.module_from_spec(_spec)
+exec(compile((ROOT / "runtime_support.py").read_bytes(), str(ROOT / "runtime_support.py"), "exec"), _support.__dict__)
+wire, feedback, launcher, sandbox = _support.task_modules(ROOT)
+FrameProcess, SUITES = launcher.FrameProcess, launcher.SUITES
+checked_worker_reply, digest = launcher.checked_worker_reply, launcher.digest
+incomplete_case, worker_error = launcher.incomplete_case, launcher.worker_error
+public_feedback, decode = feedback.public_feedback, wire.decode
+actor_root, copy_runtime = sandbox.actor_root, sandbox.copy_runtime
+
+
+def engine_command(suite, proof_first_world=False):
+    # Unlike -I, this preserves the original deterministic Python hash seed.
+    command = ["/usr/bin/env", "-i", "PYTHONHASHSEED=0", "PYTHONDONTWRITEBYTECODE=1",
+               "JAX_PLATFORM_NAME=cpu", "WANDB_MODE=disabled", "MPLCONFIGDIR=/tmp/matplotlib",
+               "XDG_CACHE_HOME=/tmp/cache", "OMP_NUM_THREADS=4", sys.executable,
+               "-P", "-s", "-B", str(ROOT / "engine_entry.py"), "--suite", suite]
+    if proof_first_world:
+        command.append("--proof-first-world")
+    return command
+
+
+def native_worker_error(exc, worker=None):
+    """An observed post-ready exit is attributable; startup/timeouts are not."""
+    if (isinstance(exc, (EOFError, BrokenPipeError))
+            and worker is not None and getattr(worker, "candidate_ready", False)
+            and worker.proc.poll() is not None):
+        return {"status": "candidate_invalid", "code": "candidate_act", "error_type": "CandidateError"}
+    return worker_error(exc)
 
 
 def source_inventory(source):
@@ -37,7 +63,7 @@ def source_inventory(source):
 def verified_inputs(candidate):
     # Verify exact declared file bytes/inventory directly; no git binary or mutable
     # Git metadata is needed inside the admitted environment.
-    from launcher import regular, BASELINE, MAX_CANDIDATE
+    regular, BASELINE, MAX_CANDIDATE = launcher.regular, launcher.BASELINE, launcher.MAX_CANDIDATE
     spec = json.loads((BASELINE / "source-manifest.json").read_text())
     asset_spec = json.loads((BASELINE / "asset-manifest.json").read_text())
     source, assets = Path("/app"), Path("/assets")
@@ -122,9 +148,7 @@ def run(args):
         copy_runtime(template)
         runtime_files = {str(p.relative_to(template)):digest(p) for p in sorted(template.rglob("*")) if p.is_file()}
         launch["actor_runtime"] = {"file_count":len(runtime_files), "tree_sha256":hashlib.sha256(json.dumps(runtime_files,sort_keys=True,separators=(",",":")).encode()).hexdigest()}
-        command = [sys.executable, "-B", str(ROOT / "engine_entry.py"), "--suite", args.suite]
-        if args.proof_first_world:
-            command.append("--proof-first-world")
+        command = engine_command(args.suite, args.proof_first_world)
         engine = FrameProcess(command, args.output / "engine.stderr.txt")
         current_world = None
         expected = iter(worlds)
@@ -141,35 +165,43 @@ def run(args):
                 if message.get("world_id") != current_world or message.get("actors") != 3:
                     raise ValueError("engine world sequence")
                 error = None
+                active_worker = None
                 world_root = temporary_root / "actors"
                 world_root.mkdir()
                 try:
                     for actor in range(3):
                         command = actor_root(template, world_root / str(actor), snapshot, actor)
                         worker = FrameProcess(command, args.output / f"world-{current_world}-actor-{actor}.stderr.txt")
+                        worker.candidate_ready = False
+                        active_worker = worker
                         workers.append(worker)
                         worker.send({"kind":"initialize", "agent_id":actor,"schema":message["schema"]}, timeout=remaining(30))
                     for worker in workers:
+                        active_worker = worker
                         response = checked_worker_reply(worker.recv(timeout=remaining(30)), initializing=True)
+                        worker.candidate_ready = response == {"ready": True}
                         error = error or response.get("error")
                 except Exception as exc:
-                    error = worker_error(exc)
+                    error = native_worker_error(exc, active_worker)
                 engine.send({"error":error} if error else {"ready":True}, timeout=remaining(30))
             elif kind == "actions":
                 packets = message.get("packets")
                 if current_world is None or not isinstance(packets, list) or len(packets) != 3 or len(workers) != 3:
                     raise ValueError("engine action sequence")
                 actions, error = [], None
+                active_worker = None
                 try:
                     for worker, packet in zip(workers, packets):
+                        active_worker = worker
                         worker.send({"kind":"act","local":packet}, timeout=remaining(30))
                     for worker in workers:
+                        active_worker = worker
                         response = checked_worker_reply(worker.recv(timeout=remaining(30)))
                         error = error or response.get("error")
                         if "action" in response:
                             actions.append(response["action"])
                 except Exception as exc:
-                    error = worker_error(exc)
+                    error = native_worker_error(exc, active_worker)
                 engine.send({"error":error} if error else {"actions":actions}, timeout=remaining(30))
             elif kind == "world_result":
                 if message.get("world_id") != current_world or current_world in rows or message.get("result",{}).get("world_id") != current_world:

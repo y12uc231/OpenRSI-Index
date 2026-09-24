@@ -23,7 +23,24 @@ class PackageTests(unittest.TestCase):
         result = common.read_json(ROOT / 'evidence/native20.json')
         observed = summarize.summarize(result)
         original = common.read_json(ROOT / 'evidence/summary.json')
-        self.assertEqual(observed['reward_normalized_percent'], original['reward_normalized_percent'])
+        # statistics.stdev differs in its last floating-point bits between
+        # Python 3.9 and 3.12. Keep primary values and every world exact; allow
+        # only negligible rounding in the two derived dispersion statistics.
+        # The archived summary predates the added per-world death diagnostic.
+        self.assertEqual(len(observed['per_world']), len(original['per_world']))
+        for actual, expected in zip(observed['per_world'], original['per_world']):
+            self.assertEqual({k: v for k, v in actual.items() if k != 'total_deaths'}, expected)
+            self.assertEqual(actual['total_deaths'], 3)
+        actual_metrics = observed['reward_normalized_percent']
+        expected_metrics = original['reward_normalized_percent']
+        self.assertEqual(set(actual_metrics), set(expected_metrics))
+        for metric, values in actual_metrics.items():
+            self.assertEqual(set(values), set(expected_metrics[metric]))
+            for statistic, value in values.items():
+                if statistic in ('sample_sd', 'sample_se'):
+                    self.assertAlmostEqual(value, expected_metrics[metric][statistic], delta=1e-12)
+                else:
+                    self.assertEqual(value, expected_metrics[metric][statistic])
         self.assertEqual(observed['world_seeds'], list(range(9999, 10019)))
         self.assertEqual(observed['environment_transitions'], 9428)
         self.assertEqual(observed['natural_terminations'], 20)

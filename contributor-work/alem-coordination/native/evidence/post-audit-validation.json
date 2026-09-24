@@ -1,0 +1,992 @@
+{
+  "all_40_worlds_exact": true,
+  "asset_revision": "9493179ea5e86cd625add66c0f88e23f04f928b5",
+  "automatic_retries": 0,
+  "environment_image": "sha256:9282bdeb7b8debc675830cf464028cba51b9a7b83afd8c1f4c098f67edd73176",
+  "frozen_scientific_commit": "d4bdd34f4170d2e61f24527d7ed68b3ad0866492",
+  "kernel_probe": {
+    "affinity_change_denied": true,
+    "callbacks": 8,
+    "fixed_text_hash": -2333051985108870616,
+    "fork_exec_denied": true,
+    "fresh_actor_processes": 4,
+    "llm_calls": 0,
+    "network_families_denied": [
+      "INET",
+      "INET6",
+      "UNIX"
+    ],
+    "no_world_id_in_frames": true,
+    "policy_forward_calls": 0,
+    "posix_sysv_ipc_denied": true,
+    "private_chroot_and_tmp": true,
+    "python": "3.12.14",
+    "safe_actor_startup_preserves_hashseed0": true,
+    "single_scratch_file_limit_bytes": 16777216,
+    "status": "passed"
+  },
+  "kernel_probe_seconds": 1.316588251000212,
+  "limitations": [
+    "Linux arm64 measured; x86_64 kernel execution not validated",
+    "Complete Work snapshot enters Judge; inherited interpreter and library trust remains a platform residual",
+    "These are deployment checks, not new researcher attempts or independent performance samples",
+    "Full generated Harbor and 24-hour RSI-Harness validation remains pending"
+  ],
+  "minimal_staging": {
+    "checkpoint_files": 20,
+    "excludes_git_evidence_results": true,
+    "upstream_source_files": 291
+  },
+  "resources": {
+    "cpu_cap": 4,
+    "extra_capabilities": [],
+    "gpus": 0,
+    "memory_gib": 16,
+    "network": "none",
+    "physical_nodes": 1,
+    "pids_limit": 256
+  },
+  "review_date": "2026-09-24",
+  "reviewed_public_commit": "2a329a86ed391cd6f3478c8f3cba3e35c853888a",
+  "runs": [
+    {
+      "actor_runtime": {
+        "file_count": 842,
+        "tree_sha256": "5769b2928bfabf72c4ede58d06c8cb5876f8234a7088e4b3f401c5dfa6525860"
+      },
+      "candidate_sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+      "comparison_counts": {
+        "actions_exact": 20,
+        "all_metrics_exact": 20,
+        "completion_exact": 20,
+        "overrides_exact": 20,
+        "steps_exact": 20,
+        "trace_exact": 20
+      },
+      "label": "reference",
+      "native_source_sha256": {
+        "actor_bootstrap.py": "39daeed8fe3f53ea8b6d369ac0ef47010840b4cff97799d74eda22340a01d03b",
+        "engine.py": "5c7671176b270d9961bcf49434e0938fe02fa00f480b2c167994db07a39f571b",
+        "engine_entry.py": "b3c6c1fdc60dc089ee18d62b061f5a5b5def2784e4149bdbfa6a2739b60efc15",
+        "probe.py": "c86fd629aad09c24d36270cc05789c3e4565bdb9218bec3d0fb9905594399d3a",
+        "run.py": "39150b1336a86643cba3011cb57587e773dd9b99dba7b05427dc12e3d4a77d27",
+        "runtime_support.py": "e6115a7fc82019b72b0c09f263c6211465db7765aa80f6fb55f45f8d24341f77",
+        "sandbox.py": "3811e4d0c5fe7a74b788203b2012469ff8db599ff8656ab16974baeea12ebf79"
+      },
+      "original_runner_sha256": {
+        "CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+        "controller_driver.py": "271ba4dfe32ad3f438504ffd140f36d878640a70f35547ba542a4e3be7a5d7ff",
+        "engine.py": "9baff4b2dc76e5d19fa7040685cf2b97799e32f0222b70fce5c28b7141c1aabf",
+        "feedback.py": "6ca4fc45d27e4268f25cab9817efb991af4989685c5fd342c78ab8e008d580b2",
+        "launcher.py": "8323c14512e3b7e7b5dbb7b2465dee35c1b01ed8df378e5e5b9a1c1b0891331a",
+        "wire.py": "309f08f6aabf2122ccf2229300862c643d21ea65a05d9f6e9ed6cf0bdbb9e2de"
+      },
+      "primary_score_fraction": 0.18522013239562513,
+      "raw_result_sha256": "4b04c9f401549566bda36eec82c38ad2b5bf398adf40c7b7902fda4e8e309794",
+      "status": "scored",
+      "total_worlds": 20,
+      "valid_worlds": 20,
+      "wall_seconds": 125.29203872400103,
+      "worlds": [
+        {
+          "action_count": 2589,
+          "native_communication_actions": 16,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 9999
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 863,
+          "trace_sha256": "5cd3f6d0059201a13c831bb2313d1db8239a191864f155ff2c9d4d0d200461bf",
+          "world_id": 9999
+        },
+        {
+          "action_count": 1077,
+          "native_communication_actions": 36,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10000
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.22012577950954437,
+          "status": "scored",
+          "steps": 359,
+          "trace_sha256": "585d7dba2b268755a36f1d15cc200476334f91781ee20cf23b1e12fc46a247f0",
+          "world_id": 10000
+        },
+        {
+          "action_count": 1593,
+          "native_communication_actions": 23,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10001
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 531,
+          "trace_sha256": "f7bc26bebd9f3a0bcd55eef75b1c2a61186d97edbc1064554c751b4652dbfff3",
+          "world_id": 10001
+        },
+        {
+          "action_count": 1392,
+          "native_communication_actions": 23,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10002
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.2012578696012497,
+          "status": "scored",
+          "steps": 464,
+          "trace_sha256": "4b3f0260ce2e4d00d024bc9b69f68e83f9379920b2742d7a0e80da40e3f03228",
+          "world_id": 10002
+        },
+        {
+          "action_count": 1248,
+          "native_communication_actions": 81,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10003
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 416,
+          "trace_sha256": "24c6ac0019a362fb32466da9e330885796de38d62415d81be41857bc0c5e7358",
+          "world_id": 10003
+        },
+        {
+          "action_count": 1677,
+          "native_communication_actions": 22,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10004
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 559,
+          "trace_sha256": "e87d8c65f6a76d7effa2d7e4cd6d2ccab9516122b850cf983efd9d987d176697",
+          "world_id": 10004
+        },
+        {
+          "action_count": 1332,
+          "native_communication_actions": 2,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10005
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.069182388484478,
+          "status": "scored",
+          "steps": 444,
+          "trace_sha256": "958f6fd8ccde95ef8a0c62d4a72846ee5f93ebad2916f7fb864d639a602e8ace",
+          "world_id": 10005
+        },
+        {
+          "action_count": 1080,
+          "native_communication_actions": 6,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10006
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.1949685513973236,
+          "status": "scored",
+          "steps": 360,
+          "trace_sha256": "eab6d6882cb436b5611bbf6b601364df3284bf1ad90823659ce9d875de5450b0",
+          "world_id": 10006
+        },
+        {
+          "action_count": 1452,
+          "native_communication_actions": 18,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10007
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 484,
+          "trace_sha256": "48e5ac6d98c718d72ebfcc93128dc45a067223f334c91d16d618605b6ecb7e0c",
+          "world_id": 10007
+        },
+        {
+          "action_count": 738,
+          "native_communication_actions": 1,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10008
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.1320754736661911,
+          "status": "scored",
+          "steps": 246,
+          "trace_sha256": "26160bc1bf8ced0d5b12f2bf4fa752f22e27e1673599ed07fe01b1c2de09aff9",
+          "world_id": 10008
+        },
+        {
+          "action_count": 1296,
+          "native_communication_actions": 18,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10009
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.28301888704299927,
+          "status": "scored",
+          "steps": 432,
+          "trace_sha256": "d22718f2587ba7c40f77179f015fca0b8ae255b4a4e0edbad7d403d94da85959",
+          "world_id": 10009
+        },
+        {
+          "action_count": 906,
+          "native_communication_actions": 11,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10010
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 302,
+          "trace_sha256": "dffabe791b43e75ad124f06fb58fd69bfbed52799b79e0a60fdc054da1be7538",
+          "world_id": 10010
+        },
+        {
+          "action_count": 972,
+          "native_communication_actions": 34,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10011
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.16352203488349915,
+          "status": "scored",
+          "steps": 324,
+          "trace_sha256": "b7b9c289851b23f8f6fd4573839fd149abe2d8a4d99b5adf3787000641ba4e69",
+          "world_id": 10011
+        },
+        {
+          "action_count": 1128,
+          "native_communication_actions": 13,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10012
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.16352203488349915,
+          "status": "scored",
+          "steps": 376,
+          "trace_sha256": "e684b2cb00fe4308228d26a984b352c4dbaf19d2f02657326559a96ec5df56eb",
+          "world_id": 10012
+        },
+        {
+          "action_count": 1272,
+          "native_communication_actions": 17,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10013
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 424,
+          "trace_sha256": "98d60d251c8248c659776b35873cd62a3d3ecf4ee81b44785b9deefe9591a065",
+          "world_id": 10013
+        },
+        {
+          "action_count": 1053,
+          "native_communication_actions": 8,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10014
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.24528303742408752,
+          "status": "scored",
+          "steps": 351,
+          "trace_sha256": "4fe1e4bb122ad2b77c6d1d2ec79dfa6b679ee6a0b80144e2d7c6c7b52fd568c3",
+          "world_id": 10014
+        },
+        {
+          "action_count": 1776,
+          "native_communication_actions": 16,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10015
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.22012577950954437,
+          "status": "scored",
+          "steps": 592,
+          "trace_sha256": "98231448cbfa3c1e92b7c61857699874ee9212e4832d7c669e5cd45670bfc161",
+          "world_id": 10015
+        },
+        {
+          "action_count": 1005,
+          "native_communication_actions": 18,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10016
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 335,
+          "trace_sha256": "91f19772a69bf53eea91d5952dff62ab427246d6edfa97fdb21e260aaf9fb45a",
+          "world_id": 10016
+        },
+        {
+          "action_count": 837,
+          "native_communication_actions": 10,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10017
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.2012578696012497,
+          "status": "scored",
+          "steps": 279,
+          "trace_sha256": "c09d95e3ba87a5536590652618734dd2e60ac981f8e2a80c8a6e33fec64a3880",
+          "world_id": 10017
+        },
+        {
+          "action_count": 1044,
+          "native_communication_actions": 13,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10018
+          },
+          "overrides": 0,
+          "primary_reward_fraction": 0.08805032074451447,
+          "status": "scored",
+          "steps": 348,
+          "trace_sha256": "1fef6b90c5c89e5eed99ae34ab5ca23bf61e50ee7813497019467df9b4b6db69",
+          "world_id": 10018
+        }
+      ]
+    },
+    {
+      "actor_runtime": {
+        "file_count": 842,
+        "tree_sha256": "5769b2928bfabf72c4ede58d06c8cb5876f8234a7088e4b3f401c5dfa6525860"
+      },
+      "candidate_sha256": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+      "comparison_counts": {
+        "actions_exact": 20,
+        "all_metrics_exact": 20,
+        "completion_exact": 20,
+        "overrides_exact": 20,
+        "steps_exact": 20,
+        "trace_exact": 20
+      },
+      "label": "sol_final",
+      "native_source_sha256": {
+        "actor_bootstrap.py": "39daeed8fe3f53ea8b6d369ac0ef47010840b4cff97799d74eda22340a01d03b",
+        "engine.py": "5c7671176b270d9961bcf49434e0938fe02fa00f480b2c167994db07a39f571b",
+        "engine_entry.py": "b3c6c1fdc60dc089ee18d62b061f5a5b5def2784e4149bdbfa6a2739b60efc15",
+        "probe.py": "c86fd629aad09c24d36270cc05789c3e4565bdb9218bec3d0fb9905594399d3a",
+        "run.py": "39150b1336a86643cba3011cb57587e773dd9b99dba7b05427dc12e3d4a77d27",
+        "runtime_support.py": "e6115a7fc82019b72b0c09f263c6211465db7765aa80f6fb55f45f8d24341f77",
+        "sandbox.py": "3811e4d0c5fe7a74b788203b2012469ff8db599ff8656ab16974baeea12ebf79"
+      },
+      "original_runner_sha256": {
+        "CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+        "controller_driver.py": "271ba4dfe32ad3f438504ffd140f36d878640a70f35547ba542a4e3be7a5d7ff",
+        "engine.py": "9baff4b2dc76e5d19fa7040685cf2b97799e32f0222b70fce5c28b7141c1aabf",
+        "feedback.py": "6ca4fc45d27e4268f25cab9817efb991af4989685c5fd342c78ab8e008d580b2",
+        "launcher.py": "8323c14512e3b7e7b5dbb7b2465dee35c1b01ed8df378e5e5b9a1c1b0891331a",
+        "wire.py": "309f08f6aabf2122ccf2229300862c643d21ea65a05d9f6e9ed6cf0bdbb9e2de"
+      },
+      "primary_score_fraction": 0.19465409219264984,
+      "raw_result_sha256": "14f4526ac6aef9e4bb0505f3f8018389ac08297bdd4648c5450022c1b6322d11",
+      "status": "scored",
+      "total_worlds": 20,
+      "valid_worlds": 20,
+      "wall_seconds": 128.67584639100096,
+      "worlds": [
+        {
+          "action_count": 1227,
+          "native_communication_actions": 23,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 9999
+          },
+          "overrides": 22,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 409,
+          "trace_sha256": "7da97a9b2f45528c582abe5d4c849350a30a304de3ec44242a2900f3db809d24",
+          "world_id": 9999
+        },
+        {
+          "action_count": 1389,
+          "native_communication_actions": 20,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10000
+          },
+          "overrides": 124,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 463,
+          "trace_sha256": "2bf118f938ab72555eeb87df44d8c3fa85b3a191d98ce1aad20c45cdad2b72e8",
+          "world_id": 10000
+        },
+        {
+          "action_count": 855,
+          "native_communication_actions": 32,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10001
+          },
+          "overrides": 34,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 285,
+          "trace_sha256": "70efd522988e96905132e55e9dd6ebc94114edea18c80bf9352179c2502918ca",
+          "world_id": 10001
+        },
+        {
+          "action_count": 1014,
+          "native_communication_actions": 24,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10002
+          },
+          "overrides": 27,
+          "primary_reward_fraction": 0.15723270177841187,
+          "status": "scored",
+          "steps": 338,
+          "trace_sha256": "7dff44c1b48760391509d68d027728466f33b8d85e4f71b6700bc1006c5df273",
+          "world_id": 10002
+        },
+        {
+          "action_count": 810,
+          "native_communication_actions": 41,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10003
+          },
+          "overrides": 45,
+          "primary_reward_fraction": 0.16352203488349915,
+          "status": "scored",
+          "steps": 270,
+          "trace_sha256": "e9ff942f158fe49eec9de8ee1444821f731d6398d43fbd3692df47cea8d4fae2",
+          "world_id": 10003
+        },
+        {
+          "action_count": 1728,
+          "native_communication_actions": 61,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10004
+          },
+          "overrides": 44,
+          "primary_reward_fraction": 0.2515723407268524,
+          "status": "scored",
+          "steps": 576,
+          "trace_sha256": "52b6d2e49151cae5e0bce203242cf82a8b63ac0cb74cf3abd40e1622df975a4f",
+          "world_id": 10004
+        },
+        {
+          "action_count": 1014,
+          "native_communication_actions": 25,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10005
+          },
+          "overrides": 20,
+          "primary_reward_fraction": 0.15094339847564697,
+          "status": "scored",
+          "steps": 338,
+          "trace_sha256": "142e10e8f6a82253b09a8e42d0b13dea431a0ccf2a81a365d32fcb72b4abcd89",
+          "world_id": 10005
+        },
+        {
+          "action_count": 1446,
+          "native_communication_actions": 25,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10006
+          },
+          "overrides": 26,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 482,
+          "trace_sha256": "37f92e01a8e598cbf4fd5e0b9e56b018493a8d6250732e408ba8de915c1fc1b5",
+          "world_id": 10006
+        },
+        {
+          "action_count": 1356,
+          "native_communication_actions": 37,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10007
+          },
+          "overrides": 52,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 452,
+          "trace_sha256": "69562f097c5a5bacb15d351bd9c2f5ef5697a8cf4e27ce7333721aff06f597ac",
+          "world_id": 10007
+        },
+        {
+          "action_count": 1920,
+          "native_communication_actions": 33,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10008
+          },
+          "overrides": 24,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 640,
+          "trace_sha256": "a856710ab87b6524263bdc3b0eeee0bbffd97ef9397159493d25d29d4f01c0f7",
+          "world_id": 10008
+        },
+        {
+          "action_count": 1269,
+          "native_communication_actions": 50,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10009
+          },
+          "overrides": 48,
+          "primary_reward_fraction": 0.2641509473323822,
+          "status": "scored",
+          "steps": 423,
+          "trace_sha256": "54f40954e53ebce5e8b3c84398857d443cf5f2b5e12697f1a23c1557665ae3c3",
+          "world_id": 10009
+        },
+        {
+          "action_count": 5232,
+          "native_communication_actions": 151,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10010
+          },
+          "overrides": 28,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 1744,
+          "trace_sha256": "6728b751bdf9018cc77c74547d9b692ed677887743c696db9ee6ebf761e44ccb",
+          "world_id": 10010
+        },
+        {
+          "action_count": 990,
+          "native_communication_actions": 39,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10011
+          },
+          "overrides": 73,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 330,
+          "trace_sha256": "71688336703950524e3996ee141911cda6445d02a585c4dd397f426527df9571",
+          "world_id": 10011
+        },
+        {
+          "action_count": 1704,
+          "native_communication_actions": 41,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10012
+          },
+          "overrides": 21,
+          "primary_reward_fraction": 0.16352203488349915,
+          "status": "scored",
+          "steps": 568,
+          "trace_sha256": "90b6da0064c2702d601bca2f26e84c5fee82cd5b23c996c60ebe945344990a6d",
+          "world_id": 10012
+        },
+        {
+          "action_count": 1320,
+          "native_communication_actions": 59,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10013
+          },
+          "overrides": 46,
+          "primary_reward_fraction": 0.2012578696012497,
+          "status": "scored",
+          "steps": 440,
+          "trace_sha256": "54315214a96a7c8b3e71d83c6895a71d7317d1d9564c9f49a72cba191d615f8f",
+          "world_id": 10013
+        },
+        {
+          "action_count": 1227,
+          "native_communication_actions": 45,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10014
+          },
+          "overrides": 44,
+          "primary_reward_fraction": 0.21383647620677948,
+          "status": "scored",
+          "steps": 409,
+          "trace_sha256": "d940b300f3a63cf387a49399afbacd0a835264139bb6ceb93a317ba0088cab37",
+          "world_id": 10014
+        },
+        {
+          "action_count": 966,
+          "native_communication_actions": 44,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10015
+          },
+          "overrides": 45,
+          "primary_reward_fraction": 0.18238994479179382,
+          "status": "scored",
+          "steps": 322,
+          "trace_sha256": "d65854cf7bda380078467ff85cd2a716445ed8c044505372b80f42efc43b9038",
+          "world_id": 10015
+        },
+        {
+          "action_count": 1083,
+          "native_communication_actions": 25,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10016
+          },
+          "overrides": 199,
+          "primary_reward_fraction": 0.15723270177841187,
+          "status": "scored",
+          "steps": 361,
+          "trace_sha256": "d7e89388ea46245d649c90ba15da136d5f998af05f917cbe02975d1a864d649d",
+          "world_id": 10016
+        },
+        {
+          "action_count": 1149,
+          "native_communication_actions": 56,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10017
+          },
+          "overrides": 59,
+          "primary_reward_fraction": 0.23270440101623535,
+          "status": "scored",
+          "steps": 383,
+          "trace_sha256": "7428ec21f55a1867bb38bf8b403e3f7bd4da8ac7c898d1413f509c6f1e9ada28",
+          "world_id": 10017
+        },
+        {
+          "action_count": 1014,
+          "native_communication_actions": 41,
+          "naturally_terminated": true,
+          "original_comparison": {
+            "actions_exact": true,
+            "all_metrics_exact": true,
+            "completion_exact": true,
+            "native_status": "scored",
+            "overrides_exact": true,
+            "steps_exact": true,
+            "trace_exact": true,
+            "world_id": 10018
+          },
+          "overrides": 28,
+          "primary_reward_fraction": 0.138364776968956,
+          "status": "scored",
+          "steps": 338,
+          "trace_sha256": "06ec13753cc4c2de82c9837031d5656c9e53ce4ad430ae05def49e991681bfe8",
+          "world_id": 10018
+        }
+      ]
+    }
+  ],
+  "same_container": true,
+  "schema_version": 1,
+  "scope": "post-audit deployment validation; no model calls or changed candidates",
+  "sequence_driver_sha256": "c992feb699958667db9bf6eb671fada7e7a3e7c53b766c52daa3995631e9d065",
+  "source_revision": "14d412e5ee961f9c43d6ce92ee05fee9cd1efc5e",
+  "staged_manifest_sha256": "7ddbc7bdd4b4a9fa321a48f9c7b31b22058fcb0a9e4bb0b4604b5bb6213224c5",
+  "tests": {
+    "baseline_passed": 6,
+    "controller_legacy_docker_probe_skipped": 1,
+    "controller_passed": 13,
+    "exporter_passed": 19,
+    "native_passed": 13,
+    "pilot_passed": 10,
+    "python": "3.12.14",
+    "total_passed": 61
+  },
+  "total_outer_seconds": 255.693134416
+}

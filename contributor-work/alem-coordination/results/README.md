@@ -103,7 +103,11 @@ The independent exporter verifies the frozen commit and source hashes,
 declared packet, baseline, exact candidate bytes, source/checkpoint manifests,
 runtime images, all prescribed outcomes and reward aggregation. It retains
 invalid/infrastructure/incomplete outcomes as unscored, never as zero or a
-dropped world. Eleven offline exporter tests pass.
+dropped world. Nineteen offline exporter tests pass. The final audit added
+regressions for missing development results, invalid development provenance,
+extra calls and their token usage, missing candidate sources, and inconsistent
+reported token totals. Re-exporting the original three arms with these stricter
+checks produces byte-identical published artifacts.
 
 ## Single-container deployment validation
 
@@ -111,7 +115,7 @@ The original study used isolated Docker workers. The submission route uses
 three private actor processes inside one ordinary Linux container, without
 nested Docker or a host socket. Its unchanged pass-through reproduced all
 20 complete state/latent/action trace hashes, rewards and episode lengths in
-145.39 s. Exactly one deployment replay of Sol's unchanged final artifact also
+145.39 s. The original deployment replay of Sol's unchanged final artifact also
 matched all 20 original traces, rewards and action counts, in 130.38 s.
 Both used four CPUs, a 16 GiB memory cap and zero GPUs.
 
@@ -122,6 +126,13 @@ The final route's filesystem permits one fixed private scratch file rather
 than a general writable temporary directory. Arbitrary controller equivalence
 and x86_64 kernel execution are not claimed. Full Harbor/RSI-Harness validation
 remains a downstream stage.
+
+A later [pre-submission audit](../AUDIT.md) corrected native import isolation
+and repeat-run staging. The corrected runtime reproduced both complete
+20-world evaluations consecutively in one minimal container: reference
+125.29 s, unchanged Sol 128.68 s, with all 40 traces and metrics exact. These
+new deployment checks leave the original researcher records unchanged; see the
+[separate audit evidence](../native/evidence/post-audit-validation.json).
 
 ## Prepared open-model comparison
 

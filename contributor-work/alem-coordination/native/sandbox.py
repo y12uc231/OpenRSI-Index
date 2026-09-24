@@ -56,4 +56,8 @@ def actor_root(template, destination, candidate, actor):
     (destination / "dev/null").chmod(0o666)
     cpus = sorted(os.sched_getaffinity(0))
     cpu = cpus[-3:][actor % len(cpus[-3:])]
-    return [sys.executable, "-B", "-S", str(ROOT / "actor_bootstrap.py"), str(destination), str(uid), str(cpu)]
+    # -I would ignore PYTHONHASHSEED and change arbitrary controller semantics.
+    # Start with an empty environment, fixed seed, no site, and safe import path.
+    return ["/usr/bin/env", "-i", "PYTHONHASHSEED=0", "PYTHONDONTWRITEBYTECODE=1",
+            sys.executable, "-P", "-B", "-S", str(ROOT / "actor_bootstrap.py"),
+            str(destination), str(uid), str(cpu)]

@@ -185,6 +185,31 @@ def export(run, repo, output):
     baseline_ok = (summary.get('matched_baseline_sha256') == study['matched_baseline_result_sha256'] and close(summary.get('matched_baseline_primary_score'), study['matched_baseline_score']))
     files, generations, combined_usage = {}, [], collections.Counter()
     audits = []
+    inventories = {}
+    for prefix in ('call', 'check', 'candidate'):
+        expected = {f'{prefix}-{index:02d}' for index in range(3)}
+        entries = {path.name: path for path in run.iterdir() if path.name.startswith(prefix + '-')}
+        inventories[prefix] = entries
+        if set(entries) != expected or any(not path.is_dir() or path.is_symlink() for path in entries.values()):
+            audits.append(prefix + '_directory_inventory_mismatch')
+    extra_calls, extra_usage = [], collections.Counter()
+    for name in sorted(set(inventories['call']) - {'call-00', 'call-01', 'call-02'}):
+        # Only metadata is read. Never execute or open an extra call's prompts,
+        # events, notes or controller, and never publish arbitrary path names.
+        extra = {'call': name if re.fullmatch(r'call-[0-9]{2,6}', name) else 'other_call_entry'}
+        if reader.exists(name + '/metadata.json'):
+            try:
+                extra['inference'] = metadata(reader.obj(name + '/metadata.json'), requested)
+                for record in extra['inference']['usage']:
+                    extra_usage.update(record)
+                if not extra['inference']['complete_call_evidence']:
+                    extra['diagnostic_code'] = 'incomplete_extra_call_evidence'
+            except (OSError, ValueError, TypeError, AttributeError):
+                extra['diagnostic_code'] = 'unreadable_extra_call_metadata'
+        else:
+            extra['diagnostic_code'] = 'missing_extra_call_metadata'
+        extra_calls.append(extra)
+    combined_usage.update(extra_usage)
     for index in range(3):
         c = f'call-{index:02d}'
         row = {'generation': index + 1, 'attempted': (run / c).is_dir(), 'artifact_available': False}
@@ -200,13 +225,17 @@ def export(run, repo, output):
                 files[name] = raw
                 row.update(artifact_available=True, controller_file=name, controller_sha256=sha(raw), controller_bytes=len(raw))
                 artifact = f'candidate-{index:02d}/controller.py'
-                if reader.exists(artifact) and reader.raw(artifact) != raw: audits.append('generation_source_mismatch_' + str(index + 1))
+                if not reader.exists(artifact): audits.append('missing_candidate_source_' + str(index + 1))
+                elif reader.raw(artifact) != raw: audits.append('generation_source_mismatch_' + str(index + 1))
                 check = f'check-{index:02d}/result.json'
                 if reader.exists(check):
                     result, fb = sanitize_result(reader.obj(check), 'evaluation' if index == 2 else 'dev', sha(raw), frozen)
                     result['source_result_sha256'] = reader.reads[check]
                     row['aggregate_feedback'] = fb
                     row['audit_problems'] = result['audit_problems']
+                    audits.extend('generation_' + str(index + 1) + '_' + problem for problem in result['audit_problems'])
+                    if not fb['provenance_verified']:
+                        audits.append('unverified_check_provenance_' + str(index + 1))
                     if reader.exists(f'check-{index:02d}/operator.json'):
                         operator = reader.obj(f'check-{index:02d}/operator.json')
                         row['operator'] = {k: number(operator.get(k)) for k in ('return_code', 'queue_seconds', 'seconds')}
@@ -214,7 +243,9 @@ def export(run, repo, output):
                     else: audits.append('missing_check_operator_' + str(index + 1))
                     if index == 2:
                         files['final-evaluation.json'] = json_bytes(result)
-                elif (run / f'check-{index:02d}').exists(): row['check_status'] = 'result_missing_unscored'
+                else:
+                    row['check_status'] = 'result_missing_unscored'
+                    audits.append('missing_check_result_' + str(index + 1))
         generations.append(row)
     if summary.get('status') != 'completed': audits.append('incomplete_researcher_run')
     if not all(g['artifact_available'] for g in generations): audits.append('missing_generation_artifact')
@@ -229,7 +260,10 @@ def export(run, repo, output):
     if summary.get('final_candidate_sha256') != generations[2].get('controller_sha256'): audits.append('final_artifact_hash_mismatch')
     if score is not None and not close(score, summary.get('final_evaluation', {}).get('primary_score')): audits.append('pilot_final_score_mismatch')
     expected_usage = {k: v for k, v in summary.get('known_usage', {}).items() if k in TOKENS}
-    usage_ok = summary.get('usage_complete') is True and dict(combined_usage) == expected_usage and summary.get('calls_attempted') == 3 and summary.get('calls_completed') == 3
+    usage_ok = (summary.get('usage_complete') is True and dict(combined_usage) == expected_usage
+                and summary.get('calls_attempted') == 3 and summary.get('calls_completed') == 3
+                and 'call_directory_inventory_mismatch' not in audits
+                and summary.get('total_input_plus_output_tokens') == combined_usage['input_tokens'] + combined_usage['output_tokens'])
     if not usage_ok: audits.append('incomplete_or_inconsistent_usage')
     if audits:
         score = None
@@ -254,6 +288,10 @@ def export(run, repo, output):
               'generations': generations, 'source_sha256': sources, 'packet_manifest': packet,
               'raw_summary_sha256': reader.reads['summary.json'],
               'limitations': ['One attempt per alias; no model population or variance claim', 'A three-call tool-free pilot is not a full 24-hour OpenRSI trial', 'Reward fractions are not pass rates and natural termination is not success', 'Public canonical evaluation worlds are not secret heldout data', 'No immutable researcher model-server snapshot is exposed', 'Exact generated code is preserved; prompts, reasoning, notes and private logs are excluded']}
+    if extra_calls:
+        public['unexpected_calls'] = extra_calls
+        public['known_extra_usage'] = dict(extra_usage)
+        public['known_input_plus_output_tokens_including_extra_calls'] = combined_usage['input_tokens'] + combined_usage['output_tokens']
     files['summary.json'] = json_bytes(public)
     files['README.md'] = b'# Public researcher pilot evidence\n\nExact controller source is retained for every available generation. Only aggregate development feedback is exported. Final results retain every evaluation world, including invalid or infrastructure outcomes. Model reasoning, implementation notes, prompts, private paths, and logs are excluded. Do not execute generated source on the host.\n'
     for raw in files.values():

@@ -1,20 +1,29 @@
 """Trusted native sandbox probes only; no model execution or downloads."""
+import sys
+if __name__ == "__main__" and not sys.flags.isolated:
+    raise SystemExit("native probe requires python -I -B")
 import base64
+import importlib.util
 import json
 import os
 from pathlib import Path
 import struct
-import sys
+import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT.parent / "controller"))
-from launcher import FrameProcess
-from sandbox import actor_root, copy_runtime
+_spec = importlib.util.spec_from_file_location("alem_native_support", ROOT / "runtime_support.py")
+_support = importlib.util.module_from_spec(_spec)
+exec(compile((ROOT / "runtime_support.py").read_bytes(), str(ROOT / "runtime_support.py"), "exec"), _support.__dict__)
+wire, feedback, launcher, sandbox = _support.task_modules(ROOT)
+FrameProcess = launcher.FrameProcess
+actor_root, copy_runtime = sandbox.actor_root, sandbox.copy_runtime
 
 PROBE = '''import os, socket, random, subprocess, ctypes, errno, platform, sys
 counter = 0
 def initialize(agent_id, schema):
+    assert sys.flags.safe_path and sys.flags.no_site and not sys.flags.hash_randomization
+    assert hash('alem-native-fixed-text') == schema['expected_fixed_hash']
     assert os.geteuid() == 10001 + agent_id
     assert len(os.sched_getaffinity(0)) == 1
     try: os.sched_setaffinity(0, os.sched_getaffinity(0))
@@ -67,6 +76,9 @@ def act(local, memory):
 
 def main():
     os.environ["PYTHONHASHSEED"] = "0"
+    expected_hash = int(subprocess.check_output(
+        ["/usr/bin/env", "-i", "PYTHONHASHSEED=0", sys.executable, "-B", "-c",
+         "print(hash('alem-native-fixed-text'))"], text=True, timeout=10))
     with tempfile.TemporaryDirectory(prefix="alem-native-probe-", dir="/var/lib") as temporary:
         root = Path(temporary)
         source = root / "candidate"
@@ -80,7 +92,7 @@ def main():
                 command = actor_root(template, root / ("actor-" + str(index)), source, actor)
                 worker = FrameProcess(command, root / ("stderr-" + str(index)))
                 workers.append(worker)
-                worker.send({"kind": "initialize", "agent_id": actor, "schema": {}})
+                worker.send({"kind": "initialize", "agent_id": actor, "schema": {"expected_fixed_hash": expected_hash}})
                 try:
                     response = worker.recv()
                 except Exception:
@@ -97,7 +109,7 @@ def main():
         finally:
             for worker in workers:
                 worker.close()
-        print(json.dumps({"status":"passed","fresh_actor_processes":4,"callbacks":8,"network_families_denied":["INET","INET6","UNIX"],"fork_exec_denied":True,"posix_sysv_ipc_denied":True,"affinity_change_denied":True,"no_world_id_in_frames":True,"private_chroot_and_tmp":True,"single_scratch_file_limit_bytes":16777216,"llm_calls":0,"policy_forward_calls":0,"python":sys.version.split()[0]}))
+        print(json.dumps({"status":"passed","fresh_actor_processes":4,"callbacks":8,"network_families_denied":["INET","INET6","UNIX"],"fork_exec_denied":True,"posix_sysv_ipc_denied":True,"affinity_change_denied":True,"no_world_id_in_frames":True,"private_chroot_and_tmp":True,"single_scratch_file_limit_bytes":16777216,"safe_actor_startup_preserves_hashseed0":True,"fixed_text_hash":expected_hash,"llm_calls":0,"policy_forward_calls":0,"python":sys.version.split()[0]}))
 
 
 if __name__ == "__main__":

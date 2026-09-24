@@ -1,5 +1,13 @@
 # Native deployment validation
 
+**Current corrected runtime:** see [post-audit-validation.json](post-audit-validation.json)
+and the [audit report](../../AUDIT.md). The original records below retain their
+original source identities. After import/staging corrections, a fresh minimal
+container passed the kernel probe and then ran reference plus unchanged Sol
+consecutively: all 40 original trajectory hashes, metrics, steps, actions,
+overrides and completion states match exactly. Invocation times were 125.29 s
+and 128.68 s; the full sequence took 255.69 s. No model calls or retries occurred.
+
 The final native pass-through run scored all 20 declared worlds and reproduced all 20 frozen Docker baseline state/latent/action trace hashes exactly. The mean native coordination reward fraction is **0.18522013239562513** (18.5220% of the native normalized maximum). This is a baseline reward, not an accuracy or successful-episode rate.
 
 The final run took **145.39 seconds** including container startup, source verification, compilation and all episodes, on one ordinary container capped at **4 CPUs / 16 GiB**, with network disabled and no added capabilities. It executed 8,489 joint steps, 25,467 actor callbacks, 386 native communication actions and zero overrides. There were no LLM calls or training steps.

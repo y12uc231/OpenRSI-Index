@@ -41,7 +41,7 @@ coordination reward** across all 20 evaluation worlds in **278.79 seconds**,
 with zero overrides and verified provenance. This is the baseline for controller
 improvement. It is not an LLM score or a task success rate.
 
-The final native deployment reproduced **all 20 complete state/action/latent
+The original native deployment reproduced **all 20 complete state/action/latent
 trace hashes**, every reward and every episode length in **145.39 seconds** on
 four CPUs with a 16 GiB memory cap. This establishes a concrete execution route
 for the current single-container Harness. See [all deployment attempts and
@@ -67,9 +67,16 @@ difficulty or a general model ranking. The results directory includes exact
 generated code, costs, per-world data, and later CPU-only planning evidence
 for the prepared Qwen comparison lane; no Qwen inference was performed.
 
+The subsequent [pre-submission audit](AUDIT.md) fixed evaluator import isolation,
+repeat-run staging and evidence-accounting defects. The corrected runtime
+passed a fresh kernel probe and reproduced **all 40 original trajectories**
+for reference and Sol, run consecutively in one container in **255.69 seconds**.
+All 61 applicable offline checks pass. The original pilot and historical
+measurements remain unchanged.
+
 ## Reproduce the single-container evaluation
 
-From this directory, with host Python 3.11+, Docker and one CPU node:
+From this directory, with host Python 3.11+, Git, Docker and one CPU node:
 
 ```sh
 python3 baseline/acquire.py
@@ -77,13 +84,17 @@ python3 baseline/build.py
 alem_image_id=$(docker image inspect --format '{{.Id}}' openrsi-alem-native20:portable)
 alem_task_dir="$PWD"
 mkdir -p baseline/.work/results/native-reference-001
-docker run --rm --network none --cpus 4 --memory 16g --cap-drop NET_RAW \
-  --user 0 --env PYTHONDONTWRITEBYTECODE=1 \
+docker run --rm --network none --cpus 4 --memory 16g --pids-limit 256 \
+  --cap-drop NET_RAW --user 0 \
+  --env PYTHONHASHSEED=0 --env PYTHONDONTWRITEBYTECODE=1 \
+  --env JAX_PLATFORM_NAME=cpu --env WANDB_MODE=disabled \
+  --env MPLCONFIGDIR=/tmp/matplotlib --env XDG_CACHE_HOME=/tmp/cache \
+  --env OMP_NUM_THREADS=4 \
   --mount "type=bind,src=$alem_task_dir/baseline/.work/source,dst=/app,readonly" \
   --mount "type=bind,src=$alem_task_dir/baseline/.work/assets,dst=/assets,readonly" \
   --mount "type=bind,src=$alem_task_dir,dst=/task,readonly" \
   --mount "type=bind,src=$alem_task_dir/baseline/.work/results/native-reference-001,dst=/results" \
-  "$alem_image_id" python -B /task/native/run.py \
+  "$alem_image_id" python -I -B /task/native/run.py \
   --candidate /task/controller/reference --suite evaluation --output /results
 ```
 

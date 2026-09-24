@@ -24,8 +24,7 @@ def main():
         worlds=list(range(20000,20004)) if args.suite=='dev' else list(range(9999,10019))
         if args.proof_first_world: worlds=worlds[:1]
         started=time.monotonic();steps_limit=10000;world_id=worlds[0]
-        shutil.copytree('/app/alem','/tmp/alem')
-        sys.path[:0]=['/tmp','/app/baselines']
+        # engine_entry stages verified source in a fresh private import root.
         import jax,jax.numpy as jnp,numpy as np,yaml,distrax
         import utils,ippo_hypermarl_rnn as trainer
         from alem.alem_coop.alem_state import StaticEnvParams
