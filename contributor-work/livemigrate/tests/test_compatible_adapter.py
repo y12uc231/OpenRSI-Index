@@ -31,7 +31,7 @@ class AdapterTests(unittest.TestCase):
             return {'data': [{'id': self.profile['served_model_name']}]}
         if path == '/tokenize':
             self.assertTrue(payload['chat_template_kwargs']['enable_thinking'])
-            return {'count': 2, 'tokens': [11, 22], 'max_model_len': 32768}
+            return {'count': 2, 'tokens': [11, 22], 'max_model_len': self.profile['max_model_len']}
         self.assertEqual(path, '/v1/chat/completions')
         self.assertTrue(payload['return_token_ids'])
         self.assertNotIn('metadata_path', payload)

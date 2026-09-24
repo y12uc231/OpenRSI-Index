@@ -1,4 +1,4 @@
-"""Direct evaluation of a declarative artifact on a frozen two-family worker lane.
+"""Direct evaluation of a declarative artifact on a frozen three-family worker lane.
 
 The GPU lane is prepared, not hardware-validated. This trusted controller fixes
 models, workload, resource caps and feedback; scaffold.json cannot change them.
@@ -9,15 +9,19 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-FAMILIES = (('amounts', '.'), ('identity', 'families/identity'))
+FAMILIES = (('amounts', '.'), ('identity', 'families/identity'),
+            ('reservation', 'families/reservation'))
 CALLS = tuple('call-%02d' % i for i in range(6))
 SOURCE_AREAS = ('.', 'compute', 'pilot', 'research', 'reference', 'starter', 'tests',
                 'families/identity', 'families/identity/reference',
-                'families/identity/starter', 'families/identity/tests')
+                'families/identity/starter', 'families/identity/tests',
+                'families/reservation', 'families/reservation/reference',
+                'families/reservation/starter', 'families/reservation/tests')
 SOURCE_SUFFIXES = {'.py', '.md', '.json'}
 TOKEN_FIELDS = ('input_tokens', 'output_tokens', 'total_tokens', 'cached_input_tokens',
                 'cache_write_input_tokens', 'reasoning_output_tokens')
@@ -178,6 +182,31 @@ def audit_usage(directory, profile):
             'reasoning_output_is_subset_not_added_again': True}
 
 
+def bounded_feedback(cases):
+    """Keep actionable categories, never final scenario IDs, inputs or answers."""
+    categories, histories = {}, {}
+    if not isinstance(cases, list):
+        return {'violation_categories': {}, 'history_outcomes': {}}
+    for case in cases[:3]:
+        if not isinstance(case, dict):
+            continue
+        for component in ('static', 'trace'):
+            outcome = case.get(component, {})
+            items = outcome.get('violations', []) if isinstance(outcome, dict) else []
+            for item in items[:100] if isinstance(items, list) else []:
+                code = item.get('code') if isinstance(item, dict) else None
+                if isinstance(code, str) and re.fullmatch(r'[a-z_]{1,64}', code):
+                    categories[code] = categories.get(code, 0) + 1
+        history = case.get('history', {})
+        reason = history.get('reason') if isinstance(history, dict) else None
+        if reason in ('linearizable', 'not_linearizable', 'incomplete_history',
+                      'invalid_history', 'bound_exhausted'):
+            histories[reason] = histories.get(reason, 0) + 1
+    return {'violation_categories': dict(sorted(categories.items())[:32]),
+            'history_outcomes': histories,
+            'counts_may_be_truncated': True}
+
+
 def aggregate(reports):
     """Retain every family's diagnostics and consumption, including invalid runs."""
     expected = [name for name, _ in FAMILIES]
@@ -192,6 +221,7 @@ def aggregate(reports):
                              'generation_completed': report.get('generation_completed', False),
                              'infrastructure_affected': report.get('infrastructure_affected'),
                              'passed': heldout.get('passed'), 'total': heldout.get('total'),
+                             'feedback': bounded_feedback(cases),
                              'usage': usage, 'pilot_reported_usage': report.get('usage')}
         case_valid = isinstance(cases, list) and len(cases) == 3 \
             and all(isinstance(case, dict) and isinstance(case.get('name'), str)
@@ -212,7 +242,7 @@ def aggregate(reports):
               'accounted_consumption': {'known_input_plus_output': sum(known) if known else None,
                                        'total_input_plus_output': sum(known) if verified else None,
                                        'complete': verified},
-              'scope': 'two public semantic families; no claim of unseen-family transfer'}
+              'scope': 'three public semantic families; no claim of unseen-family transfer'}
     if set(reports) != set(expected) or invalid:
         result.update(status='unscored', reason='invalid_or_incomplete_family', invalid_families=invalid)
     else:
@@ -246,7 +276,7 @@ def main(argv=None):
         profile = worker_profile(profile_path)
         provenance.update(scaffold_sha256=hashlib.sha256(frozen_scaffold.read_bytes()).hexdigest(),
                           model_profile_sha256=hashlib.sha256(profile_path.read_bytes()).hexdigest(),
-                          model_profile=profile, max_inclusive_input_output_tokens=2 * 6 * profile['max_model_len'])
+                          model_profile=profile, max_inclusive_input_output_tokens=len(FAMILIES) * 6 * profile['max_model_len'])
         write_json(output / 'provenance.json', provenance)
         for name, relative_root in FAMILIES:
             try:
@@ -259,7 +289,7 @@ def main(argv=None):
             destination = output / name
             command = [sys.executable, str(frozen_root / 'pilot/run.py'), '--mode', 'team',
                        '--scaffold', str(frozen_scaffold), '--task-root', str(frozen_root / relative_root),
-                       '--output', str(destination), '--inference-timeout', '1800',
+                       '--output', str(destination), '--inference-timeout', '1800', '--check-timeout', '900',
                        '--adapter-command', sys.executable, str(frozen_root / 'pilot/compatible_adapter.py'), str(profile_path)]
             report = {'status': 'incomplete'}
             with (output / (name + '.stdout.local.txt')).open('w') as stdout, \

@@ -55,7 +55,8 @@ def report(passed, accounting=None):
 def source_fixture(base):
     root = base / 'source/contributor-work/livemigrate'
     for name in ('runtime.py', 'scenarios.py', 'API_CONTRACT.md', 'pilot/run.py',
-                 'pilot/compatible_adapter.py', 'families/identity/runtime.py'):
+                 'pilot/compatible_adapter.py', 'families/identity/runtime.py',
+                 'families/reservation/runtime.py', 'families/reservation/history.py'):
         path = root / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text('# trusted fixture\n')
@@ -69,21 +70,32 @@ def source_fixture(base):
 
 
 class ResearchScoreTests(unittest.TestCase):
+    def test_feedback_has_categories_without_final_examples_or_payloads(self):
+        cases = [{'name': 'private_fixture', 'trace': {'violations': [
+            {'code': 'committed_hold_lost', 'reservation_id': 'private_answer'},
+            {'code': 'committed_hold_lost', 'sku': 'private_input'},
+            {'code': '/private/local/path'}]},
+            'history': {'reason': 'not_linearizable', 'witness': 'private_witness'}}]
+        feedback = scoring.bounded_feedback(cases)
+        self.assertEqual(feedback['violation_categories'], {'committed_hold_lost': 2})
+        self.assertEqual(feedback['history_outcomes'], {'not_linearizable': 1})
+        self.assertNotIn('private', json.dumps(feedback))
+
     def test_macro_family_metric_and_full_consumption(self):
-        result = scoring.aggregate({'amounts': report(3), 'identity': report(0)})
-        self.assertEqual(result['score'], .5)
-        self.assertEqual(result['family_scores'], {'amounts': 1., 'identity': 0.})
+        result = scoring.aggregate({'amounts': report(3), 'identity': report(0), 'reservation': report(0)})
+        self.assertEqual(result['score'], 1 / 3)
+        self.assertEqual(result['family_scores'], {'amounts': 1., 'identity': 0., 'reservation': 0.})
         self.assertTrue(result['bounded_usage_verified'])
-        self.assertEqual(result['accounted_consumption']['total_input_plus_output'], 180)
+        self.assertEqual(result['accounted_consumption']['total_input_plus_output'], 270)
 
     def test_first_invalid_family_does_not_drop_second_diagnostics_or_usage(self):
         bad = report(3)
         bad.update(status='candidate_invalid')
-        result = scoring.aggregate({'amounts': bad, 'identity': report(2)})
+        result = scoring.aggregate({'amounts': bad, 'identity': report(2), 'reservation': report(1)})
         self.assertIsNone(result['score'])
-        self.assertEqual(set(result['families']), {'amounts', 'identity'})
+        self.assertEqual(set(result['families']), {'amounts', 'identity', 'reservation'})
         self.assertEqual(result['families']['identity']['passed'], 2)
-        self.assertEqual(result['accounted_consumption']['known_input_plus_output'], 180)
+        self.assertEqual(result['accounted_consumption']['known_input_plus_output'], 270)
         missing = scoring.aggregate({'amounts': report(3)})
         self.assertIsNone(missing['score'])
         self.assertEqual(missing['families']['identity']['status'], 'not_run')
@@ -100,7 +112,7 @@ class ResearchScoreTests(unittest.TestCase):
         ):
             bad = copy.deepcopy(report(3))
             mutate(bad)
-            self.assertIsNone(scoring.aggregate({'amounts': report(3), 'identity': bad})['score'])
+            self.assertIsNone(scoring.aggregate({'amounts': report(3), 'identity': bad, 'reservation': report(3)})['score'])
 
     def test_six_partial_entries_cannot_masquerade_as_six_complete_calls(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -116,7 +128,7 @@ class ResearchScoreTests(unittest.TestCase):
             self.assertIsNone(audited['total_input_plus_output'])
             self.assertEqual(audited['known_input_plus_output'], 60)
             self.assertEqual(audited['reported_totals']['input_tokens'], 50)
-            self.assertIsNone(scoring.aggregate({'amounts': report(3, audited), 'identity': report(3)})['score'])
+            self.assertIsNone(scoring.aggregate({'amounts': report(3, audited), 'identity': report(3), 'reservation': report(3)})['score'])
 
     def test_identity_caps_retries_and_usage_attestations_are_per_call(self):
         mutations = (
@@ -131,7 +143,7 @@ class ResearchScoreTests(unittest.TestCase):
             lambda x: x.update(all_generated_token_ids_counted=False),
             lambda x: x['usage'][0].update(input_tokens=-1, total_tokens=4),
             lambda x: x['usage'][0].update(input_tokens=True, total_tokens=6),
-            lambda x: x['usage'][0].update(input_tokens=16385, total_tokens=16390),
+            lambda x: x['usage'][0].update(input_tokens=PROFILE['max_model_len'] - PROFILE['max_completion_tokens'] + 1, total_tokens=PROFILE['max_model_len'] - PROFILE['max_completion_tokens'] + 6),
             lambda x: x['usage'][0].update(output_tokens=16385, total_tokens=16395),
             lambda x: x['usage'][0].update(total_tokens=99),
             lambda x: x['usage'][0].update(cached_input_tokens=11),
@@ -235,26 +247,26 @@ class SourceSnapshotTests(unittest.TestCase):
             scoring.main(['--scaffold', str(root / 'research/baseline.json'), '--output', str(out)])
         return json.loads((out / 'result.json').read_text()), commands
 
-    def test_main_uses_frozen_paths_and_profile_for_both_families(self):
+    def test_main_uses_frozen_paths_and_profile_for_all_three_families(self):
         with tempfile.TemporaryDirectory() as directory:
             result, commands = self.exercise_main(Path(directory))
-            self.assertEqual(len(commands), 2)
+            self.assertEqual(len(commands), 3)
             self.assertTrue(result['source_snapshot_verified'])
             self.assertTrue(result['bounded_usage_verified'])
             self.assertEqual(result['score'], 1.)
-            self.assertEqual(result['accounted_consumption']['total_input_plus_output'], 180)
+            self.assertEqual(result['accounted_consumption']['total_input_plus_output'], 270)
 
     def test_snapshot_changes_stop_future_execution_or_invalidate_completed_run_without_losing_usage(self):
-        for after in (1, 2):
+        for after in (1, 2, 3):
             with self.subTest(after=after), tempfile.TemporaryDirectory() as directory:
                 result, commands = self.exercise_main(Path(directory), after)
                 self.assertEqual(len(commands), after)
                 self.assertFalse(result['source_snapshot_verified'])
                 self.assertEqual(result['status'], 'unscored')
                 self.assertIsNone(result['score'])
-                self.assertEqual(set(result['families']), {'amounts', 'identity'})
+                self.assertEqual(set(result['families']), {'amounts', 'identity', 'reservation'})
                 self.assertEqual(result['accounted_consumption']['known_input_plus_output'], after * 90)
-                self.assertEqual(result['bounded_usage_verified'], after == 2)
+                self.assertEqual(result['bounded_usage_verified'], after == 3)
                 if after == 1:
                     self.assertEqual(result['families']['identity']['status'], 'not_run')
 

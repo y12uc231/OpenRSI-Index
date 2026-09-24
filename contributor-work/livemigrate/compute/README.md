@@ -76,13 +76,15 @@ python3 pilot/run.py --mode team --inference-timeout 1800 \
   --adapter-command python3 pilot/compatible_adapter.py compute/qwen38.json
 ```
 
-Use `--task-root families/identity` for the independent identity task. The
+Use `--task-root families/identity` for the identity task, or
+`--task-root families/reservation --check-timeout 900` for the separate-owner
+reservation task (host Python 3.11+). The
 central diagnostic replaces `--mode team` with
 `--mode centralized`. Freeze each run's exact model profile and task revision.
 
-The prepared profile caps each call at 32,768 total context tokens and 16,384
+The prepared profile caps each call at 65,536 total context tokens and 16,384
 generated tokens, including reasoning. Six calls therefore have a conservative
-196,608 input-plus-output token ceiling per family. Tokenization uses the actual
+393,216 input-plus-output token ceiling per family. Tokenization uses the actual
 chat template; the adapter checks exact prompt token IDs, all generated token
 IDs, inclusive usage, complete JSON and stop status. It never truncates context
 or automatically retries a generation. A failed generation with known usage
@@ -98,8 +100,11 @@ protocol before interpreting a team-versus-central score difference.
 Estimate incomplete until GPU preflight. At an illustrative aggregate decode
 rate of 30–60 tokens/s, the maximum 98,304 generated tokens in one six-call family
 would take roughly 27–55 minutes, plus prefill and checks. This arithmetic is
-neither measured throughput nor a guaranteed runtime. Two-family evaluations
-double the maximum token allowance. Actual pilot completions may be much shorter.
+neither measured throughput nor a guaranteed runtime. Three-family evaluations
+triple the maximum token allowance: 294,912 generated tokens and at most
+1,179,648 inclusive input-plus-output tokens. The larger 65,536-token context
+was chosen before any Qwen inference to accommodate distributed implementations;
+it does not establish that three simultaneous contexts fit on the proposed GPU. Actual pilot completions may be much shorter.
 
 The task must be rechecked for headroom after measuring a strong baseline. Full
 success is evidence to improve the evaluation design, not a reason to hide that

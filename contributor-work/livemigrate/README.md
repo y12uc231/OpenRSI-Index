@@ -1,4 +1,4 @@
-# LiveMigrate: compatibility during a running migration
+# LiveMigrate: can coding agents preserve a running system's promises?
 
 **A new evaluation prototype, not an established benchmark or a demonstrated
 frontier-model weakness.** This contribution was developed from a fresh audit of
@@ -8,44 +8,61 @@ The [complete first pilot results](results/README.md) are all successes: local
 `gpt-6-astra` at `ultra` passed both families in both team and centralized modes.
 The examples validate the instrument but do not meet a high model-difficulty bar.
 
-Three coding agents own the database migration, API, and background consumer.
-They must jointly implement a data-contract change that works throughout a
-running upgrade, while old and new components coexist. A trusted driver supplies
-the rollout schedule; the current prototype evaluates their compatible code,
-not their ability to choose a deployment plan.
+Three coding agents own different parts of a live migration. Their code must
+agree on durable identities, authority and recovery while old and new components
+coexist. A trusted driver supplies the rollout requests and traffic; agents
+implement the cooperating services and their protocol.
+
+The main new family is [reservation ownership migration](families/reservation/README.md).
+An order needs stock from two SKUs. Their ownership is moving from a legacy
+service to two separate owners. A message disappears after durable state changes;
+an acknowledgement is lost after fulfillment; a client retries. The team must
+preserve atomic reservations and original receipts, finish both transfers and
+keep unrelated stock usable. Each of the four services has its own database.
+
+The research question is whether a reusable coordination policy helps fixed
+coding workers preserve these cross-component obligations. It is not whether
+the task introduces a new distributed transaction algorithm. A conventional
+sequential team and a centralized author are declared controls.
 
 ## The failure this measures
 
-An order initially costs $10. A backfill copies that amount to the new schema.
-The old API updates it to $15. A new component reads a stale copied amount and
-accepts or settles the payment for $10. A later backfill makes the final database
-correct. Ordinary final-state checks can pass, but an incorrect externally
-visible action has already occurred.
+A system can fulfill an order before every stock owner has a durable obligation,
+temporarily activate two owners, or block unrelated orders throughout a transfer.
+It may later reconcile to a correct-looking database. The earlier amount family
+demonstrates the same problem with a stale $10 payment after a legacy update to
+$15: final repair cannot undo the externally visible action.
 
-The evaluator records each acknowledged request and settlement independently of
-candidate code. A subsequent repair cannot erase an earlier mistake. It also
-requires progress and the final new schema, so refusing requests or retaining
-the old system forever does not pass.
+The evaluator records client calls, irreversible effects and state violations
+outside candidate code. The reservation family adds a bounded exact
+linearizability checker that accepts any legal concurrent winner. It also
+requires progress and completed ownership transfer, so refusing work or retaining
+the old authority forever does not pass.
 
 ## What is new, and what is not
 
 Migration, expand/contract, multi-agent SRE, and temporal safety checks all have
 substantial prior art. The proposed contribution is the combined executable
-contract: **joint API/storage/consumer changes, mixed software versions, delayed
-and repeated old events, and exact operation-history grading**.
+contract: **joint service changes, legacy receipts, separate durable owners,
+interleaved transfers, permanent external effects and operation-history grading**.
 
 The [source-level audit](PRIOR-ART-AUDIT.md) compares actual TeamBench and related
-graders; the [research note](NOVELTY.md) records alternatives, limitations and
-rejection criteria. This is a bounded novelty claim, not proof that no similar
-idea exists anywhere.
+graders; the [current update](PRIOR-ART-UPDATE.md) includes recent distributed
+debugging, agent protocols and migration research. The [research note](NOVELTY.md)
+records alternatives and rejection criteria. This is a bounded novelty claim,
+not proof that no similar idea exists anywhere.
 
 ## Current scope
 
-Two semantic families are implemented: order amounts change from integer cents
+Three semantic families are implemented: order amounts change from integer cents
 to integer micros; [request identity](families/identity/README.md) changes from
 global keys to tenant-scoped keys while preserving legacy retries and effects.
-Each has one public and three held-out traffic traces. These schedules are not
-advertised as independent tasks. A third family remains a design direction.
+The third, [separate-owner reservations](families/reservation/README.md), moves
+atomic bundle reservations across four durable services under lost/replayed
+messages, concurrent ownership transfers, and continuing legacy traffic.
+Each family has one public and three held-out traffic traces. These schedules
+are not advertised as independent tasks. See the separately declared
+[reservation pilot](pilot/RESERVATION-PROTOCOL.md).
 
 - [API contract](API_CONTRACT.md): complete public specification.
 - `starter/`: three unfinished role modules.
@@ -75,7 +92,7 @@ and a fixed-controller evaluation command. It includes a conventional
 contract-first reference policy and a [pinned current open-model lane](compute/README.md).
 GPU execution and the Harbor integration remain unvalidated.
 
-This two-family demonstrator can validate the instrument. A generalization claim
+This three-family demonstrator can validate the instrument. A generalization claim
 requires independently authored semantic migration families and matched model
 budgets. Local pilot outcomes must be reported even if the model solves every
 case. No intentionally defective control is a model-performance result.
