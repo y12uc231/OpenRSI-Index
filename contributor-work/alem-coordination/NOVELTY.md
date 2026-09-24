@@ -1,32 +1,39 @@
-# Prior art and the bounded contribution
+# What this task adds to existing research
 
-Research checked on 24 September 2026. The source of the idea is current public
-research and released evaluation assets, not the contributor's past projects.
+This proposal adds **an OpenRSI research task with a reproducible evaluation
+procedure**. The researcher writes controller code to improve a pretrained
+three-agent team in the existing Alem environment. It does not introduce a new
+game or invent the idea of improving a frozen policy—a trained model whose
+weights stay fixed.
 
-| Existing work | What it already establishes | Boundary of this contribution |
+The review below was checked on 24 September 2026. It draws on public research
+and released evaluation assets.
+
+| Existing work | What it already shows | What this proposal adds, and does not claim |
 | --- | --- | --- |
-| [Alem, June 2026](https://arxiv.org/abs/2606.08340), [official source](https://github.com/alem-world/alem-env) | Procedural multi-agent coordination worlds; synchronization, handovers and construction; LLM and MARL baselines. | We do not claim a new environment. We construct an automated-research task with a fixed controller artifact, released policy and reproducible feedback loop. |
-| [SPARTA](https://arxiv.org/abs/1912.02318) | Test-time search can improve cooperative play around a learned blueprint. | Frozen-policy improvement and cooperative planning are established ideas. Our narrow research interface has no test-time simulator/state oracle. |
-| [MAAF](https://www.mdpi.com/2076-3417/14/21/10079) | A multi-agent adaptation framework can add message-conditioned residual behavior, including variants with a frozen base. | Communication-conditioned adaptation is prior art, not our invention. The candidate research artifact and fixed CPU evaluation contract are the proposed contribution. |
-| [MATES, September 2026](https://arxiv.org/abs/2609.26010) | Learned observation adapters transfer frozen solo policies to multi-agent tasks. | Our source policy is already a trained multi-agent policy; the candidate changes decentralized execution/communication logic under fixed observations, without gradient training. This distinction does not make the general adapter concept new. |
-| [Multi-Agent Collaboration for Automated Research, March 2026](https://arxiv.org/abs/2603.29632) | Budgeted comparisons of single researchers, subagents and teams on ML optimization. | Outer research-team comparisons are prior art. This contribution is the specific runnable coordination-improvement task, not the first study of multi-agent research. |
+| [Alem, June 2026](https://arxiv.org/abs/2606.08340), [official source](https://github.com/alem-world/alem-env) | Generated multi-agent worlds with synchronization, handovers and construction, plus language-model and multi-agent reinforcement-learning baselines. | We use that existing environment. Our contribution is a research task in which a submitted controller is tested around a released policy, with a reproducible feedback loop. |
+| [SPARTA](https://arxiv.org/abs/1912.02318) | Search at evaluation time can improve cooperative play around a learned policy. | Improving frozen policies and planning cooperatively are established ideas. Our controller cannot query the simulator or inspect its hidden state while choosing actions. |
+| [MAAF](https://www.mdpi.com/2076-3417/14/21/10079) | A multi-agent adaptation framework can change behavior using messages, including variants with a frozen base policy. | Adaptation based on communication is prior work. We propose a particular controller artifact and a fixed CPU evaluation procedure. |
+| [MATES, September 2026](https://arxiv.org/abs/2609.26010) | Learned observation adapters transfer frozen solo policies to multi-agent tasks. | Our starting policy is already trained for multiple agents. The submitted code changes each agent's local action and communication decisions under fixed observations, without gradient training. The general idea of an adapter is not new. |
+| [Multi-Agent Collaboration for Automated Research, March 2026](https://arxiv.org/abs/2603.29632) | Comparisons of single researchers, subagents and research teams on ML optimization under fixed budgets. | Comparing research teams is established work. We contribute this specific executable coordination-improvement task, not the first study of multi-agent research. |
 
 The [current official leaderboard](https://alem-world.github.io/leaderboard.html)
-provides external evidence of coordination headroom, but its language-agent
-protocol differs from the frozen-policy controller track. Our 18.9308% figure
-is a new CPU measurement of a released HyperMARL checkpoint under the explicitly
-recorded current configuration, not a leaderboard entry or an LLM score.
+shows that coordination can still improve in Alem. However, its language-agent
+evaluation differs from this task's frozen-policy controller evaluation. Our
+18.9308% figure is a new CPU measurement of a released HyperMARL checkpoint under
+the recorded current configuration. It is not a leaderboard entry or an LLM
+score.
 
 The OpenRSI public-catalog audit examined 45 Discussion titles and bodies and
-found no equivalent Alem frozen-policy coordination-controller proposal. That
-is a scoped catalog observation, not proof that the task is absent from every
-paper, private repository, comment or unpublished experiment. A further focused
-web search for Alem frozen controllers and automated-research evaluations did
-not identify an exact released equivalent. Keep this qualification in any
-submission.
+found no equivalent Alem frozen-policy coordination-controller proposal. A
+focused web search for Alem frozen controllers and automated-research
+evaluations also found no exact released equivalent. These searches have a
+limited scope: they cannot establish that no equivalent exists in a paper,
+private repository, comment or unpublished experiment. Any submission should
+keep this qualification.
 
-The strongest defensible novelty claim is **a new OpenRSI research task and
-its reproducible evaluation contract**. A successful method would require its
-own comparison against relevant coordination baselines. A low starting reward
-alone does not establish that the task is difficult for a frontier research
-agent; that remains an empirical question.
+The task's originality and a future method's originality are separate questions.
+A successful controller would still need comparisons against relevant
+coordination baselines before making a new-method claim. Likewise, a low starting
+reward does not show that a frontier research agent will find this task hard.
+That requires measured researcher attempts under a stated budget.

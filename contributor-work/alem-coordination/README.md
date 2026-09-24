@@ -1,82 +1,119 @@
 # Alem Coordination Lab
 
-A CPU-only automated-research task: improve a pretrained three-agent team's
-coordination by writing and testing decentralized controller code. The inner
-agents are frozen recurrent RL policies. An LLM researcher develops the
-controller through repeated code → experiment → feedback → revision cycles.
+**Can a language model write code that helps three pretrained game agents work
+better together?** This task tests that question in
+[Alem](https://github.com/alem-world/alem-env), an existing game environment with
+shared tasks such as synchronized actions, item handovers and construction.
 
-This is a new OpenRSI task implementation on the existing
-[Alem environment](https://github.com/alem-world/alem-env), not a new game or a
-claim that frozen-policy adaptation was invented here. See the
-[scientific design](TASK_DESIGN.md) and [prior-art audit](NOVELTY.md).
+The researcher writes a Python controller, tests it, reads the results and
+revises the code. The three game agents were trained with reinforcement learning
+(RL): they learned how to act from rewards. Their trained model stays fixed.
+The controller can change their decisions without retraining them.
 
-Each game actor receives only its own official observation, legal-action mask,
-frozen policy proposal/logits and private memory. The game already exposes some
-teammate information; it remains available. Ordinary game actions and four
-native communication actions are the only ways to coordinate. Controllers may
-choose any legal action. They cannot inspect the simulator state or pool their
-observations through a side channel.
+Alem and methods for improving a fixed policy already exist. Our contribution
+is this runnable OpenRSI research task, its evaluation rules and its evidence.
+See [related work and what is new](NOVELTY.md).
 
-## What is implemented
+## What the researcher builds
 
-- [Public source/checkpoint acquisition and CPU build](baseline/README.md),
-  with immutable upstream revisions, 291 source-file hashes, 20 asset hashes
-  and a dependency lock. No training or GPU is required for evaluation.
-- [Candidate-only evaluator](controller/CONTRACT.md), with one trusted simulator
-  and three separate controller containers, recreated for every world.
-- [Validated single-container deployment](native/README.md), with three private
-  actor processes and no Docker socket, nested containers, or extra capabilities.
-- [Pass-through baseline](controller/reference/controller.py), exact native
-  metrics, fixed development/evaluation worlds, complete outcome retention,
-  source/asset/candidate provenance checks and aggregate feedback.
-- [863-step transport parity evidence](controller/prototype-parity.json),
-  including earlier harness errors, plus Docker isolation checks.
-- [Three-call local researcher pilot](pilot/PROTOCOL.md) and a separately
-  [prepared open-model transport](pilot/OTHER-MODELS.md).
-- [Simple scripted synchronization control](controls/README.md), kept distinct
-  from model-generated results.
+The submission is one `controller.py` file, used by all three game agents.
+Each agent runs its own copy with private memory. At each step, the controller
+receives that agent's game observation, available actions, the trained model's
+suggested action and action scores, and its own previous reward. It returns an
+action and updated memory. It may choose any legal action.
 
-The matched isolated controller baseline achieved **18.52% normalized
-coordination reward** across all 20 evaluation worlds in **278.79 seconds**,
-with zero overrides and verified provenance. This is the baseline for controller
-improvement. It is not an LLM score or a task success rate.
+For example, a controller could remember a meeting location or wait until
+teammates are ready for a shared action. It can coordinate through ordinary
+game actions and the game's four communication actions. A communication action
+uses a turn. Information about teammates that the game normally reveals stays
+available; the controller cannot read their private inputs or the simulator's
+hidden state.
 
-The original native deployment reproduced **all 20 complete state/action/latent
-trace hashes**, every reward and every episode length in **145.39 seconds** on
-four CPUs with a 16 GiB memory cap. This establishes a concrete execution route
-for the current single-container Harness. See [all deployment attempts and
-limits](native/evidence/README.md). The researcher pilot retains its original
-Docker deployment identity; general temporary-file behavior differs between
-the two routes.
+The language model is the researcher that writes this code. The game agents
+are trained RL models, not language models chatting with one another. Each pilot
+trial below used a single model as the researcher. Comparing it with a team
+of researchers would require a separate study with equal research budgets.
 
-The native unchanged policy separately achieved **18.93% normalized coordination reward**
-over all 20 native evaluation worlds. That separate run uses the upstream
-continuous transition RNG. The controller track has explicit per-world RNG and
-uses the matched baseline above; never substitute the native score into a
-controller improvement claim. See [all native metrics and caveats](baseline/README.md).
-Low starting reward does not establish frontier researcher failure.
+The [task design](TASK_DESIGN.md) and [controller interface](controller/CONTRACT.md)
+give the exact rules. These documents were part of the original pilot and remain
+unchanged so that its instructions can be checked against its results.
 
-The completed [researcher pilot](results/README.md) retained all six coding
-responses and every measured outcome. With one three-call attempt each,
-GPT-6 Astra retained the baseline at **18.52%**, while GPT-6 Sol achieved
-**19.47%**, a **0.94 percentage-point gain**. Sol improved eight worlds, tied
-five and regressed on seven. Its unchanged controller also reproduced all
-20 original traces on the single-container route in **130.38 seconds**.
-These short tool-free attempts do not establish full-budget research
-difficulty or a general model ranking. The results directory includes exact
-generated code, costs, per-world data, and later CPU-only planning evidence
-for the prepared Qwen comparison lane; no Qwen inference was performed.
+## How the score works
 
-The subsequent [pre-submission audit](AUDIT.md) fixed evaluator import isolation,
-repeat-run staging and evidence-accounting defects. The corrected runtime
-passed a fresh kernel probe and reproduced **all 40 original trajectories**
-for reference and Sol, run consecutively in one container in **255.69 seconds**.
-All 61 applicable offline checks pass. The original pilot and historical
-measurements remain unchanged.
+Every submitted controller is tested on the same 20 public game worlds.
+Four separate worlds are available for development. The main score is Alem's
+coordination reward, averaged across all 20 evaluation worlds. Higher is better.
+A score of 18.52% means 18.52% of the game's coordination reward maximum; it does
+not mean the controller passed 18.52% of the worlds.
+
+The reference controller always accepts the trained model's suggested action.
+It scored **18.5220%**. A new controller's improvement is measured against that
+reference under the same evaluation rules. Deaths and zero rewards count in
+the average. Invalid code, timeouts and incomplete evaluations receive no score;
+their records are kept.
+
+The world seeds and simulator are public. These results measure improvement on
+a fixed workload. They do not show performance on secret or previously unseen
+worlds.
+
+## What the pilot found
+
+Each researcher had three code-writing calls. The first two versions were tested
+on the four development worlds; the third was tested on all 20 evaluation worlds.
+All six code responses and their results were kept.
+
+| Controller | Coordination reward | Gain over reference |
+| --- | ---: | ---: |
+| Reference: keep the trained model's action | 18.5220% | — |
+| GPT-6 Astra's final controller | 18.5220% | 0 percentage points |
+| GPT-6 Sol's final controller | 19.4654% | +0.9434 percentage points |
+
+Astra tried a change that lowered development reward, then returned to the
+reference. Sol improved eight evaluation worlds, tied five and worsened seven.
+These were short trials without tool access during code generation. They do
+not show that most models fail, establish a model ranking, or replace the
+proposed 24-hour research run. The [full results](results/README.md) include
+all attempts, code, token usage, game behavior and limitations.
+
+## What runs today
+
+The evaluator runs on CPUs. No GPU or model training is needed.
+
+| Part | Where to find it |
+| --- | --- |
+| Download the public source and saved model weights; build the CPU environment | [Baseline setup](baseline/README.md) |
+| Run the evaluator and three private controller processes in one container | [Current execution guide](native/README.md) |
+| Inspect the reference controller | [Reference code](controller/reference/controller.py) |
+| Read the short researcher-pilot rules | [Pilot protocol](pilot/PROTOCOL.md) |
+| Inspect the simple scripted comparison controller | [Scripted control](controls/README.md) |
+| Prepare an optional open-model comparison | [Other-model setup](pilot/OTHER-MODELS.md) |
+
+The original pilot used a separate container for each controller process.
+The current evaluator uses one ordinary container and needs no nested Docker,
+Docker socket or added capabilities. A [pre-submission audit](AUDIT.md) fixed
+import isolation, repeat-run and evidence-checking bugs. **61 applicable tests
+passed.** A fresh run of the reference and unchanged Sol controller reproduced
+**all 40 original world histories exactly**, including game state, hidden state
+and actions. Both evaluations plus the isolation probe took **255.69 seconds**
+on four CPUs with 16 GiB RAM. See the [audit evidence](native/evidence/post-audit-validation.json).
+
+Earlier checks are retained with their original timings: the reference took
+278.79 seconds in the separate-container setup and 145.39 seconds in an earlier
+single-container check; the first Sol replay took 130.38 seconds. The
+[deployment record](native/evidence/README.md) also keeps failed integration
+attempts. A separate [863-step comparison](controller/prototype-parity.json)
+checked that passing observations and actions between processes preserved the
+game's behavior. These checks validate execution; they are not new model trials.
+
+The upstream evaluator also produced a separate **18.9308%** reference result.
+It carries random-number state between worlds. Our controller evaluator resets
+that state for each world, so **18.5220% is the correct comparison for this task**.
+The [baseline guide](baseline/README.md) explains the difference. A low reference
+reward alone does not prove that the research task is difficult.
 
 ## Reproduce the single-container evaluation
 
-From this directory, with host Python 3.11+, Git, Docker and one CPU node:
+From this directory, use host Python 3.11+, Git and Docker on one machine:
 
 ```sh
 python3 baseline/acquire.py
@@ -102,24 +139,24 @@ Use a new output directory for every attempt. For a submitted controller,
 replace `--candidate` with its directory containing `controller.py`. Use
 `--suite dev` for the four development worlds. The environment and candidates
 have no network during execution. `result.json` contains the full operator
-record; only `feedback.json` is returned to a researcher during iteration.
-This local validation command mounts the checkout for convenience. Generated
-Work/Judge images must use the [minimal content allowlist](native/README.md#minimal-base--judge-content-allowlist),
+record; only the summary in `feedback.json` is returned to the researcher after
+an evaluation. This local validation command mounts the checkout for convenience.
+In OpenRSI, **Work** is the researcher's working environment and **Judge** is the
+evaluation phase. Their images must use the [minimal content allowlist](native/README.md#minimal-base--judge-content-allowlist),
 excluding evidence, results and repository history. A submitted candidate must
 be available inside the container; mount its directory read-only at `/candidate`
 and pass `--candidate /candidate`.
 
-Allow **eight CPU cores and 16 GiB RAM on one node** for research and evaluation;
+Allow **eight CPU cores and 16 GiB RAM on one machine** for research and evaluation;
 zero GPUs. The measured native pass-through used a four-CPU container cap.
-The 10,800-second operator ceiling
-allows long-surviving controllers to reach the native 10,000-step limit. An
-incomplete run remains unscored rather than becoming a low model score.
+The evaluator allows up to 10,800 seconds per candidate so that longer-lived
+teams can reach the game's 10,000-step limit. An incomplete run has no score.
 
 The portable build and native baseline are verified on Linux/arm64.
-Scores record the actual image identity used. Other architectures and
-independent rebuilds need execution validation. This repository is a reviewed
-proposal implementation; the generated Harbor task and full RSI-Harness
-trajectory are separate downstream validation stages.
+Each result records the container image used. Other architectures and rebuilt
+images still need execution checks. The code and short pilot are ready for
+proposal review. Packaging as a Harbor task and a full run in RSI-Harness,
+OpenRSI's research runner, remain to be validated.
 
 ## Checks
 
@@ -131,7 +168,13 @@ python3 -m unittest discover -s native -p 'test_*.py' -v
 ALEM_EXPORT_REPO="$PWD/../.." python3 results/test_export_alem_researcher.py
 ```
 
-Canonical evaluation worlds are public. This is a fixed-workload optimization
-task; it does not claim a secret test set or unseen-world generalization.
-Inherited Work/Judge runtimes also remain a platform integrity limitation.
-The [contract](TASK_DESIGN.md) states those boundaries explicitly.
+These instructions are written for Python 3.11 or later. The audit ran the test
+suites with Python 3.12.14. One older, optional Docker test was skipped; the
+current evaluator's isolation probe was run successfully.
+
+Judge evaluates the complete saved Work environment. Checks protect task files
+and isolate controller processes, but cannot independently establish trust in
+the inherited Python interpreter and libraries. The [execution guide](native/README.md) explains this
+limit and the difference in temporary-file support between the two setups.
+The optional Qwen comparison has only been prepared; no Qwen inference or GPU
+run has been performed.

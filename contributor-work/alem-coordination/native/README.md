@@ -1,59 +1,237 @@
-# Native single-container deployment route
+# Run the evaluator in one container
 
-This is a separately validated deployment port. It runs one trusted engine and three private actor processes **inside one ordinary Linux container**. The native entry point never calls Docker, uses a Docker socket, creates a sidecar, adds a capability, or requests privileged execution. The operator can launch that single container locally to validate the route; a Harness environment can instead place the same files in its normal main/Judge image.
+This deployment runs the evaluator inside **one ordinary Linux container**.
+One trusted engine runs the game and computes scores. Three separate actor
+processes execute the submitted controller, each with its own files and memory.
 
-The original `controller/` files and frozen researcher pilot records are unchanged. Their original deployment identity must remain attached to their scores. This port preserves the callback protocol, native reward, checkpoint, world seeds, action rights, horizon, and PRNG split. `ENGINE.patch` records two deployment changes: an explicitly marked first-world proof option, and replacement of shared `/tmp` imports with fresh private source staging. Ordinary `--suite evaluation` still runs all twenty worlds; `--suite dev` runs four. A one-world proof is not a task score.
+The entry point does not call Docker or require a Docker socket, sidecar,
+privileged container, or added capability. You can launch the outer container
+locally. RSI-Harness can place the same files in its normal evaluation container.
+
+The original `controller/` code and frozen researcher pilot records are
+unchanged. Their scores keep their original deployment identities. This port
+preserves the controller callbacks, checkpoint, reward, world seeds, legal
+actions, natural termination, 10,000-step ceiling, and random-number stream
+splitting. [ENGINE.patch](ENGINE.patch)
+shows the deployment changes: private source staging and an optional one-world
+check. Neither changes the game or scoring rules.
 
 ## Requirements and entry point
 
-The validated environment image is the existing portable baseline build, local immutable ID `sha256:9282bdeb7b8debc675830cf464028cba51b9a7b83afd8c1f4c098f67edd73176` (Linux arm64). See `../baseline/README.md` for its pinned source, weights, and build recipe. Both that environment and the original separately pinned worker image report Python **3.12.14**. The port records the copied actor runtime tree digest; matching a Python version alone is not a claim that arbitrary controllers are deployment-equivalent.
+Use the [portable baseline build](../baseline/README.md), which pins the source,
+weights, and dependencies. The validated image is Linux arm64, with this local
+immutable image ID:
 
-Inside the ordinary container, install the unchanged upstream source at `/app`, weights at `/assets`, the task runtime files listed in the content allowlist below at `/task`, and a fresh empty output directory at `/results`. Trusted source, assets, harness, and submitted candidate input must be read-only to actor UIDs. Run as the supported root verifier bootstrap:
+```text
+sha256:9282bdeb7b8debc675830cf464028cba51b9a7b83afd8c1f4c098f67edd73176
+```
+
+Both this image and the original worker image report Python **3.12.14**.
+Each run also records a hash of the copied actor runtime files. A matching
+Python version alone does not prove identical behavior for every controller.
+
+Prepare these locations inside the container:
+
+| Path | Contents |
+| --- | --- |
+| `/app` | Unchanged, hash-verified upstream source |
+| `/assets` | Pinned checkpoint and configuration files |
+| `/task` | Task runtime files from the allowlist below |
+| `/results` | A fresh, empty output directory |
+
+Source, assets, runtime files, and the submitted candidate input must be
+read-only to the actor users. Start the trusted verifier as root:
 
 ```sh
 python -I -B /task/native/probe.py
 python -I -B /task/native/run.py --candidate /task/controller/reference --suite evaluation --output /results
 ```
 
-The candidate directory contains exactly the submitted `controller.py` that is copied into each actor root. The same command accepts another candidate directory. For an explicitly labeled deployment smoke, add `--proof-first-world`; do not use that option for the twenty-world task score. The default operator ceiling is 10,800 seconds; callback I/O has the unchanged thirty-second deadline. Timeout, provenance mismatch, startup failure, or incomplete evaluation is unscored. Normal completion with a candidate-invalid callback retains that classification and a null primary score.
+The first command checks the operating-system restrictions without running a
+policy. The second evaluates the public pass-through controller. To evaluate
+another submission, point `--candidate` at its directory containing the single
+submitted `controller.py`. The evaluator copies that file into each actor's
+private directory.
 
-The supervisor and probe require isolated Python startup (`-I`), removing current-directory, script-directory and user Python path injection. Their trusted engine child uses an empty environment with explicit CPU/cache settings and `PYTHONHASHSEED=0`, safe-path mode (`-P`) and no user site (`-s`); normal dependency site packages remain available for JAX. This preserves the engine's deterministic hash seed without accepting inherited Python path settings. Task helpers are loaded from their exact source bytes, bypassing unchecked bytecode caches. The engine copies the verified Alem package and baseline modules into a fresh verifier-owned directory for each invocation and cleans it afterward. It never adds shared `/tmp` to its import path. Repeated invocations require a fresh empty `/results`; preserve previous outputs before starting the next run.
+| Option or limit | Meaning |
+| --- | --- |
+| `--suite evaluation` | All 20 evaluation worlds |
+| `--suite dev` | Four development worlds |
+| `--proof-first-world` | One-world deployment check; never a task score |
+| Operator deadline | 10,800 seconds by default |
+| Callback I/O deadline | 30 seconds |
 
-Actor startup separately uses an empty environment, `PYTHONHASHSEED=0`, safe-path mode (`-P`) and no site initialization (`-S`), preserving the declared deterministic hash seed. The kernel probe checks this behavior. An observed actor exit after successful initialization is classified as candidate-invalid; startup failures, unknown exits and timeouts remain infrastructure/incomplete. All remain unscored.
+Every invocation needs an empty `/results`. Preserve the previous output before
+running again. Timeouts, startup failures, changed inputs, and incomplete runs
+are unscored. Invalid candidate callbacks also produce a null primary score.
+After successful initialization, a closed reply pipe with an observed process
+exit is candidate-invalid. Startup failures, unknown exits, other OS errors,
+and timeouts remain infrastructure/incomplete outcomes.
 
-A local outer-container validation needs only normal default capabilities; the measured command drops `NET_RAW`, has networking disabled, and requests four CPUs / sixteen GiB. No capability is added. The bootstrap requires default `SETUID`, `SETGID`, `SYS_CHROOT`, and `MKNOD` to be available, and seccomp filter installation to succeed. If they are unavailable it fails closed; it does not silently fall back to same-user processes. Current upstream Harness admits a root verifier in its ordinary unprivileged main/Judge container; final submission packaging must keep that supported configuration.
+The measured outer container had networking disabled, a four-CPU quota, a
+16 GiB memory cap, and a 256-process limit. It dropped `NET_RAW` and added no
+capabilities. Capabilities are Linux privileges: the root bootstrap requires
+the ordinary defaults `SETUID`, `SETGID`, `SYS_CHROOT`, and `MKNOD`, plus support
+for installing a seccomp filter. It stops if these are unavailable, rather
+than falling back to less isolated actors.
 
-## Actor boundary
+Current RSI-Harness supports this root verifier inside its ordinary
+unprivileged main/Judge container. Final task packaging must preserve that
+supported configuration.
 
-Each world starts three new Python processes. Each actor receives a copied private chroot containing only standard-library files and their dynamic libraries, the typed driver, its own candidate file, `/dev/null`, and private `/tmp`. It has no `/proc`, simulator, checkpoint, score file, task tree, or peer directory. No world identifier appears in the actor path; original argument metadata is reset before candidate import. File descriptors are closed by normal subprocess execution except the intentional standard streams; the driver uses framed, bounded messages.
+## Python startup and repeat runs
 
-The bootstrap enters the chroot, clears supplementary groups, changes to a distinct non-root UID/GID, pins one CPU, clears the environment, and applies no-new-privileges and an additional seccomp filter before candidate import. That filter denies network sockets and related operations, SysV and POSIX message queues/shared memory/semaphores, process creation/re-execution, affinity changes, tracing, cross-process memory operations, namespace/mount operations, and io_uring. The actual probe verifies socket creation denial for IPv4, IPv6 and Unix sockets, SysV/POSIX IPC denial, fork/exec denial, immutable affinity, read-only candidate source, fresh private state, and absence of a world identifier in bootstrap frames. Supported syscall tables are x86_64 and aarch64; actual kernel probes recorded here are arm64.
+Different processes need different startup settings:
 
-Actor virtual memory is capped at 384 MiB, JSON memory at the unchanged 65,536 bytes, open files at 64, and each written file at 16 MiB. **Resource difference:** private `/tmp` uses one fixed writable scratch file on the ordinary container filesystem, not the original general-purpose per-actor 16 MiB tmpfs. The earlier proof used a writable directory; the final native route instead precreates exactly one writable regular file, `/tmp/scratch`, with root-owned read-only parent directories. New files, removal, and rename are forbidden by permissions. RLIMIT_FSIZE therefore bounds each actor’s regular scratch disk to 16 MiB. General temporary-file APIs therefore differ from the Docker route. Hardware/timing side channels and aggregate trusted-process resources remain limitations; do not claim equivalence to separate container namespaces or a complete malicious-code sandbox. The scientific rule still forbids clocks/entropy/external state; that rule is not presented as complete kernel enforcement.
+| Process | Settings | Purpose |
+| --- | --- | --- |
+| Supervisor and probe | `-I -B` | Ignore current-directory, script-directory, and user Python import paths |
+| Trusted engine | Empty environment, `PYTHONHASHSEED=0`, `-P -s -B` | Keep deterministic hashing, exclude unsafe import paths and user packages, retain installed JAX dependencies |
+| Actors | Empty environment, `PYTHONHASHSEED=0`, `-P -B -S` | Keep deterministic hashing, exclude unsafe import paths and all site initialization |
 
-## Trust and provenance
+The engine receives explicit CPU and cache settings. It does not inherit
+Python path settings. The kernel probe verifies the actors' startup behavior.
 
-`run.py` verifies the exact frozen source file inventory/content hashes and pinned checkpoint file hashes before and after evaluation, without requiring Git inside the image. It hashes candidate, original controller files, and native Python files as well. The engine writes a private intermediate result; the coordinator emits `result.json` with `provenance_verified: true` only after normal completion and unchanged inputs. `feedback.json` remains aggregate-only. Detailed logs/results are operator artifacts, not automatically public.
+Task helpers are loaded from their exact source bytes, so an unchecked Python
+bytecode cache cannot replace them. For each engine invocation, the evaluator
+copies the verified Alem package and baseline modules into a new private
+directory, owned by the verifier, and removes it afterward. Shared `/tmp` is
+never added to the import path. This also allows repeated invocations in the
+same container.
 
-This closes the nested-Docker requirement for execution. It does not by itself establish the trustworthiness of arbitrary Work-snapshot contents. The Judge loads the complete Work snapshot. Judge-only injected tests and expected hashes may verify task-owned harness files, source, assets, and this adapter against their declared content. Internal self-consistency alone is insufficient. Inherited interpreter/runtime libraries and other platform files remain a Work-snapshot trust residual; this adapter does not replace them with a clean Base environment. Root verification capabilities belong only to the trusted bootstrap, never candidate processes. Pass-through parity supports this route for the measured controller; it does not prove every legal standard-library controller behaves identically under the two deployments.
+## Actor isolation and limits
 
-No training, LLM calls, new checkpoint selection, or benchmark-case change occurs in deployment validation.
+Each world starts three fresh Python processes. Each actor enters a **chroot**:
+a private filesystem root containing only Python standard-library files and
+their dynamic libraries, the message driver, its own controller, `/dev/null`,
+and private `/tmp` storage.
+
+Actors cannot see `/proc`, the simulator, checkpoint, scores, task tree, or peer
+directories. Their paths do not contain world IDs, and original command-line
+metadata is cleared before importing candidate code. Child processes inherit
+only the intended standard streams; messages use a bounded, framed format.
+
+Before candidate import, the bootstrap clears extra group memberships, switches
+each actor to a different non-root user and group, pins it to one CPU, clears
+the environment, and prevents it from gaining new privileges. It also installs
+**seccomp**, a kernel filter that denies selected system calls.
+
+The filter blocks network sockets; SysV and POSIX interprocess communication;
+process creation and re-execution; changes to CPU affinity; tracing and access
+to another process's memory; namespace and mount operations; and `io_uring`.
+The probe checks IPv4, IPv6, and Unix socket denial, IPC denial, fork/exec
+denial, fixed affinity, read-only source, fresh private state, and absence of
+world IDs in bootstrap frames. Tables exist for x86_64 and aarch64, but the
+recorded kernel tests ran on arm64 only.
+
+| Actor resource | Limit |
+| --- | --- |
+| Virtual memory | 384 MiB |
+| Declared JSON memory | 65,536 bytes |
+| Open files | 64 |
+| Writable scratch storage | One regular file, at most 16 MiB |
+
+The only writable regular file is `/tmp/scratch`. Its parent directories are
+root-owned and read-only, so an actor cannot create, remove, or rename files.
+`RLIMIT_FSIZE` bounds the scratch file to 16 MiB.
+
+This differs from the original Docker workers' general-purpose 16 MiB temporary
+filesystem. An earlier native proof also used a writable directory. Code using
+general temporary-file APIs may therefore behave differently on this route.
+
+Shared hardware, timing side channels, and the combined resources of trusted
+processes remain limitations. These restrictions do not establish equivalence
+to separate container namespaces or a complete malicious-code sandbox. The
+research rules prohibit clocks, OS entropy, and undeclared external state;
+kernel controls do not fully enforce that scientific rule.
+
+## What the verifier checks—and what it trusts
+
+`run.py` checks the exact upstream file inventory, source hashes, and pinned
+checkpoint hashes before and after evaluation. It also hashes the candidate,
+original controller files, and native Python files. Git is not required inside
+the image.
+
+The engine writes a private intermediate result. The supervisor sets
+`provenance_verified: true` in `result.json` only after normal completion and
+unchanged inputs. Here, provenance means the recorded identity and integrity
+of those inputs. Only aggregate feedback is written to `feedback.json`;
+detailed results and logs are operator artifacts, not automatically public.
+
+**Judge loads the complete Work snapshot.** Work is the researcher's workspace;
+Judge is the evaluation phase. This adapter does not replace that snapshot
+with a clean Base environment. Base is the task's initial environment.
+
+Judge-only injected tests and expected hashes may check task-owned code,
+source, assets, and the adapter against their declared content. The adapter's
+own before/after consistency checks are not enough to establish that arbitrary
+Work contents are trustworthy. Inherited Python, libraries, and other platform
+files remain a trust limitation. Root privileges belong to the trusted
+bootstrap, never the candidate actors.
+
+Matching trajectories establish deployment parity for the measured controllers.
+They do not prove that every legal standard-library controller behaves
+identically on both routes. Deployment validation involves no training, LLM
+calls, checkpoint reselection, or changes to benchmark cases.
 
 ## Minimal Base / Judge content allowlist
 
-Do not copy the whole contributor checkout, repository history, or operator output into a generated Work image. Build the environment dependencies using the pinned baseline recipe, then include only these task inputs:
+Build dependencies using the pinned baseline recipe. Include only these task
+inputs in the initial environment:
 
-- At `/app`: the 291 regular source files enumerated by `baseline/source-manifest.json`, verified byte-for-byte; omit `.git` and all untracked files.
-- At `/assets`: only the 20 checkpoint/config files enumerated by `baseline/asset-manifest.json`, with exact pinned hashes.
+- At `/app`: the 291 regular source files in `baseline/source-manifest.json`,
+  verified byte-for-byte. Omit `.git` and all untracked files.
+- At `/assets`: only the 20 checkpoint/config files in
+  `baseline/asset-manifest.json`, with their exact pinned hashes.
 - At `/task/baseline`: `source-manifest.json` and `asset-manifest.json`.
-- At `/task/controller`: `launcher.py` (trusted reusable framing/validation helpers only), `controller_driver.py`, `wire.py`, `feedback.py`, `engine.py` and `CONTRACT.md`; plus `reference/controller.py` as the public pass-through starting point.
-- At `/task/native`: `run.py`, `runtime_support.py`, `sandbox.py`, `actor_bootstrap.py`, `engine_entry.py`, `engine.py`, `probe.py`, `README.md` and `ENGINE.patch`. The optional offline test file is operator validation only.
-- Public task instructions: the declared task design, action/observation contract and upstream license/attribution files. Include a writable candidate work directory with the public starter `controller.py`; copy its final submitted file into the private actor roots at evaluation time.
+- At `/task/controller`: `launcher.py` for trusted framing/validation helpers,
+  `controller_driver.py`, `wire.py`, `feedback.py`, `engine.py`, `CONTRACT.md`,
+  and the public starting point `reference/controller.py`.
+- At `/task/native`: `run.py`, `runtime_support.py`, `sandbox.py`,
+  `actor_bootstrap.py`, `engine_entry.py`, `engine.py`, `probe.py`, `README.md`,
+  and `ENGINE.patch`. The optional offline test file is for operator validation.
+- Public task instructions: the task design, action/observation contract, and
+  upstream license/attribution files. Provide a writable candidate work
+  directory with the public starter `controller.py`; copy the final submitted
+  file into private actor roots for evaluation.
 
-Exclude `controller/evidence/`, contributor `results/` directories, pilot records, model prompts/responses/events, native validation outputs, Git history, and all private operator logs. Initialize `/results` empty. The Judge still loads the complete Work snapshot; this allowlist describes initial Base content, not candidate-only Judge materialization. Judge-only injected tests and expected hashes may verify task-owned files. Within that inherited environment, the actor bootstrap selects the submitted candidate file and the narrow driver/stdlib subset for each child jail. It does not replace the outer snapshot or make inherited runtime libraries independently trusted.
+Exclude the whole contributor checkout, `controller/evidence/`, contributor
+`results/` directories, pilot records, model prompts/responses/events, native
+validation outputs, Git history, and private operator logs. Start `/results`
+empty.
 
-The world IDs and upstream world generator are public, and published study outputs already exist. This is a fixed public workload, not a secret or unseen generalization split. The allowlist prevents automatically supplying per-world evaluation outcomes in the task environment; it does not make already-public outcomes secret. Normal researcher feedback remains aggregate-only.
+This allowlist describes **initial Base content**, not a candidate-only Judge
+snapshot. Judge still receives the complete Work snapshot. Its injected tests
+and expected hashes may verify task-owned files. Inside that environment, the
+bootstrap copies only the submitted controller and narrow driver/stdlib subset
+into each actor root; it does not make inherited runtime libraries independently
+trusted.
+
+World IDs, the generator, and published study outputs are public. This is a
+fixed public workload, not a secret test set or an unseen-world generalization
+test. The allowlist avoids automatically supplying per-world evaluation
+outcomes, but cannot make published outcomes secret. Normal researcher
+feedback remains aggregate-only.
 
 ## Measured deployment evidence
 
-The original full twenty-world pass-through validation is in [evidence/README.md](evidence/README.md). All twenty native state/latent/action trace hashes match the frozen Docker baseline exactly, with mean coordination reward fraction 0.18522013239562513. That ordinary-container run took 145.39 seconds at four CPUs / sixteen GiB. The later unchanged Sol replay also matched all twenty original traces. These historical artifacts retain their original source hashes and six-test record; they do not certify subsequent code changes. The audit fixes have thirteen offline regression tests. The [fresh deployment validation](evidence/post-audit-validation.json) ran both twenty-world suites consecutively in one container, reproducing all forty original trajectories exactly; reference took 125.29 seconds and Sol 128.68 seconds. See the [audit report](../AUDIT.md) for the fixes and remaining limitations. The attempt ledger preserves earlier infrastructure and trace-mismatch diagnostics. Deployment checks are not new researcher performance attempts.
+The [evidence guide](evidence/README.md) distinguishes the original measurements
+from the corrected runtime validated on **24 September 2026**:
+
+| Runtime | Pass-through: 20 worlds | Unchanged Sol controller: 20 worlds |
+| --- | ---: | ---: |
+| Original native deployment | 145.39 s | 130.38 s |
+| Corrected deployment, consecutive runs in one container | 125.29 s | 128.68 s |
+
+All four checks matched their original Docker trajectories exactly. The
+reference coordination reward stayed at **0.18522013239562513**; Sol stayed at
+**0.19465409219264984**. These are reward fractions, not pass rates. The checks
+used four CPUs and sixteen GiB.
+
+The older artifacts retain their original source hashes and six-test record;
+they do not certify later code. The corrected runtime has thirteen offline
+regressions. Its [fresh validation record](evidence/post-audit-validation.json)
+contains all forty matching trajectories from the two consecutive suites.
+The [audit report](../AUDIT.md) describes the fixes and remaining limits.
+Earlier infrastructure failures and trace mismatches remain in the attempt
+ledger. None of these deployment checks is a new researcher-performance attempt.
