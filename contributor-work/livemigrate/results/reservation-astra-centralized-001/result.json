@@ -1,0 +1,442 @@
+{
+  "calls": [
+    {
+      "index": 0,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "model_selection_source": "local_model_argument",
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 658.527,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 13184,
+          "input_tokens": 26867,
+          "output_tokens": 21737,
+          "reasoning_output_tokens": 13907
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 1,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "model_selection_source": "local_model_argument",
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 441.478,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 28160,
+          "input_tokens": 41823,
+          "output_tokens": 14462,
+          "reasoning_output_tokens": 6550
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 2,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "model_selection_source": "local_model_argument",
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 520.238,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 20864,
+          "input_tokens": 42259,
+          "output_tokens": 17169,
+          "reasoning_output_tokens": 9134
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 3,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "model_selection_source": "local_model_argument",
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 365.205,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 42880,
+          "input_tokens": 68130,
+          "output_tokens": 11916,
+          "reasoning_output_tokens": 3740
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 4,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "model_selection_source": "local_model_argument",
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 364.017,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 21504,
+          "input_tokens": 43557,
+          "output_tokens": 11927,
+          "reasoning_output_tokens": 3873
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    },
+    {
+      "index": 5,
+      "metadata_available": true,
+      "model_requested": "gpt-6-astra",
+      "model_revision_expected": null,
+      "model_selection_source": "local_model_argument",
+      "reasoning_effort": "ultra",
+      "return_code": 0,
+      "seconds": 368.109,
+      "status": "completed",
+      "tool_free": true,
+      "usage": [
+        {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 21632,
+          "input_tokens": 43903,
+          "output_tokens": 12093,
+          "reasoning_output_tokens": 4109
+        }
+      ],
+      "usage_evidence": "completed_tool_free_cli_record",
+      "usage_known": true,
+      "vllm_version": null
+    }
+  ],
+  "candidate": {
+    "available": true,
+    "is_final": true,
+    "recorded_hashes_verified": true,
+    "sha256": {
+      "api": "5107600a400f8bf382f4fddcc99de9f48b5885f29ce9e31627d8d556de766458",
+      "consumer": "802ffd2c4d5ca669c2a074280991c567ad27ccc98a9b43d2bf97ea85c7d0074c",
+      "db": "241e601694339ca6572abb47d461a3307cc99fff50849ae2102cd6ddb6a0bbdf"
+    },
+    "stage": 1
+  },
+  "candidate_source_review": "Absolute-path scan and independent manual review of all three exact candidate source files; no personal data, credentials, secrets, local paths or private task content identified. No source rewriting.",
+  "heldout": {
+    "cases": [
+      {
+        "completion": {
+          "candidate_callbacks": 589,
+          "fair_rounds": 113,
+          "passed": true,
+          "queued_messages": 0,
+          "resolved_calls": 8,
+          "total_calls": 8
+        },
+        "faults": {
+          "lost_effect_ack": false,
+          "lost_output": false,
+          "lost_output_trigger": null,
+          "replayed_packets": 40
+        },
+        "history": {
+          "exhaustive": true,
+          "explored": 12,
+          "passed": true,
+          "reason": "linearizable"
+        },
+        "name": "replayed_handoff_and_decisions",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "status": "scored",
+        "trace": {
+          "passed": true,
+          "physical_fulfillments": 4,
+          "violation_count": 0,
+          "violations": []
+        }
+      },
+      {
+        "completion": {
+          "candidate_callbacks": 549,
+          "fair_rounds": 113,
+          "passed": true,
+          "queued_messages": 0,
+          "resolved_calls": 8,
+          "total_calls": 8
+        },
+        "faults": {
+          "lost_effect_ack": true,
+          "lost_output": false,
+          "lost_output_trigger": null,
+          "replayed_packets": 0
+        },
+        "history": {
+          "exhaustive": true,
+          "explored": 12,
+          "passed": true,
+          "reason": "linearizable"
+        },
+        "name": "lost_committed_reply",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "status": "scored",
+        "trace": {
+          "passed": true,
+          "physical_fulfillments": 4,
+          "violation_count": 0,
+          "violations": []
+        }
+      },
+      {
+        "completion": {
+          "candidate_callbacks": 592,
+          "fair_rounds": 113,
+          "passed": true,
+          "queued_messages": 0,
+          "resolved_calls": 8,
+          "total_calls": 8
+        },
+        "faults": {
+          "lost_effect_ack": false,
+          "lost_output": true,
+          "lost_output_trigger": {
+            "input_kind": "move",
+            "node": "source",
+            "sku": "X",
+            "step": 57
+          },
+          "replayed_packets": 40
+        },
+        "history": {
+          "exhaustive": true,
+          "explored": 12,
+          "passed": true,
+          "reason": "linearizable"
+        },
+        "name": "lost_source_send_after_fence",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "status": "scored",
+        "trace": {
+          "passed": true,
+          "physical_fulfillments": 4,
+          "violation_count": 0,
+          "violations": []
+        }
+      }
+    ],
+    "passed": 3,
+    "score": 1.0,
+    "status": "scored",
+    "suite": "heldout",
+    "total": 3
+  },
+  "model": {
+    "identity_consistent": true,
+    "immutable_revision_expected": [],
+    "metadata_efforts": [
+      "ultra"
+    ],
+    "metadata_identifiers": [
+      "gpt-6-astra"
+    ],
+    "metadata_selection_sources": [
+      "local_model_argument"
+    ],
+    "model_selection_source": "local_model_argument",
+    "reasoning_effort": "ultra",
+    "requested_identifier": "gpt-6-astra",
+    "server_weight_attestation": "not_provided"
+  },
+  "public": [
+    {
+      "outcome": {
+        "cases": [
+          {
+            "completion": {
+              "candidate_callbacks": 555,
+              "fair_rounds": 113,
+              "passed": true,
+              "queued_messages": 0,
+              "resolved_calls": 8,
+              "total_calls": 8
+            },
+            "faults": {
+              "lost_effect_ack": false,
+              "lost_output": false,
+              "lost_output_trigger": null,
+              "replayed_packets": 0
+            },
+            "history": {
+              "exhaustive": true,
+              "explored": 12,
+              "passed": true,
+              "reason": "linearizable"
+            },
+            "name": "public_prepared_hold_handoff",
+            "passed": true,
+            "score": 1.0,
+            "static": {
+              "passed": true,
+              "violations": []
+            },
+            "status": "scored",
+            "trace": {
+              "passed": true,
+              "physical_fulfillments": 4,
+              "violation_count": 0,
+              "violations": []
+            }
+          }
+        ],
+        "passed": 1,
+        "score": 1.0,
+        "status": "scored",
+        "suite": "public",
+        "total": 1
+      },
+      "stage": 0
+    },
+    {
+      "outcome": {
+        "cases": [
+          {
+            "completion": {
+              "candidate_callbacks": 555,
+              "fair_rounds": 113,
+              "passed": true,
+              "queued_messages": 0,
+              "resolved_calls": 8,
+              "total_calls": 8
+            },
+            "faults": {
+              "lost_effect_ack": false,
+              "lost_output": false,
+              "lost_output_trigger": null,
+              "replayed_packets": 0
+            },
+            "history": {
+              "exhaustive": true,
+              "explored": 12,
+              "passed": true,
+              "reason": "linearizable"
+            },
+            "name": "public_prepared_hold_handoff",
+            "passed": true,
+            "score": 1.0,
+            "static": {
+              "passed": true,
+              "violations": []
+            },
+            "status": "scored",
+            "trace": {
+              "passed": true,
+              "physical_fulfillments": 4,
+              "violation_count": 0,
+              "violations": []
+            }
+          }
+        ],
+        "passed": 1,
+        "score": 1.0,
+        "status": "scored",
+        "suite": "public",
+        "total": 1
+      },
+      "stage": 1
+    }
+  ],
+  "run": {
+    "calls": 6,
+    "check_timeout_seconds": 900,
+    "generation_completed": true,
+    "inference_timeout_seconds": 1200,
+    "mode": "centralized",
+    "seconds": 2997.021,
+    "status": "scored"
+  },
+  "schema_version": 1,
+  "scope": "Schedules within a family are correlated stress cases, not independent tasks.",
+  "source_hashes_available": true,
+  "source_revision": "6a5c4e9c0750be7ef39f8216f073946e6fa4f667",
+  "source_revision_source": "operator_supplied",
+  "usage": {
+    "cached_input_is_subset_not_added_again": true,
+    "calls_with_complete_usage": 6,
+    "calls_with_unknown_usage": 0,
+    "complete": true,
+    "complete_for_observed_calls": true,
+    "known_input_plus_output": 355843,
+    "observed_calls": 6,
+    "reasoning_output_is_subset_not_added_again": true,
+    "reported_call_count_verified": true,
+    "reported_totals": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 148224,
+      "input_tokens": 266539,
+      "output_tokens": 89304,
+      "reasoning_output_tokens": 41313
+    },
+    "summary_totals_match": true,
+    "total_input_plus_output": 355843
+  },
+  "validity": {
+    "candidate_invalid": false,
+    "check_coverage_complete": true,
+    "failure_category": null,
+    "failure_recorded": false,
+    "failure_type": null,
+    "generation_completed": true,
+    "infrastructure_affected": false,
+    "source_hash_verification_method": "SHA-256 of git show at recorded immutable source revision; all 112 entries matched; task/ maps to families/reservation/",
+    "source_hashes_verified_against_git": true
+  }
+}

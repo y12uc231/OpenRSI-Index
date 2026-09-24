@@ -66,22 +66,31 @@ uses this frozen version and reports every arm separately when complete.
 
 ## Third-family model results
 
-The declared Sol team arm has completed. The other two arms are still running;
-their absence from this interim table is not selection by outcome.
+All three declared arms completed and passed every original held-out case.
 
 | Requested model | Mode | Held-out traces passed | Invalid/incomplete | Input + output tokens | Elapsed seconds |
 | --- | --- | ---: | ---: | ---: | ---: |
+| gpt-6-astra, ultra | Six sequential all-role revisions | 3/3 | 0 | 355,843 | 2,997.021 |
+| gpt-6-astra, ultra | Sequential protocol-first team | 3/3 | 0 | 247,816 | 2,811.229 |
 | gpt-6-sol, ultra | Sequential protocol-first team | 3/3 | 0 | 252,455 | 2,049.876 |
 
-The [complete sanitized result and exact candidate](reservation-sol-team-001/result.json)
-also show both public checks passing 1/1. Every held-out case resolved all eight
-client calls, with no static or permanent trace violations. Replay, lost
+The complete sanitized results and exact candidates are available for
+[Astra centralized](reservation-astra-centralized-001/result.json),
+[Astra team](reservation-astra-team-001/result.json), and
+[Sol team](reservation-sol-team-001/result.json). Every arm also passed both
+public checks 1/1. Every held-out case resolved all eight client calls, with no
+static or permanent trace violations. Replay, lost
 acknowledgement and post-fence output loss were observed in the designated cases.
-An independent text review found a coherent durable protocol, not evidence of a
-fixture-specific shortcut. This is another saturation observation, not evidence
-that the model performs poorly.
+This is another saturation observation, not evidence that these models perform
+poorly. The three cases are correlated schedules of one semantic task, and one
+generation per arm cannot establish broad model performance or generation variance.
 
 All 112 recorded source hashes match the frozen task revision above; the three
-published candidate hashes match the final submitted sources. Raw prompts,
-private reasoning and local metadata remain excluded. The published source also
-received an independent manual privacy review without rewriting it.
+published candidate hashes match the final submitted sources in each arm. Raw
+prompts, private reasoning and local metadata remain excluded. Each source export
+records its separate manual privacy-review status; candidate code is never rewritten.
+
+The [three separately sealed concurrency probes](../diagnostics/concurrency/README.md)
+are exploratory follow-up coverage. Their outcomes must be reported separately
+from the original score, using every unchanged final candidate and no new
+inference or selected replacements.

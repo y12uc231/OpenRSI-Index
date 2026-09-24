@@ -4,9 +4,11 @@
 frontier-model weakness.** This contribution was developed from a fresh audit of
 current external work. It does not extend the contributor's older research.
 
-The [complete first pilot results](results/README.md) are all successes: local
-`gpt-6-astra` at `ultra` passed both families in both team and centralized modes.
-The examples validate the instrument but do not meet a high model-difficulty bar.
+The [original pilot results](results/README.md) are all successes: local
+`gpt-6-astra` at `ultra` passed the first two families in both team and centralized
+modes; it also passed the third family in both modes, as did `gpt-6-sol` in team
+mode. The examples validate the instrument but do not meet a high model-difficulty
+bar. Separate exploratory concurrency results must not replace those original scores.
 
 Three coding agents own different parts of a live migration. Their code must
 agree on durable identities, authority and recovery while old and new components
