@@ -1,0 +1,31 @@
+{
+  "automatic_retries": 0,
+  "exporter_sha256": "0bb25b94efffdef1ae2997393cb8b44341b42a52bb9bd85a537f061600d97ca5",
+  "files": {
+    "candidates/call-01/controller.py": "adde1ca397bddcbaba36e63ecd6ded40133687563fcfdd596456948d83085192",
+    "candidates/call-02/controller.py": "250d47a0697ca52d45543c9c8e30246e7427a8786319ca4e18ce02d80b23e2f5",
+    "candidates/call-03/controller.py": "e65deb3bb2e51f304b5438d06d6be826de77fa5c70e4649fec48b27d81751db1",
+    "candidates/call-04/controller.py": "3bdd0f68c497bef4a7ab3e0d5d476b2fa6e145ff66a4f8815f4345981e350eec",
+    "candidates/call-05/controller.py": "50105844bd662113bc9db085a2a3d5990b09fa783319c8c1bfc7365c1d575dd4",
+    "candidates/call-06/controller.py": "1100a5af8f19ff678a3277ce40f7367ba6bc12e6b0f9404e98736a674e94674d",
+    "candidates/incumbent/controller.py": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+    "candidates/reference/controller.py": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+    "candidates/selected/controller.py": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+    "comparison.json": "1836e449fe098214af59db228e9e2ee11514db97bfc37cf51d8efc05a8f4a8fb",
+    "evaluations/dev-call-01.json": "8f0871e87bdd165111e2eeaab0e728dc8a8132a15aff27777d658b52adb4d39e",
+    "evaluations/dev-call-02.json": "18a3272f77284941b3c6c0394d8d8a0ca577b12aa9d0dce12a294a3b36678dac",
+    "evaluations/dev-call-03.json": "4ac1d9c1ee77cee33d28e61b4f9dea4df7cd25c3d52e5a04b54b98ed38340f63",
+    "evaluations/dev-call-04.json": "d4fde8f65c7ca7ce99fd69cbbf501e31f4e231495796c7ff7628b6d07107eb3f",
+    "evaluations/dev-call-05.json": "6803fe8e000b4e9e98f1e1a49f94bc89759c19c9cfa6cceb1d9a472ef02b7980",
+    "evaluations/dev-call-06.json": "a2521b17c8970e96270b0643451c1928e9df383fe13c7443f8c2fd14d51db6a5",
+    "evaluations/dev-incumbent.json": "5a0e081418f42a6f0a1054e1ae999494ce68c9c569908a1f086783b7f7f215be",
+    "evaluations/dev-reference.json": "7b319fb55f65025179ab243394a202400497b0574d6d3ac29a50e7c269176038",
+    "evaluations/evaluation-incumbent.json": "cb3b2f0f5197e997b8c0d3794d4691b521d76e07fc1c2d486e1dceb7e80d22c9",
+    "evaluations/evaluation-reference.json": "1899ad7e3cd2bee539104132149283181c7d309bf4de297c7f6653ca8f139d19",
+    "evaluations/transfer-incumbent.json": "4fcbf28dc907f962c3a5674dc133feb4abe70c9020cc2e34dcc363c1d407dcbd",
+    "evaluations/transfer-reference.json": "52c6ebcc2e0c6fd19efe587dbaee6223981301399cbaab512db4f3168e3e127b",
+    "summary.json": "b6b49997c3f0b5278cc8929d6cca486786f4bd4d1e1d967b7626f658a55d03e2"
+  },
+  "prompts_reasoning_notes_and_private_logs_included": false,
+  "schema_version": 1
+}

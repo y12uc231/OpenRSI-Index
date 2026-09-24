@@ -1,0 +1,310 @@
+{
+  "audit_status": "verified",
+  "cached_input_and_reasoning_output_are_subsets": true,
+  "calls": [
+    {
+      "candidate_sha256": "adde1ca397bddcbaba36e63ecd6ded40133687563fcfdd596456948d83085192",
+      "input_plus_output_tokens": 97174,
+      "label": "call-01",
+      "model_identity": "requested alias; no immutable server snapshot exposed",
+      "model_requested": "gpt-6-sol",
+      "reasoning_effort": "ultra",
+      "seconds": 448.159,
+      "status": "completed",
+      "tool_free": true,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 37248,
+        "input_tokens": 75155,
+        "output_tokens": 22019,
+        "reasoning_output_tokens": 19871
+      }
+    },
+    {
+      "candidate_sha256": "250d47a0697ca52d45543c9c8e30246e7427a8786319ca4e18ce02d80b23e2f5",
+      "input_plus_output_tokens": 132896,
+      "label": "call-02",
+      "model_identity": "requested alias; no immutable server snapshot exposed",
+      "model_requested": "gpt-6-sol",
+      "reasoning_effort": "ultra",
+      "seconds": 554.774,
+      "status": "completed",
+      "tool_free": true,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 71680,
+        "input_tokens": 108380,
+        "output_tokens": 24516,
+        "reasoning_output_tokens": 22001
+      }
+    },
+    {
+      "candidate_sha256": "e65deb3bb2e51f304b5438d06d6be826de77fa5c70e4649fec48b27d81751db1",
+      "input_plus_output_tokens": 98088,
+      "label": "call-03",
+      "model_identity": "requested alias; no immutable server snapshot exposed",
+      "model_requested": "gpt-6-sol",
+      "reasoning_effort": "ultra",
+      "seconds": 444.736,
+      "status": "completed",
+      "tool_free": true,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 40576,
+        "input_tokens": 77226,
+        "output_tokens": 20862,
+        "reasoning_output_tokens": 18508
+      }
+    },
+    {
+      "candidate_sha256": "3bdd0f68c497bef4a7ab3e0d5d476b2fa6e145ff66a4f8815f4345981e350eec",
+      "input_plus_output_tokens": 135506,
+      "label": "call-04",
+      "model_identity": "requested alias; no immutable server snapshot exposed",
+      "model_requested": "gpt-6-sol",
+      "reasoning_effort": "ultra",
+      "seconds": 484.257,
+      "status": "completed",
+      "tool_free": true,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 73344,
+        "input_tokens": 112388,
+        "output_tokens": 23118,
+        "reasoning_output_tokens": 20047
+      }
+    },
+    {
+      "candidate_sha256": "50105844bd662113bc9db085a2a3d5990b09fa783319c8c1bfc7365c1d575dd4",
+      "input_plus_output_tokens": 97808,
+      "label": "call-05",
+      "model_identity": "requested alias; no immutable server snapshot exposed",
+      "model_requested": "gpt-6-sol",
+      "reasoning_effort": "ultra",
+      "seconds": 485.293,
+      "status": "completed",
+      "tool_free": true,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 37376,
+        "input_tokens": 75442,
+        "output_tokens": 22366,
+        "reasoning_output_tokens": 20075
+      }
+    },
+    {
+      "candidate_sha256": "1100a5af8f19ff678a3277ce40f7367ba6bc12e6b0f9404e98736a674e94674d",
+      "input_plus_output_tokens": 98134,
+      "label": "call-06",
+      "model_identity": "requested alias; no immutable server snapshot exposed",
+      "model_requested": "gpt-6-sol",
+      "reasoning_effort": "ultra",
+      "seconds": 491.052,
+      "status": "completed",
+      "tool_free": true,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 36992,
+        "input_tokens": 74955,
+        "output_tokens": 23179,
+        "reasoning_output_tokens": 19563
+      }
+    }
+  ],
+  "calls_completed": 6,
+  "declared_calls": 6,
+  "development": [
+    {
+      "candidate_file": "candidates/reference/controller.py",
+      "evaluation": "dev-reference",
+      "label": "reference",
+      "primary_score": 0.22484277188777924,
+      "sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/incumbent/controller.py",
+      "evaluation": "dev-incumbent",
+      "label": "incumbent",
+      "primary_score": 0.19811321422457695,
+      "sha256": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/call-01/controller.py",
+      "evaluation": "dev-call-01",
+      "label": "call-01",
+      "primary_score": 0.19811321049928665,
+      "sha256": "adde1ca397bddcbaba36e63ecd6ded40133687563fcfdd596456948d83085192",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/call-02/controller.py",
+      "evaluation": "dev-call-02",
+      "label": "call-02",
+      "primary_score": 0.21383647620677948,
+      "sha256": "250d47a0697ca52d45543c9c8e30246e7427a8786319ca4e18ce02d80b23e2f5",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/call-03/controller.py",
+      "evaluation": "dev-call-03",
+      "label": "call-03",
+      "primary_score": 0.20754717662930489,
+      "sha256": "e65deb3bb2e51f304b5438d06d6be826de77fa5c70e4649fec48b27d81751db1",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/call-04/controller.py",
+      "evaluation": "dev-call-04",
+      "label": "call-04",
+      "primary_score": 0.191823897883296,
+      "sha256": "3bdd0f68c497bef4a7ab3e0d5d476b2fa6e145ff66a4f8815f4345981e350eec",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/call-05/controller.py",
+      "evaluation": "dev-call-05",
+      "label": "call-05",
+      "primary_score": 0.2232704497873783,
+      "sha256": "50105844bd662113bc9db085a2a3d5990b09fa783319c8c1bfc7365c1d575dd4",
+      "status": "scored"
+    },
+    {
+      "candidate_file": "candidates/call-06/controller.py",
+      "evaluation": "dev-call-06",
+      "label": "call-06",
+      "primary_score": 0.20440252125263214,
+      "sha256": "1100a5af8f19ff678a3277ce40f7367ba6bc12e6b0f9404e98736a674e94674d",
+      "status": "scored"
+    }
+  ],
+  "final": [
+    {
+      "candidate_sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+      "evaluation": "evaluation-reference",
+      "label": "reference",
+      "reused_from": null,
+      "suite": "evaluation"
+    },
+    {
+      "candidate_sha256": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+      "evaluation": "evaluation-incumbent",
+      "label": "incumbent",
+      "reused_from": null,
+      "suite": "evaluation"
+    },
+    {
+      "candidate_sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+      "evaluation": "evaluation-reference",
+      "label": "selected",
+      "reused_from": "reference",
+      "suite": "evaluation"
+    },
+    {
+      "candidate_sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+      "evaluation": "transfer-reference",
+      "label": "reference",
+      "reused_from": null,
+      "suite": "transfer"
+    },
+    {
+      "candidate_sha256": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+      "evaluation": "transfer-incumbent",
+      "label": "incumbent",
+      "reused_from": null,
+      "suite": "transfer"
+    },
+    {
+      "candidate_sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+      "evaluation": "transfer-reference",
+      "label": "selected",
+      "reused_from": "reference",
+      "suite": "transfer"
+    }
+  ],
+  "input_plus_output_tokens": 659606,
+  "known_usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 297216,
+    "input_tokens": 523546,
+    "output_tokens": 136060,
+    "reasoning_output_tokens": 120065
+  },
+  "limitations": [
+    "One adaptive continuation from a previously selected controller; not an independent researcher sample",
+    "Original evaluation worlds are a regression set; transfer worlds are a new fixed range from the same generator",
+    "Every declared world and invalid trial is retained; incomplete suites have no primary mean",
+    "Natural termination is not task success; reward is not a pass rate",
+    "Descriptive paired differences only; no confidence interval or general model-ranking claim",
+    "Diagnostic wrappers do not isolate pure causal effects; suppression logs are not adversarially secure"
+  ],
+  "model_requested": "gpt-6-sol",
+  "packet_manifest": {
+    "TASK_DESIGN.md": "ef593e52fe08fe13a862aa6977352bc2c889f915d042e37a8c7ff7d4758b3005",
+    "controller/CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "upstream/SYSTEM_PROMPT.md": "97283f66dbd0d00a41d45703ff6e4a4a3a81246f09cfc678dca357d922e60986",
+    "upstream/action_masking.py": "e0a201ef442e118d97ee2c01a645b6651fcb4ee8353eedd17388adef0a533ae5",
+    "upstream/constants.selected.py": "dc35dcc8649a398694ca3f1911897fe67c39cac0da2d0392d69ee9fdab58295a",
+    "upstream/coordination.selected.py": "e17989bd1b031bd5546435a966dd52b54261ddbc635c14e762be1d43540fe7a5",
+    "upstream/observation-note.txt": "35636d213b4c3079bf89f879c7d64eafac0b32d3b5e5dc82efd2aa2b57d37235",
+    "upstream/renderer_symbolic.py": "1df1100cc1672a40021da2a553ddf8321bcea2cf10fd01368c97567dc8fbe369"
+  },
+  "private_summary_sha256": "92ebd967a5ae8eafaab6b8f2eaa221e587c25625e3ec34cf36588d51fc5ac92f",
+  "protocol_sha256": "6d3bbd41ac0002ffc63656188250256801d4cb30870590a2dc56090062c4f54e",
+  "researcher_wall_seconds": 4082.424609665999,
+  "schema_version": 1,
+  "selection": {
+    "frozen_at_unix": 1790277969.328531,
+    "label": "reference",
+    "precedes_all_final_evaluations": true,
+    "rule": "max_valid_development_earliest_tie",
+    "sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d"
+  },
+  "source_commit": "9c8b6320b48463de9cde0d9a8b55911f99a689bd",
+  "source_file_sha256": {
+    "external-input-001": "d64f2fe9425d12ae34f3e00c1ca0743e7a60569102b687195bc6c9b6a912bea3",
+    "external-input-002": "ef593e52fe08fe13a862aa6977352bc2c889f915d042e37a8c7ff7d4758b3005",
+    "external-input-003": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "external-input-004": "97283f66dbd0d00a41d45703ff6e4a4a3a81246f09cfc678dca357d922e60986",
+    "external-input-005": "e0a201ef442e118d97ee2c01a645b6651fcb4ee8353eedd17388adef0a533ae5",
+    "external-input-006": "dc35dcc8649a398694ca3f1911897fe67c39cac0da2d0392d69ee9fdab58295a",
+    "external-input-007": "e17989bd1b031bd5546435a966dd52b54261ddbc635c14e762be1d43540fe7a5",
+    "external-input-008": "35636d213b4c3079bf89f879c7d64eafac0b32d3b5e5dc82efd2aa2b57d37235",
+    "external-input-009": "1df1100cc1672a40021da2a553ddf8321bcea2cf10fd01368c97567dc8fbe369",
+    "external-input-010": "f63346bf8e87b6bcc1d2330658eed55427b5fcd1a12f54f2b46b9763ff9560f2",
+    "external-input-011": "1db38ea3608ba8cac70d034b469e8caeaa99fa5ddad4ded2683430f50b8f1e6a",
+    "task/TASK_DESIGN.md": "ef593e52fe08fe13a862aa6977352bc2c889f915d042e37a8c7ff7d4758b3005",
+    "task/baseline/asset-manifest.json": "0d2a774f5970a79f955d009cccc585eeb87f8b8e01462600f10f78d5ea3e9bd1",
+    "task/baseline/common.py": "f1644fe90e3d653d124ce26a59d7bd415451b774fecad30846d4ff6f6681173a",
+    "task/baseline/source-manifest.json": "9bf066b0f407ac471a412b801ff8362be2eca239f540a22f3770a5e30e4eaaf5",
+    "task/controller/CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "task/controller/controller_driver.py": "271ba4dfe32ad3f438504ffd140f36d878640a70f35547ba542a4e3be7a5d7ff",
+    "task/controller/engine.py": "9baff4b2dc76e5d19fa7040685cf2b97799e32f0222b70fce5c28b7141c1aabf",
+    "task/controller/feedback.py": "6ca4fc45d27e4268f25cab9817efb991af4989685c5fd342c78ab8e008d580b2",
+    "task/controller/launcher.py": "8323c14512e3b7e7b5dbb7b2465dee35c1b01ed8df378e5e5b9a1c1b0891331a",
+    "task/controller/reference/controller.py": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+    "task/controller/wire.py": "309f08f6aabf2122ccf2229300862c643d21ea65a05d9f6e9ed6cf0bdbb9e2de",
+    "task/native/ENGINE.patch": "b6b42dca3150bebde1233e55b5417bbbae85f2275122bca3800bed84f0447a41",
+    "task/native/README.md": "cf8959cc7112b203677961791a18fe0c1504e7cf47823669ddf5cdae89975e94",
+    "task/native/actor_bootstrap.py": "39daeed8fe3f53ea8b6d369ac0ef47010840b4cff97799d74eda22340a01d03b",
+    "task/native/engine.py": "5c7671176b270d9961bcf49434e0938fe02fa00f480b2c167994db07a39f571b",
+    "task/native/engine_entry.py": "b3c6c1fdc60dc089ee18d62b061f5a5b5def2784e4149bdbfa6a2739b60efc15",
+    "task/native/probe.py": "c86fd629aad09c24d36270cc05789c3e4565bdb9218bec3d0fb9905594399d3a",
+    "task/native/run.py": "39150b1336a86643cba3011cb57587e773dd9b99dba7b05427dc12e3d4a77d27",
+    "task/native/runtime_support.py": "e6115a7fc82019b72b0c09f263c6211465db7765aa80f6fb55f45f8d24341f77",
+    "task/native/sandbox.py": "3811e4d0c5fe7a74b788203b2012469ff8db599ff8656ab16974baeea12ebf79",
+    "task/native/test_native.py": "596a31868baf13bbdb3bb7065004805edaa7ced89d1e5ba7611098f73101b2b7",
+    "task/paper/EXTENSION-PROTOCOL.md": "6d3bbd41ac0002ffc63656188250256801d4cb30870590a2dc56090062c4f54e",
+    "task/paper/make_ablations.py": "c1ada46b5e3ca3c6dd2e258e3b26113363d93e7becc26468fdf7f3cc19a81316",
+    "task/paper/run_evaluation.py": "28efc47af720dd6b5ca71eb91c12d1a091a6a91f070f497d6783ab6a9ebafbaf",
+    "task/paper/run_extension.py": "1830ea1b6a114270abd54ab9b3e2400d1a924d7cec22c5d35107e0742593bada",
+    "task/pilot/run.py": "918a12ce3b6899df84aaa4925e1e4c862adf02d90d68225dd6239bc7dd6045fe",
+    "task/results/sol-001/generation-03/controller.py": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+    "transport/codex_runner.py": "82a26d2294a452fa7b88eb809408395e4e07ba1c724a1103f6931196e7b296ee"
+  },
+  "source_unchanged": true,
+  "status": "completed",
+  "unavailable_ablations": [],
+  "unique_final_evaluations": 4
+}

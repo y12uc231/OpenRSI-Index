@@ -4,6 +4,10 @@ Literature checked on **24 September 2026**. This is a research assessment,
 not a paper submission or a claim of established novelty. The OpenRSI submission
 is on hold. The original task, pilot and results remain unchanged.
 
+The main review was prepared before the six-call continuation. Its outcomes
+are reported separately in the [research note](README.md). The section on
+selection and repeated feedback below was added during the declared diagnostic.
+
 **There is a plausible paper here, but “an LLM improves multi-agent Python code
 through repeated evaluations” is already established.** The closest papers do
 that directly, including a second-level researcher that improves the code
@@ -150,6 +154,30 @@ workload. More iterations are worthwhile as an explicitly separate exploratory
 extension. They must not erase the original attempts, turn newly observed
 evaluation worlds into an allegedly untouched test set, or make the original
 three-call comparison appear budget-matched to the extension.
+
+## Selection errors and repeated feedback are also established concerns
+
+A reversal between development and evaluation rankings is not itself a new
+theory of generalization. [The Ladder](https://proceedings.mlr.press/v37/blum15.html)
+(Blum and Hardt, ICML 2015) studies reliable leaderboard estimates when repeated
+submissions adapt to earlier scores. [Generalization in Adaptive Data Analysis
+and Holdout Reuse](https://papers.neurips.cc/paper_files/paper/2015/hash/bad5f33780c42f2588878a9d07405083-Abstract.html)
+(Dwork et al., NeurIPS 2015) explains how repeated data reuse can cause
+overfitting and gives methods with formal protection under their assumptions.
+
+Our four development worlds are explicitly used for search and selection. They
+are not an untouched test set. We do not implement these papers' protections,
+and returning only aggregate scores does not provide their guarantees. A
+ranking mismatch in one fixed experiment also does not establish that adaptive
+overfitting caused it; finite world sampling and ordinary controller variation
+remain possible explanations.
+
+An independent paper about this issue would need a stronger empirical result:
+for example, a repeatable failure pattern in controller search, an explanation
+tested by controlled comparisons, and a selection method whose benefit survives
+new independent searches and untouched evaluation worlds. Reporting the whole
+trajectory is useful evidence, but discovering one reversal is not sufficient
+novelty by itself.
 
 ## Search scope and remaining uncertainty
 

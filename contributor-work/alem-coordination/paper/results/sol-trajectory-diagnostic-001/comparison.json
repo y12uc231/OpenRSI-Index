@@ -1,0 +1,4886 @@
+{
+  "call-01": {
+    "evaluation": {
+      "minus_incumbent": {
+        "better": 8,
+        "equal": 3,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004088050499558449,
+            "difference": -0.08176100999116898,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.0034591197967529298,
+            "difference": -0.0691823959350586,
+            "world_id": 10004
+          },
+          {
+            "contribution_to_mean": 0.0025157228112220762,
+            "difference": 0.05031445622444153,
+            "world_id": 9999
+          },
+          {
+            "contribution_to_mean": -0.0025157228112220762,
+            "difference": -0.05031445622444153,
+            "world_id": 10018
+          },
+          {
+            "contribution_to_mean": 0.0025157220661640167,
+            "difference": 0.050314441323280334,
+            "world_id": 10003
+          }
+        ],
+        "max_difference": 0.05031445622444153,
+        "mean_difference": -0.005031445249915123,
+        "median_difference": 0.0,
+        "min_difference": -0.08176100999116898,
+        "sample_sd_difference": 0.03798877699215889,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.05031445622444153,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": -0.012578606605529785,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": -0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": -0.08176100999116898,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": 0.018867939710617065,
+            "left_score": 0.28301888704299927,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": -0.050314441323280334,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.025157243013381958,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": -0.05031445622444153,
+            "left_score": 0.08805032074451447,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 9
+      },
+      "minus_reference": {
+        "better": 4,
+        "equal": 14,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": 0.004088050127029419,
+            "difference": 0.08176100254058838,
+            "world_id": 10008
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 10002
+          },
+          {
+            "contribution_to_mean": 0.0025157228112220762,
+            "difference": 0.05031445622444153,
+            "world_id": 9999
+          },
+          {
+            "contribution_to_mean": 0.0009433962404727936,
+            "difference": 0.01886792480945587,
+            "world_id": 10010
+          },
+          {
+            "contribution_to_mean": -0.0009433954954147338,
+            "difference": -0.018867909908294678,
+            "world_id": 10000
+          }
+        ],
+        "max_difference": 0.08176100254058838,
+        "mean_difference": 0.004402514547109604,
+        "median_difference": 0.0,
+        "min_difference": -0.0628930926322937,
+        "sample_sd_difference": 0.027001266140817326,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.05031445622444153,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.069182388484478,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.1949685513973236,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.08176100254058838,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.1320754736661911,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.28301888704299927,
+            "left_status": "scored",
+            "right_score": 0.28301888704299927,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.24528303742408752,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.08805032074451447,
+            "left_status": "scored",
+            "right_score": 0.08805032074451447,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 2
+      }
+    },
+    "transfer": {
+      "minus_incumbent": {
+        "better": 5,
+        "equal": 5,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.00628930851817131,
+            "difference": -0.1257861703634262,
+            "world_id": 30007
+          },
+          {
+            "contribution_to_mean": -0.005031447112560272,
+            "difference": -0.10062894225120544,
+            "world_id": 30011
+          },
+          {
+            "contribution_to_mean": 0.004716981947422027,
+            "difference": 0.09433963894844055,
+            "world_id": 30010
+          },
+          {
+            "contribution_to_mean": -0.004088050872087479,
+            "difference": -0.08176101744174957,
+            "world_id": 30012
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30013
+          }
+        ],
+        "max_difference": 0.09433963894844055,
+        "mean_difference": -0.013836478814482689,
+        "median_difference": -0.0031446516513824463,
+        "min_difference": -0.1257861703634262,
+        "sample_sd_difference": 0.05507895259878741,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.012578621506690979,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.11320754885673523,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.006289303302764893,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.1257861703634262,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.09433963894844055,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": -0.10062894225120544,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": -0.08176101744174957,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.29559749364852905,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.03144654631614685,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": -0.037735842168331146,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 10
+      },
+      "minus_reference": {
+        "better": 5,
+        "equal": 10,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": 0.004716981947422027,
+            "difference": 0.09433963894844055,
+            "world_id": 30010
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30015
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 30007
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 30014
+          },
+          {
+            "contribution_to_mean": -0.0009433969855308533,
+            "difference": -0.018867939710617065,
+            "world_id": 30013
+          }
+        ],
+        "max_difference": 0.09433963894844055,
+        "mean_difference": -0.004088050872087479,
+        "median_difference": 0.0,
+        "min_difference": -0.08176100254058838,
+        "sample_sd_difference": 0.036346200740396684,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": 0.012578606605529785,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.09433963894844055,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": -0.018867939710617065,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.16981133818626404,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.10062893480062485,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 5
+      }
+    }
+  },
+  "call-02": {
+    "evaluation": {
+      "minus_incumbent": {
+        "better": 7,
+        "equal": 5,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004716981202363968,
+            "difference": -0.09433962404727936,
+            "world_id": 10007
+          },
+          {
+            "contribution_to_mean": -0.004088050872087479,
+            "difference": -0.08176101744174957,
+            "world_id": 10013
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 10008
+          },
+          {
+            "contribution_to_mean": 0.002515723556280136,
+            "difference": 0.05031447112560272,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.002515723556280136,
+            "difference": -0.05031447112560272,
+            "world_id": 10009
+          }
+        ],
+        "max_difference": 0.05031447112560272,
+        "mean_difference": -0.008176101744174958,
+        "median_difference": 0.0,
+        "min_difference": -0.09433962404727936,
+        "sample_sd_difference": 0.043194508063892544,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.006289303302764893,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.04402516782283783,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2515723407268524,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.05031447112560272,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": -0.09433962404727936,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.05031447112560272,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": -0.08176101744174957,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": -0.006289303302764893,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.012578621506690979,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 8
+      },
+      "minus_reference": {
+        "better": 5,
+        "equal": 10,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": 0.006603774055838585,
+            "difference": 0.1320754811167717,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.004716981202363968,
+            "difference": -0.09433962404727936,
+            "world_id": 10007
+          },
+          {
+            "contribution_to_mean": -0.0034591205418109893,
+            "difference": -0.06918241083621979,
+            "world_id": 10009
+          },
+          {
+            "contribution_to_mean": 0.0034591197967529298,
+            "difference": 0.0691823959350586,
+            "world_id": 10004
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 10013
+          }
+        ],
+        "max_difference": 0.1320754811167717,
+        "mean_difference": 0.0012578580528497696,
+        "median_difference": 0.0,
+        "min_difference": -0.09433962404727936,
+        "sample_sd_difference": 0.052445760033098136,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.0691823959350586,
+            "left_score": 0.2515723407268524,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.1320754811167717,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.069182388484478,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.1949685513973236,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": -0.09433962404727936,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.1320754736661911,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.06918241083621979,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.28301888704299927,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.24528303742408752,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": -0.03144654631614685,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.08805032074451447,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 5
+      }
+    },
+    "transfer": {
+      "minus_incumbent": {
+        "better": 6,
+        "equal": 2,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.0056603774428367615,
+            "difference": -0.11320754885673523,
+            "world_id": 30007
+          },
+          {
+            "contribution_to_mean": -0.004088050499558449,
+            "difference": -0.08176100999116898,
+            "world_id": 30018
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30013
+          },
+          {
+            "contribution_to_mean": -0.0034591197967529298,
+            "difference": -0.0691823959350586,
+            "world_id": 30011
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 30014
+          }
+        ],
+        "max_difference": 0.06289307773113251,
+        "mean_difference": -0.01729559525847435,
+        "median_difference": -0.018867909908294678,
+        "min_difference": -0.11320754885673523,
+        "sample_sd_difference": 0.04828215211650649,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.16981133818626404,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.012578621506690979,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.050314486026763916,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.11320754885673523,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.11320754885673523,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": -0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.29559749364852905,
+            "left_status": "scored",
+            "right_score": 0.29559749364852905,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": -0.037735842168331146,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": -0.08176100999116898,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 12
+      },
+      "minus_reference": {
+        "better": 7,
+        "equal": 5,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.0050314456224441525,
+            "difference": -0.10062891244888306,
+            "world_id": 30015
+          },
+          {
+            "contribution_to_mean": -0.004716981202363968,
+            "difference": -0.09433962404727936,
+            "world_id": 30014
+          },
+          {
+            "contribution_to_mean": 0.004088050872087479,
+            "difference": 0.08176101744174957,
+            "world_id": 30012
+          },
+          {
+            "contribution_to_mean": -0.003144655004143715,
+            "difference": -0.0628931000828743,
+            "world_id": 30018
+          },
+          {
+            "contribution_to_mean": 0.0031446538865566253,
+            "difference": 0.06289307773113251,
+            "world_id": 30010
+          }
+        ],
+        "max_difference": 0.08176101744174957,
+        "mean_difference": -0.00754716731607914,
+        "median_difference": 0.0,
+        "min_difference": -0.10062891244888306,
+        "sample_sd_difference": 0.04796743675437919,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": -0.06289306282997131,
+            "left_score": 0.16981133818626404,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.05031447112560272,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": 0.03144654631614685,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.08176101744174957,
+            "left_score": 0.29559749364852905,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": -0.018867939710617065,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.16981133818626404,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.09433962404727936,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.10062891244888306,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.10062893480062485,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": -0.0628931000828743,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 8
+      }
+    }
+  },
+  "call-03": {
+    "evaluation": {
+      "minus_incumbent": {
+        "better": 8,
+        "equal": 2,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004088050499558449,
+            "difference": -0.08176100999116898,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 10008
+          },
+          {
+            "contribution_to_mean": -0.0034591197967529298,
+            "difference": -0.0691823959350586,
+            "world_id": 10004
+          },
+          {
+            "contribution_to_mean": 0.0025157228112220762,
+            "difference": 0.05031445622444153,
+            "world_id": 9999
+          },
+          {
+            "contribution_to_mean": -0.0025157228112220762,
+            "difference": -0.05031445622444153,
+            "world_id": 10018
+          }
+        ],
+        "max_difference": 0.05031445622444153,
+        "mean_difference": -0.011635219678282738,
+        "median_difference": -0.006289303302764893,
+        "min_difference": -0.08176100999116898,
+        "sample_sd_difference": 0.04036287417145288,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.05031445622444153,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": -0.012578606605529785,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": 0.03144651651382446,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": -0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": -0.08176100999116898,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": 0.018867939710617065,
+            "left_score": 0.28301888704299927,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": -0.050314441323280334,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.012578606605529785,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": -0.03773584961891174,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": -0.05031445622444153,
+            "left_score": 0.08805032074451447,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 10
+      },
+      "minus_reference": {
+        "better": 4,
+        "equal": 12,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 10002
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 10016
+          },
+          {
+            "contribution_to_mean": 0.0025157228112220762,
+            "difference": 0.05031445622444153,
+            "world_id": 9999
+          },
+          {
+            "contribution_to_mean": 0.0015723265707492829,
+            "difference": 0.03144653141498566,
+            "world_id": 10013
+          },
+          {
+            "contribution_to_mean": -0.0009433962404727936,
+            "difference": -0.01886792480945587,
+            "world_id": 10003
+          }
+        ],
+        "max_difference": 0.05031445622444153,
+        "mean_difference": -0.0022012598812580107,
+        "median_difference": 0.0,
+        "min_difference": -0.0628930926322937,
+        "sample_sd_difference": 0.025913411855083404,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.05031445622444153,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.069182388484478,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.1949685513973236,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.1320754736661911,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.28301888704299927,
+            "left_status": "scored",
+            "right_score": 0.28301888704299927,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.24528303742408752,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.08805032074451447,
+            "left_status": "scored",
+            "right_score": 0.08805032074451447,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 4
+      }
+    },
+    "transfer": {
+      "minus_incumbent": {
+        "better": 5,
+        "equal": 5,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.005031447112560272,
+            "difference": -0.10062894225120544,
+            "world_id": 30011
+          },
+          {
+            "contribution_to_mean": 0.004716981947422027,
+            "difference": 0.09433963894844055,
+            "world_id": 30010
+          },
+          {
+            "contribution_to_mean": -0.004088050872087479,
+            "difference": -0.08176101744174957,
+            "world_id": 30012
+          },
+          {
+            "contribution_to_mean": 0.0034591197967529298,
+            "difference": 0.0691823959350586,
+            "world_id": 30002
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 30007
+          }
+        ],
+        "max_difference": 0.09433963894844055,
+        "mean_difference": -0.00974842719733715,
+        "median_difference": -0.0031446516513824463,
+        "min_difference": -0.10062894225120544,
+        "sample_sd_difference": 0.048651559189022836,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.012578621506690979,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.11320754885673523,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.006289303302764893,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.09433963894844055,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": -0.10062894225120544,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": -0.08176101744174957,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.29559749364852905,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": -0.06289306282997131,
+            "left_score": 0.16981133818626404,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.03144654631614685,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": -0.037735842168331146,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 10
+      },
+      "minus_reference": {
+        "better": 5,
+        "equal": 12,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": 0.004716981947422027,
+            "difference": 0.09433963894844055,
+            "world_id": 30010
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30015
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 30014
+          },
+          {
+            "contribution_to_mean": 0.0009433962404727936,
+            "difference": 0.01886792480945587,
+            "world_id": 30004
+          },
+          {
+            "contribution_to_mean": 0.0009433962404727936,
+            "difference": 0.01886792480945587,
+            "world_id": 30019
+          }
+        ],
+        "max_difference": 0.09433963894844055,
+        "mean_difference": 7.450580596923829e-10,
+        "median_difference": 0.0,
+        "min_difference": -0.08176100254058838,
+        "sample_sd_difference": 0.03334238870443951,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": 0.012578606605529785,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.09433963894844055,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16981133818626404,
+            "left_status": "scored",
+            "right_score": 0.16981133818626404,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.10062893480062485,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 3
+      }
+    }
+  },
+  "call-04": {
+    "evaluation": {
+      "minus_incumbent": {
+        "better": 9,
+        "equal": 6,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004716981202363968,
+            "difference": -0.09433962404727936,
+            "world_id": 10014
+          },
+          {
+            "contribution_to_mean": 0.0037735849618911743,
+            "difference": 0.07547169923782349,
+            "world_id": 10018
+          },
+          {
+            "contribution_to_mean": 0.002515723556280136,
+            "difference": 0.05031447112560272,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": 0.0018867917358875274,
+            "difference": 0.03773583471775055,
+            "world_id": 10015
+          },
+          {
+            "contribution_to_mean": -0.0015723280608654021,
+            "difference": -0.031446561217308044,
+            "world_id": 10003
+          }
+        ],
+        "max_difference": 0.07547169923782349,
+        "mean_difference": 0.0034591205418109893,
+        "median_difference": 0.0,
+        "min_difference": -0.09433962404727936,
+        "sample_sd_difference": 0.034956396678557614,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.006289303302764893,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.00628933310508728,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.031446561217308044,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": -0.018867939710617065,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.05031447112560272,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.012578621506690979,
+            "left_score": 0.22641509771347046,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2641509473323822,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": -0.09433962404727936,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.025157243013381958,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.07547169923782349,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 5
+      },
+      "minus_reference": {
+        "better": 7,
+        "equal": 9,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": 0.006603774055838585,
+            "difference": 0.1320754811167717,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.0062893092632293705,
+            "difference": -0.1257861852645874,
+            "world_id": 10014
+          },
+          {
+            "contribution_to_mean": 0.0062893077731132506,
+            "difference": 0.12578615546226501,
+            "world_id": 10018
+          },
+          {
+            "contribution_to_mean": 0.005660378187894821,
+            "difference": 0.11320756375789642,
+            "world_id": 10008
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 10003
+          }
+        ],
+        "max_difference": 0.1320754811167717,
+        "mean_difference": 0.012893080338835716,
+        "median_difference": 0.0,
+        "min_difference": -0.1257861852645874,
+        "sample_sd_difference": 0.062176489625572914,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": -0.03773583471775055,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.05031445622444153,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.1320754811167717,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.069182388484478,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.03144654631614685,
+            "left_score": 0.22641509771347046,
+            "left_status": "scored",
+            "right_score": 0.1949685513973236,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.11320756375789642,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.1320754736661911,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.018867939710617065,
+            "left_score": 0.2641509473323822,
+            "left_status": "scored",
+            "right_score": 0.28301888704299927,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": -0.1257861852645874,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.24528303742408752,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.12578615546226501,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.08805032074451447,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 4
+      }
+    },
+    "transfer": {
+      "minus_incumbent": {
+        "better": 6,
+        "equal": 7,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.0056603774428367615,
+            "difference": -0.11320754885673523,
+            "world_id": 30001
+          },
+          {
+            "contribution_to_mean": -0.0056603774428367615,
+            "difference": -0.11320754885673523,
+            "world_id": 30005
+          },
+          {
+            "contribution_to_mean": -0.0056603774428367615,
+            "difference": -0.11320754885673523,
+            "world_id": 30019
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30003
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30011
+          }
+        ],
+        "max_difference": 0.08176100254058838,
+        "mean_difference": -0.011635220795869827,
+        "median_difference": 0.0,
+        "min_difference": -0.11320754885673523,
+        "sample_sd_difference": 0.06183401467008839,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.11320754885673523,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.11320754885673523,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": -0.11320754885673523,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.03144654631614685,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.0691823661327362,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.16981133818626404,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.29559749364852905,
+            "left_status": "scored",
+            "right_score": 0.29559749364852905,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": 0.0628930926322937,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.08176100254058838,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": -0.11320754885673523,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 7
+      },
+      "minus_reference": {
+        "better": 10,
+        "equal": 3,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": 0.005974842235445976,
+            "difference": 0.11949684470891953,
+            "world_id": 30016
+          },
+          {
+            "contribution_to_mean": -0.005031446367502213,
+            "difference": -0.10062892735004425,
+            "world_id": 30001
+          },
+          {
+            "contribution_to_mean": -0.004716981202363968,
+            "difference": -0.09433962404727936,
+            "world_id": 30019
+          },
+          {
+            "contribution_to_mean": -0.004088050872087479,
+            "difference": -0.08176101744174957,
+            "world_id": 30005
+          },
+          {
+            "contribution_to_mean": 0.004088050872087479,
+            "difference": 0.08176101744174957,
+            "world_id": 30012
+          }
+        ],
+        "max_difference": 0.11949684470891953,
+        "mean_difference": -0.001886792853474617,
+        "median_difference": 0.0062893107533454895,
+        "min_difference": -0.10062892735004425,
+        "sample_sd_difference": 0.0600169914587897,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.10062892735004425,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": -0.08176101744174957,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": 0.012578621506690979,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": 0.018867939710617065,
+            "left_score": 0.16981133818626404,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.08176101744174957,
+            "left_score": 0.29559749364852905,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.06289306282997131,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.16981133818626404,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.11949684470891953,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.10062893480062485,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": -0.09433962404727936,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 7
+      }
+    }
+  },
+  "call-05": {
+    "evaluation": {
+      "minus_incumbent": {
+        "better": 6,
+        "equal": 3,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004088050499558449,
+            "difference": -0.08176100999116898,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 10009
+          },
+          {
+            "contribution_to_mean": -0.0034591197967529298,
+            "difference": -0.0691823959350586,
+            "world_id": 10004
+          },
+          {
+            "contribution_to_mean": -0.0025157220661640167,
+            "difference": -0.050314441323280334,
+            "world_id": 10011
+          },
+          {
+            "contribution_to_mean": 0.0022012583911418917,
+            "difference": 0.04402516782283783,
+            "world_id": 10002
+          }
+        ],
+        "max_difference": 0.04402516782283783,
+        "mean_difference": -0.013522011414170265,
+        "median_difference": -0.015723273158073425,
+        "min_difference": -0.08176100999116898,
+        "sample_sd_difference": 0.036970894430620564,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.006289303302764893,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.04402516782283783,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.012578636407852173,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": -0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": -0.08176100999116898,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": -0.050314441323280334,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.025157243013381958,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 11
+      },
+      "minus_reference": {
+        "better": 4,
+        "equal": 12,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.005031447112560272,
+            "difference": -0.10062894225120544,
+            "world_id": 10009
+          },
+          {
+            "contribution_to_mean": 0.004088050127029419,
+            "difference": 0.08176100254058838,
+            "world_id": 10008
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 10014
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 10003
+          },
+          {
+            "contribution_to_mean": 0.0015723265707492829,
+            "difference": 0.03144653141498566,
+            "world_id": 9999
+          }
+        ],
+        "max_difference": 0.08176100254058838,
+        "mean_difference": -0.004088051617145538,
+        "median_difference": 0.0,
+        "min_difference": -0.10062894225120544,
+        "sample_sd_difference": 0.03775101800571485,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.069182388484478,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.1949685513973236,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.08176100254058838,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.1320754736661911,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.10062894225120544,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.28301888704299927,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.24528303742408752,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.11949685215950012,
+            "left_status": "scored",
+            "right_score": 0.08805032074451447,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 4
+      }
+    },
+    "transfer": {
+      "minus_incumbent": {
+        "better": 7,
+        "equal": 2,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.00628930851817131,
+            "difference": -0.1257861703634262,
+            "world_id": 30007
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 30012
+          },
+          {
+            "contribution_to_mean": -0.002515723556280136,
+            "difference": -0.05031447112560272,
+            "world_id": 30014
+          },
+          {
+            "contribution_to_mean": 0.0025157220661640167,
+            "difference": 0.050314441323280334,
+            "world_id": 30008
+          },
+          {
+            "contribution_to_mean": -0.001886793226003647,
+            "difference": -0.03773586452007294,
+            "world_id": 30011
+          }
+        ],
+        "max_difference": 0.050314441323280334,
+        "mean_difference": -0.010691825672984124,
+        "median_difference": -0.012578621506690979,
+        "min_difference": -0.1257861703634262,
+        "sample_sd_difference": 0.041473306411292724,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.012578621506690979,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.03773584961891174,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.11320754885673523,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.1257861703634262,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.012578621506690979,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": -0.03773586452007294,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.29559749364852905,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.05031447112560272,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": -0.037735842168331146,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.012578636407852173,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 11
+      },
+      "minus_reference": {
+        "better": 7,
+        "equal": 8,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.0050314456224441525,
+            "difference": -0.10062891244888306,
+            "world_id": 30015
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 30014
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 30007
+          },
+          {
+            "contribution_to_mean": 0.0031446538865566253,
+            "difference": 0.06289307773113251,
+            "world_id": 30011
+          },
+          {
+            "contribution_to_mean": 0.0031446531414985658,
+            "difference": 0.06289306282997131,
+            "world_id": 30013
+          }
+        ],
+        "max_difference": 0.06289307773113251,
+        "mean_difference": -0.0009433977305889129,
+        "median_difference": 0.0,
+        "min_difference": -0.10062891244888306,
+        "sample_sd_difference": 0.04305813196755334,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": -0.03144654631614685,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.06289306282997131,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.16981133818626404,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.1320754736661911,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.10062891244888306,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.10062893480062485,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 5
+      }
+    }
+  },
+  "call-06": {
+    "evaluation": {
+      "minus_incumbent": {
+        "better": 7,
+        "equal": 5,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004088050499558449,
+            "difference": -0.08176100999116898,
+            "world_id": 10005
+          },
+          {
+            "contribution_to_mean": -0.004088050127029419,
+            "difference": -0.08176100254058838,
+            "world_id": 10009
+          },
+          {
+            "contribution_to_mean": -0.0034591197967529298,
+            "difference": -0.0691823959350586,
+            "world_id": 10004
+          },
+          {
+            "contribution_to_mean": 0.0031446538865566253,
+            "difference": 0.06289307773113251,
+            "world_id": 10002
+          },
+          {
+            "contribution_to_mean": -0.0025157228112220762,
+            "difference": -0.05031445622444153,
+            "world_id": 10018
+          }
+        ],
+        "max_difference": 0.06289307773113251,
+        "mean_difference": -0.0075471695512533184,
+        "median_difference": 0.0,
+        "min_difference": -0.08176100999116898,
+        "sample_sd_difference": 0.039598726839764724,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.006289303302764893,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.012578636407852173,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": -0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": -0.08176100999116898,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": -0.01886792480945587,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.08176100254058838,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.03773583471775055,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.025157243013381958,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.15723270177841187,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": -0.05031445622444153,
+            "left_score": 0.08805032074451447,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 8
+      },
+      "minus_reference": {
+        "better": 5,
+        "equal": 12,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.005031447112560272,
+            "difference": -0.10062894225120544,
+            "world_id": 10009
+          },
+          {
+            "contribution_to_mean": 0.004088050127029419,
+            "difference": 0.08176100254058838,
+            "world_id": 10008
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 10003
+          },
+          {
+            "contribution_to_mean": 0.0025157228112220762,
+            "difference": 0.05031445622444153,
+            "world_id": 10013
+          },
+          {
+            "contribution_to_mean": 0.0025157220661640167,
+            "difference": 0.050314441323280334,
+            "world_id": 10011
+          }
+        ],
+        "max_difference": 0.08176100254058838,
+        "mean_difference": 0.0018867902457714082,
+        "median_difference": 0.0,
+        "min_difference": -0.10062894225120544,
+        "sample_sd_difference": 0.037575515109378455,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 9999
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10001
+          },
+          {
+            "difference": 0.018867909908294678,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10002
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10003
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.069182388484478,
+            "left_status": "scored",
+            "right_score": 0.069182388484478,
+            "right_status": "scored",
+            "world_id": 10005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.1949685513973236,
+            "left_status": "scored",
+            "right_score": 0.1949685513973236,
+            "right_status": "scored",
+            "world_id": 10006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 10007
+          },
+          {
+            "difference": 0.08176100254058838,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.1320754736661911,
+            "right_status": "scored",
+            "world_id": 10008
+          },
+          {
+            "difference": -0.10062894225120544,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.28301888704299927,
+            "right_status": "scored",
+            "world_id": 10009
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10010
+          },
+          {
+            "difference": 0.050314441323280334,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.16352203488349915,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 10012
+          },
+          {
+            "difference": 0.05031445622444153,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10013
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.24528303742408752,
+            "right_status": "scored",
+            "world_id": 10014
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 10015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 10016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 10017
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.08805032074451447,
+            "left_status": "scored",
+            "right_score": 0.08805032074451447,
+            "right_status": "scored",
+            "world_id": 10018
+          }
+        ],
+        "worse": 3
+      }
+    },
+    "transfer": {
+      "minus_incumbent": {
+        "better": 6,
+        "equal": 3,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004088050872087479,
+            "difference": -0.08176101744174957,
+            "world_id": 30012
+          },
+          {
+            "contribution_to_mean": -0.004088050499558449,
+            "difference": -0.08176100999116898,
+            "world_id": 30018
+          },
+          {
+            "contribution_to_mean": 0.0034591197967529298,
+            "difference": 0.0691823959350586,
+            "world_id": 30002
+          },
+          {
+            "contribution_to_mean": -0.0031446546316146852,
+            "difference": -0.0628930926322937,
+            "world_id": 30000
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 30007
+          }
+        ],
+        "max_difference": 0.0691823959350586,
+        "mean_difference": -0.011949685961008072,
+        "median_difference": -0.012578628957271576,
+        "min_difference": -0.08176101744174957,
+        "sample_sd_difference": 0.04196236242734683,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": -0.0628930926322937,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": -0.012578621506690979,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0691823959350586,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.11320754885673523,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": -0.012578636407852173,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.03144653141498566,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": -0.018867939710617065,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.2515723407268524,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": -0.08176101744174957,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.29559749364852905,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": 0.03144653141498566,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": -0.037735842168331146,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.138364776968956,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": -0.08176100999116898,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.012578636407852173,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 11
+      },
+      "minus_reference": {
+        "better": 5,
+        "equal": 10,
+        "inference": "descriptive paired comparison only; no confidence interval or population claim",
+        "largest_absolute_contributions": [
+          {
+            "contribution_to_mean": -0.004716981202363968,
+            "difference": -0.09433962404727936,
+            "world_id": 30000
+          },
+          {
+            "contribution_to_mean": 0.004088050127029419,
+            "difference": 0.08176100254058838,
+            "world_id": 30011
+          },
+          {
+            "contribution_to_mean": -0.003144655004143715,
+            "difference": -0.0628931000828743,
+            "world_id": 30018
+          },
+          {
+            "contribution_to_mean": -0.0031446538865566253,
+            "difference": -0.06289307773113251,
+            "world_id": 30008
+          },
+          {
+            "contribution_to_mean": 0.0031446538865566253,
+            "difference": 0.06289307773113251,
+            "world_id": 30010
+          }
+        ],
+        "max_difference": 0.08176100254058838,
+        "mean_difference": -0.0022012580186128615,
+        "median_difference": 0.0,
+        "min_difference": -0.09433962404727936,
+        "sample_sd_difference": 0.044109012897773275,
+        "total": 20,
+        "valid_pairs": 20,
+        "worlds": [
+          {
+            "difference": -0.09433962404727936,
+            "left_score": 0.138364776968956,
+            "left_status": "scored",
+            "right_score": 0.23270440101623535,
+            "right_status": "scored",
+            "world_id": 30000
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.22012577950954437,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30001
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30002
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30003
+          },
+          {
+            "difference": 0.01886792480945587,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30004
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30005
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.18238994479179382,
+            "left_status": "scored",
+            "right_score": 0.18238994479179382,
+            "right_status": "scored",
+            "world_id": 30006
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2012578696012497,
+            "right_status": "scored",
+            "world_id": 30007
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.15094339847564697,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30008
+          },
+          {
+            "difference": -0.018867909908294678,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.22012577950954437,
+            "right_status": "scored",
+            "world_id": 30009
+          },
+          {
+            "difference": 0.06289307773113251,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30010
+          },
+          {
+            "difference": 0.08176100254058838,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.15094339847564697,
+            "right_status": "scored",
+            "world_id": 30011
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30012
+          },
+          {
+            "difference": 0.06289306282997131,
+            "left_score": 0.23270440101623535,
+            "left_status": "scored",
+            "right_score": 0.16981133818626404,
+            "right_status": "scored",
+            "world_id": 30013
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30014
+          },
+          {
+            "difference": -0.06289307773113251,
+            "left_score": 0.2012578696012497,
+            "left_status": "scored",
+            "right_score": 0.2641509473323822,
+            "right_status": "scored",
+            "world_id": 30015
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.10062893480062485,
+            "right_status": "scored",
+            "world_id": 30016
+          },
+          {
+            "difference": 0.0,
+            "left_score": 0.21383647620677948,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30017
+          },
+          {
+            "difference": -0.0628931000828743,
+            "left_score": 0.10062893480062485,
+            "left_status": "scored",
+            "right_score": 0.16352203488349915,
+            "right_status": "scored",
+            "world_id": 30018
+          },
+          {
+            "difference": 0.031446561217308044,
+            "left_score": 0.24528303742408752,
+            "left_status": "scored",
+            "right_score": 0.21383647620677948,
+            "right_status": "scored",
+            "world_id": 30019
+          }
+        ],
+        "worse": 5
+      }
+    }
+  }
+}

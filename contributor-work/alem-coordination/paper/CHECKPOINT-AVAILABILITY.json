@@ -1,0 +1,118 @@
+{
+  "date_checked": "2026-09-24",
+  "repository": "alem-world/alem-rl-baselines",
+  "revision": "9493179ea5e86cd625add66c0f88e23f04f928b5",
+  "available_hard_training_seed_directories": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "checked_configs": [
+    {
+      "path": "1B/hypermarl-rnn/hard/seed0",
+      "config_url": "https://huggingface.co/alem-world/alem-rl-baselines/resolve/9493179ea5e86cd625add66c0f88e23f04f928b5/1B/hypermarl-rnn/hard/seed0/config.json",
+      "config_sha256": "f35430d3fa51feca71042326063df35cf631719209e1695b7b0352a263e5ca6b",
+      "algorithm": "hypermarl-rnn",
+      "difficulty": "hard",
+      "seed": 0,
+      "env_version": "v0.13741-fix-construction-more-metrics",
+      "reload_overrides": {
+        "ENV_NAME": "Alem-Coop-Symbolic",
+        "NUM_COMM_CHANNELS": 4,
+        "ACTION_MASKING": true,
+        "GRU_HIDDEN_DIM": 512,
+        "FC_DIM_SIZE": 128,
+        "ACTIVATION": "relu",
+        "SHARED_REWARD": false
+      },
+      "interface_and_architecture_fields": {
+        "ENV_NAME": "Alem-Coop-Symbolic",
+        "NUM_COMM_CHANNELS": 4,
+        "ACTION_MASKING": true,
+        "GRU_HIDDEN_DIM": 512,
+        "FC_DIM_SIZE": 128,
+        "ACTIVATION": "relu",
+        "SHARED_REWARD": false,
+        "APPEND_AGENT_ID": true,
+        "HYPERNET_HIDDEN_DIMS": [
+          64
+        ],
+        "HYPERNET_EMBEDDING_DIM": 64,
+        "USE_AGENT_ID_EMBEDDINGS": true
+      }
+    },
+    {
+      "path": "1B/hypermarl-rnn/hard/seed1",
+      "config_url": "https://huggingface.co/alem-world/alem-rl-baselines/resolve/9493179ea5e86cd625add66c0f88e23f04f928b5/1B/hypermarl-rnn/hard/seed1/config.json",
+      "config_sha256": "ae3fd2b7abb9e2268f9df8d61b9fccb1b069c06ba5d3794cd62500e47b17949a",
+      "algorithm": "hypermarl-rnn",
+      "difficulty": "hard",
+      "seed": 1,
+      "env_version": "v0.13741-fix-construction-more-metrics",
+      "reload_overrides": {
+        "ENV_NAME": "Alem-Coop-Symbolic",
+        "NUM_COMM_CHANNELS": 4,
+        "ACTION_MASKING": true,
+        "GRU_HIDDEN_DIM": 512,
+        "FC_DIM_SIZE": 128,
+        "ACTIVATION": "relu",
+        "SHARED_REWARD": false
+      },
+      "interface_and_architecture_fields": {
+        "ENV_NAME": "Alem-Coop-Symbolic",
+        "NUM_COMM_CHANNELS": 4,
+        "ACTION_MASKING": true,
+        "GRU_HIDDEN_DIM": 512,
+        "FC_DIM_SIZE": 128,
+        "ACTIVATION": "relu",
+        "SHARED_REWARD": false,
+        "APPEND_AGENT_ID": true,
+        "HYPERNET_HIDDEN_DIMS": [
+          64
+        ],
+        "HYPERNET_EMBEDDING_DIM": 64,
+        "USE_AGENT_ID_EMBEDDINGS": true
+      }
+    },
+    {
+      "path": "1B/hypermarl-rnn/hard/seed2",
+      "config_url": "https://huggingface.co/alem-world/alem-rl-baselines/resolve/9493179ea5e86cd625add66c0f88e23f04f928b5/1B/hypermarl-rnn/hard/seed2/config.json",
+      "config_sha256": "dc0890199e9cd9e851c739e9d6c0d642189be07bc1f05dfc82095af1e42c9905",
+      "algorithm": "hypermarl-rnn",
+      "difficulty": "hard",
+      "seed": 2,
+      "env_version": "v0.13741-fix-construction-more-metrics",
+      "reload_overrides": {
+        "ENV_NAME": "Alem-Coop-Symbolic",
+        "NUM_COMM_CHANNELS": 4,
+        "ACTION_MASKING": true,
+        "GRU_HIDDEN_DIM": 512,
+        "FC_DIM_SIZE": 128,
+        "ACTIVATION": "relu",
+        "SHARED_REWARD": false
+      },
+      "interface_and_architecture_fields": {
+        "ENV_NAME": "Alem-Coop-Symbolic",
+        "NUM_COMM_CHANNELS": 4,
+        "ACTION_MASKING": true,
+        "GRU_HIDDEN_DIM": 512,
+        "FC_DIM_SIZE": 128,
+        "ACTIVATION": "relu",
+        "SHARED_REWARD": false,
+        "APPEND_AGENT_ID": true,
+        "HYPERNET_HIDDEN_DIMS": [
+          64
+        ],
+        "HYPERNET_EMBEDDING_DIM": 64,
+        "USE_AGENT_ID_EMBEDDINGS": true
+      }
+    }
+  ],
+  "checked_fields_match": true,
+  "reward_summaries_inspected": false,
+  "additional_checkpoint_weights_downloaded": false,
+  "new_checkpoint_evaluations_run": false,
+  "scope": "Metadata feasibility only. Actual checkpoint loading and interface compatibility remain to be tested in a separately declared study."
+}

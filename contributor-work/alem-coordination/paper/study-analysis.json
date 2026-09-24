@@ -1,0 +1,3836 @@
+{
+  "diagnostic_manifest_sha256": "72e103366599a7c35167c29a2299f1e27691c36795f1ad949b6a07ee0abae223",
+  "input_plus_output_tokens": 659606,
+  "main_manifest_sha256": "4b8afd8f244a68c96e3cc7a1c4d760a1a7decd7a5c61cab4a84af071f0cd811c",
+  "new_model_calls": 6,
+  "researcher_samples": 1,
+  "rows": [
+    {
+      "label": "reference",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 6030,
+            "native_communication_actions": 57,
+            "overrides": 0,
+            "steps": 2010
+          },
+          "minus_incumbent": {
+            "better": 4,
+            "mean_difference": 0.026729557663202286,
+            "tied": 0,
+            "worlds": [
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 20000
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 0
+          },
+          "minus_reference": {
+            "better": 0,
+            "mean_difference": 0.0,
+            "tied": 4,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 20000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 0
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1089.75,
+            "Cooperation/alive_agent_steps": 1224.25,
+            "Coordination/sync_attempts": 14.25,
+            "Coordination/sync_successes": 6.75
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 1.0,
+            "hard_coordination": 0.1619318202137947,
+            "ordinary_reward": 0.1152073759585619,
+            "soft_coordination": 0.2875000312924385,
+            "total_reward": 0.16156914830207825
+          },
+          "score": 0.22484277188777924,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 25467,
+            "native_communication_actions": 386,
+            "overrides": 0,
+            "steps": 8489
+          },
+          "minus_incumbent": {
+            "better": 7,
+            "mean_difference": -0.009433959797024726,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10003
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 10005
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.018867939710617065,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10010
+              },
+              {
+                "difference": -0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.025157243013381958,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": -0.05031445622444153,
+                "world_id": 10018
+              }
+            ],
+            "worse": 8
+          },
+          "minus_reference": {
+            "better": 0,
+            "mean_difference": 0.0,
+            "tied": 20,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10018
+              }
+            ],
+            "worse": 0
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 994.4,
+            "Cooperation/alive_agent_steps": 1064.05,
+            "Coordination/sync_attempts": 10.45,
+            "Coordination/sync_successes": 4.65
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.85,
+            "hard_coordination": 0.14147727638483049,
+            "ordinary_reward": 0.1426267322152853,
+            "soft_coordination": 0.212500012665987,
+            "total_reward": 0.16063830368220805
+          },
+          "score": 0.18522013239562513,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 22857,
+            "native_communication_actions": 325,
+            "overrides": 0,
+            "steps": 7619
+          },
+          "minus_incumbent": {
+            "better": 5,
+            "mean_difference": -0.009748427942395211,
+            "tied": 4,
+            "worlds": [
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.10062894225120544,
+                "world_id": 30011
+              },
+              {
+                "difference": -0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": -0.06289306282997131,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 30015
+              },
+              {
+                "difference": -0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30018
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 30019
+              }
+            ],
+            "worse": 11
+          },
+          "minus_reference": {
+            "better": 0,
+            "mean_difference": 0.0,
+            "tied": 20,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30019
+              }
+            ],
+            "worse": 0
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 930.35,
+            "Cooperation/alive_agent_steps": 973.3,
+            "Coordination/sync_attempts": 10.35,
+            "Coordination/sync_successes": 4.75
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.8,
+            "hard_coordination": 0.15625000298023223,
+            "ordinary_reward": 0.14193548820912838,
+            "soft_coordination": 0.23000002056360244,
+            "total_reward": 0.16422872617840767
+          },
+          "score": 0.1946540918201208,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "incumbent",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 7536,
+            "native_communication_actions": 161,
+            "overrides": 143,
+            "steps": 2512
+          },
+          "minus_incumbent": {
+            "better": 0,
+            "mean_difference": 0.0,
+            "tied": 4,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 20000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 0
+          },
+          "minus_reference": {
+            "better": 0,
+            "mean_difference": -0.026729557663202286,
+            "tied": 0,
+            "worlds": [
+              {
+                "difference": -0.04402516782283783,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.006289303302764893,
+                "world_id": 20001
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 20002
+              },
+              {
+                "difference": -0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 4
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1153.5,
+            "Cooperation/alive_agent_steps": 1315.75,
+            "Coordination/sync_attempts": 22.0,
+            "Coordination/sync_successes": 5.75
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 1.0,
+            "hard_coordination": 0.13920454680919647,
+            "ordinary_reward": 0.13824886083602905,
+            "soft_coordination": 0.23125001788139343,
+            "total_reward": 0.1635638363659382
+          },
+          "score": 0.19811321422457695,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 28713,
+            "native_communication_actions": 872,
+            "overrides": 1009,
+            "steps": 9571
+          },
+          "minus_incumbent": {
+            "better": 0,
+            "mean_difference": 0.0,
+            "tied": 20,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10018
+              }
+            ],
+            "worse": 0
+          },
+          "minus_reference": {
+            "better": 8,
+            "mean_difference": 0.009433959797024726,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": -0.006289303302764893,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": -0.04402516782283783,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.050314441323280334,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.08176100999116898,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.018867939710617065,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.031446561217308044,
+                "world_id": 10014
+              },
+              {
+                "difference": -0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": -0.025157243013381958,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 10018
+              }
+            ],
+            "worse": 7
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1030.4,
+            "Cooperation/alive_agent_steps": 1117.25,
+            "Coordination/sync_attempts": 14.8,
+            "Coordination/sync_successes": 5.25
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.85,
+            "hard_coordination": 0.14943182170391084,
+            "ordinary_reward": 0.14493087939918042,
+            "soft_coordination": 0.23250001892447472,
+            "total_reward": 0.16595745123922825
+          },
+          "score": 0.19465409219264984,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 28299,
+            "native_communication_actions": 924,
+            "overrides": 1095,
+            "steps": 9433
+          },
+          "minus_incumbent": {
+            "better": 0,
+            "mean_difference": 0.0,
+            "tied": 20,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30019
+              }
+            ],
+            "worse": 0
+          },
+          "minus_reference": {
+            "better": 11,
+            "mean_difference": 0.009748427942395211,
+            "tied": 4,
+            "worlds": [
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 30007
+              },
+              {
+                "difference": -0.050314441323280334,
+                "world_id": 30008
+              },
+              {
+                "difference": 0.012578621506690979,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.10062894225120544,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.06289306282997131,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30019
+              }
+            ],
+            "worse": 5
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1035.35,
+            "Cooperation/alive_agent_steps": 1117.4,
+            "Coordination/sync_attempts": 15.0,
+            "Coordination/sync_successes": 5.8
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.8,
+            "hard_coordination": 0.15965909361839295,
+            "ordinary_reward": 0.1398617547005415,
+            "soft_coordination": 0.26125002205371856,
+            "total_reward": 0.16715425699949266
+          },
+          "score": 0.20440251976251603,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "call-01",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 5289,
+            "native_communication_actions": 62,
+            "overrides": 10,
+            "steps": 1763
+          },
+          "minus_incumbent": {
+            "better": 2,
+            "mean_difference": -3.725290298461914e-09,
+            "tied": 0,
+            "worlds": [
+              {
+                "difference": -0.025157228112220764,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.044025152921676636,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 2
+          },
+          "minus_reference": {
+            "better": 1,
+            "mean_difference": -0.026729561388492584,
+            "tied": 1,
+            "worlds": [
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.05031445622444153,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.012578606605529785,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 2
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1064.75,
+            "Cooperation/alive_agent_steps": 1092.0,
+            "Coordination/sync_attempts": 13.0,
+            "Coordination/sync_successes": 6.5
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.15340909361839294,
+            "ordinary_reward": 0.12557603791356087,
+            "soft_coordination": 0.26250000298023224,
+            "total_reward": 0.1562500037252903
+          },
+          "score": 0.19811321049928665,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 23850,
+            "native_communication_actions": 350,
+            "overrides": 73,
+            "steps": 7950
+          },
+          "minus_incumbent": {
+            "better": 8,
+            "mean_difference": -0.005031445249915123,
+            "tied": 3,
+            "worlds": [
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 9999
+              },
+              {
+                "difference": -0.012578606605529785,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10003
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 10005
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.018867939710617065,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": -0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 10012
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.025157243013381958,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": -0.05031445622444153,
+                "world_id": 10018
+              }
+            ],
+            "worse": 9
+          },
+          "minus_reference": {
+            "better": 4,
+            "mean_difference": 0.004402514547109604,
+            "tied": 14,
+            "worlds": [
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 9999
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10018
+              }
+            ],
+            "worse": 2
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 990.1,
+            "Cooperation/alive_agent_steps": 1045.1,
+            "Coordination/sync_attempts": 9.1,
+            "Coordination/sync_successes": 4.95
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.85,
+            "hard_coordination": 0.14431818574666977,
+            "ordinary_reward": 0.14377880692481995,
+            "soft_coordination": 0.22375001832842828,
+            "total_reward": 0.16316489763557912
+          },
+          "score": 0.18962264694273473,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 26262,
+            "native_communication_actions": 378,
+            "overrides": 69,
+            "steps": 8754
+          },
+          "minus_incumbent": {
+            "better": 5,
+            "mean_difference": -0.013836478814482689,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.006289303302764893,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.1257861703634262,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.09433963894844055,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.10062894225120544,
+                "world_id": 30011
+              },
+              {
+                "difference": -0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.03144654631614685,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30015
+              },
+              {
+                "difference": -0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30019
+              }
+            ],
+            "worse": 10
+          },
+          "minus_reference": {
+            "better": 5,
+            "mean_difference": -0.004088050872087479,
+            "tied": 10,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.012578606605529785,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.09433963894844055,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": -0.018867939710617065,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30019
+              }
+            ],
+            "worse": 5
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 954.4,
+            "Cooperation/alive_agent_steps": 1011.3,
+            "Coordination/sync_attempts": 7.05,
+            "Coordination/sync_successes": 4.7
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.7,
+            "hard_coordination": 0.16363636627793313,
+            "ordinary_reward": 0.15783410631120204,
+            "soft_coordination": 0.22250002026557922,
+            "total_reward": 0.17167553901672364
+          },
+          "score": 0.19056604094803334,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "call-02",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 6648,
+            "native_communication_actions": 100,
+            "overrides": 93,
+            "steps": 2216
+          },
+          "minus_incumbent": {
+            "better": 2,
+            "mean_difference": 0.01572326198220253,
+            "tied": 1,
+            "worlds": [
+              {
+                "difference": -0.006289318203926086,
+                "world_id": 20000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "minus_reference": {
+            "better": 1,
+            "mean_difference": -0.011006295680999756,
+            "tied": 1,
+            "worlds": [
+              {
+                "difference": -0.050314486026763916,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.006289303302764893,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.012578606605529785,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 2
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1233.0,
+            "Cooperation/alive_agent_steps": 1373.0,
+            "Coordination/sync_attempts": 10.0,
+            "Coordination/sync_successes": 5.5
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 1.0,
+            "hard_coordination": 0.15340909361839294,
+            "ordinary_reward": 0.14746544137597084,
+            "soft_coordination": 0.26250001043081284,
+            "total_reward": 0.17553192749619484
+          },
+          "score": 0.21383647620677948,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 27750,
+            "native_communication_actions": 510,
+            "overrides": 352,
+            "steps": 9250
+          },
+          "minus_incumbent": {
+            "better": 7,
+            "mean_difference": -0.008176101744174958,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.05031447112560272,
+                "world_id": 10005
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": -0.09433962404727936,
+                "world_id": 10007
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.05031447112560272,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": -0.08176101744174957,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": -0.006289303302764893,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.012578621506690979,
+                "world_id": 10018
+              }
+            ],
+            "worse": 8
+          },
+          "minus_reference": {
+            "better": 5,
+            "mean_difference": 0.0012578580528497696,
+            "tied": 10,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.1320754811167717,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": -0.09433962404727936,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.06918241083621979,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": -0.03144654631614685,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 10018
+              }
+            ],
+            "worse": 5
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1050.45,
+            "Cooperation/alive_agent_steps": 1117.2,
+            "Coordination/sync_attempts": 14.55,
+            "Coordination/sync_successes": 4.4
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.8,
+            "hard_coordination": 0.146022729575634,
+            "ordinary_reward": 0.16175115890800953,
+            "soft_coordination": 0.2200000137090683,
+            "total_reward": 0.1722074493765831
+          },
+          "score": 0.18647799044847488,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 25581,
+            "native_communication_actions": 451,
+            "overrides": 351,
+            "steps": 8527
+          },
+          "minus_incumbent": {
+            "better": 6,
+            "mean_difference": -0.01729559525847435,
+            "tied": 2,
+            "worlds": [
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.050314486026763916,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.11320754885673523,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30015
+              },
+              {
+                "difference": -0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 30017
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 30018
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 30019
+              }
+            ],
+            "worse": 12
+          },
+          "minus_reference": {
+            "better": 7,
+            "mean_difference": -0.00754716731607914,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": -0.06289306282997131,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.05031447112560272,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.03144654631614685,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": -0.018867939710617065,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.09433962404727936,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.10062891244888306,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 30017
+              },
+              {
+                "difference": -0.0628931000828743,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30019
+              }
+            ],
+            "worse": 8
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 945.15,
+            "Cooperation/alive_agent_steps": 1010.05,
+            "Coordination/sync_attempts": 8.75,
+            "Coordination/sync_successes": 4.5
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.65,
+            "hard_coordination": 0.15000000223517418,
+            "ordinary_reward": 0.15345622636377812,
+            "soft_coordination": 0.25125001966953275,
+            "total_reward": 0.1676861722022295
+          },
+          "score": 0.18710692450404168,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "call-03",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 4764,
+            "native_communication_actions": 42,
+            "overrides": 19,
+            "steps": 1588
+          },
+          "minus_incumbent": {
+            "better": 2,
+            "mean_difference": 0.009433962404727936,
+            "tied": 1,
+            "worlds": [
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.044025152921676636,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "minus_reference": {
+            "better": 0,
+            "mean_difference": -0.01729559525847435,
+            "tied": 2,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.05031445622444153,
+                "world_id": 20001
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 2
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1004.25,
+            "Cooperation/alive_agent_steps": 1048.0,
+            "Coordination/sync_attempts": 12.0,
+            "Coordination/sync_successes": 7.0
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.15340909361839294,
+            "ordinary_reward": 0.12442396394908428,
+            "soft_coordination": 0.30000001937150955,
+            "total_reward": 0.1595744751393795
+          },
+          "score": 0.20754717662930489,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 24249,
+            "native_communication_actions": 288,
+            "overrides": 87,
+            "steps": 8083
+          },
+          "minus_incumbent": {
+            "better": 8,
+            "mean_difference": -0.011635219678282738,
+            "tied": 2,
+            "worlds": [
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 9999
+              },
+              {
+                "difference": -0.012578606605529785,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10002
+              },
+              {
+                "difference": 0.03144651651382446,
+                "world_id": 10003
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 10005
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.018867939710617065,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": -0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.012578606605529785,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": -0.03773584961891174,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": -0.05031445622444153,
+                "world_id": 10018
+              }
+            ],
+            "worse": 10
+          },
+          "minus_reference": {
+            "better": 4,
+            "mean_difference": -0.0022012598812580107,
+            "tied": 12,
+            "worlds": [
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 9999
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10018
+              }
+            ],
+            "worse": 4
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 974.25,
+            "Cooperation/alive_agent_steps": 1032.9,
+            "Coordination/sync_attempts": 8.8,
+            "Coordination/sync_successes": 4.85
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.1454545497894287,
+            "ordinary_reward": 0.149769589304924,
+            "soft_coordination": 0.2200000174343586,
+            "total_reward": 0.16382979340851306
+          },
+          "score": 0.1830188725143671,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 28389,
+            "native_communication_actions": 418,
+            "overrides": 80,
+            "steps": 9463
+          },
+          "minus_incumbent": {
+            "better": 5,
+            "mean_difference": -0.00974842719733715,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.006289303302764893,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.09433963894844055,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.10062894225120544,
+                "world_id": 30011
+              },
+              {
+                "difference": -0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": -0.06289306282997131,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.03144654631614685,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30015
+              },
+              {
+                "difference": -0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30019
+              }
+            ],
+            "worse": 10
+          },
+          "minus_reference": {
+            "better": 5,
+            "mean_difference": 7.450580596923829e-10,
+            "tied": 12,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.012578606605529785,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.09433963894844055,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30019
+              }
+            ],
+            "worse": 3
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 979.25,
+            "Cooperation/alive_agent_steps": 1045.45,
+            "Coordination/sync_attempts": 6.6,
+            "Coordination/sync_successes": 4.9
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.16363636627793313,
+            "ordinary_reward": 0.15529954358935355,
+            "soft_coordination": 0.2262500211596489,
+            "total_reward": 0.17194149494171143
+          },
+          "score": 0.19465409256517888,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "call-04",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 6834,
+            "native_communication_actions": 184,
+            "overrides": 46,
+            "steps": 2278
+          },
+          "minus_incumbent": {
+            "better": 3,
+            "mean_difference": -0.006289316341280937,
+            "tied": 0,
+            "worlds": [
+              {
+                "difference": -0.10062893480062485,
+                "world_id": 20000
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "minus_reference": {
+            "better": 1,
+            "mean_difference": -0.03301887400448322,
+            "tied": 2,
+            "worlds": [
+              {
+                "difference": -0.14465410262346268,
+                "world_id": 20000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.012578606605529785,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1099.0,
+            "Cooperation/alive_agent_steps": 1194.5,
+            "Coordination/sync_attempts": 16.75,
+            "Coordination/sync_successes": 6.0
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.13920454680919647,
+            "ordinary_reward": 0.1278801877051592,
+            "soft_coordination": 0.26875001937150955,
+            "total_reward": 0.15492020919919014
+          },
+          "score": 0.191823897883296,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 28746,
+            "native_communication_actions": 550,
+            "overrides": 215,
+            "steps": 9582
+          },
+          "minus_incumbent": {
+            "better": 9,
+            "mean_difference": 0.0034591205418109893,
+            "tied": 6,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.00628933310508728,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.031446561217308044,
+                "world_id": 10003
+              },
+              {
+                "difference": -0.018867939710617065,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.05031447112560272,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.012578621506690979,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 10008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.09433962404727936,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.025157243013381958,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.07547169923782349,
+                "world_id": 10018
+              }
+            ],
+            "worse": 5
+          },
+          "minus_reference": {
+            "better": 7,
+            "mean_difference": 0.012893080338835716,
+            "tied": 9,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": -0.03773583471775055,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.1320754811167717,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.03144654631614685,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.11320756375789642,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.018867939710617065,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.1257861852645874,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.12578615546226501,
+                "world_id": 10018
+              }
+            ],
+            "worse": 4
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1037.9,
+            "Cooperation/alive_agent_steps": 1120.65,
+            "Coordination/sync_attempts": 12.05,
+            "Coordination/sync_successes": 5.1
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.85,
+            "hard_coordination": 0.15568182170391082,
+            "ordinary_reward": 0.14308756180107593,
+            "soft_coordination": 0.23250001817941665,
+            "total_reward": 0.1663563832640648
+          },
+          "score": 0.19811321273446084,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 29322,
+            "native_communication_actions": 619,
+            "overrides": 278,
+            "steps": 9774
+          },
+          "minus_incumbent": {
+            "better": 6,
+            "mean_difference": -0.011635220795869827,
+            "tied": 7,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.11320754885673523,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.11320754885673523,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.03144654631614685,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0691823661327362,
+                "world_id": 30008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.0628930926322937,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 30016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30018
+              },
+              {
+                "difference": -0.11320754885673523,
+                "world_id": 30019
+              }
+            ],
+            "worse": 7
+          },
+          "minus_reference": {
+            "better": 10,
+            "mean_difference": -0.001886792853474617,
+            "tied": 3,
+            "worlds": [
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.10062892735004425,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.08176101744174957,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30006
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30008
+              },
+              {
+                "difference": 0.012578621506690979,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.018867939710617065,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.06289306282997131,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.11949684470891953,
+                "world_id": 30016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 30018
+              },
+              {
+                "difference": -0.09433962404727936,
+                "world_id": 30019
+              }
+            ],
+            "worse": 7
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1036.55,
+            "Cooperation/alive_agent_steps": 1126.7,
+            "Coordination/sync_attempts": 15.35,
+            "Coordination/sync_successes": 5.55
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.65,
+            "hard_coordination": 0.15795454680919646,
+            "ordinary_reward": 0.1486175160855055,
+            "soft_coordination": 0.25625002235174177,
+            "total_reward": 0.167287240922451
+          },
+          "score": 0.19276729896664618,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "call-05",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 4551,
+            "native_communication_actions": 54,
+            "overrides": 18,
+            "steps": 1517
+          },
+          "minus_incumbent": {
+            "better": 2,
+            "mean_difference": 0.02515723556280136,
+            "tied": 1,
+            "worlds": [
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "minus_reference": {
+            "better": 1,
+            "mean_difference": -0.0015723221004009247,
+            "tied": 1,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 20001
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 20003
+              }
+            ],
+            "worse": 2
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 967.5,
+            "Cooperation/alive_agent_steps": 1021.25,
+            "Coordination/sync_attempts": 13.25,
+            "Coordination/sync_successes": 7.0
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 1.0,
+            "hard_coordination": 0.16761364042758942,
+            "ordinary_reward": 0.15207373350858688,
+            "soft_coordination": 0.26875002682209015,
+            "total_reward": 0.18218086287379265
+          },
+          "score": 0.2232704497873783,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 25617,
+            "native_communication_actions": 385,
+            "overrides": 73,
+            "steps": 8539
+          },
+          "minus_incumbent": {
+            "better": 6,
+            "mean_difference": -0.013522011414170265,
+            "tied": 3,
+            "worlds": [
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 10000
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.012578636407852173,
+                "world_id": 10003
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 10005
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": -0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.025157243013381958,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10018
+              }
+            ],
+            "worse": 11
+          },
+          "minus_reference": {
+            "better": 4,
+            "mean_difference": -0.004088051617145538,
+            "tied": 12,
+            "worlds": [
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10000
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.10062894225120544,
+                "world_id": 10009
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10013
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 10018
+              }
+            ],
+            "worse": 4
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1013.55,
+            "Cooperation/alive_agent_steps": 1065.0,
+            "Coordination/sync_attempts": 9.3,
+            "Coordination/sync_successes": 4.7
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.85,
+            "hard_coordination": 0.13238636553287506,
+            "ordinary_reward": 0.1527649812400341,
+            "soft_coordination": 0.21625001654028891,
+            "total_reward": 0.1647606421262026
+          },
+          "score": 0.1811320807784796,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 29241,
+            "native_communication_actions": 570,
+            "overrides": 75,
+            "steps": 9747
+          },
+          "minus_incumbent": {
+            "better": 7,
+            "mean_difference": -0.010691825672984124,
+            "tied": 2,
+            "worlds": [
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.03773584961891174,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.1257861703634262,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30009
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.03773586452007294,
+                "world_id": 30011
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.05031447112560272,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30015
+              },
+              {
+                "difference": -0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.012578636407852173,
+                "world_id": 30019
+              }
+            ],
+            "worse": 11
+          },
+          "minus_reference": {
+            "better": 7,
+            "mean_difference": -0.0009433977305889129,
+            "tied": 8,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": -0.03144654631614685,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 30007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30008
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30009
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.06289306282997131,
+                "world_id": 30013
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.10062891244888306,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 30019
+              }
+            ],
+            "worse": 5
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1014.5,
+            "Cooperation/alive_agent_steps": 1088.7,
+            "Coordination/sync_attempts": 11.8,
+            "Coordination/sync_successes": 4.95
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.7,
+            "hard_coordination": 0.165909094363451,
+            "ordinary_reward": 0.15207373686134815,
+            "soft_coordination": 0.23000002056360244,
+            "total_reward": 0.16968085318803788
+          },
+          "score": 0.1937106940895319,
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "label": "call-06",
+      "suites": {
+        "dev": {
+          "costs": {
+            "action_count": 6393,
+            "native_communication_actions": 55,
+            "overrides": 3,
+            "steps": 2131
+          },
+          "minus_incumbent": {
+            "better": 3,
+            "mean_difference": 0.006289307028055191,
+            "tied": 0,
+            "worlds": [
+              {
+                "difference": 0.04402516782283783,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.07547169923782349,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "minus_reference": {
+            "better": 0,
+            "mean_difference": -0.020440250635147095,
+            "tied": 3,
+            "worlds": [
+              {
+                "difference": 0.0,
+                "world_id": 20000
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 20001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 20003
+              }
+            ],
+            "worse": 1
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1085.0,
+            "Cooperation/alive_agent_steps": 1220.25,
+            "Coordination/sync_attempts": 13.25,
+            "Coordination/sync_successes": 6.25
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.1619318202137947,
+            "ordinary_reward": 0.13824885338544846,
+            "soft_coordination": 0.26875002682209015,
+            "total_reward": 0.166223406791687
+          },
+          "score": 0.20440252125263214,
+          "status": "scored"
+        },
+        "evaluation": {
+          "costs": {
+            "action_count": 25725,
+            "native_communication_actions": 336,
+            "overrides": 54,
+            "steps": 8575
+          },
+          "minus_incumbent": {
+            "better": 7,
+            "mean_difference": -0.0075471695512533184,
+            "tied": 5,
+            "worlds": [
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.006289303302764893,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.012578636407852173,
+                "world_id": 10003
+              },
+              {
+                "difference": -0.0691823959350586,
+                "world_id": 10004
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 10005
+              },
+              {
+                "difference": -0.01886792480945587,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.08176100254058838,
+                "world_id": 10009
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.03773583471775055,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.025157243013381958,
+                "world_id": 10016
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 10017
+              },
+              {
+                "difference": -0.05031445622444153,
+                "world_id": 10018
+              }
+            ],
+            "worse": 8
+          },
+          "minus_reference": {
+            "better": 5,
+            "mean_difference": 0.0018867902457714082,
+            "tied": 12,
+            "worlds": [
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 9999
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10001
+              },
+              {
+                "difference": 0.018867909908294678,
+                "world_id": 10002
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 10003
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10007
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 10008
+              },
+              {
+                "difference": -0.10062894225120544,
+                "world_id": 10009
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 10010
+              },
+              {
+                "difference": 0.050314441323280334,
+                "world_id": 10011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10012
+              },
+              {
+                "difference": 0.05031445622444153,
+                "world_id": 10013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10014
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10017
+              },
+              {
+                "difference": 0.0,
+                "world_id": 10018
+              }
+            ],
+            "worse": 3
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 1043.4,
+            "Cooperation/alive_agent_steps": 1096.9,
+            "Coordination/sync_attempts": 10.75,
+            "Coordination/sync_successes": 4.9
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.85,
+            "hard_coordination": 0.14147727489471434,
+            "ordinary_reward": 0.1451612964272499,
+            "soft_coordination": 0.2200000114738941,
+            "total_reward": 0.16289893798530103
+          },
+          "score": 0.18710692264139653,
+          "status": "scored"
+        },
+        "transfer": {
+          "costs": {
+            "action_count": 25086,
+            "native_communication_actions": 344,
+            "overrides": 47,
+            "steps": 8362
+          },
+          "minus_incumbent": {
+            "better": 6,
+            "mean_difference": -0.011949685961008072,
+            "tied": 3,
+            "worlds": [
+              {
+                "difference": -0.0628930926322937,
+                "world_id": 30000
+              },
+              {
+                "difference": -0.012578621506690979,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0691823959350586,
+                "world_id": 30002
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30007
+              },
+              {
+                "difference": -0.012578636407852173,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.03144653141498566,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 30010
+              },
+              {
+                "difference": -0.018867939710617065,
+                "world_id": 30011
+              },
+              {
+                "difference": -0.08176101744174957,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.03144653141498566,
+                "world_id": 30014
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30015
+              },
+              {
+                "difference": -0.037735842168331146,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": -0.08176100999116898,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.012578636407852173,
+                "world_id": 30019
+              }
+            ],
+            "worse": 11
+          },
+          "minus_reference": {
+            "better": 5,
+            "mean_difference": -0.0022012580186128615,
+            "tied": 10,
+            "worlds": [
+              {
+                "difference": -0.09433962404727936,
+                "world_id": 30000
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30001
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30002
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30003
+              },
+              {
+                "difference": 0.01886792480945587,
+                "world_id": 30004
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30005
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30006
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30007
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30008
+              },
+              {
+                "difference": -0.018867909908294678,
+                "world_id": 30009
+              },
+              {
+                "difference": 0.06289307773113251,
+                "world_id": 30010
+              },
+              {
+                "difference": 0.08176100254058838,
+                "world_id": 30011
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30012
+              },
+              {
+                "difference": 0.06289306282997131,
+                "world_id": 30013
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30014
+              },
+              {
+                "difference": -0.06289307773113251,
+                "world_id": 30015
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30016
+              },
+              {
+                "difference": 0.0,
+                "world_id": 30017
+              },
+              {
+                "difference": -0.0628931000828743,
+                "world_id": 30018
+              },
+              {
+                "difference": 0.031446561217308044,
+                "world_id": 30019
+              }
+            ],
+            "worse": 5
+          },
+          "native_diagnostics_mean": {
+            "Cooperation/actionable_agent_steps": 955.05,
+            "Cooperation/alive_agent_steps": 1008.95,
+            "Coordination/sync_attempts": 10.05,
+            "Coordination/sync_successes": 4.75
+          },
+          "reward_components": {
+            "construction": 0.0,
+            "handover": 0.75,
+            "hard_coordination": 0.15625000223517418,
+            "ordinary_reward": 0.14493087828159332,
+            "soft_coordination": 0.23375002145767212,
+            "total_reward": 0.16502659991383553
+          },
+          "score": 0.19245283380150796,
+          "status": "scored"
+        }
+      }
+    }
+  ],
+  "scope": "Descriptive recomputation of all fixed programs; no retrospective reselection",
+  "score_unit": "fraction of coordination reward; multiply by 100 for percent",
+  "script_sha256": "51f8746d433337095e7096574932394c298fe46025f96085042d245d0e95fe30",
+  "selection": {
+    "frozen_at_unix": 1790277969.328531,
+    "label": "reference",
+    "precedes_all_final_evaluations": true,
+    "rule": "max_valid_development_earliest_tie",
+    "sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d"
+  },
+  "tie_rule": "exact equality of recorded floating-point scores"
+}

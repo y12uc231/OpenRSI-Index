@@ -1,0 +1,71 @@
+{
+  "arms": [
+    {
+      "all_compared_fields_equal": true,
+      "continuation_file": "results/sol-continuation-001/evaluations/evaluation-reference.json",
+      "continuation_sha256": "1899ad7e3cd2bee539104132149283181c7d309bf4de297c7f6653ca8f139d19",
+      "label": "reference",
+      "original_file": "native/evidence/full20-pass-through.json",
+      "original_sha256": "e48a9b90230e96e6a0bcc4e34340b752866382886505e95da3aa6fec94692bcd",
+      "worlds": [
+        9999,
+        10000,
+        10001,
+        10002,
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011,
+        10012,
+        10013,
+        10014,
+        10015,
+        10016,
+        10017,
+        10018
+      ]
+    },
+    {
+      "all_compared_fields_equal": true,
+      "continuation_file": "results/sol-continuation-001/evaluations/evaluation-incumbent.json",
+      "continuation_sha256": "cb3b2f0f5197e997b8c0d3794d4691b521d76e07fc1c2d486e1dceb7e80d22c9",
+      "label": "incumbent",
+      "original_file": "results/sol-001/final-evaluation.json",
+      "original_sha256": "1448b660c3be6929a3579390feff30e37ad7d0b135cba289d3366c818c3df2ff",
+      "worlds": [
+        9999,
+        10000,
+        10001,
+        10002,
+        10003,
+        10004,
+        10005,
+        10006,
+        10007,
+        10008,
+        10009,
+        10010,
+        10011,
+        10012,
+        10013,
+        10014,
+        10015,
+        10016,
+        10017,
+        10018
+      ]
+    }
+  ],
+  "excludes_variable_costs": [
+    "seconds",
+    "ipc_seconds"
+  ],
+  "scope": "Original 20-world deterministic replay",
+  "script_sha256": "d4f5225e5bfdff5c75608df2a2328b0bf746cdcdfb9a53b38bc0d0e1640397cc",
+  "status": "verified"
+}

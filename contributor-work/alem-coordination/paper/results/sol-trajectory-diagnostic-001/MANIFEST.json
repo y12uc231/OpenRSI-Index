@@ -1,0 +1,27 @@
+{
+  "files": {
+    "candidates/call-01/controller.py": "adde1ca397bddcbaba36e63ecd6ded40133687563fcfdd596456948d83085192",
+    "candidates/call-02/controller.py": "250d47a0697ca52d45543c9c8e30246e7427a8786319ca4e18ce02d80b23e2f5",
+    "candidates/call-03/controller.py": "e65deb3bb2e51f304b5438d06d6be826de77fa5c70e4649fec48b27d81751db1",
+    "candidates/call-04/controller.py": "3bdd0f68c497bef4a7ab3e0d5d476b2fa6e145ff66a4f8815f4345981e350eec",
+    "candidates/call-05/controller.py": "50105844bd662113bc9db085a2a3d5990b09fa783319c8c1bfc7365c1d575dd4",
+    "candidates/call-06/controller.py": "1100a5af8f19ff678a3277ce40f7367ba6bc12e6b0f9404e98736a674e94674d",
+    "comparison.json": "236834814396168c487760420dbbd90da245708976b5a485ed4dedb4cbef0501",
+    "evaluations/evaluation-call-01.json": "cf7717bc281bfc45f8a264b708bd5016c4ef6c1d2aded9824c46d6e02c0b9999",
+    "evaluations/evaluation-call-02.json": "f40f7a4b50778364994cdb99430874972a5167a718a85127685253954c917ae5",
+    "evaluations/evaluation-call-03.json": "acd10594e49fad3d74c35413c56be62cf4a59d0480e4733d904f2d7414849fd4",
+    "evaluations/evaluation-call-04.json": "58b4873dd3821cdf8d52898117563d905d532dca4089b471ef811e5eca211dc8",
+    "evaluations/evaluation-call-05.json": "645b1a619f8b52ef8486c6b04766dab9af7fae37e5af237f722674b9e23ca791",
+    "evaluations/evaluation-call-06.json": "cfd5f91378bf13ae61356ca0c3579f784880aa30d7d21f30e7dcd6bf565eed0d",
+    "evaluations/transfer-call-01.json": "01a81b49dfabc9589ef21f75e170d2a0ca978169b1db37aec7866a260a8ae5fa",
+    "evaluations/transfer-call-02.json": "47af6612820c4f7f2a51468cc1153b7fd4df9923fd0cea643168a96f4e3e152d",
+    "evaluations/transfer-call-03.json": "54753116e1895ce77941a0095a3ed3507e0177f93a13ebc4cbae8b37b82a08f3",
+    "evaluations/transfer-call-04.json": "0027790cb22b5015f7f43f1755ee3877e2a21798e8f936413c3277e1d2018cae",
+    "evaluations/transfer-call-05.json": "a31eea95d1770d4fa5c79444b17e1ef1c09d43152f4b5fe8fc6dac2805ae5ca1",
+    "evaluations/transfer-call-06.json": "4af37bd229c553bf33acc073056104e92463ead4b4f212f3c5bf0472da1a5d5c",
+    "summary.json": "9a60ef0a7d87db7caf1accac0669d5c676f32c71987ad11fc089f77d768746af"
+  },
+  "private_prompts_notes_reasoning_or_logs_included": false,
+  "protocol_sha256": "5aebbcc51e98b2992c587a28ad6cd2b2e7228c658fa6419b55428f406a902115",
+  "runner_sha256": "761c6ea1c8259f187c7a443da54ca4151e72cfe7364ba22a52bb423f00b37e01"
+}
