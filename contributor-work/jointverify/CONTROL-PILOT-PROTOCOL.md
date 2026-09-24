@@ -1,0 +1,9 @@
+# Local control extension, declared before control-model calls
+
+2026-09-23 (local date). The first two periodic-policy cases have completed successfully; the third remains running. We retain those outcomes. This extension does not revise the original pilot protocol or claim that this sample demonstrates poor model performance.
+
+Run two additional conditions on **the first case in the original frozen manifest**, `click2068_1_6`: the already implemented adaptive verification heuristic and a centralized worker. Case selection follows the original order, not a failure filter. These controls are a one-case feasibility/cost diagnostic, not a complete scientific comparison. Keep all started runs and report both correct and incorrect outcomes.
+
+The adaptive control uses the original frozen `dfd04a4` runner and policy code, with unchanged 32-call, four-check, 900-tool-second and 3,600-work-second caps. The centralized control uses the separately committed `edda9fd` implementation of that control. Its Codex backend and default budgets are unchanged; only the lead is scheduled, with explicit instructions to implement both features because no teammate will run. The lead already receives both feature specifications in all modes. Shared gateway, public checking and final feature suites remain the same. Later reporting-only edits are separately hashed.
+
+Compare both-feature correctness first. Report aggregate input/output tokens, call counts, public checks, tool wall time and total elapsed time descriptively. The local Codex CLI has no fixed sampling seed or immutable server revision; one observation per condition cannot establish an algorithmic gain or causal cost advantage. Do not pool these controls with a future frozen-Qwen/token-bounded experiment. If all conditions pass, report the ceiling and cost observations, not evidence of difficult unsolved coordination.
