@@ -1,0 +1,72 @@
+{
+  "all_attempts_llm_calls": 0,
+  "attempts": [
+    {
+      "attempt": "proof-001",
+      "note": "Infrastructure rejection before policy execution: image lacked Git; switched to manifest-only exact input verification",
+      "outer_wall_seconds": 0.31365825000000314,
+      "primary_score_fraction": null,
+      "provenance_verified": false,
+      "raw_result_sha256": "39f07940cbd77610409dec8a45ef38c4c382a1d826e35d9ee7b344cb3aa4fb64",
+      "scope": "first-world-deployment-proof",
+      "scored": 0,
+      "status": "unscored",
+      "total": 1
+    },
+    {
+      "attempt": "proof-002",
+      "note": "One-world deployment proof: same rewards / 863 steps but different full hash under newly constrained engine affinity; not claimed as exact parity",
+      "outer_wall_seconds": 72.80401120799996,
+      "primary_score_fraction": 0.18238994479179382,
+      "provenance_verified": true,
+      "raw_result_sha256": "fc43ab4fc3b000be5a985dcab2f43a776ddf3e3c3c731532686e86f0649340c5",
+      "scope": "first-world-deployment-proof",
+      "scored": 1,
+      "status": "scored",
+      "total": 1
+    },
+    {
+      "attempt": "baseline-001",
+      "note": "Full 20 exact trace parity after normal image affinity and 4 CPU outer quota; before final source-symlink verifier guard",
+      "outer_wall_seconds": 120.74304291700001,
+      "primary_score_fraction": 0.18522013239562513,
+      "provenance_verified": true,
+      "raw_result_sha256": "10f634d780b92a7908f8e4500a35ee4c9a799876d43e5d548df6487e38c96567",
+      "scope": "fixed-full-suite",
+      "scored": 20,
+      "status": "scored",
+      "total": 20
+    },
+    {
+      "attempt": "baseline-002",
+      "note": "Final source, full 20 exact trace parity",
+      "outer_wall_seconds": 145.38555041700002,
+      "primary_score_fraction": 0.18522013239562513,
+      "provenance_verified": true,
+      "raw_result_sha256": "e88aceefb0b6a610528de0de38c2118019cbd467d99edbae6df478e4c9d2b660",
+      "scope": "fixed-full-suite",
+      "scored": 20,
+      "status": "scored",
+      "total": 20
+    },
+    {
+      "attempt": "sol-final-parity-001",
+      "note": "Exactly one authorized deployment replay; all 20 original state/latent/action traces, metrics and episode lengths match; not a researcher retry or tuning.",
+      "outer_wall_seconds": 130.38232020799998,
+      "primary_score_fraction": 0.19465409219264984,
+      "provenance_verified": true,
+      "raw_result_sha256": "7b3d34e07a47212ca9ae417b3e82ae29cf2d811f44dd828433c8eb0aade83492",
+      "scope": "one unchanged final Sol controller, full 20-world native deployment replay",
+      "scored": 20,
+      "status": "scored",
+      "total": 20
+    }
+  ],
+  "no_model_or_task_case_selection_from_these_results": true,
+  "pre_evaluation_development_notes": [
+    "Initial tmpfs-based actor probes failed loading stdlib shared libraries because the mount was noexec; jails moved to ordinary container filesystem.",
+    "Independent review added POSIX message-queue denial, immutable affinity, and removed world identifiers from bootstrap paths/argument metadata before final validation.",
+    "Scratch storage was tightened from per-file-only limits to one fixed 16 MiB writable file before full-suite validation."
+  ],
+  "schema_version": 1
+}

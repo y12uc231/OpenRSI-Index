@@ -1,0 +1,13 @@
+--- frozen/controller/engine.py
++++ native/engine.py
+@@ -20,8 +20,9 @@
+     output=os.fdopen(os.dup(sys.stdout.fileno()), "wb", buffering=0)
+     os.dup2(sys.stderr.fileno(), sys.stdout.fileno())
+     with contextlib.redirect_stdout(sys.stderr):
+-        parser=argparse.ArgumentParser();parser.add_argument('--suite',choices=('dev','evaluation'),required=True);args=parser.parse_args()
++        parser=argparse.ArgumentParser();parser.add_argument('--suite',choices=('dev','evaluation'),required=True);parser.add_argument('--proof-first-world',action='store_true');args=parser.parse_args()
+         worlds=list(range(20000,20004)) if args.suite=='dev' else list(range(9999,10019))
++        if args.proof_first_world: worlds=worlds[:1]
+         started=time.monotonic();steps_limit=10000;world_id=worlds[0]
+         shutil.copytree('/app/alem','/tmp/alem')
+         sys.path[:0]=['/tmp','/app/baselines']

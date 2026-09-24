@@ -1,0 +1,63 @@
+{
+  "scope": "CPU-only template/tokenizer planning check; no weights, inference, serving endpoint or GPU; not required live vLLM preflight",
+  "model_id": "Qwen/Qwen3.8-27B",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "transformers": "4.57.1",
+  "tokenizers": "0.22.2",
+  "artifact_sha256": {
+    "chat_template.jinja": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+    "config.json": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+    "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+    "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27"
+  },
+  "prompts": [
+    {
+      "input_artifact": "astra-001/call-00/prompt.txt",
+      "prompt_sha256": "e3c86a52347df716e9512be13c8a5ba117d4bfe9ebd608cdbc9f991d141b2ccd",
+      "prompt_tokens_offline": 25980,
+      "max_completion_tokens": 32768,
+      "max_model_len": 65536,
+      "fits_full_reservation_offline": true
+    },
+    {
+      "input_artifact": "astra-001/call-01/prompt.txt",
+      "prompt_sha256": "2e5a9892f29dc9b733bb3e94e9092dce4ea840ecbd5cad1e5f200e0dc99a81ea",
+      "prompt_tokens_offline": 29401,
+      "max_completion_tokens": 32768,
+      "max_model_len": 65536,
+      "fits_full_reservation_offline": true
+    },
+    {
+      "input_artifact": "astra-001/call-02/prompt.txt",
+      "prompt_sha256": "d26312c4d3b02fece7c554026ab78d97adb0048a90979dbb77ed8bc52b8e244a",
+      "prompt_tokens_offline": 26777,
+      "max_completion_tokens": 32768,
+      "max_model_len": 65536,
+      "fits_full_reservation_offline": true
+    },
+    {
+      "input_artifact": "sol-001/call-00/prompt.txt",
+      "prompt_sha256": "e3c86a52347df716e9512be13c8a5ba117d4bfe9ebd608cdbc9f991d141b2ccd",
+      "prompt_tokens_offline": 25980,
+      "max_completion_tokens": 32768,
+      "max_model_len": 65536,
+      "fits_full_reservation_offline": true
+    },
+    {
+      "input_artifact": "sol-001/call-01/prompt.txt",
+      "prompt_sha256": "ebc0b1c15928249c560b87614ec6dc129a7e8ae727705e28344acd0799363df5",
+      "prompt_tokens_offline": 30168,
+      "max_completion_tokens": 32768,
+      "max_model_len": 65536,
+      "fits_full_reservation_offline": true
+    },
+    {
+      "input_artifact": "sol-001/call-02/prompt.txt",
+      "prompt_sha256": "85763427ebd681bd460b831dcc593008f5fadf299b650032ca26512196820cf3",
+      "prompt_tokens_offline": 30564,
+      "max_completion_tokens": 32768,
+      "max_model_len": 65536,
+      "fits_full_reservation_offline": true
+    }
+  ]
+}

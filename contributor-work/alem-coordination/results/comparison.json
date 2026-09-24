@@ -1,0 +1,542 @@
+{
+  "all_world_scores": [
+    {
+      "astra-001": 0.18238994479179382,
+      "matched_pass_through": 0.18238994479179382,
+      "sol-001": 0.18238994479179382,
+      "visible-sync-001": 0.18238994479179382,
+      "world_id": 9999
+    },
+    {
+      "astra-001": 0.22012577950954437,
+      "matched_pass_through": 0.22012577950954437,
+      "sol-001": 0.21383647620677948,
+      "visible-sync-001": 0.22012577950954437,
+      "world_id": 10000
+    },
+    {
+      "astra-001": 0.18238994479179382,
+      "matched_pass_through": 0.18238994479179382,
+      "sol-001": 0.18238994479179382,
+      "visible-sync-001": 0.16352203488349915,
+      "world_id": 10001
+    },
+    {
+      "astra-001": 0.2012578696012497,
+      "matched_pass_through": 0.2012578696012497,
+      "sol-001": 0.15723270177841187,
+      "visible-sync-001": 0.2012578696012497,
+      "world_id": 10002
+    },
+    {
+      "astra-001": 0.21383647620677948,
+      "matched_pass_through": 0.21383647620677948,
+      "sol-001": 0.16352203488349915,
+      "visible-sync-001": 0.21383647620677948,
+      "world_id": 10003
+    },
+    {
+      "astra-001": 0.18238994479179382,
+      "matched_pass_through": 0.18238994479179382,
+      "sol-001": 0.2515723407268524,
+      "visible-sync-001": 0.18238994479179382,
+      "world_id": 10004
+    },
+    {
+      "astra-001": 0.069182388484478,
+      "matched_pass_through": 0.069182388484478,
+      "sol-001": 0.15094339847564697,
+      "visible-sync-001": 0.069182388484478,
+      "world_id": 10005
+    },
+    {
+      "astra-001": 0.1949685513973236,
+      "matched_pass_through": 0.1949685513973236,
+      "sol-001": 0.21383647620677948,
+      "visible-sync-001": 0.1949685513973236,
+      "world_id": 10006
+    },
+    {
+      "astra-001": 0.21383647620677948,
+      "matched_pass_through": 0.21383647620677948,
+      "sol-001": 0.21383647620677948,
+      "visible-sync-001": 0.21383647620677948,
+      "world_id": 10007
+    },
+    {
+      "astra-001": 0.1320754736661911,
+      "matched_pass_through": 0.1320754736661911,
+      "sol-001": 0.21383647620677948,
+      "visible-sync-001": 0.1320754736661911,
+      "world_id": 10008
+    },
+    {
+      "astra-001": 0.28301888704299927,
+      "matched_pass_through": 0.28301888704299927,
+      "sol-001": 0.2641509473323822,
+      "visible-sync-001": 0.28301888704299927,
+      "world_id": 10009
+    },
+    {
+      "astra-001": 0.18238994479179382,
+      "matched_pass_through": 0.18238994479179382,
+      "sol-001": 0.18238994479179382,
+      "visible-sync-001": 0.18238994479179382,
+      "world_id": 10010
+    },
+    {
+      "astra-001": 0.16352203488349915,
+      "matched_pass_through": 0.16352203488349915,
+      "sol-001": 0.21383647620677948,
+      "visible-sync-001": 0.16352203488349915,
+      "world_id": 10011
+    },
+    {
+      "astra-001": 0.16352203488349915,
+      "matched_pass_through": 0.16352203488349915,
+      "sol-001": 0.16352203488349915,
+      "visible-sync-001": 0.16352203488349915,
+      "world_id": 10012
+    },
+    {
+      "astra-001": 0.18238994479179382,
+      "matched_pass_through": 0.18238994479179382,
+      "sol-001": 0.2012578696012497,
+      "visible-sync-001": 0.18238994479179382,
+      "world_id": 10013
+    },
+    {
+      "astra-001": 0.24528303742408752,
+      "matched_pass_through": 0.24528303742408752,
+      "sol-001": 0.21383647620677948,
+      "visible-sync-001": 0.24528303742408752,
+      "world_id": 10014
+    },
+    {
+      "astra-001": 0.22012577950954437,
+      "matched_pass_through": 0.22012577950954437,
+      "sol-001": 0.18238994479179382,
+      "visible-sync-001": 0.22012577950954437,
+      "world_id": 10015
+    },
+    {
+      "astra-001": 0.18238994479179382,
+      "matched_pass_through": 0.18238994479179382,
+      "sol-001": 0.15723270177841187,
+      "visible-sync-001": 0.18238994479179382,
+      "world_id": 10016
+    },
+    {
+      "astra-001": 0.2012578696012497,
+      "matched_pass_through": 0.2012578696012497,
+      "sol-001": 0.23270440101623535,
+      "visible-sync-001": 0.23270440101623535,
+      "world_id": 10017
+    },
+    {
+      "astra-001": 0.08805032074451447,
+      "matched_pass_through": 0.08805032074451447,
+      "sol-001": 0.138364776968956,
+      "visible-sync-001": 0.08805032074451447,
+      "world_id": 10018
+    }
+  ],
+  "arms": [
+    {
+      "arm": "matched_pass_through",
+      "coordination_gain_fraction": 0,
+      "development_primary_score_fraction": 0.22484277188777924,
+      "final_primary_score_fraction": 0.18522013239562513,
+      "final_worlds": 20,
+      "final_worlds_expected": 20,
+      "generations": [],
+      "host_wall_seconds": 278.79222712499904,
+      "source": "trusted frozen policy"
+    },
+    {
+      "aggregate_costs": {
+        "action_count": 28548,
+        "controller_calls": 28548,
+        "ipc_seconds": 168.70123071435592,
+        "native_communication_actions": 375,
+        "overrides": 9,
+        "policy_forward_batches": 9516,
+        "seconds": 225.6636993099928,
+        "steps": 9516
+      },
+      "arm": "visible-sync-001",
+      "coordination_gain_fraction": 0.0006289310753345434,
+      "final_primary_score_fraction": 0.18584906347095967,
+      "final_worlds": 20,
+      "final_worlds_expected": 20,
+      "generations": [],
+      "host_wall_seconds": 299.5171223330035,
+      "known_usage": {},
+      "native_diagnostics_mean": {
+        "Communication/total_comm_count": 18.75,
+        "Cooperation/actionable_agent_steps": 1034.8,
+        "Cooperation/alive_agent_steps": 1121.3,
+        "Coordination/construction_attempts": 0.0,
+        "Coordination/construction_successes": 0.0,
+        "Coordination/coord_sync_success_rate": 0.5822372883558273,
+        "Coordination/elite_attempts": 2.5,
+        "Coordination/elite_successes": 0.0,
+        "Coordination/handover_expiries": 3.15,
+        "Coordination/handover_setups": 4.45,
+        "Coordination/handover_successes": 1.3,
+        "Coordination/mine_sync_hard": 2.4,
+        "Coordination/mine_sync_soft": 2.2,
+        "Coordination/sync_attempts": 9.8,
+        "Coordination/sync_successes": 4.6,
+        "Deaths/dehydration_count": 0.25,
+        "Deaths/exhaustion_count": 0.0,
+        "Deaths/friendly_fire_count": 0.05,
+        "Deaths/mob_combat_count": 1.95,
+        "Deaths/starvation_count": 0.75,
+        "Deaths/total_deaths": 3.0,
+        "Progression/max_level_reached": 0.55
+      },
+      "paired_world_differences": {
+        "better_worlds": 1,
+        "equal_worlds": 18,
+        "max_fraction": 0.03144653141498566,
+        "mean_fraction": 0.0006289310753345489,
+        "min_fraction": -0.018867909908294678,
+        "sample_sd_fraction": 0.0083884986310856,
+        "worse_worlds": 1
+      },
+      "reward_fraction_mean": {
+        "Team/construction_coord_reward_pct_of_max": 0.0,
+        "Team/coord_reward_pct_of_max": 0.18584906347095967,
+        "Team/handover_coord_reward_pct_of_max": 0.85,
+        "Team/normal_reward_pct_of_max": 0.14078341536223887,
+        "Team/reward_pct_of_max": 0.15984043069183826,
+        "Team/soft_coord_reward_pct_of_max": 0.212500012665987,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.14261364042758942
+      },
+      "source": "author-written heuristic",
+      "usage_complete_and_consistent": null
+    },
+    {
+      "aggregate_costs": {
+        "action_count": 25467,
+        "controller_calls": 25467,
+        "ipc_seconds": 154.42816469486934,
+        "native_communication_actions": 386,
+        "overrides": 0,
+        "policy_forward_batches": 8489,
+        "seconds": 206.27813871899707,
+        "steps": 8489
+      },
+      "arm": "astra-001",
+      "coordination_gain_fraction": 0.0,
+      "final_primary_score_fraction": 0.18522013239562513,
+      "final_worlds": 20,
+      "final_worlds_expected": 20,
+      "generations": [
+        {
+          "artifact_available": true,
+          "controller_sha256": "7a46a80fce79556af2dbb3f29ef7cd3facf279be243518b05fd6aaf344633218",
+          "generation": 1,
+          "inference": {
+            "complete_call_evidence": true,
+            "model_identity": "requested provider alias; immutable server snapshot not exposed",
+            "model_requested": "gpt-6-astra",
+            "reasoning_effort": "ultra",
+            "return_code": 0,
+            "seconds": 537.131,
+            "status": "completed",
+            "tool_free": true,
+            "usage": [
+              {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 33664,
+                "input_tokens": 67895,
+                "output_tokens": 17619,
+                "reasoning_output_tokens": 14156
+              }
+            ]
+          },
+          "primary_score_fraction": 0.15880504064261913,
+          "scored": 4,
+          "status": "scored",
+          "total": 4
+        },
+        {
+          "artifact_available": true,
+          "controller_sha256": "37c36fd32ea2ce2f6673a1cb2faf1d05e22d4eab216f8d0873c8700c1c26eb7a",
+          "generation": 2,
+          "inference": {
+            "complete_call_evidence": true,
+            "model_identity": "requested provider alias; immutable server snapshot not exposed",
+            "model_requested": "gpt-6-astra",
+            "reasoning_effort": "ultra",
+            "return_code": 0,
+            "seconds": 108.541,
+            "status": "completed",
+            "tool_free": true,
+            "usage": [
+              {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 36736,
+                "input_tokens": 73959,
+                "output_tokens": 3442,
+                "reasoning_output_tokens": 3134
+              }
+            ]
+          },
+          "primary_score_fraction": 0.22484277188777924,
+          "scored": 4,
+          "status": "scored",
+          "total": 4
+        },
+        {
+          "artifact_available": true,
+          "controller_sha256": "7972edc0bb2790f5bf861add3112517ed189952c6cfc5dc3530549895cb9e55c",
+          "generation": 3,
+          "inference": {
+            "complete_call_evidence": true,
+            "model_identity": "requested provider alias; immutable server snapshot not exposed",
+            "model_requested": "gpt-6-astra",
+            "reasoning_effort": "ultra",
+            "return_code": 0,
+            "seconds": 19.831,
+            "status": "completed",
+            "tool_free": true,
+            "usage": [
+              {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 0,
+                "input_tokens": 34435,
+                "output_tokens": 533,
+                "reasoning_output_tokens": 359
+              }
+            ]
+          },
+          "primary_score_fraction": 0.18522013239562513,
+          "scored": 20,
+          "status": "scored",
+          "total": 20
+        }
+      ],
+      "host_wall_seconds": 277.7871305419976,
+      "known_usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 70400,
+        "input_tokens": 176289,
+        "output_tokens": 21594,
+        "reasoning_output_tokens": 17649
+      },
+      "native_diagnostics_mean": {
+        "Communication/total_comm_count": 19.3,
+        "Cooperation/actionable_agent_steps": 994.4,
+        "Cooperation/alive_agent_steps": 1064.05,
+        "Coordination/construction_attempts": 0.0,
+        "Coordination/construction_successes": 0.0,
+        "Coordination/coord_sync_success_rate": 0.5695082142949104,
+        "Coordination/elite_attempts": 2.6,
+        "Coordination/elite_successes": 0.0,
+        "Coordination/handover_expiries": 3.25,
+        "Coordination/handover_setups": 4.65,
+        "Coordination/handover_successes": 1.4,
+        "Coordination/mine_sync_hard": 2.4,
+        "Coordination/mine_sync_soft": 2.25,
+        "Coordination/sync_attempts": 10.45,
+        "Coordination/sync_successes": 4.65,
+        "Deaths/dehydration_count": 0.3,
+        "Deaths/exhaustion_count": 0.05,
+        "Deaths/friendly_fire_count": 0.05,
+        "Deaths/mob_combat_count": 1.85,
+        "Deaths/starvation_count": 0.75,
+        "Deaths/total_deaths": 3.0,
+        "Progression/max_level_reached": 0.6
+      },
+      "paired_world_differences": {
+        "better_worlds": 0,
+        "equal_worlds": 20,
+        "max_fraction": 0.0,
+        "mean_fraction": 0.0,
+        "min_fraction": 0.0,
+        "sample_sd_fraction": 0.0,
+        "worse_worlds": 0
+      },
+      "reward_fraction_mean": {
+        "Team/construction_coord_reward_pct_of_max": 0.0,
+        "Team/coord_reward_pct_of_max": 0.18522013239562513,
+        "Team/handover_coord_reward_pct_of_max": 0.85,
+        "Team/normal_reward_pct_of_max": 0.1426267322152853,
+        "Team/reward_pct_of_max": 0.16063830368220805,
+        "Team/soft_coord_reward_pct_of_max": 0.212500012665987,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.14147727638483049
+      },
+      "source": "one three-call tool-free researcher attempt",
+      "usage_complete_and_consistent": true
+    },
+    {
+      "aggregate_costs": {
+        "action_count": 28713,
+        "controller_calls": 28713,
+        "ipc_seconds": 170.25363293204282,
+        "native_communication_actions": 872,
+        "overrides": 1009,
+        "policy_forward_batches": 9571,
+        "seconds": 227.43027943498237,
+        "steps": 9571
+      },
+      "arm": "sol-001",
+      "coordination_gain_fraction": 0.009433959797024716,
+      "final_primary_score_fraction": 0.19465409219264984,
+      "final_worlds": 20,
+      "final_worlds_expected": 20,
+      "generations": [
+        {
+          "artifact_available": true,
+          "controller_sha256": "50492ccc08656aa224b1ad9b6784d6b3b166d6a812ff6b967b6bf9bc5c8a0a7b",
+          "generation": 1,
+          "inference": {
+            "complete_call_evidence": true,
+            "model_identity": "requested provider alias; immutable server snapshot not exposed",
+            "model_requested": "gpt-6-sol",
+            "reasoning_effort": "ultra",
+            "return_code": 0,
+            "seconds": 896.307,
+            "status": "completed",
+            "tool_free": true,
+            "usage": [
+              {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 33152,
+                "input_tokens": 67312,
+                "output_tokens": 34442,
+                "reasoning_output_tokens": 30259
+              }
+            ]
+          },
+          "primary_score_fraction": 0.17767295986413956,
+          "scored": 4,
+          "status": "scored",
+          "total": 4
+        },
+        {
+          "artifact_available": true,
+          "controller_sha256": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+          "generation": 2,
+          "inference": {
+            "complete_call_evidence": true,
+            "model_identity": "requested provider alias; immutable server snapshot not exposed",
+            "model_requested": "gpt-6-sol",
+            "reasoning_effort": "ultra",
+            "return_code": 0,
+            "seconds": 550.292,
+            "status": "completed",
+            "tool_free": true,
+            "usage": [
+              {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 74240,
+                "input_tokens": 134852,
+                "output_tokens": 24080,
+                "reasoning_output_tokens": 16329
+              }
+            ]
+          },
+          "primary_score_fraction": 0.19811321422457695,
+          "scored": 4,
+          "status": "scored",
+          "total": 4
+        },
+        {
+          "artifact_available": true,
+          "controller_sha256": "3862d57dbf57dbb8e1f2efff6cd32a345dd7006a0dab58d40b45e0ff5ae38d89",
+          "generation": 3,
+          "inference": {
+            "complete_call_evidence": true,
+            "model_identity": "requested provider alias; immutable server snapshot not exposed",
+            "model_requested": "gpt-6-sol",
+            "reasoning_effort": "ultra",
+            "return_code": 0,
+            "seconds": 489.334,
+            "status": "completed",
+            "tool_free": true,
+            "usage": [
+              {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 37632,
+                "input_tokens": 75306,
+                "output_tokens": 9181,
+                "reasoning_output_tokens": 5036
+              }
+            ]
+          },
+          "primary_score_fraction": 0.19465409219264984,
+          "scored": 20,
+          "status": "scored",
+          "total": 20
+        }
+      ],
+      "host_wall_seconds": 310.75336570899526,
+      "known_usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 145024,
+        "input_tokens": 277470,
+        "output_tokens": 67703,
+        "reasoning_output_tokens": 51624
+      },
+      "native_diagnostics_mean": {
+        "Communication/total_comm_count": 43.6,
+        "Cooperation/actionable_agent_steps": 1030.4,
+        "Cooperation/alive_agent_steps": 1117.25,
+        "Coordination/construction_attempts": 0.0,
+        "Coordination/construction_successes": 0.0,
+        "Coordination/coord_sync_success_rate": 0.4620599769055843,
+        "Coordination/elite_attempts": 3.95,
+        "Coordination/elite_successes": 0.0,
+        "Coordination/handover_expiries": 2.65,
+        "Coordination/handover_setups": 4.4,
+        "Coordination/handover_successes": 1.75,
+        "Coordination/mine_sync_hard": 2.55,
+        "Coordination/mine_sync_soft": 2.9,
+        "Coordination/sync_attempts": 14.8,
+        "Coordination/sync_successes": 5.25,
+        "Deaths/dehydration_count": 0.25,
+        "Deaths/exhaustion_count": 0.1,
+        "Deaths/friendly_fire_count": 0.05,
+        "Deaths/mob_combat_count": 1.45,
+        "Deaths/starvation_count": 1.15,
+        "Deaths/total_deaths": 3.0,
+        "Progression/max_level_reached": 0.6
+      },
+      "paired_world_differences": {
+        "better_worlds": 8,
+        "equal_worlds": 5,
+        "max_fraction": 0.08176100999116898,
+        "mean_fraction": 0.009433959797024726,
+        "min_fraction": -0.050314441323280334,
+        "sample_sd_fraction": 0.04042601069551842,
+        "worse_worlds": 7
+      },
+      "reward_fraction_mean": {
+        "Team/construction_coord_reward_pct_of_max": 0.0,
+        "Team/coord_reward_pct_of_max": 0.19465409219264984,
+        "Team/handover_coord_reward_pct_of_max": 0.85,
+        "Team/normal_reward_pct_of_max": 0.14493087939918042,
+        "Team/reward_pct_of_max": 0.16595745123922825,
+        "Team/soft_coord_reward_pct_of_max": 0.23250001892447472,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.14943182170391084
+      },
+      "source": "one three-call tool-free researcher attempt",
+      "usage_complete_and_consistent": true
+    }
+  ],
+  "frozen_source_git_commit": "d4bdd34f4170d2e61f24527d7ed68b3ad0866492",
+  "limitations": [
+    "The scripted control is nearly inactive (9 action overrides); its weakness cannot establish task difficulty",
+    "One attempt per provider alias and three calls are not a general model capability study",
+    "No inference/training is used within game actors; they are frozen MARL policies with generated Python controllers",
+    "Public canonical worlds are not secret heldout data",
+    "Survival and synchronization both affect returns; category metrics do not establish causal mechanisms",
+    "No confidence claim or model population inference is made from these paired fixed worlds"
+  ],
+  "schema_version": 1,
+  "score_unit": "native normalized reward fraction, not a pass rate"
+}

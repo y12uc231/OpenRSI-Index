@@ -1,0 +1,49 @@
+{
+  "aggregate_feedback": {
+    "aggregate_costs": {
+      "action_count": 28548,
+      "ipc_seconds": 168.70123071435592,
+      "native_communication_actions": 375,
+      "overrides": 9,
+      "seconds": 225.6636993099928,
+      "steps": 9516
+    },
+    "diagnostic_counts": {},
+    "error_type_counts": {},
+    "infrastructure_affected": false,
+    "llm_calls": 0,
+    "metrics_mean": {
+      "Team/construction_coord_reward_pct_of_max": 0.0,
+      "Team/coord_reward_pct_of_max": 0.18584906347095967,
+      "Team/handover_coord_reward_pct_of_max": 0.85,
+      "Team/normal_reward_pct_of_max": 0.14078341536223887,
+      "Team/reward_pct_of_max": 0.15984043069183826,
+      "Team/soft_coord_reward_pct_of_max": 0.212500012665987,
+      "Team/sync_hard_coord_reward_pct_of_max": 0.14261364042758942
+    },
+    "override_fraction": 0.00031525851197982345,
+    "primary_score": 0.18584906347095967,
+    "provenance_verified": true,
+    "scored": 20,
+    "status": "scored",
+    "total": 20,
+    "validity_counts": {
+      "scored": 20
+    }
+  },
+  "controller_sha256": "a15b1c1462a3d44e544a38b979e43aca00cefd787bdda7f863a02fee66c18cca",
+  "coordination_gain_fraction": 0.0006289310753345434,
+  "limitations": [
+    "Author-written heuristic, not model research evidence",
+    "One rollout on public canonical worlds",
+    "Natural termination is not success and reward fractions are not pass rates"
+  ],
+  "matched_baseline_primary_score_fraction": 0.18522013239562513,
+  "operator": {
+    "queue_seconds": 0.00010133300384040922,
+    "return_code": 0,
+    "seconds": 299.5652105409972
+  },
+  "scope": "one preregistered author-written scripted comparison; no model calls or tuning",
+  "source_git_commit": "d4bdd34f4170d2e61f24527d7ed68b3ad0866492"
+}

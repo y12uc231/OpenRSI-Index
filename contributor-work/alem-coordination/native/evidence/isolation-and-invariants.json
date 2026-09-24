@@ -1,0 +1,27 @@
+{
+  "actual_kernel_architecture": "aarch64",
+  "affinity_change_denied": true,
+  "callbacks": 8,
+  "candidate_readonly": true,
+  "denied_network_families": [
+    "INET",
+    "INET6",
+    "UNIX"
+  ],
+  "fork_exec_denied": true,
+  "fresh_actor_processes": 4,
+  "llm_calls": 0,
+  "new_scratch_files_denied": true,
+  "offline_tests": 6,
+  "ordinary_container_image": "sha256:9282bdeb7b8debc675830cf464028cba51b9a7b83afd8c1f4c098f67edd73176",
+  "policy_forward_calls": 0,
+  "posix_sysv_ipc_denied": true,
+  "private_state_resets": true,
+  "probe_sha256": "77ab774a66b5627022cc8198f0369747d8162980fd5e5f60390900941dee3826",
+  "schema_version": 1,
+  "simulator_assets_results_proc_absent": true,
+  "single_scratch_file_limit_bytes": 16777216,
+  "status": "passed",
+  "test_source_sha256": "272d95ec60d056afda9b0012e111fc78df61fea42d1a18f084a05f114782b9f3",
+  "world_id_absent_from_bootstrap_frames": true
+}

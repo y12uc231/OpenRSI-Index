@@ -1,0 +1,267 @@
+{
+  "audit_problems": [],
+  "audit_status": "verified",
+  "cached_and_reasoning_tokens_are_subsets": true,
+  "coordination_gain_fraction": 0.0,
+  "declared_calls": 3,
+  "generations": [
+    {
+      "aggregate_feedback": {
+        "aggregate_costs": {
+          "action_count": 5310,
+          "ipc_seconds": 31.55561237405709,
+          "native_communication_actions": 186,
+          "overrides": 62,
+          "seconds": 42.62941893600146,
+          "steps": 1770
+        },
+        "diagnostic_counts": {},
+        "error_type_counts": {},
+        "infrastructure_affected": false,
+        "llm_calls": 0,
+        "metrics_mean": {
+          "Team/construction_coord_reward_pct_of_max": 0.0,
+          "Team/coord_reward_pct_of_max": 0.15880504064261913,
+          "Team/handover_coord_reward_pct_of_max": 0.5,
+          "Team/normal_reward_pct_of_max": 0.11751152016222477,
+          "Team/reward_pct_of_max": 0.1349734030663967,
+          "Team/soft_coord_reward_pct_of_max": 0.2187500223517418,
+          "Team/sync_hard_coord_reward_pct_of_max": 0.1306818202137947
+        },
+        "override_fraction": 0.011676082862523541,
+        "primary_score": 0.15880504064261913,
+        "provenance_verified": true,
+        "scored": 4,
+        "status": "scored",
+        "total": 4,
+        "validity_counts": {
+          "scored": 4
+        }
+      },
+      "artifact_available": true,
+      "attempted": true,
+      "audit_problems": [],
+      "controller_bytes": 10361,
+      "controller_file": "generation-01/controller.py",
+      "controller_sha256": "7a46a80fce79556af2dbb3f29ef7cd3facf279be243518b05fd6aaf344633218",
+      "generation": 1,
+      "inference": {
+        "complete_call_evidence": true,
+        "model_identity": "requested provider alias; immutable server snapshot not exposed",
+        "model_requested": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "return_code": 0,
+        "seconds": 537.131,
+        "status": "completed",
+        "tool_free": true,
+        "usage": [
+          {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 33664,
+            "input_tokens": 67895,
+            "output_tokens": 17619,
+            "reasoning_output_tokens": 14156
+          }
+        ]
+      },
+      "operator": {
+        "queue_seconds": 4.2583000322338194e-05,
+        "return_code": 0,
+        "seconds": 114.98095883300266
+      }
+    },
+    {
+      "aggregate_feedback": {
+        "aggregate_costs": {
+          "action_count": 6030,
+          "ipc_seconds": 37.248971866942156,
+          "native_communication_actions": 57,
+          "overrides": 0,
+          "seconds": 49.253503355997964,
+          "steps": 2010
+        },
+        "diagnostic_counts": {},
+        "error_type_counts": {},
+        "infrastructure_affected": false,
+        "llm_calls": 0,
+        "metrics_mean": {
+          "Team/construction_coord_reward_pct_of_max": 0.0,
+          "Team/coord_reward_pct_of_max": 0.22484277188777924,
+          "Team/handover_coord_reward_pct_of_max": 1.0,
+          "Team/normal_reward_pct_of_max": 0.1152073759585619,
+          "Team/reward_pct_of_max": 0.16156914830207825,
+          "Team/soft_coord_reward_pct_of_max": 0.2875000312924385,
+          "Team/sync_hard_coord_reward_pct_of_max": 0.1619318202137947
+        },
+        "override_fraction": 0.0,
+        "primary_score": 0.22484277188777924,
+        "provenance_verified": true,
+        "scored": 4,
+        "status": "scored",
+        "total": 4,
+        "validity_counts": {
+          "scored": 4
+        }
+      },
+      "artifact_available": true,
+      "attempted": true,
+      "audit_problems": [],
+      "controller_bytes": 206,
+      "controller_file": "generation-02/controller.py",
+      "controller_sha256": "37c36fd32ea2ce2f6673a1cb2faf1d05e22d4eab216f8d0873c8700c1c26eb7a",
+      "generation": 2,
+      "inference": {
+        "complete_call_evidence": true,
+        "model_identity": "requested provider alias; immutable server snapshot not exposed",
+        "model_requested": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "return_code": 0,
+        "seconds": 108.541,
+        "status": "completed",
+        "tool_free": true,
+        "usage": [
+          {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 36736,
+            "input_tokens": 73959,
+            "output_tokens": 3442,
+            "reasoning_output_tokens": 3134
+          }
+        ]
+      },
+      "operator": {
+        "queue_seconds": 6.895800470374525e-05,
+        "return_code": 0,
+        "seconds": 124.77260587500496
+      }
+    },
+    {
+      "aggregate_feedback": {
+        "aggregate_costs": {
+          "action_count": 25467,
+          "ipc_seconds": 154.42816469486934,
+          "native_communication_actions": 386,
+          "overrides": 0,
+          "seconds": 206.27813871899707,
+          "steps": 8489
+        },
+        "diagnostic_counts": {},
+        "error_type_counts": {},
+        "infrastructure_affected": false,
+        "llm_calls": 0,
+        "metrics_mean": {
+          "Team/construction_coord_reward_pct_of_max": 0.0,
+          "Team/coord_reward_pct_of_max": 0.18522013239562513,
+          "Team/handover_coord_reward_pct_of_max": 0.85,
+          "Team/normal_reward_pct_of_max": 0.1426267322152853,
+          "Team/reward_pct_of_max": 0.16063830368220805,
+          "Team/soft_coord_reward_pct_of_max": 0.212500012665987,
+          "Team/sync_hard_coord_reward_pct_of_max": 0.14147727638483049
+        },
+        "override_fraction": 0.0,
+        "primary_score": 0.18522013239562513,
+        "provenance_verified": true,
+        "scored": 20,
+        "status": "scored",
+        "total": 20,
+        "validity_counts": {
+          "scored": 20
+        }
+      },
+      "artifact_available": true,
+      "attempted": true,
+      "audit_problems": [],
+      "controller_bytes": 194,
+      "controller_file": "generation-03/controller.py",
+      "controller_sha256": "7972edc0bb2790f5bf861add3112517ed189952c6cfc5dc3530549895cb9e55c",
+      "generation": 3,
+      "inference": {
+        "complete_call_evidence": true,
+        "model_identity": "requested provider alias; immutable server snapshot not exposed",
+        "model_requested": "gpt-6-astra",
+        "reasoning_effort": "ultra",
+        "return_code": 0,
+        "seconds": 19.831,
+        "status": "completed",
+        "tool_free": true,
+        "usage": [
+          {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "input_tokens": 34435,
+            "output_tokens": 533,
+            "reasoning_output_tokens": 359
+          }
+        ]
+      },
+      "operator": {
+        "queue_seconds": 109.24388820899912,
+        "return_code": 0,
+        "seconds": 387.07487125000625
+      }
+    }
+  ],
+  "known_usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 70400,
+    "input_tokens": 176289,
+    "output_tokens": 21594,
+    "reasoning_output_tokens": 17649
+  },
+  "limitations": [
+    "One attempt per alias; no model population or variance claim",
+    "A three-call tool-free pilot is not a full 24-hour OpenRSI trial",
+    "Reward fractions are not pass rates and natural termination is not success",
+    "Public canonical evaluation worlds are not secret heldout data",
+    "No immutable researcher model-server snapshot is exposed",
+    "Exact generated code is preserved; prompts, reasoning, notes and private logs are excluded"
+  ],
+  "matched_baseline_primary_score_fraction": 0.18522013239562513,
+  "matched_baseline_result_sha256": "adee8f59d635b2b69f353bfcf291cc14435944e8ad2a0370f818c0f9c8419929",
+  "matched_baseline_verified": true,
+  "model_requested": "gpt-6-astra",
+  "packet_manifest": {
+    "TASK_DESIGN.md": "ef593e52fe08fe13a862aa6977352bc2c889f915d042e37a8c7ff7d4758b3005",
+    "controller/CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "upstream/SYSTEM_PROMPT.md": "97283f66dbd0d00a41d45703ff6e4a4a3a81246f09cfc678dca357d922e60986",
+    "upstream/action_masking.py": "e0a201ef442e118d97ee2c01a645b6651fcb4ee8353eedd17388adef0a533ae5",
+    "upstream/constants.selected.py": "dc35dcc8649a398694ca3f1911897fe67c39cac0da2d0392d69ee9fdab58295a",
+    "upstream/coordination.selected.py": "e17989bd1b031bd5546435a966dd52b54261ddbc635c14e762be1d43540fe7a5",
+    "upstream/observation-note.txt": "35636d213b4c3079bf89f879c7d64eafac0b32d3b5e5dc82efd2aa2b57d37235",
+    "upstream/renderer_symbolic.py": "1df1100cc1672a40021da2a553ddf8321bcea2cf10fd01368c97567dc8fbe369"
+  },
+  "primary_score_fraction": 0.18522013239562513,
+  "public_packet_matches_declaration": true,
+  "raw_summary_sha256": "ae96d43df4431e46bace7f862cf5872cd81b014e32acc8a7d4ed2ceafbe9b6a4",
+  "researcher_host_wall_seconds": 1292.340739708001,
+  "researcher_status": "completed",
+  "schema_version": 1,
+  "scope": "one three-call tool-free researcher attempt per provider alias; frozen inner MARL policies, no inner LLM calls",
+  "source_git_commit": "d4bdd34f4170d2e61f24527d7ed68b3ad0866492",
+  "source_sha256": {
+    "../livemigrate/compute/qwen38.json": "65f41c78dd750993a882f58d57f84ee61d129391d5f5f47ce27dfec3fbef3119",
+    "../livemigrate/pilot/compatible_adapter.py": "cd455842c6abccca0739cb052bf5f7e56e2e72ccea3d780c55242147ab946bad",
+    "../relayrepair/pilot/codex_runner.py": "82a26d2294a452fa7b88eb809408395e4e07ba1c724a1103f6931196e7b296ee",
+    "TASK_DESIGN.md": "ef593e52fe08fe13a862aa6977352bc2c889f915d042e37a8c7ff7d4758b3005",
+    "baseline/asset-manifest.json": "0d2a774f5970a79f955d009cccc585eeb87f8b8e01462600f10f78d5ea3e9bd1",
+    "baseline/common.py": "f1644fe90e3d653d124ce26a59d7bd415451b774fecad30846d4ff6f6681173a",
+    "baseline/source-manifest.json": "9bf066b0f407ac471a412b801ff8362be2eca239f540a22f3770a5e30e4eaaf5",
+    "controller/CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "controller/controller_driver.py": "271ba4dfe32ad3f438504ffd140f36d878640a70f35547ba542a4e3be7a5d7ff",
+    "controller/engine.py": "9baff4b2dc76e5d19fa7040685cf2b97799e32f0222b70fce5c28b7141c1aabf",
+    "controller/feedback.py": "6ca4fc45d27e4268f25cab9817efb991af4989685c5fd342c78ab8e008d580b2",
+    "controller/launcher.py": "8323c14512e3b7e7b5dbb7b2465dee35c1b01ed8df378e5e5b9a1c1b0891331a",
+    "controller/reference/controller.py": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+    "controller/test_sandbox.py": "89ddea196985f7a02823b34b1e3cb3fec0d85f36ff2511a51113ef9762db855a",
+    "controller/wire.py": "309f08f6aabf2122ccf2229300862c643d21ea65a05d9f6e9ed6cf0bdbb9e2de",
+    "pilot/PROTOCOL.md": "cf8a9d65814e2dac1909171e0981a6bce67f0f7bb5d885b04409ae0361d44675",
+    "pilot/compatible_adapter.py": "5188c5451121574577b5a897152956bec05f9cdcfc5e2bf5b9a0a1bd2f93eb9c",
+    "pilot/make_packet.py": "ceac69ec89ff357f9409c0353671dd5e28d517da3f4d1324a5453597139aa222",
+    "pilot/run.py": "918a12ce3b6899df84aaa4925e1e4c862adf02d90d68225dd6239bc7dd6045fe",
+    "pilot/test_compatible_adapter.py": "3fa6cf6da0fb9ef43c6da34f96f112016c3b01867fd7bdad274d84e7007340f2",
+    "pilot/test_feedback.py": "d35320916271603f0c87d2ec71d986ac1d6b9a3fe4227caebc8f7e9178e7e58c"
+  },
+  "source_unchanged_and_matches_frozen_commit": true,
+  "total_input_plus_output_tokens": 197883,
+  "usage_complete_and_consistent": true
+}
