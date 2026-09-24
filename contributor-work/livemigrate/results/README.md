@@ -1,4 +1,4 @@
-# Complete first two family pilot results
+# LiveMigrate pilot results
 
 All four preregistered runs completed successfully. Requested local model:
 `gpt-6-astra`, reasoning `ultra`. The provider exposes no immutable model
@@ -63,3 +63,25 @@ Source revision: `6a5c4e9c0750be7ef39f8216f073946e6fa4f667`. All 18 recorded
 reference/task/driver hashes remained unchanged during the run and were verified
 against that Git revision. The [declared model study](../pilot/RESERVATION-PROTOCOL.md)
 uses this frozen version and reports every arm separately when complete.
+
+## Third-family model results
+
+The declared Sol team arm has completed. The other two arms are still running;
+their absence from this interim table is not selection by outcome.
+
+| Requested model | Mode | Held-out traces passed | Invalid/incomplete | Input + output tokens | Elapsed seconds |
+| --- | --- | ---: | ---: | ---: | ---: |
+| gpt-6-sol, ultra | Sequential protocol-first team | 3/3 | 0 | 252,455 | 2,049.876 |
+
+The [complete sanitized result and exact candidate](reservation-sol-team-001/result.json)
+also show both public checks passing 1/1. Every held-out case resolved all eight
+client calls, with no static or permanent trace violations. Replay, lost
+acknowledgement and post-fence output loss were observed in the designated cases.
+An independent text review found a coherent durable protocol, not evidence of a
+fixture-specific shortcut. This is another saturation observation, not evidence
+that the model performs poorly.
+
+All 112 recorded source hashes match the frozen task revision above; the three
+published candidate hashes match the final submitted sources. Raw prompts,
+private reasoning and local metadata remain excluded. The published source also
+received an independent manual privacy review without rewriting it.
