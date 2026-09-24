@@ -144,7 +144,7 @@ class ResearchScoreTests(unittest.TestCase):
             lambda x: x['usage'][0].update(input_tokens=-1, total_tokens=4),
             lambda x: x['usage'][0].update(input_tokens=True, total_tokens=6),
             lambda x: x['usage'][0].update(input_tokens=PROFILE['max_model_len'] - PROFILE['max_completion_tokens'] + 1, total_tokens=PROFILE['max_model_len'] - PROFILE['max_completion_tokens'] + 6),
-            lambda x: x['usage'][0].update(output_tokens=16385, total_tokens=16395),
+            lambda x: x['usage'][0].update(output_tokens=PROFILE['max_completion_tokens'] + 1, total_tokens=PROFILE['max_completion_tokens'] + 11),
             lambda x: x['usage'][0].update(total_tokens=99),
             lambda x: x['usage'][0].update(cached_input_tokens=11),
             lambda x: x['usage'][0].update(reasoning_output_tokens=6),

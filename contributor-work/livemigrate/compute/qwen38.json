@@ -8,7 +8,7 @@
   "vllm_image": "vllm/vllm-openai@sha256:2286e8533ca8b6bc777594bae30524f1426ba46ca21797524e06df6a94b06635",
   "endpoint": "http://127.0.0.1:8000/v1",
   "max_model_len": 65536,
-  "max_completion_tokens": 16384,
+  "max_completion_tokens": 32768,
   "transport_timeout_seconds": 1800,
   "seed": 0,
   "dtype": "bfloat16",

@@ -24,3 +24,28 @@ in both diagnostic modes. Their [complete results](results/README.md) stay
 published. Separate-owner reservations are a disclosed new design iteration,
 not a retrospectively selected subset of those results. Difficulty must be
 established on its frozen implementation with strong baselines.
+
+## Additional boundary check — 24 September 2026 UTC
+
+A follow-up search for multi-agent live migration, distributed transactions,
+linearizability and reservation benchmarks found two useful boundaries. This
+documentation update does not change the frozen reservation study.
+
+- **The underlying systems problem is established.** RIFL, published at SOSP
+  2015, persists completed RPC results and moves linearizability metadata with
+  migrating objects; it also supports multi-object transactions. LiveMigrate
+  does not claim to invent durable retry identity, migration-safe linearizability
+  or distributed atomic commitment. Its proposed contribution is a coding-agent
+  evaluation and coordination research interface. Sources: [author-hosted paper](https://web.stanford.edu/~ouster/cgi-bin/papers/rifl.pdf)
+  and [official proceedings listing](https://sigops.org/s/conferences/sosp/2015/archive/index.html).
+- **A multi-agent collision test need not measure language-model capability.**
+  AgentDraft's July 2026 benchmark uses five simulated agents issuing concurrent
+  booking requests and measures its scheduling API's winner selection. That is
+  relevant operational prior art; it does not establish language-model success
+  at writing the service implementations required here. This comparison is based
+  on the published methodology, not a source-level audit of its full harness.
+  Source: [AgentDraft benchmark](https://agentdraft.io/benchmark).
+
+No search can establish worldwide absence. The defensible novelty claim remains
+the particular executable evaluation contract and research artifact, with the
+overlaps and prototype limits documented above.

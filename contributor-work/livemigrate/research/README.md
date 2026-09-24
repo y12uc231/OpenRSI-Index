@@ -12,7 +12,10 @@ This is direct evaluation of an inference configuration, not model training.
 its declared waves. `evaluate.py` fixes the worker profile and three-family workload.
 The GPU transport and launch profile are prepared but not hardware-validated.
 The third-family revision increases context capacity before any Qwen inference
-to leave room for distributed implementations; the generation cap is unchanged.
+to leave room for distributed implementations. Before any Qwen inference, its
+generation allowance was also raised to 32,768 inclusive tokens, matching the
+maximum reported for QwenSWEBench in the pinned model card. This later GPU
+preparation change does not alter the frozen local Codex study.
 All three families, including the two locally saturated calibration families,
 remain mandatory. Suite checks have a 900-second operational timeout.
 This is not a completed Harbor task or a measured scaffold-optimization result.
@@ -51,7 +54,7 @@ improvement or a change to the frozen earlier pilot results.
 
 Use the pinned current BF16 Qwen profile in `../compute/qwen38.json`, with the
 same sampling and seed for reference and candidate policies. Each family gets
-six calls. Each call reserves at most 65,536 context tokens and 16,384 generated
+six calls. Each call reserves at most 65,536 context tokens and 32,768 generated
 tokens inclusive of reasoning. Prompt tokenization must leave that output
 reservation intact; no truncation or hidden replacement generations are allowed.
 Every generated response, including an invalid response, consumes its call.
