@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "missing_indices": [],
+  "original_scores_unchanged": true,
+  "candidate_sha256": {
+    "api": "5107600a400f8bf382f4fddcc99de9f48b5885f29ce9e31627d8d556de766458",
+    "consumer": "802ffd2c4d5ca669c2a074280991c567ad27ccc98a9b43d2bf97ea85c7d0074c",
+    "db": "241e601694339ca6572abb47d461a3307cc99fff50849ae2102cd6ddb6a0bbdf"
+  },
+  "calibration": {
+    "records": 4,
+    "passed": 4,
+    "scored": 4,
+    "unscored": 0,
+    "output_loss_exercised": 4,
+    "added_link_deferral_exercised": 0
+  },
+  "evaluation": {
+    "records": 16,
+    "passed": 16,
+    "scored": 16,
+    "unscored": 0,
+    "output_loss_exercised": 16,
+    "added_link_deferral_exercised": 1
+  },
+  "all": {
+    "records": 20,
+    "passed": 20,
+    "scored": 20,
+    "unscored": 0,
+    "output_loss_exercised": 20,
+    "added_link_deferral_exercised": 1
+  },
+  "model_calls": 0
+}

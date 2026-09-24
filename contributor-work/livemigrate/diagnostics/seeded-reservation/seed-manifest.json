@@ -1,0 +1,4008 @@
+{
+  "declared_utc": "2026-09-24T05:39:57.113398+00:00",
+  "domain": "reservation-seeded-audit-v1",
+  "candidate_replays_before_declaration": 0,
+  "candidate_source_inspected_for_design": false,
+  "cases": [
+    {
+      "name": "calibration_00__public_prepared_hold_handoff",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "source",
+        "A",
+        "B",
+        "gateway"
+      ],
+      "replay": false,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 0,
+        "seed": "64d9092bace5ea17406deee0bf5f8050c15faf907236c5bc232c207d2e15f13a",
+        "split": "calibration",
+        "template_index": 0,
+        "link": [
+          "A",
+          "source"
+        ],
+        "link_start_round": 9,
+        "link_duration_rounds": 2,
+        "output_node": "B",
+        "output_eligible_ordinal": 3,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "calibration_01__replayed_handoff_and_decisions",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "gateway",
+        "B",
+        "A",
+        "source"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 1,
+        "seed": "75bb6074f024102670af0fe4185f7b28e14001766ae63c5e7351e809a038efdd",
+        "split": "calibration",
+        "template_index": 1,
+        "link": [
+          "source",
+          "B"
+        ],
+        "link_start_round": 11,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 1,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "calibration_02__lost_committed_reply",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "A",
+        "gateway",
+        "source",
+        "B"
+      ],
+      "replay": false,
+      "lose_reply_once": true,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 2,
+        "seed": "808d82a609cccea76f039ec960c4860e1277df03733246020f4490bfb61b8d3f",
+        "split": "calibration",
+        "template_index": 2,
+        "link": [
+          "B",
+          "gateway"
+        ],
+        "link_start_round": 14,
+        "link_duration_rounds": 2,
+        "output_node": "gateway",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "calibration_03__lost_source_send_after_fence",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "B",
+        "gateway",
+        "source",
+        "A"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": "source",
+      "lose_output_after_fence": "X",
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 3,
+        "seed": "fb72520491b72c14c7f3c763ec4fde52ef197396ea88d3b15293ee4ef879882f",
+        "split": "calibration",
+        "template_index": 3,
+        "link": [
+          "A",
+          "gateway"
+        ],
+        "link_start_round": 10,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 1,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_04__public_prepared_hold_handoff",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "source",
+        "A",
+        "B",
+        "gateway"
+      ],
+      "replay": false,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 4,
+        "seed": "c304b162e014e951ebdc999e7835ce0758e9f046410c907e5f5cb05c999bb697",
+        "split": "evaluation",
+        "template_index": 0,
+        "link": [
+          "gateway",
+          "source"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_05__replayed_handoff_and_decisions",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "gateway",
+        "B",
+        "A",
+        "source"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 5,
+        "seed": "1cf20df61d87bd6bc20c1752609e19728318562d49a0253bd467edbdbc5e57ea",
+        "split": "evaluation",
+        "template_index": 1,
+        "link": [
+          "gateway",
+          "source"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "gateway",
+        "output_eligible_ordinal": 3,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_06__lost_committed_reply",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "A",
+        "gateway",
+        "source",
+        "B"
+      ],
+      "replay": false,
+      "lose_reply_once": true,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 6,
+        "seed": "77d6047dffa75afbb36a57917cba4fb77e04cfcdaf9b0952ad51b8254cc2d15d",
+        "split": "evaluation",
+        "template_index": 2,
+        "link": [
+          "B",
+          "A"
+        ],
+        "link_start_round": 13,
+        "link_duration_rounds": 2,
+        "output_node": "A",
+        "output_eligible_ordinal": 3,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_07__lost_source_send_after_fence",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "B",
+        "gateway",
+        "source",
+        "A"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": "source",
+      "lose_output_after_fence": "X",
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 7,
+        "seed": "ce381fe49446b56b2ce115e77f60d823edfd7ecea94673effcc4892d1b8edd94",
+        "split": "evaluation",
+        "template_index": 3,
+        "link": [
+          "A",
+          "gateway"
+        ],
+        "link_start_round": 14,
+        "link_duration_rounds": 2,
+        "output_node": "A",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_08__public_prepared_hold_handoff",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "source",
+        "A",
+        "B",
+        "gateway"
+      ],
+      "replay": false,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 8,
+        "seed": "8db1b45223cc0b3c1f9a28b6a30228c9ac2298120caef21f22987c8936bee1ef",
+        "split": "evaluation",
+        "template_index": 0,
+        "link": [
+          "A",
+          "source"
+        ],
+        "link_start_round": 14,
+        "link_duration_rounds": 2,
+        "output_node": "B",
+        "output_eligible_ordinal": 3,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_09__replayed_handoff_and_decisions",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "gateway",
+        "B",
+        "A",
+        "source"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 9,
+        "seed": "6b6cb3242a2ff3ce3208c2e00fd605820391106f369ce6a2c6ce9dec0a3b14bb",
+        "split": "evaluation",
+        "template_index": 1,
+        "link": [
+          "A",
+          "B"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 3,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_10__lost_committed_reply",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "A",
+        "gateway",
+        "source",
+        "B"
+      ],
+      "replay": false,
+      "lose_reply_once": true,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 10,
+        "seed": "34687a8348211cd3adf5cd10ffb04f6c4ec9900d4750cd9e0de6363f6f6d75ad",
+        "split": "evaluation",
+        "template_index": 2,
+        "link": [
+          "gateway",
+          "B"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "B",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_11__lost_source_send_after_fence",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "B",
+        "gateway",
+        "source",
+        "A"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": "source",
+      "lose_output_after_fence": "X",
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 11,
+        "seed": "0ac54e0af69741fd6d5e326ffd60caf2ac97331d8e95aea0bfafbfca53df494b",
+        "split": "evaluation",
+        "template_index": 3,
+        "link": [
+          "A",
+          "gateway"
+        ],
+        "link_start_round": 16,
+        "link_duration_rounds": 2,
+        "output_node": "B",
+        "output_eligible_ordinal": 1,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_12__public_prepared_hold_handoff",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "source",
+        "A",
+        "B",
+        "gateway"
+      ],
+      "replay": false,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 12,
+        "seed": "b3a574c25e466b18cdd6ca6af42564484cee5652ee0edf2b9035696fa9fab423",
+        "split": "evaluation",
+        "template_index": 0,
+        "link": [
+          "gateway",
+          "source"
+        ],
+        "link_start_round": 15,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_13__replayed_handoff_and_decisions",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "gateway",
+        "B",
+        "A",
+        "source"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 13,
+        "seed": "17cd1efb49b05ec00a0e1e22e8940b68deda2b9979b10ac5163d0dee82a5687f",
+        "split": "evaluation",
+        "template_index": 1,
+        "link": [
+          "A",
+          "source"
+        ],
+        "link_start_round": 14,
+        "link_duration_rounds": 2,
+        "output_node": "A",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_14__lost_committed_reply",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "A",
+        "gateway",
+        "source",
+        "B"
+      ],
+      "replay": false,
+      "lose_reply_once": true,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 14,
+        "seed": "2351c1569259a1b015a094192507cd37c4b4c6637ac98481ae6e5878a0c054e9",
+        "split": "evaluation",
+        "template_index": 2,
+        "link": [
+          "B",
+          "gateway"
+        ],
+        "link_start_round": 14,
+        "link_duration_rounds": 2,
+        "output_node": "gateway",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_15__lost_source_send_after_fence",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "B",
+        "gateway",
+        "source",
+        "A"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": "source",
+      "lose_output_after_fence": "X",
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 15,
+        "seed": "e4ccbd6f8e760f32ff75f91b3f1e4b13606ac83fe712e29c74242b07706268e9",
+        "split": "evaluation",
+        "template_index": 3,
+        "link": [
+          "B",
+          "source"
+        ],
+        "link_start_round": 15,
+        "link_duration_rounds": 2,
+        "output_node": "gateway",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_16__public_prepared_hold_handoff",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "source",
+        "A",
+        "B",
+        "gateway"
+      ],
+      "replay": false,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 16,
+        "seed": "115c01ad87316f36ebd2656bffbacc1c63087da5c4a8e2f5e600085394b13666",
+        "split": "evaluation",
+        "template_index": 0,
+        "link": [
+          "gateway",
+          "B"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "B",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_17__replayed_handoff_and_decisions",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "gateway",
+        "B",
+        "A",
+        "source"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 17,
+        "seed": "6cd363010266ff755a35c9de65771d7b72b058eb93b27acfbfd3714f1023310d",
+        "split": "evaluation",
+        "template_index": 1,
+        "link": [
+          "source",
+          "A"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "gateway",
+        "output_eligible_ordinal": 3,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_18__lost_committed_reply",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "A",
+        "gateway",
+        "source",
+        "B"
+      ],
+      "replay": false,
+      "lose_reply_once": true,
+      "lose_output_once": null,
+      "lose_output_after_fence": null,
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 18,
+        "seed": "4fed9983b04be307cc65409a5fa45328fe7e84baa9e46e86c7eeedc90e2648ad",
+        "split": "evaluation",
+        "template_index": 2,
+        "link": [
+          "gateway",
+          "A"
+        ],
+        "link_start_round": 12,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 1,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    },
+    {
+      "name": "evaluation_19__lost_source_send_after_fence",
+      "capacities": {
+        "X": 3,
+        "Y": 3,
+        "Z": 2
+      },
+      "delivery_order": [
+        "B",
+        "gateway",
+        "source",
+        "A"
+      ],
+      "replay": true,
+      "lose_reply_once": false,
+      "lose_output_once": "source",
+      "lose_output_after_fence": "X",
+      "steps": [
+        {
+          "kind": "client",
+          "node": "source",
+          "call_id": "old-call",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 8,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "X",
+          "destination": "A"
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "bundle-call",
+          "reservation_id": "bundle",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 3,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "move",
+          "sku": "Y",
+          "destination": "B"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "z-call",
+          "reservation_id": "independent",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 10,
+          "blocked": [
+            [
+              "A",
+              "gateway"
+            ]
+          ],
+          "paused": []
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "z-call"
+        },
+        {
+          "kind": "run",
+          "rounds": 28,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "partial-abort-call",
+          "reservation_id": "partial-abort",
+          "lines": {
+            "X": 2,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "changed-retry",
+          "reservation_id": "old",
+          "lines": {
+            "Z": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 18,
+          "blocked": [],
+          "paused": []
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "old-retry",
+          "reservation_id": "old",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "new-call",
+          "reservation_id": "after-retirement",
+          "lines": {
+            "X": 1,
+            "Y": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 20,
+          "blocked": [],
+          "paused": [
+            "source"
+          ]
+        },
+        {
+          "kind": "require_reply",
+          "call_id": "new-call"
+        },
+        {
+          "kind": "client",
+          "node": "gateway",
+          "call_id": "overflow-call",
+          "reservation_id": "overflow",
+          "lines": {
+            "X": 1
+          }
+        },
+        {
+          "kind": "run",
+          "rounds": 16,
+          "blocked": [],
+          "paused": []
+        }
+      ],
+      "schedule_audit": {
+        "version": "reservation-seeded-audit-v1",
+        "index": 19,
+        "seed": "b149ce9245a9e6001f7a471b9c7d74981c46a9c874e39234aaf9dd93d9e7b072",
+        "split": "evaluation",
+        "template_index": 3,
+        "link": [
+          "gateway",
+          "source"
+        ],
+        "link_start_round": 14,
+        "link_duration_rounds": 2,
+        "output_node": "source",
+        "output_eligible_ordinal": 2,
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ]
+      }
+    }
+  ]
+}

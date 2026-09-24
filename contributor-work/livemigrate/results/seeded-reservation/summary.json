@@ -1,0 +1,68 @@
+{
+  "case_timeout_seconds": 900,
+  "model_calls": 0,
+  "parallel_case_limit": 4,
+  "runs": {
+    "reservation-astra-centralized-001": {
+      "all": {
+        "passed": 20,
+        "score": 1.0,
+        "status": "scored",
+        "total": 20
+      },
+      "calibration": {
+        "passed": 4,
+        "score": 1.0,
+        "status": "scored",
+        "total": 4
+      },
+      "evaluation": {
+        "passed": 16,
+        "score": 1.0,
+        "status": "scored",
+        "total": 16
+      }
+    },
+    "reservation-astra-team-001": {
+      "all": {
+        "passed": 20,
+        "score": 1.0,
+        "status": "scored",
+        "total": 20
+      },
+      "calibration": {
+        "passed": 4,
+        "score": 1.0,
+        "status": "scored",
+        "total": 4
+      },
+      "evaluation": {
+        "passed": 16,
+        "score": 1.0,
+        "status": "scored",
+        "total": 16
+      }
+    },
+    "reservation-sol-team-001": {
+      "all": {
+        "passed": 19,
+        "score": null,
+        "status": "unscored",
+        "total": 20
+      },
+      "calibration": {
+        "passed": 4,
+        "score": 1.0,
+        "status": "scored",
+        "total": 4
+      },
+      "evaluation": {
+        "passed": 15,
+        "score": null,
+        "status": "unscored",
+        "total": 16
+      }
+    }
+  },
+  "seconds": 1269.0540702080034
+}

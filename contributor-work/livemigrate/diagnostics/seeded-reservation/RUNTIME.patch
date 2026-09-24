@@ -1,0 +1,52 @@
+--- frozen/runtime.py
++++ diagnostic/task/runtime.py
+@@ -15,6 +15,7 @@
+ import uuid
+ 
+ import scenarios
++from schedule_policy import SchedulePolicy
+ from history import check_history
+ 
+ HERE = pathlib.Path(__file__).resolve().parent
+@@ -94,6 +95,7 @@
+ 
+ def execute(candidate_dir, scenario, invoke=None):
+     scenario = copy.deepcopy(scenario)
++    schedule_policy = SchedulePolicy(scenario.get("schedule_audit"))
+     dispatcher = invoke if invoke is not None else trusted_invoker(candidate_dir)
+     errors, invalid, audit_bound = [], False, False
+     error_count = 0
+@@ -323,6 +325,8 @@
+                     input_kind = body.get("kind") if type(body.get("kind")) is str else "private_message"
+                     lost_output_trigger = {"step": logical_step, "node": node, "input_kind": input_kind, "sku": fault_sku}
+                     return
++                if schedule_policy.drop_output(rounds_run, logical_step, node, output):
++                    return
+                 for packet in output["messages"]:
+                     if not isinstance(packet, dict) or set(packet) != {"to", "body"}:
+                         raise CandidateInvalid("invalid outbound packet")
+@@ -363,11 +367,12 @@
+                         rounds_run += 1
+                         if invalid or audit_bound:
+                             break
+-                        pending = sorted(queue, key=lambda item: priorities[item[1]])
++                        pending = schedule_policy.order_queue(queue, rounds_run, priorities)
+                         queue.clear()
+                         queued.clear()
+                         for src, node, body, encoded in pending:
+-                            if node in paused or (src, node) in blocked:
++                            extra_block = schedule_policy.block_link(rounds_run, src, node, already_blocked=(node in paused or (src, node) in blocked))
++                            if node in paused or (src, node) in blocked or extra_block:
+                                 enqueue(src, node, body)
+                                 continue
+                             deliver(src, node, body)
+@@ -419,7 +424,8 @@
+                     "trace": {"passed": error_count == 0, "violation_count": error_count, "violations": errors, "physical_fulfillments": len(effects)},
+                     "history": history_result, "completion": completion,
+                     "faults": {"lost_output": lost_output, "lost_output_trigger": lost_output_trigger, "lost_effect_ack": lost_reply, "replayed_packets": len(replayed)},
+-                    "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history"}
++                    "schedule_audit": schedule_policy.report(),
++                    "coverage": "seeded finite schedule diagnostic; exhaustive checker only for each observed finite client history"}
+         finally:
+             for conn in conns.values():
+                 conn.close()

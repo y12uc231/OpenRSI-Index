@@ -105,3 +105,8 @@ zero permanent violations, and the intended replay/send/acknowledgement faults.
 The runner verified frozen trusted sources, exact case bytes and candidate
 hashes before and after evaluation. These additional correlated schedules also
 show no model failure; their scores remain separate from the original study.
+
+The [final 20-seed follow-up](seeded-reservation/README.md) retains all 60 replay
+records: Astra centralized and team each passed 20/20; Sol passed 19 with one
+invalid execution left unscored. This remains insufficient evidence for the
+intended high-difficulty claim, so LiveMigrate is retired as the main proposal.

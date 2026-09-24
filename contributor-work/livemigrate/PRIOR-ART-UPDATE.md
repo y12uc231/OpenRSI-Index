@@ -73,7 +73,7 @@ desire to force a low score.
   establish a new systems problem.
 - [Alem](https://alem-world.github.io/) evaluates online team behavior, including
   synchronization and handover, with coordination reward distinct from base
-  progress. Its published low normalized achievement return is evidence about
+  progress. Its published low normalized reward is evidence about
   its own environment and model protocols, not about LiveMigrate or a new
   shortened episode. This is a promising alternative research substrate if the
   current task remains saturated; its full-episode inference cost needs a

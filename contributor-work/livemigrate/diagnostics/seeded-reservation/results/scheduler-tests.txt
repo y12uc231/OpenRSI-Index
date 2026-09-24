@@ -1,0 +1,10 @@
+test_exact_bounded_fault_windows (test_schedule.ScheduleTests.test_exact_bounded_fault_windows) ... ok
+test_exact_pack_and_unchanged_business_inputs (test_schedule.ScheduleTests.test_exact_pack_and_unchanged_business_inputs) ... ok
+test_history_contract_and_legacy_remain_exact (test_schedule.ScheduleTests.test_history_contract_and_legacy_remain_exact) ... ok
+test_manifest_cannot_override_faults (test_schedule.ScheduleTests.test_manifest_cannot_override_faults) ... ok
+test_permutation_is_deterministic_and_lossless (test_schedule.ScheduleTests.test_permutation_is_deterministic_and_lossless) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.004s
+
+OK

@@ -1,0 +1,91 @@
+{
+  "candidate_sha256": {
+    "api": "ec79b4c2d0e5b11865a46a8f8cf6c2578925d500c9f6cc4d22a46626c855d7c6",
+    "consumer": "c51fa52edf932e870f9daf713bb6e6342cbe56e2956f4c26d8d9c0aa3c3039ed",
+    "db": "5cd5b796b35c9022e0290991fe8e7fc606561ab0ee61f9af1a15a6fc22d225a2"
+  },
+  "index": 0,
+  "model_calls": 0,
+  "result": {
+    "completion": {
+      "candidate_callbacks": 872,
+      "fair_rounds": 113,
+      "passed": true,
+      "queued_messages": 4,
+      "resolved_calls": 8,
+      "total_calls": 8
+    },
+    "coverage": "seeded finite schedule diagnostic; exhaustive checker only for each observed finite client history",
+    "faults": {
+      "lost_effect_ack": false,
+      "lost_output": false,
+      "lost_output_trigger": null,
+      "replayed_packets": 0
+    },
+    "history": {
+      "exhaustive": true,
+      "explored": 12,
+      "passed": true,
+      "reason": "linearizable"
+    },
+    "name": "calibration_00__public_prepared_hold_handoff",
+    "passed": true,
+    "schedule_audit": {
+      "additional_link_deferrals": 0,
+      "config": {
+        "index": 0,
+        "link": [
+          "A",
+          "source"
+        ],
+        "link_duration_rounds": 2,
+        "link_start_round": 9,
+        "output_eligible_ordinal": 3,
+        "output_node": "B",
+        "output_round_intervals": [
+          [
+            9,
+            21
+          ],
+          [
+            32,
+            59
+          ]
+        ],
+        "seed": "64d9092bace5ea17406deee0bf5f8050c15faf907236c5bc232c207d2e15f13a",
+        "split": "calibration",
+        "template_index": 0,
+        "version": "reservation-seeded-audit-v1"
+      },
+      "eligible_output_batches_seen": 3,
+      "link_matches": 0,
+      "output_trigger": {
+        "messages": 2,
+        "node": "B",
+        "replies": 0,
+        "round": 35,
+        "step": 261
+      },
+      "permuted_packets": 460,
+      "permuted_rounds": 113
+    },
+    "score": 1.0,
+    "static": {
+      "passed": true,
+      "violations": []
+    },
+    "status": "scored",
+    "trace": {
+      "passed": true,
+      "physical_fulfillments": 4,
+      "violation_count": 0,
+      "violations": []
+    }
+  },
+  "runner_sha256": "07b03b92803e98b22176031639288d45f463aebf949b08e57b315241ec27ad69",
+  "scope": "exploratory seeded schedule coverage; original model scores unchanged",
+  "seal_sha256": "8ddf3663fc5092b44f7e23ba0ae3c48fbedb90b381a5e414e99751128d24ae37",
+  "seconds": 100.77419474999624,
+  "source_verified": true,
+  "split": "calibration"
+}

@@ -10,6 +10,12 @@ modes; it also passed the third family in both modes, as did `gpt-6-sol` in team
 mode. The examples validate the instrument but do not meet a high model-difficulty
 bar. Separate exploratory concurrency results must not replace those original scores.
 
+**Retired as the main high-difficulty proposal on 24 September 2026.** A final
+[20-seed diagnostic](results/seeded-reservation/README.md) yielded 20/20 passes
+for both Astra implementations and 19 passes plus one unscored invalid execution
+for Sol. The retained evidence does not support the intended broad difficulty
+claim. No further task complexity is being added to force model failures.
+
 Three coding agents own different parts of a live migration. Their code must
 agree on durable identities, authority and recovery while old and new components
 coexist. A trusted driver supplies the rollout requests and traffic; agents

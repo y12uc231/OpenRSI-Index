@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "diagnostic_version": "reservation-seeded-audit-v1",
+  "upstream_repository": "https://github.com/y12uc231/OpenRSI-Index",
+  "upstream_revision": "6a5c4e9c0750be7ef39f8216f073946e6fa4f667",
+  "original_seal_sha256": "8ddf3663fc5092b44f7e23ba0ae3c48fbedb90b381a5e414e99751128d24ae37",
+  "original_seal_metadata": {
+    "schema_version": 1,
+    "sealed_utc": "2026-09-24T05:43:52.064284+00:00",
+    "version": "reservation-seeded-audit-v1",
+    "source_sha256": {
+      "README.md": "e942975d4f9f8b8e01c8589e606c3828c26cbf6dbcab1f24223d321d48e2a216",
+      "RUNTIME.patch": "389b350fd40bb0a54d17ad509ff8bf030fc5ee1b808a4d7cce8c651c28604972",
+      "build.py": "d90a9dea8405c4a987ddc495e865b6c4a5132109ab0425cdb0edb671e56dae2d",
+      "controls/alternate_wire_schema/api.py": "28baa6f85754d01cdd828cccc53322ad996f143ce60d083b716d4b8a10b39272",
+      "controls/alternate_wire_schema/consumer.py": "cd77dadfd65479d7263f7de25c336df7e49d8d9ba45838aaebea059f85f3985b",
+      "controls/alternate_wire_schema/db.py": "683a5230850652f4ac2bf522a15ab7f454618bce8ab2b2814f1708202f6e1709",
+      "controls/deferred_move/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+      "controls/deferred_move/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+      "controls/deferred_move/db.py": "de7d0116f98ae433a84371761b78f2403acc36098470cde9db147371da7d1a6b",
+      "controls/drain_before_handoff/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+      "controls/drain_before_handoff/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+      "controls/drain_before_handoff/db.py": "f69ef47f374270a5b848839ec64c84381a9760fc30900ee18e2b868c504eb073",
+      "controls/early_ack/api.py": "71872382ce3939d09f495665bd490752e6ff4c549c6039a7a530980764521dc1",
+      "controls/early_ack/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+      "controls/early_ack/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+      "controls/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+      "controls/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+      "controls/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+      "prepare_controls.py": "8ddae40ca22205385c717749a580f66507c3ca232ad476d84e3a6111c854c396",
+      "seed-manifest.json": "467219c825e609b1c9f57cf19bd05487258d7cd28343543d9223d62629a812f4",
+      "task/API_CONTRACT.md": "36657de3ba8c9e5b26f8a263c2ef32f4eab59ad89003405d920c2ba5625cb42a",
+      "task/ARCHITECTURE.md": "590e9927e7474c4ca02e92b98056e8f9899308fafb664ff929ad72335a7b2217",
+      "task/PUBLIC_SCENARIO.json": "fac1d15839e1f2f11a0db50dee282b0df8f60eec1c1a2a9713564c72bf8588a9",
+      "task/README.md": "4be32e16085794b8502150bc6cee372e63691320871bb799f2c35eaf9c519166",
+      "task/base_scenarios.py": "43dde2b53012663a65763870224ec11989d678098f4b9bd0c380473d77301846",
+      "task/history.py": "6e2126b5f04da34b1c299610ea155b79755df6b9b29c07c8355c6e0272a12c90",
+      "task/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+      "task/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+      "task/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+      "task/reference/immutable_v1.py": "ab082b2f27450622586b31ae9347054475f4d11eafa88b2ef582abebf2aaf68c",
+      "task/runtime.py": "06f386e61b3652341f63053f27b048d67a2c9cebec22250581fad13ca0ec166f",
+      "task/scenarios.py": "82574bdd01425ec6aff7435996c3f51cd5f57402dd86cc5ab0dc26b42d98b6ad",
+      "task/schedule_policy.py": "3c419dfbee097c7111ea68413b946f02b6a914915c2f8c9d79b9b723e5246445",
+      "task/starter/api.py": "f741929d06caf7289658c9637e0293ee2a24f5b4b75a855bd0409b8957c5ac32",
+      "task/starter/consumer.py": "d8945adde8289a2a15e5026c7ef40f0802f4e75427ebd151276170ee49ac4bfa",
+      "task/starter/db.py": "eeb4efa6e5d6e7d045916481e190ee1d8a5191ea652a826b57dafd42733c2270",
+      "task/tests/test_history.py": "c1fcd10a7a236f3fc69d11174c9ac6b060a9875670b0029ac5ef0cb30310ad47",
+      "task/tests/test_runtime.py": "02bc99853dc4e9ef1daca218559b97fff2ed821e807b138bd1109f8bd3e6c5a3",
+      "test_schedule.py": "668c6d21bc5073564abfe3b75c169716b5cd387cc7e44f9f57da3fb445459cb4",
+      "transport/candidate_driver.py": "4b5c6f6b17ff65cb1edb27d389e3b44e01d63322d2e7f01024b2a6133b46020f",
+      "transport/isolated.py": "84f755ce43a1bc5082ff05bc473a86f1f702a59434a42908e7bc93813ca217c1",
+      "upstream-source-hashes.json": "9d283a35cefb73ce343af06e209f6bb55e78c24d7f5cb7b3978c93f6ab7c2bed",
+      "validate.py": "572baac47e4c04458d87c674512a2963c5f244f0f61748362d4c0e7af5bf718f"
+    },
+    "seed_manifest_sha256": "467219c825e609b1c9f57cf19bd05487258d7cd28343543d9223d62629a812f4",
+    "validation_sha256": {
+      "results/INDEPENDENT-REVIEW.md": "8ebdc7a01ec6e13c13be2a03c8b07d9f557702092b0c23dd95680d2c554c20d6",
+      "results/VALIDATION.md": "065620309930c4aeb3ca7494077927fca4f87324673be194ab8d0f00a09e6ce9",
+      "results/docker-reference-calibration-00.json": "7cc08585a0a974d1f080ce4a636125fd5a07a2f7547db4ede61e19af6b09bec0",
+      "results/scheduler-tests.txt": "0245c9bddba8fba9c1f69d732adf88b21b3ebe06c49cc6721c103df98dbda6d3",
+      "results/trusted-controls.json": "ed8cf02f66a70aa948ad24080e1aeccf56b0ec1a725554ddf1df87437f7d434e"
+    },
+    "trusted_host_passed": 100,
+    "trusted_host_total": 100,
+    "trusted_docker_passed": 1,
+    "trusted_docker_total": 1,
+    "candidate_replays_before_seal": 0,
+    "generated_candidate_source_inspected_by_diagnostic_author": false,
+    "post_validation_changes": {
+      "README.md": "Only replaced unnecessary future-authorization wording with root-run controlled replay; no executable, seed, business or oracle changes."
+    },
+    "limitations": [
+      "Exploratory diagnostic, original scores unchanged",
+      "Four calibration plus16 evaluation seeds reuse four eight-call templates",
+      "Link fault caused additional deferrals on only5/20 seeds for each trusted control",
+      "Generic output loss may affect housekeeping; actual triggers must be reported",
+      "One isolated reference case initially measured; full Docker pack cost not yet measured",
+      "Finite seeded schedules, not exhaustive distributed-state exploration"
+    ]
+  },
+  "original_seal_omitted_fields": [
+    "root"
+  ],
+  "original_replay_runner_sha256": "07b03b92803e98b22176031639288d45f463aebf949b08e57b315241ec27ad69",
+  "exact_copies": {
+    "provenance/SEALED-README.md": {
+      "original_path": "README.md",
+      "sha256": "e942975d4f9f8b8e01c8589e606c3828c26cbf6dbcab1f24223d321d48e2a216"
+    },
+    "RUNTIME.patch": {
+      "original_path": "RUNTIME.patch",
+      "sha256": "389b350fd40bb0a54d17ad509ff8bf030fc5ee1b808a4d7cce8c651c28604972"
+    },
+    "controls/alternate_wire_schema/api.py": {
+      "original_path": "controls/alternate_wire_schema/api.py",
+      "sha256": "28baa6f85754d01cdd828cccc53322ad996f143ce60d083b716d4b8a10b39272"
+    },
+    "controls/alternate_wire_schema/consumer.py": {
+      "original_path": "controls/alternate_wire_schema/consumer.py",
+      "sha256": "cd77dadfd65479d7263f7de25c336df7e49d8d9ba45838aaebea059f85f3985b"
+    },
+    "controls/alternate_wire_schema/db.py": {
+      "original_path": "controls/alternate_wire_schema/db.py",
+      "sha256": "683a5230850652f4ac2bf522a15ab7f454618bce8ab2b2814f1708202f6e1709"
+    },
+    "controls/deferred_move/api.py": {
+      "original_path": "controls/deferred_move/api.py",
+      "sha256": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b"
+    },
+    "controls/deferred_move/consumer.py": {
+      "original_path": "controls/deferred_move/consumer.py",
+      "sha256": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44"
+    },
+    "controls/deferred_move/db.py": {
+      "original_path": "controls/deferred_move/db.py",
+      "sha256": "de7d0116f98ae433a84371761b78f2403acc36098470cde9db147371da7d1a6b"
+    },
+    "controls/drain_before_handoff/api.py": {
+      "original_path": "controls/drain_before_handoff/api.py",
+      "sha256": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b"
+    },
+    "controls/drain_before_handoff/consumer.py": {
+      "original_path": "controls/drain_before_handoff/consumer.py",
+      "sha256": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44"
+    },
+    "controls/drain_before_handoff/db.py": {
+      "original_path": "controls/drain_before_handoff/db.py",
+      "sha256": "f69ef47f374270a5b848839ec64c84381a9760fc30900ee18e2b868c504eb073"
+    },
+    "controls/early_ack/api.py": {
+      "original_path": "controls/early_ack/api.py",
+      "sha256": "71872382ce3939d09f495665bd490752e6ff4c549c6039a7a530980764521dc1"
+    },
+    "controls/early_ack/consumer.py": {
+      "original_path": "controls/early_ack/consumer.py",
+      "sha256": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44"
+    },
+    "controls/early_ack/db.py": {
+      "original_path": "controls/early_ack/db.py",
+      "sha256": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2"
+    },
+    "controls/reference/api.py": {
+      "original_path": "controls/reference/api.py",
+      "sha256": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b"
+    },
+    "controls/reference/consumer.py": {
+      "original_path": "controls/reference/consumer.py",
+      "sha256": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44"
+    },
+    "controls/reference/db.py": {
+      "original_path": "controls/reference/db.py",
+      "sha256": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2"
+    },
+    "seed-manifest.json": {
+      "original_path": "seed-manifest.json",
+      "sha256": "467219c825e609b1c9f57cf19bd05487258d7cd28343543d9223d62629a812f4"
+    },
+    "task/API_CONTRACT.md": {
+      "original_path": "task/API_CONTRACT.md",
+      "sha256": "36657de3ba8c9e5b26f8a263c2ef32f4eab59ad89003405d920c2ba5625cb42a"
+    },
+    "task/ARCHITECTURE.md": {
+      "original_path": "task/ARCHITECTURE.md",
+      "sha256": "590e9927e7474c4ca02e92b98056e8f9899308fafb664ff929ad72335a7b2217"
+    },
+    "task/PUBLIC_SCENARIO.json": {
+      "original_path": "task/PUBLIC_SCENARIO.json",
+      "sha256": "fac1d15839e1f2f11a0db50dee282b0df8f60eec1c1a2a9713564c72bf8588a9"
+    },
+    "task/README.md": {
+      "original_path": "task/README.md",
+      "sha256": "4be32e16085794b8502150bc6cee372e63691320871bb799f2c35eaf9c519166"
+    },
+    "task/base_scenarios.py": {
+      "original_path": "task/base_scenarios.py",
+      "sha256": "43dde2b53012663a65763870224ec11989d678098f4b9bd0c380473d77301846"
+    },
+    "task/history.py": {
+      "original_path": "task/history.py",
+      "sha256": "6e2126b5f04da34b1c299610ea155b79755df6b9b29c07c8355c6e0272a12c90"
+    },
+    "task/reference/api.py": {
+      "original_path": "task/reference/api.py",
+      "sha256": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b"
+    },
+    "task/reference/consumer.py": {
+      "original_path": "task/reference/consumer.py",
+      "sha256": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44"
+    },
+    "task/reference/db.py": {
+      "original_path": "task/reference/db.py",
+      "sha256": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2"
+    },
+    "task/reference/immutable_v1.py": {
+      "original_path": "task/reference/immutable_v1.py",
+      "sha256": "ab082b2f27450622586b31ae9347054475f4d11eafa88b2ef582abebf2aaf68c"
+    },
+    "task/runtime.py": {
+      "original_path": "task/runtime.py",
+      "sha256": "06f386e61b3652341f63053f27b048d67a2c9cebec22250581fad13ca0ec166f"
+    },
+    "task/scenarios.py": {
+      "original_path": "task/scenarios.py",
+      "sha256": "82574bdd01425ec6aff7435996c3f51cd5f57402dd86cc5ab0dc26b42d98b6ad"
+    },
+    "task/schedule_policy.py": {
+      "original_path": "task/schedule_policy.py",
+      "sha256": "3c419dfbee097c7111ea68413b946f02b6a914915c2f8c9d79b9b723e5246445"
+    },
+    "task/starter/api.py": {
+      "original_path": "task/starter/api.py",
+      "sha256": "f741929d06caf7289658c9637e0293ee2a24f5b4b75a855bd0409b8957c5ac32"
+    },
+    "task/starter/consumer.py": {
+      "original_path": "task/starter/consumer.py",
+      "sha256": "d8945adde8289a2a15e5026c7ef40f0802f4e75427ebd151276170ee49ac4bfa"
+    },
+    "task/starter/db.py": {
+      "original_path": "task/starter/db.py",
+      "sha256": "eeb4efa6e5d6e7d045916481e190ee1d8a5191ea652a826b57dafd42733c2270"
+    },
+    "task/tests/test_history.py": {
+      "original_path": "task/tests/test_history.py",
+      "sha256": "c1fcd10a7a236f3fc69d11174c9ac6b060a9875670b0029ac5ef0cb30310ad47"
+    },
+    "task/tests/test_runtime.py": {
+      "original_path": "task/tests/test_runtime.py",
+      "sha256": "02bc99853dc4e9ef1daca218559b97fff2ed821e807b138bd1109f8bd3e6c5a3"
+    },
+    "test_schedule.py": {
+      "original_path": "test_schedule.py",
+      "sha256": "668c6d21bc5073564abfe3b75c169716b5cd387cc7e44f9f57da3fb445459cb4"
+    },
+    "transport/candidate_driver.py": {
+      "original_path": "transport/candidate_driver.py",
+      "sha256": "4b5c6f6b17ff65cb1edb27d389e3b44e01d63322d2e7f01024b2a6133b46020f"
+    },
+    "transport/isolated.py": {
+      "original_path": "transport/isolated.py",
+      "sha256": "84f755ce43a1bc5082ff05bc473a86f1f702a59434a42908e7bc93813ca217c1"
+    },
+    "results/INDEPENDENT-REVIEW.md": {
+      "original_path": "results/INDEPENDENT-REVIEW.md",
+      "sha256": "8ebdc7a01ec6e13c13be2a03c8b07d9f557702092b0c23dd95680d2c554c20d6"
+    },
+    "results/VALIDATION.md": {
+      "original_path": "results/VALIDATION.md",
+      "sha256": "065620309930c4aeb3ca7494077927fca4f87324673be194ab8d0f00a09e6ce9"
+    },
+    "results/docker-reference-calibration-00.json": {
+      "original_path": "results/docker-reference-calibration-00.json",
+      "sha256": "7cc08585a0a974d1f080ce4a636125fd5a07a2f7547db4ede61e19af6b09bec0"
+    },
+    "results/scheduler-tests.txt": {
+      "original_path": "results/scheduler-tests.txt",
+      "sha256": "0245c9bddba8fba9c1f69d732adf88b21b3ebe06c49cc6721c103df98dbda6d3"
+    },
+    "results/trusted-controls.json": {
+      "original_path": "results/trusted-controls.json",
+      "sha256": "ed8cf02f66a70aa948ad24080e1aeccf56b0ec1a725554ddf1df87437f7d434e"
+    }
+  },
+  "omitted_original_source_files": [
+    "build.py",
+    "prepare_controls.py",
+    "upstream-source-hashes.json",
+    "validate.py"
+  ],
+  "packaging_note": "Portable wrapper and metadata projection differ; normative runtime, schedules, policy, transport, controls, and seed manifest are byte-identical to the sealed pack. Original seal bytes are not republished because they contain a private absolute root. Every original source and validation hash is retained."
+}

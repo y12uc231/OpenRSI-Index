@@ -1,0 +1,184 @@
+{
+  "started_utc": "2026-09-24T05:40:33.948789+00:00",
+  "python": "3.12.14",
+  "kind": "trusted_docker_reference",
+  "source_sha256_before": {
+    "README.md": "13602fae85922c1d88dd158e3ba6c6f02aa5d32ce2189a5b034b0422ef27f4b6",
+    "RUNTIME.patch": "389b350fd40bb0a54d17ad509ff8bf030fc5ee1b808a4d7cce8c651c28604972",
+    "build.py": "d90a9dea8405c4a987ddc495e865b6c4a5132109ab0425cdb0edb671e56dae2d",
+    "controls/alternate_wire_schema/api.py": "28baa6f85754d01cdd828cccc53322ad996f143ce60d083b716d4b8a10b39272",
+    "controls/alternate_wire_schema/consumer.py": "cd77dadfd65479d7263f7de25c336df7e49d8d9ba45838aaebea059f85f3985b",
+    "controls/alternate_wire_schema/db.py": "683a5230850652f4ac2bf522a15ab7f454618bce8ab2b2814f1708202f6e1709",
+    "controls/deferred_move/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "controls/deferred_move/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/deferred_move/db.py": "de7d0116f98ae433a84371761b78f2403acc36098470cde9db147371da7d1a6b",
+    "controls/drain_before_handoff/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "controls/drain_before_handoff/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/drain_before_handoff/db.py": "f69ef47f374270a5b848839ec64c84381a9760fc30900ee18e2b868c504eb073",
+    "controls/early_ack/api.py": "71872382ce3939d09f495665bd490752e6ff4c549c6039a7a530980764521dc1",
+    "controls/early_ack/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/early_ack/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "controls/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "controls/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "prepare_controls.py": "8ddae40ca22205385c717749a580f66507c3ca232ad476d84e3a6111c854c396",
+    "seed-manifest.json": "467219c825e609b1c9f57cf19bd05487258d7cd28343543d9223d62629a812f4",
+    "task/API_CONTRACT.md": "36657de3ba8c9e5b26f8a263c2ef32f4eab59ad89003405d920c2ba5625cb42a",
+    "task/ARCHITECTURE.md": "590e9927e7474c4ca02e92b98056e8f9899308fafb664ff929ad72335a7b2217",
+    "task/PUBLIC_SCENARIO.json": "fac1d15839e1f2f11a0db50dee282b0df8f60eec1c1a2a9713564c72bf8588a9",
+    "task/README.md": "4be32e16085794b8502150bc6cee372e63691320871bb799f2c35eaf9c519166",
+    "task/base_scenarios.py": "43dde2b53012663a65763870224ec11989d678098f4b9bd0c380473d77301846",
+    "task/history.py": "6e2126b5f04da34b1c299610ea155b79755df6b9b29c07c8355c6e0272a12c90",
+    "task/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "task/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "task/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "task/reference/immutable_v1.py": "ab082b2f27450622586b31ae9347054475f4d11eafa88b2ef582abebf2aaf68c",
+    "task/runtime.py": "06f386e61b3652341f63053f27b048d67a2c9cebec22250581fad13ca0ec166f",
+    "task/scenarios.py": "82574bdd01425ec6aff7435996c3f51cd5f57402dd86cc5ab0dc26b42d98b6ad",
+    "task/schedule_policy.py": "3c419dfbee097c7111ea68413b946f02b6a914915c2f8c9d79b9b723e5246445",
+    "task/starter/api.py": "f741929d06caf7289658c9637e0293ee2a24f5b4b75a855bd0409b8957c5ac32",
+    "task/starter/consumer.py": "d8945adde8289a2a15e5026c7ef40f0802f4e75427ebd151276170ee49ac4bfa",
+    "task/starter/db.py": "eeb4efa6e5d6e7d045916481e190ee1d8a5191ea652a826b57dafd42733c2270",
+    "task/tests/test_history.py": "c1fcd10a7a236f3fc69d11174c9ac6b060a9875670b0029ac5ef0cb30310ad47",
+    "task/tests/test_runtime.py": "02bc99853dc4e9ef1daca218559b97fff2ed821e807b138bd1109f8bd3e6c5a3",
+    "test_schedule.py": "668c6d21bc5073564abfe3b75c169716b5cd387cc7e44f9f57da3fb445459cb4",
+    "transport/candidate_driver.py": "4b5c6f6b17ff65cb1edb27d389e3b44e01d63322d2e7f01024b2a6133b46020f",
+    "transport/isolated.py": "84f755ce43a1bc5082ff05bc473a86f1f702a59434a42908e7bc93813ca217c1",
+    "upstream-source-hashes.json": "9d283a35cefb73ce343af06e209f6bb55e78c24d7f5cb7b3978c93f6ab7c2bed",
+    "validate.py": "572baac47e4c04458d87c674512a2963c5f244f0f61748362d4c0e7af5bf718f"
+  },
+  "cases": [
+    {
+      "control": "reference",
+      "index": 0,
+      "wall_seconds": 71.51338287499675,
+      "result": {
+        "name": "calibration_00__public_prepared_hold_handoff",
+        "status": "scored",
+        "passed": true,
+        "score": 1.0,
+        "static": {
+          "passed": true,
+          "violations": []
+        },
+        "trace": {
+          "passed": true,
+          "violation_count": 0,
+          "violations": [],
+          "physical_fulfillments": 4
+        },
+        "history": {
+          "passed": true,
+          "reason": "linearizable",
+          "explored": 12,
+          "exhaustive": true
+        },
+        "completion": {
+          "passed": true,
+          "resolved_calls": 8,
+          "total_calls": 8,
+          "candidate_callbacks": 757,
+          "fair_rounds": 113,
+          "queued_messages": 2
+        },
+        "faults": {
+          "lost_output": false,
+          "lost_output_trigger": null,
+          "lost_effect_ack": false,
+          "replayed_packets": 0
+        },
+        "schedule_audit": {
+          "config": {
+            "version": "reservation-seeded-audit-v1",
+            "index": 0,
+            "seed": "64d9092bace5ea17406deee0bf5f8050c15faf907236c5bc232c207d2e15f13a",
+            "split": "calibration",
+            "template_index": 0,
+            "link": [
+              "A",
+              "source"
+            ],
+            "link_start_round": 9,
+            "link_duration_rounds": 2,
+            "output_node": "B",
+            "output_eligible_ordinal": 3,
+            "output_round_intervals": [
+              [
+                9,
+                21
+              ],
+              [
+                32,
+                59
+              ]
+            ]
+          },
+          "permuted_rounds": 113,
+          "permuted_packets": 345,
+          "link_matches": 0,
+          "additional_link_deferrals": 0,
+          "eligible_output_batches_seen": 3,
+          "output_trigger": {
+            "round": 33,
+            "step": 227,
+            "node": "B",
+            "messages": 1,
+            "replies": 0
+          }
+        },
+        "coverage": "seeded finite schedule diagnostic; exhaustive checker only for each observed finite client history"
+      }
+    }
+  ],
+  "docker_image": "python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62",
+  "wall_seconds": 71.80143420899549,
+  "source_sha256_after": {
+    "README.md": "13602fae85922c1d88dd158e3ba6c6f02aa5d32ce2189a5b034b0422ef27f4b6",
+    "RUNTIME.patch": "389b350fd40bb0a54d17ad509ff8bf030fc5ee1b808a4d7cce8c651c28604972",
+    "build.py": "d90a9dea8405c4a987ddc495e865b6c4a5132109ab0425cdb0edb671e56dae2d",
+    "controls/alternate_wire_schema/api.py": "28baa6f85754d01cdd828cccc53322ad996f143ce60d083b716d4b8a10b39272",
+    "controls/alternate_wire_schema/consumer.py": "cd77dadfd65479d7263f7de25c336df7e49d8d9ba45838aaebea059f85f3985b",
+    "controls/alternate_wire_schema/db.py": "683a5230850652f4ac2bf522a15ab7f454618bce8ab2b2814f1708202f6e1709",
+    "controls/deferred_move/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "controls/deferred_move/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/deferred_move/db.py": "de7d0116f98ae433a84371761b78f2403acc36098470cde9db147371da7d1a6b",
+    "controls/drain_before_handoff/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "controls/drain_before_handoff/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/drain_before_handoff/db.py": "f69ef47f374270a5b848839ec64c84381a9760fc30900ee18e2b868c504eb073",
+    "controls/early_ack/api.py": "71872382ce3939d09f495665bd490752e6ff4c549c6039a7a530980764521dc1",
+    "controls/early_ack/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/early_ack/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "controls/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "controls/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "controls/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "prepare_controls.py": "8ddae40ca22205385c717749a580f66507c3ca232ad476d84e3a6111c854c396",
+    "seed-manifest.json": "467219c825e609b1c9f57cf19bd05487258d7cd28343543d9223d62629a812f4",
+    "task/API_CONTRACT.md": "36657de3ba8c9e5b26f8a263c2ef32f4eab59ad89003405d920c2ba5625cb42a",
+    "task/ARCHITECTURE.md": "590e9927e7474c4ca02e92b98056e8f9899308fafb664ff929ad72335a7b2217",
+    "task/PUBLIC_SCENARIO.json": "fac1d15839e1f2f11a0db50dee282b0df8f60eec1c1a2a9713564c72bf8588a9",
+    "task/README.md": "4be32e16085794b8502150bc6cee372e63691320871bb799f2c35eaf9c519166",
+    "task/base_scenarios.py": "43dde2b53012663a65763870224ec11989d678098f4b9bd0c380473d77301846",
+    "task/history.py": "6e2126b5f04da34b1c299610ea155b79755df6b9b29c07c8355c6e0272a12c90",
+    "task/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "task/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "task/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "task/reference/immutable_v1.py": "ab082b2f27450622586b31ae9347054475f4d11eafa88b2ef582abebf2aaf68c",
+    "task/runtime.py": "06f386e61b3652341f63053f27b048d67a2c9cebec22250581fad13ca0ec166f",
+    "task/scenarios.py": "82574bdd01425ec6aff7435996c3f51cd5f57402dd86cc5ab0dc26b42d98b6ad",
+    "task/schedule_policy.py": "3c419dfbee097c7111ea68413b946f02b6a914915c2f8c9d79b9b723e5246445",
+    "task/starter/api.py": "f741929d06caf7289658c9637e0293ee2a24f5b4b75a855bd0409b8957c5ac32",
+    "task/starter/consumer.py": "d8945adde8289a2a15e5026c7ef40f0802f4e75427ebd151276170ee49ac4bfa",
+    "task/starter/db.py": "eeb4efa6e5d6e7d045916481e190ee1d8a5191ea652a826b57dafd42733c2270",
+    "task/tests/test_history.py": "c1fcd10a7a236f3fc69d11174c9ac6b060a9875670b0029ac5ef0cb30310ad47",
+    "task/tests/test_runtime.py": "02bc99853dc4e9ef1daca218559b97fff2ed821e807b138bd1109f8bd3e6c5a3",
+    "test_schedule.py": "668c6d21bc5073564abfe3b75c169716b5cd387cc7e44f9f57da3fb445459cb4",
+    "transport/candidate_driver.py": "4b5c6f6b17ff65cb1edb27d389e3b44e01d63322d2e7f01024b2a6133b46020f",
+    "transport/isolated.py": "84f755ce43a1bc5082ff05bc473a86f1f702a59434a42908e7bc93813ca217c1",
+    "upstream-source-hashes.json": "9d283a35cefb73ce343af06e209f6bb55e78c24d7f5cb7b3978c93f6ab7c2bed",
+    "validate.py": "572baac47e4c04458d87c674512a2963c5f244f0f61748362d4c0e7af5bf718f"
+  },
+  "source_unchanged": true,
+  "passed": 1,
+  "total": 1,
+  "all_scored": true
+}
