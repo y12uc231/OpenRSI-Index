@@ -1,0 +1,36 @@
+{
+  "dev": {
+    "worlds_scored": 4,
+    "worlds_total": 4,
+    "coord_reward_percent_mean": 22.484277188777924,
+    "coord_reward_percent_sample_sd": 1.8780373627004463,
+    "coord_reward_percent_min": 20.12578696012497,
+    "coord_reward_percent_max": 24.528303742408752,
+    "host_wall_seconds": 124.35136200000125,
+    "python_wall_seconds": 121.05494068100234,
+    "sum_world_seconds": 49.30843093999647,
+    "steps": 2010,
+    "actor_actions": 6030,
+    "overrides": 0,
+    "naturally_terminated": 4,
+    "provenance_verified": true,
+    "infrastructure_affected": false
+  },
+  "evaluation": {
+    "worlds_scored": 20,
+    "worlds_total": 20,
+    "coord_reward_percent_mean": 18.52201323956251,
+    "coord_reward_percent_sample_sd": 4.843713073493947,
+    "coord_reward_percent_min": 6.9182388484478,
+    "coord_reward_percent_max": 28.301888704299927,
+    "host_wall_seconds": 278.79222712499904,
+    "python_wall_seconds": 275.75805196000147,
+    "sum_world_seconds": 203.01464505298645,
+    "steps": 8489,
+    "actor_actions": 25467,
+    "overrides": 0,
+    "naturally_terminated": 20,
+    "provenance_verified": true,
+    "infrastructure_affected": false
+  }
+}

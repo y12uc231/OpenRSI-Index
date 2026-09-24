@@ -1,0 +1,48 @@
+[
+  {
+    "id": "feasibility-001",
+    "status": "infrastructure_failure",
+    "score": null,
+    "return_code": 1,
+    "wall_seconds": 63.318,
+    "cause": "Official import attempted to write its texture cache beside read-only source; evaluation never began.",
+    "source_unchanged": true
+  },
+  {
+    "id": "feasibility-002",
+    "status": "completed",
+    "world_seeds": [
+      9999
+    ],
+    "changes": "Copy unchanged alem package to container temporary storage before import so texture cache can be written. No policy, evaluator, checkpoint or environment changes.",
+    "historical_replication": false
+  },
+  {
+    "id": "native20-001",
+    "status": "completed",
+    "world_seeds": [
+      9999,
+      10000,
+      10001,
+      10002,
+      10003,
+      10004,
+      10005,
+      10006,
+      10007,
+      10008,
+      10009,
+      10010,
+      10011,
+      10012,
+      10013,
+      10014,
+      10015,
+      10016,
+      10017,
+      10018
+    ],
+    "historical_replication": false,
+    "score_file": "native20.json"
+  }
+]

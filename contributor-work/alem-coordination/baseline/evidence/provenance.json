@@ -1,0 +1,28 @@
+{
+  "architecture": "linux/arm64",
+  "asset_files_unchanged": true,
+  "asset_manifest_sha256": "6c7e776401a0911f32a90b3d5c801218005ec5c54f2c8d9cae0dbd7db664bfbb",
+  "base_image": "python:3.12-slim@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62",
+  "effective_config_sha256": "0bbed77d50e127cf8455e321f72d622e0d42fd5e6aff5164c98e75d8e5d689ec",
+  "harness_sha256": "8f1ae3fc1239dd4eebf9938ae815124e6861950f4bd577d18549f07b33d2bc27",
+  "image_id": "sha256:40e081a82d25eed3b2a1eb6427a3b8ac8db35a818bef3bc394d62b1c5aef5fbc",
+  "llm_calls": 0,
+  "operator_timeout_seconds": 1800,
+  "original_result_sha256": "f52f993c9306c980d8a195ff2bcaf72c2f48185a0f9654e6342a64cccf36858f",
+  "original_summary_sha256": "84cc9f76e5fc22026eadb63a16027432a6076cb4e610487714f3ae57a314286b",
+  "protocol_sha256": "0c5b4088b0389df6e8cd01b2b749367e1dc81d5cae22a6992e2c0b9511f62592",
+  "python": "3.12.14",
+  "resources": {
+    "cpus": 4,
+    "memory_bytes": 6442450944,
+    "network": "none",
+    "pids_limit": 256,
+    "tmpfs_bytes": 1073741824
+  },
+  "return_code": 0,
+  "scope": "Original completed native20 run; portable replay packaging was added afterwards.",
+  "source_sha": "14d412e5ee961f9c43d6ce92ee05fee9cd1efc5e",
+  "source_unchanged": true,
+  "training_calls": 0,
+  "wall_seconds": 170.381939167
+}

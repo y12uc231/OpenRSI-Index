@@ -1,0 +1,597 @@
+{
+  "schema_version": 1,
+  "scope": "matched isolated pass-through baseline; frozen RL policies, no LLM calls or training; not historical sequential-RNG replication",
+  "suite": "evaluation",
+  "world_ids": [
+    9999,
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009,
+    10010,
+    10011,
+    10012,
+    10013,
+    10014,
+    10015,
+    10016,
+    10017,
+    10018
+  ],
+  "status": "scored",
+  "provenance_verified": true,
+  "infrastructure_affected": false,
+  "total": 20,
+  "scored": 20,
+  "primary_score_fraction": 0.18522013239562513,
+  "reward_fraction_mean": {
+    "Team/coord_reward_pct_of_max": 0.18522013239562513,
+    "Team/normal_reward_pct_of_max": 0.1426267322152853,
+    "Team/reward_pct_of_max": 0.16063830368220805,
+    "Team/soft_coord_reward_pct_of_max": 0.212500012665987,
+    "Team/sync_hard_coord_reward_pct_of_max": 0.14147727638483049,
+    "Team/handover_coord_reward_pct_of_max": 0.85,
+    "Team/construction_coord_reward_pct_of_max": 0.0
+  },
+  "aggregate_costs": {
+    "steps": 8489,
+    "seconds": 203.01464505298645,
+    "ipc_seconds": 150.52680877906096,
+    "overrides": 0,
+    "action_count": 25467,
+    "policy_forward_batches": 8489,
+    "controller_calls": 25467,
+    "native_communication_actions": 386
+  },
+  "worlds": [
+    {
+      "world_id": 9999,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.18238994479179382,
+        "Team/normal_reward_pct_of_max": 0.19354838132858276,
+        "Team/reward_pct_of_max": 0.18882980942726135,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 863,
+        "seconds": 20.724546843001008,
+        "ipc_seconds": 15.56809981303013,
+        "overrides": 0,
+        "action_count": 2589,
+        "policy_forward_batches": 863,
+        "controller_calls": 2589,
+        "native_communication_actions": 16
+      },
+      "trace_sha256": "5cd3f6d0059201a13c831bb2313d1db8239a191864f155ff2c9d4d0d200461bf"
+    },
+    {
+      "world_id": 10000,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.22012577950954437,
+        "Team/normal_reward_pct_of_max": 0.09216590970754623,
+        "Team/reward_pct_of_max": 0.146276593208313,
+        "Team/soft_coord_reward_pct_of_max": 0.3499999940395355,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 359,
+        "seconds": 8.649932587999501,
+        "ipc_seconds": 6.364473415007524,
+        "overrides": 0,
+        "action_count": 1077,
+        "policy_forward_batches": 359,
+        "controller_calls": 1077,
+        "native_communication_actions": 36
+      },
+      "trace_sha256": "585d7dba2b268755a36f1d15cc200476334f91781ee20cf23b1e12fc46a247f0"
+    },
+    {
+      "world_id": 10001,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.18238994479179382,
+        "Team/normal_reward_pct_of_max": 0.17972350120544434,
+        "Team/reward_pct_of_max": 0.1808510720729828,
+        "Team/soft_coord_reward_pct_of_max": 0.125,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.15909090638160706,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 531,
+        "seconds": 12.434859212997253,
+        "ipc_seconds": 9.375061422015278,
+        "overrides": 0,
+        "action_count": 1593,
+        "policy_forward_batches": 531,
+        "controller_calls": 1593,
+        "native_communication_actions": 23
+      },
+      "trace_sha256": "f7bc26bebd9f3a0bcd55eef75b1c2a61186d97edbc1064554c751b4652dbfff3"
+    },
+    {
+      "world_id": 10002,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.2012578696012497,
+        "Team/normal_reward_pct_of_max": 0.09216590970754623,
+        "Team/reward_pct_of_max": 0.1382978856563568,
+        "Team/soft_coord_reward_pct_of_max": 0.27500003576278687,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 464,
+        "seconds": 10.864351713997166,
+        "ipc_seconds": 8.10629419894758,
+        "overrides": 0,
+        "action_count": 1392,
+        "policy_forward_batches": 464,
+        "controller_calls": 1392,
+        "native_communication_actions": 23
+      },
+      "trace_sha256": "4b3f0260ce2e4d00d024bc9b69f68e83f9379920b2742d7a0e80da40e3f03228"
+    },
+    {
+      "world_id": 10003,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.21383647620677948,
+        "Team/normal_reward_pct_of_max": 0.10138248652219772,
+        "Team/reward_pct_of_max": 0.1489361822605133,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.1818181872367859,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 416,
+        "seconds": 9.8875288800009,
+        "ipc_seconds": 7.409817661031411,
+        "overrides": 0,
+        "action_count": 1248,
+        "policy_forward_batches": 416,
+        "controller_calls": 1248,
+        "native_communication_actions": 81
+      },
+      "trace_sha256": "24c6ac0019a362fb32466da9e330885796de38d62415d81be41857bc0c5e7358"
+    },
+    {
+      "world_id": 10004,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.18238994479179382,
+        "Team/normal_reward_pct_of_max": 0.10138248652219772,
+        "Team/reward_pct_of_max": 0.1356382966041565,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 559,
+        "seconds": 13.174955588998273,
+        "ipc_seconds": 9.942167636014346,
+        "overrides": 0,
+        "action_count": 1677,
+        "policy_forward_batches": 559,
+        "controller_calls": 1677,
+        "native_communication_actions": 22
+      },
+      "trace_sha256": "e87d8c65f6a76d7effa2d7e4cd6d2ccab9516122b850cf983efd9d987d176697"
+    },
+    {
+      "world_id": 10005,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.069182388484478,
+        "Team/normal_reward_pct_of_max": 0.10138248652219772,
+        "Team/reward_pct_of_max": 0.08776595443487167,
+        "Team/soft_coord_reward_pct_of_max": 0.07500000298023224,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.09090909361839294,
+        "Team/handover_coord_reward_pct_of_max": 0.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 444,
+        "seconds": 10.561565338997752,
+        "ipc_seconds": 7.823800465044769,
+        "overrides": 0,
+        "action_count": 1332,
+        "policy_forward_batches": 444,
+        "controller_calls": 1332,
+        "native_communication_actions": 2
+      },
+      "trace_sha256": "958f6fd8ccde95ef8a0c62d4a72846ee5f93ebad2916f7fb864d639a602e8ace"
+    },
+    {
+      "world_id": 10006,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.1949685513973236,
+        "Team/normal_reward_pct_of_max": 0.17050692439079285,
+        "Team/reward_pct_of_max": 0.1808510720729828,
+        "Team/soft_coord_reward_pct_of_max": 0.125,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.1818181872367859,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 360,
+        "seconds": 8.863273711998772,
+        "ipc_seconds": 6.458462921989849,
+        "overrides": 0,
+        "action_count": 1080,
+        "policy_forward_batches": 360,
+        "controller_calls": 1080,
+        "native_communication_actions": 6
+      },
+      "trace_sha256": "eab6d6882cb436b5611bbf6b601364df3284bf1ad90823659ce9d875de5450b0"
+    },
+    {
+      "world_id": 10007,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.21383647620677948,
+        "Team/normal_reward_pct_of_max": 0.17050692439079285,
+        "Team/reward_pct_of_max": 0.18882980942726135,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.1818181872367859,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 484,
+        "seconds": 11.605229129996587,
+        "ipc_seconds": 8.611850923010934,
+        "overrides": 0,
+        "action_count": 1452,
+        "policy_forward_batches": 484,
+        "controller_calls": 1452,
+        "native_communication_actions": 18
+      },
+      "trace_sha256": "48e5ac6d98c718d72ebfcc93128dc45a067223f334c91d16d618605b6ecb7e0c"
+    },
+    {
+      "world_id": 10008,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.1320754736661911,
+        "Team/normal_reward_pct_of_max": 0.1751152127981186,
+        "Team/reward_pct_of_max": 0.15691488981246948,
+        "Team/soft_coord_reward_pct_of_max": 0.125,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.1818181872367859,
+        "Team/handover_coord_reward_pct_of_max": 0.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 246,
+        "seconds": 6.56574808699952,
+        "ipc_seconds": 4.452880751945486,
+        "overrides": 0,
+        "action_count": 738,
+        "policy_forward_batches": 246,
+        "controller_calls": 738,
+        "native_communication_actions": 1
+      },
+      "trace_sha256": "26160bc1bf8ced0d5b12f2bf4fa752f22e27e1673599ed07fe01b1c2de09aff9"
+    },
+    {
+      "world_id": 10009,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.28301888704299927,
+        "Team/normal_reward_pct_of_max": 0.21198157966136932,
+        "Team/reward_pct_of_max": 0.24202129244804382,
+        "Team/soft_coord_reward_pct_of_max": 0.27500003576278687,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.2727273106575012,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 432,
+        "seconds": 10.56089646199689,
+        "ipc_seconds": 7.6341299600026105,
+        "overrides": 0,
+        "action_count": 1296,
+        "policy_forward_batches": 432,
+        "controller_calls": 1296,
+        "native_communication_actions": 18
+      },
+      "trace_sha256": "d22718f2587ba7c40f77179f015fca0b8ae255b4a4e0edbad7d403d94da85959"
+    },
+    {
+      "world_id": 10010,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.18238994479179382,
+        "Team/normal_reward_pct_of_max": 0.0875576063990593,
+        "Team/reward_pct_of_max": 0.12765958905220032,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 302,
+        "seconds": 7.489197503000469,
+        "ipc_seconds": 5.359718218995113,
+        "overrides": 0,
+        "action_count": 906,
+        "policy_forward_batches": 302,
+        "controller_calls": 906,
+        "native_communication_actions": 11
+      },
+      "trace_sha256": "dffabe791b43e75ad124f06fb58fd69bfbed52799b79e0a60fdc054da1be7538"
+    },
+    {
+      "world_id": 10011,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.16352203488349915,
+        "Team/normal_reward_pct_of_max": 0.1658986210823059,
+        "Team/reward_pct_of_max": 0.16489361226558685,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.09090909361839294,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 324,
+        "seconds": 7.978133254000568,
+        "ipc_seconds": 5.730365926981904,
+        "overrides": 0,
+        "action_count": 972,
+        "policy_forward_batches": 324,
+        "controller_calls": 972,
+        "native_communication_actions": 34
+      },
+      "trace_sha256": "b7b9c289851b23f8f6fd4573839fd149abe2d8a4d99b5adf3787000641ba4e69"
+    },
+    {
+      "world_id": 10012,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.16352203488349915,
+        "Team/normal_reward_pct_of_max": 0.09677419066429138,
+        "Team/reward_pct_of_max": 0.125,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.09090909361839294,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 376,
+        "seconds": 8.982435295998584,
+        "ipc_seconds": 6.653285419961321,
+        "overrides": 0,
+        "action_count": 1128,
+        "policy_forward_batches": 376,
+        "controller_calls": 1128,
+        "native_communication_actions": 13
+      },
+      "trace_sha256": "e684b2cb00fe4308228d26a984b352c4dbaf19d2f02657326559a96ec5df56eb"
+    },
+    {
+      "world_id": 10013,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.18238994479179382,
+        "Team/normal_reward_pct_of_max": 0.11520737409591675,
+        "Team/reward_pct_of_max": 0.14361701905727386,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 424,
+        "seconds": 9.916536920998624,
+        "ipc_seconds": 7.449406712017662,
+        "overrides": 0,
+        "action_count": 1272,
+        "policy_forward_batches": 424,
+        "controller_calls": 1272,
+        "native_communication_actions": 17
+      },
+      "trace_sha256": "98d60d251c8248c659776b35873cd62a3d3ecf4ee81b44785b9deefe9591a065"
+    },
+    {
+      "world_id": 10014,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.24528303742408752,
+        "Team/normal_reward_pct_of_max": 0.19354838132858276,
+        "Team/reward_pct_of_max": 0.2154255360364914,
+        "Team/soft_coord_reward_pct_of_max": 0.32499998807907104,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.1818181872367859,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 351,
+        "seconds": 8.253540796002198,
+        "ipc_seconds": 6.194218757027556,
+        "overrides": 0,
+        "action_count": 1053,
+        "policy_forward_batches": 351,
+        "controller_calls": 1053,
+        "native_communication_actions": 8
+      },
+      "trace_sha256": "4fe1e4bb122ad2b77c6d1d2ec79dfa6b679ee6a0b80144e2d7c6c7b52fd568c3"
+    },
+    {
+      "world_id": 10015,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.22012577950954437,
+        "Team/normal_reward_pct_of_max": 0.1751152127981186,
+        "Team/reward_pct_of_max": 0.1941489428281784,
+        "Team/soft_coord_reward_pct_of_max": 0.3499999940395355,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 592,
+        "seconds": 13.590071090002311,
+        "ipc_seconds": 10.421901456014893,
+        "overrides": 0,
+        "action_count": 1776,
+        "policy_forward_batches": 592,
+        "controller_calls": 1776,
+        "native_communication_actions": 16
+      },
+      "trace_sha256": "98231448cbfa3c1e92b7c61857699874ee9212e4832d7c669e5cd45670bfc161"
+    },
+    {
+      "world_id": 10016,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.18238994479179382,
+        "Team/normal_reward_pct_of_max": 0.17050692439079285,
+        "Team/reward_pct_of_max": 0.17553190886974335,
+        "Team/soft_coord_reward_pct_of_max": 0.20000001788139343,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 335,
+        "seconds": 7.930943504001334,
+        "ipc_seconds": 5.881958379006392,
+        "overrides": 0,
+        "action_count": 1005,
+        "policy_forward_batches": 335,
+        "controller_calls": 1005,
+        "native_communication_actions": 18
+      },
+      "trace_sha256": "91f19772a69bf53eea91d5952dff62ab427246d6edfa97fdb21e260aaf9fb45a"
+    },
+    {
+      "world_id": 10017,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.2012578696012497,
+        "Team/normal_reward_pct_of_max": 0.1658986210823059,
+        "Team/reward_pct_of_max": 0.1808510720729828,
+        "Team/soft_coord_reward_pct_of_max": 0.27500003576278687,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.125,
+        "Team/handover_coord_reward_pct_of_max": 1.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 279,
+        "seconds": 6.73891579499832,
+        "ipc_seconds": 4.938620948982134,
+        "overrides": 0,
+        "action_count": 837,
+        "policy_forward_batches": 279,
+        "controller_calls": 837,
+        "native_communication_actions": 10
+      },
+      "trace_sha256": "c09d95e3ba87a5536590652618734dd2e60ac981f8e2a80c8a6e33fec64a3880"
+    },
+    {
+      "world_id": 10018,
+      "status": "scored",
+      "naturally_terminated": true,
+      "reward_fraction": {
+        "Team/coord_reward_pct_of_max": 0.08805032074451447,
+        "Team/normal_reward_pct_of_max": 0.09216590970754623,
+        "Team/reward_pct_of_max": 0.0904255360364914,
+        "Team/soft_coord_reward_pct_of_max": 0.15000000596046448,
+        "Team/sync_hard_coord_reward_pct_of_max": 0.09090909361839294,
+        "Team/handover_coord_reward_pct_of_max": 0.0,
+        "Team/construction_coord_reward_pct_of_max": 0.0
+      },
+      "costs": {
+        "steps": 348,
+        "seconds": 8.24198333700042,
+        "ipc_seconds": 6.150293792034063,
+        "overrides": 0,
+        "action_count": 1044,
+        "policy_forward_batches": 348,
+        "controller_calls": 1044,
+        "native_communication_actions": 13
+      },
+      "trace_sha256": "1fef6b90c5c89e5eed99ae34ab5ca23bf61e50ee7813497019467df9b4b6db69"
+    }
+  ],
+  "source_sha": "14d412e5ee961f9c43d6ce92ee05fee9cd1efc5e",
+  "weights_revision": "9493179ea5e86cd625add66c0f88e23f04f928b5",
+  "checkpoint": "1B/hypermarl-rnn/hard/seed0",
+  "rng_rule": "reset=PRNGKey(world_id); transition=fold_in(PRNGKey(0xA1E00001),world_id); native three-way split each step",
+  "schema": {
+    "action_count": 60,
+    "max_memory_bytes": 65536,
+    "native_comm_action_ids": [
+      56,
+      57,
+      58,
+      59
+    ],
+    "observation_size": 9733
+  },
+  "versions": {
+    "jax": "0.4.38",
+    "numpy": "2.5.3"
+  },
+  "environment_image": "sha256:40e081a82d25eed3b2a1eb6427a3b8ac8db35a818bef3bc394d62b1c5aef5fbc",
+  "worker_image": "python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62",
+  "runner_sha256": {
+    "CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "controller_driver.py": "271ba4dfe32ad3f438504ffd140f36d878640a70f35547ba542a4e3be7a5d7ff",
+    "engine.py": "9baff4b2dc76e5d19fa7040685cf2b97799e32f0222b70fce5c28b7141c1aabf",
+    "feedback.py": "6ca4fc45d27e4268f25cab9817efb991af4989685c5fd342c78ab8e008d580b2",
+    "launcher.py": "8323c14512e3b7e7b5dbb7b2465dee35c1b01ed8df378e5e5b9a1c1b0891331a",
+    "wire.py": "309f08f6aabf2122ccf2229300862c643d21ea65a05d9f6e9ed6cf0bdbb9e2de"
+  },
+  "candidate_sha256": "6cabbb6545b95376db139efa01d6384aebac50bc0e8c4b83b8aac960270fc50d",
+  "operator_timeout_seconds": 10800.0,
+  "compile_warmup_seconds": 9.74515233800048,
+  "python_wall_seconds": 275.75805196000147,
+  "host_wall_seconds": 278.79222712499904,
+  "peak_engine_rss_kib_linux": 4183436,
+  "source_result_sha256": "adee8f59d635b2b69f353bfcf291cc14435944e8ad2a0370f818c0f9c8419929",
+  "limitations": [
+    "Single frozen training seed; current pinned environment differs from historical training configuration",
+    "Evaluation worlds are public canonical worlds, not secret heldout content",
+    "Normalized reward is not a pass rate; natural termination may mean team death",
+    "Measured pass-through timing does not bound arbitrary controller runtime",
+    "Shared Work-snapshot Judge is not an independent clean verifier"
+  ]
+}

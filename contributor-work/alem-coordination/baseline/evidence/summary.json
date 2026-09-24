@@ -1,0 +1,221 @@
+{
+  "scope": "freshv0.2.1 Hard20world baseline, one training seed, SCALE_BASE_DIFFICULTY=false",
+  "world_seeds": [
+    9999,
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009,
+    10010,
+    10011,
+    10012,
+    10013,
+    10014,
+    10015,
+    10016,
+    10017,
+    10018
+  ],
+  "natural_completions": 20,
+  "episode_count": 20,
+  "environment_transitions": 9428,
+  "evaluation_seconds_including_jit": 67.44778361300268,
+  "evaluation_transitions_per_second_including_jit": 139.78220624854538,
+  "total_python_seconds": 164.8959330739999,
+  "docker_wall_seconds": 170.381939167,
+  "peak_process_rss_kib_linux": 4596140,
+  "reward_normalized_percent": {
+    "coordination": {
+      "mean": 18.930817916989326,
+      "sample_sd": 2.927987490513376,
+      "sample_se": 0.654717906605693,
+      "min": 11.949685215950012,
+      "max": 23.270440101623535
+    },
+    "base": {
+      "mean": 15.576037019491196,
+      "sample_sd": 4.7951450302275695,
+      "sample_se": 1.072227024955913,
+      "min": 9.677419066429138,
+      "max": 21.198157966136932
+    },
+    "total": {
+      "mean": 16.99468120932579,
+      "sample_sd": 2.832954585337623,
+      "sample_se": 0.6334679029984653,
+      "min": 12.765958905220032,
+      "max": 21.54255360364914
+    }
+  },
+  "per_world": [
+    {
+      "world_seed": 9999,
+      "transitions": 376,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 18.238994479179382,
+      "base_reward_percent": 18.433181941509247,
+      "total_reward_percent": 18.351063132286072
+    },
+    {
+      "world_seed": 10000,
+      "transitions": 640,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 22.012577950954437,
+      "base_reward_percent": 10.599078983068466,
+      "total_reward_percent": 15.425531566143036
+    },
+    {
+      "world_seed": 10001,
+      "transitions": 309,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 20.12578696012497,
+      "base_reward_percent": 18.894009292125702,
+      "total_reward_percent": 19.41489428281784
+    },
+    {
+      "world_seed": 10002,
+      "transitions": 350,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 18.238994479179382,
+      "base_reward_percent": 21.198157966136932,
+      "total_reward_percent": 19.946810603141785
+    },
+    {
+      "world_seed": 10003,
+      "transitions": 272,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 21.383647620677948,
+      "base_reward_percent": 10.138248652219772,
+      "total_reward_percent": 14.89361822605133
+    },
+    {
+      "world_seed": 10004,
+      "transitions": 476,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 20.12578696012497,
+      "base_reward_percent": 9.677419066429138,
+      "total_reward_percent": 14.095744490623474
+    },
+    {
+      "world_seed": 10005,
+      "transitions": 580,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 16.352203488349915,
+      "base_reward_percent": 10.138248652219772,
+      "total_reward_percent": 12.765958905220032
+    },
+    {
+      "world_seed": 10006,
+      "transitions": 578,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 18.238994479179382,
+      "base_reward_percent": 10.138248652219772,
+      "total_reward_percent": 13.56382966041565
+    },
+    {
+      "world_seed": 10007,
+      "transitions": 304,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 15.094339847564697,
+      "base_reward_percent": 19.354838132858276,
+      "total_reward_percent": 17.553190886974335
+    },
+    {
+      "world_seed": 10008,
+      "transitions": 381,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 18.238994479179382,
+      "base_reward_percent": 20.276497304439545,
+      "total_reward_percent": 19.41489428281784
+    },
+    {
+      "world_seed": 10009,
+      "transitions": 342,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 11.949685215950012,
+      "base_reward_percent": 17.972350120544434,
+      "total_reward_percent": 15.425531566143036
+    },
+    {
+      "world_seed": 10010,
+      "transitions": 1176,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 18.238994479179382,
+      "base_reward_percent": 9.677419066429138,
+      "total_reward_percent": 13.297872245311737
+    },
+    {
+      "world_seed": 10011,
+      "transitions": 323,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 21.383647620677948,
+      "base_reward_percent": 17.51152127981186,
+      "total_reward_percent": 19.148938357830048
+    },
+    {
+      "world_seed": 10012,
+      "transitions": 700,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 13.8364776968956,
+      "base_reward_percent": 20.276497304439545,
+      "total_reward_percent": 17.553190886974335
+    },
+    {
+      "world_seed": 10013,
+      "transitions": 355,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 18.238994479179382,
+      "base_reward_percent": 9.677419066429138,
+      "total_reward_percent": 13.297872245311737
+    },
+    {
+      "world_seed": 10014,
+      "transitions": 586,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 19.49685513973236,
+      "base_reward_percent": 17.972350120544434,
+      "total_reward_percent": 18.617020547389984
+    },
+    {
+      "world_seed": 10015,
+      "transitions": 509,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 22.012577950954437,
+      "base_reward_percent": 18.894009292125702,
+      "total_reward_percent": 20.212766528129578
+    },
+    {
+      "world_seed": 10016,
+      "transitions": 503,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 23.270440101623535,
+      "base_reward_percent": 20.276497304439545,
+      "total_reward_percent": 21.54255360364914
+    },
+    {
+      "world_seed": 10017,
+      "transitions": 316,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 20.12578696012497,
+      "base_reward_percent": 20.737329125404358,
+      "total_reward_percent": 20.47872394323349
+    },
+    {
+      "world_seed": 10018,
+      "transitions": 352,
+      "naturally_terminated": true,
+      "coordination_reward_percent": 22.012577950954437,
+      "base_reward_percent": 9.677419066429138,
+      "total_reward_percent": 14.89361822605133
+    }
+  ],
+  "source_unchanged": true,
+  "effective_config_sha256": "0bbed77d50e127cf8455e321f72d622e0d42fd5e6aff5164c98e75d8e5d689ec",
+  "asset_files_unchanged": true
+}

@@ -1,0 +1,13 @@
+# Fresh current-config20world frozen baseline
+
+Declared before launch on2026-09-24. This extends feasibility to a fixed full-world evaluation. No training, LLM calls, or policy/controller modification.
+
+Use the same released HyperMARL-IPPO1BHardtraining-seed0 checkpoint, Hub revision9493179ea5e86cd625add66c0f88e23f04f928b5, and official environment commit14d412e5ee961f9c43d6ce92ee05fee9cd1efc5e (v0.2.1). Verify every downloaded asset and record source/config/harness/image hashes. The selected checkpoint is the same strong released algorithm and fixed training seed used in feasibility; no checkpoint is selected by these outcomes.
+
+Evaluate **all20Hardworlds9999–10018**, one at a time through the unchanged native sequential evaluator, with normal10000step ceiling and natural termination. Keep all cases, including deaths and failures. Set `SCALE_BASE_DIFFICULTY=false` explicitly, along with the released reload settings, four communication channels, action masking, agent-ID conditioning, deterministic policy mode, private recurrent state, and no visualization. Preserve original policy and environment RNG handling. This is a fresh current-config baseline, not replication of the historical17.6% result; historical training used base-difficulty scaling and an older environment identifier. This distinction is fixed before launch, independent of the observed scores.
+
+The trusted wrapper only captures native aggregate/per-world return values and timing. It imports an unchanged source copy in container temporary storage to permit official texture-cache generation. It may add descriptive provenance fields to the final report, but does not change native metrics. The native per-world seed field is an index, so report actual world as9999+index; native last-step count is zero-based, so transitions=last_step+1.
+
+Resources: no-network CPU Docker,4CPUs,6GiBmemory,1800s operator timeout. Source/checkpoint/harness mounts are read-only; only dedicated output and temporary storage are writable. The native evaluator is sequential, so memory is not scaled to20simultaneous worlds. Timeout or infrastructure failure is unscored and retained, never converted to low policy reward. No silent retry or case removal.
+
+Report every native per-world Coord/Base/Total reward fraction, mean and sample dispersion across the20worlds, actual natural-completion count, total transitions, evaluation time including JIT, complete wall time, and peak process RSS. Any percentages are reward normalized, not binary success. One training seed does not estimate training-seed variance. The first two feasibility attempts remain untouched. This run does not authorize a new research direction, proposal edit, fine-tuning, or model call.

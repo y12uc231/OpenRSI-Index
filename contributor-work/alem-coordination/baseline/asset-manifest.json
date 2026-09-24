@@ -1,0 +1,148 @@
+{
+  "repo": "alem-world/alem-rl-baselines",
+  "revision": "9493179ea5e86cd625add66c0f88e23f04f928b5",
+  "selected": "1B/hypermarl-rnn/hard/seed0",
+  "files": [
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/_CHECKPOINT_METADATA",
+      "bytes": 249,
+      "sha256": "8a0759d2d5d84e59e2a91d9ba99963c028dcb5d2d3094b041f55d4104d07e6b3",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "239a278b8c4a9cbeb56c533e056ee5313bd9ec7c"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/_METADATA",
+      "bytes": 56507,
+      "sha256": "52949a7f7e4a77714159bbab09c48d7777a672a9483e95e5f2fb0126b779636d",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "f967a1781e935425c55d024a36f9b69e11f68763"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/_sharding",
+      "bytes": 19907,
+      "sha256": "3b47a85ce5e9e85486eee431dde40b98dc10ae0672013449ebf23250cb19e82a",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "e1f64b0ee413018f5346c85fa32855be20ddd07f"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/d/b13586faea8639b52aca43d62fd1121c",
+      "bytes": 15690,
+      "sha256": "fca8aca4f76069456ca00c7c98d5c446f586143b4d0ca519fa202341f3d1fb14",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "4c38526e2cdbec260fc948607a32ef81c9b49f1f"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/manifest.ocdbt",
+      "bytes": 117,
+      "sha256": "636e635e0aa00d6e49da8f0fba475c2b13068e8968325c5263c0f0cec6153192",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "e02e221a0b61ef0a1e77343a735ffc418df22625"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/00f5e50efa78ed9b9afdeecee4342438",
+      "bytes": 104353792,
+      "sha256": "d5c2ab8f409f4a019234db3cf15508cb007e645accf4f627f07647791c21f57d",
+      "hub_lfs_sha256": "d5c2ab8f409f4a019234db3cf15508cb007e645accf4f627f07647791c21f57d",
+      "hub_git_oid": "8e3a4a695065b6cbf2b906c6141945132588016e"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/0de7f61932f51cfbc7209e998fd8bb91",
+      "bytes": 853,
+      "sha256": "663f34393a0ab629c7cbe43703bd3ab974297da0c13cfeb2498b50722841a44f",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "d3d744dcdc0541de9243e7d5bf15786354bf4f17"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/223652435564de92fda0bbbd4253ac19",
+      "bytes": 14942208,
+      "sha256": "c3544a2fa1681a65c3248cc39574f64101e9a43cab87a412a1db5252e16c6914",
+      "hub_lfs_sha256": "c3544a2fa1681a65c3248cc39574f64101e9a43cab87a412a1db5252e16c6914",
+      "hub_git_oid": "87341fe5645ade02f74cd22067b7bea6c8cbff5c"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/517e239c4ea4bc8f836745a4642e2165",
+      "bytes": 740,
+      "sha256": "8c22cf7afa673b0ee211a05465c2453fc38e3efe3ebfc712a25867585df10a1c",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "4f911c9681509a312eff66fe3aec5fc2bea12afd"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/5437667c80eee1e1112cc8c520b2ae37",
+      "bytes": 780,
+      "sha256": "2b7df6d2080783ff7adc64c0dba7e05cd6e11e4b639b4c24125c3a1961eca4a0",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "eadfe4323ebee665b3593993c0ef672d5781dc0b"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/69de8de061895ddbc1476e9933a501ce",
+      "bytes": 805,
+      "sha256": "83a31d242dd172ae5c825194c45cdede28d802913bd901a0d23941b9ad35c7b3",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "e22dea90305a3834597bb5b577dd2cc6ec8d54b7"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/819008c49063603b1bf952f670780c92",
+      "bytes": 171,
+      "sha256": "4322e96cd3829e98d2a117a6ec7128cdaa27f5f3a65c63fc53133c63c1413e9b",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "32aeb3b90d60b0a7055cd0d594f6225851c8357d"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/94edd2f0185896b1fba894736e157d32",
+      "bytes": 40005632,
+      "sha256": "d3037a28a4e89367b6428945d91e726b4464d8f43eb6cda7829a0432f806f2fa",
+      "hub_lfs_sha256": "d3037a28a4e89367b6428945d91e726b4464d8f43eb6cda7829a0432f806f2fa",
+      "hub_git_oid": "5b417726ecb17ac517ed29df54e18e13ac51d11f"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/a7d97606ab00710d17f70ab3cd5fb757",
+      "bytes": 15523840,
+      "sha256": "1fedc10001684a757c8aeb2ca86162f84780783f33e0f7598b3a61a36961d082",
+      "hub_lfs_sha256": "1fedc10001684a757c8aeb2ca86162f84780783f33e0f7598b3a61a36961d082",
+      "hub_git_oid": "fbce57b30dbbc020e284e6d26bb25b666e590997"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/b395b54085948e2a80b625513c869628",
+      "bytes": 36188160,
+      "sha256": "4bdf8182bc5cb3ec804ea996d5337b02ee37a0b76fc327645760796dcadd0a1d",
+      "hub_lfs_sha256": "4bdf8182bc5cb3ec804ea996d5337b02ee37a0b76fc327645760796dcadd0a1d",
+      "hub_git_oid": "6d8cc03995e91126bae4ff2c41cd93f9873d7624"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/bc110924b9cc3edb526031a96b92c800",
+      "bytes": 707,
+      "sha256": "18183d5d34f8722380e39f97abd20ffee1a192c823ea0047314a496c9c2ca8c7",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "79b545aec11fedbb8a1ea30ef937436e6739ce70"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/bee71c12cb39463bc255b69a13ff76ca",
+      "bytes": 736,
+      "sha256": "82309f2938205f39ee279cec3091bde7e5aa6335c24b0c75c78db8e5aae78a07",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "f24eca72a59d00dc0d2d39fac18d091793ba73cc"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/d/fd3a8a92d94d75c5e0a1891a2b550c8b",
+      "bytes": 13348864,
+      "sha256": "1f24b5c5b5ef083221e6120a921c093fef76203ddf5db53c147716be8861688a",
+      "hub_lfs_sha256": "1f24b5c5b5ef083221e6120a921c093fef76203ddf5db53c147716be8861688a",
+      "hub_git_oid": "56be6c973122484f32eb454099dde1b64db9f681"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/checkpoint/ocdbt.process_0/manifest.ocdbt",
+      "bytes": 608,
+      "sha256": "5d61632fe0373feb203253148fa1448f07b6758180f010c355371ee0541d6a0d",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "7a19ba2303a43a2b48766a20ca7219495a5d4b40"
+    },
+    {
+      "path": "assets/1B/hypermarl-rnn/hard/seed0/config.json",
+      "bytes": 100532,
+      "sha256": "f35430d3fa51feca71042326063df35cf631719209e1695b7b0352a263e5ca6b",
+      "hub_lfs_sha256": null,
+      "hub_git_oid": "c793289d16891ab76e4195a499f1df82a6834f83"
+    }
+  ],
+  "total_bytes": 224560898
+}

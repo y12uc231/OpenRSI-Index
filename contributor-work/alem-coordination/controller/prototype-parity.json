@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "scope": "trusted one-world pass-through parity; no model-generated controller or training; old sequential-RNG baseline remains separate",
+  "attempts": [
+    {
+      "attempt": "001",
+      "status": "error",
+      "wall_seconds": 8.412821792000614,
+      "source_assets_prototype_unchanged": true,
+      "diagnostic_code": "native_stdout_contaminated_framing",
+      "phase": "import_before_policy_restore"
+    },
+    {
+      "attempt": "002",
+      "status": "error",
+      "wall_seconds": 73.4993381250024,
+      "source_assets_prototype_unchanged": true,
+      "diagnostic_code": "vector_metric_serialization",
+      "phase": "native_loop_final_metric_serialization"
+    },
+    {
+      "attempt": "003",
+      "status": "passed",
+      "wall_seconds": 93.9411779170041,
+      "source_assets_prototype_unchanged": true,
+      "diagnostic_code": null,
+      "phase": "complete_parity"
+    }
+  ],
+  "environment_source_sha": "14d412e5ee961f9c43d6ce92ee05fee9cd1efc5e",
+  "checkpoint_revision": "9493179ea5e86cd625add66c0f88e23f04f928b5",
+  "world_id": 9999,
+  "step_limit": 10000,
+  "rng_rule": "reset=PRNGKey(world_id); transition=fold_in(PRNGKey(0xA1E00001),world_id); native three-way split each step",
+  "schema": {
+    "observation_size": 9733,
+    "action_count": 60,
+    "native_comm_action_ids": [
+      56,
+      57,
+      58,
+      59
+    ],
+    "max_memory_bytes": 65536
+  },
+  "exact_pass_through_parity": true,
+  "compile_warmup_seconds": 7.796358462001081,
+  "python_wall_seconds": 90.71605704100148,
+  "native": {
+    "steps": 863,
+    "naturally_terminated": true,
+    "seconds": 3.136100293999334,
+    "ipc_seconds": 0.0,
+    "overrides": 0,
+    "native_communication_actions": 16,
+    "trace_sha256": "5cd3f6d0059201a13c831bb2313d1db8239a191864f155ff2c9d4d0d200461bf"
+  },
+  "isolated_adapter": {
+    "steps": 863,
+    "naturally_terminated": true,
+    "seconds": 19.201215593002416,
+    "ipc_seconds": 15.408523365014844,
+    "overrides": 0,
+    "native_communication_actions": 16,
+    "trace_sha256": "5cd3f6d0059201a13c831bb2313d1db8239a191864f155ff2c9d4d0d200461bf"
+  },
+  "metrics_equal": true,
+  "reward_fraction": {
+    "Team/coord_reward_pct_of_max": 0.18238994479179382,
+    "Team/normal_reward_pct_of_max": 0.19354838132858276,
+    "Team/reward_pct_of_max": 0.18882980942726135
+  },
+  "source_artifact_sha256": {
+    "SEALED.json": "aad62b18e33df63d4c365d8c09360c80bcf8eb107f516582fc5665d1c26a99d1",
+    "results/003/launch.json": "38d1024022bbd206c55915d29714c08104048c0a7d10c0b6e02185d5343be695",
+    "results/003/result.json": "1a4881f174e0786505529a8849b11d8b9e2ddec8bfdef78971503e52fe34591d"
+  },
+  "limitations": [
+    "One world only, transport validation not model difficulty evidence",
+    "Native warm-loop timing includes full-state trace hashing; adapter timing adds isolated stdlib IPC",
+    "No exhaustive security audit; Docker/kernel and timing-side-channel risks remain",
+    "Historical checkpoint-training environment differs fromcurrentpinned configuration"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "predeclared local three-call researcher study",
+  "arms": [
+    "gpt-6-astra",
+    "gpt-6-sol"
+  ],
+  "effort": "ultra",
+  "calls_each": 3,
+  "model_replacement_generations": 0,
+  "development_worlds": [
+    20000,
+    20001,
+    20002,
+    20003
+  ],
+  "evaluation_worlds": [
+    9999,
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009,
+    10010,
+    10011,
+    10012,
+    10013,
+    10014,
+    10015,
+    10016,
+    10017,
+    10018
+  ],
+  "matched_baseline_result_sha256": "adee8f59d635b2b69f353bfcf291cc14435944e8ad2a0370f818c0f9c8419929",
+  "matched_baseline_score": 0.18522013239562513,
+  "public_packet_manifest_sha256": "d64f2fe9425d12ae34f3e00c1ca0743e7a60569102b687195bc6c9b6a912bea3",
+  "model_calls_before_declaration": 0,
+  "gpu_calls_before_declaration": 0,
+  "public_packet_files": {
+    "controller/CONTRACT.md": "ba2f3523adca57067c6ec977153f1bb5a66be3ec77dc7be1942f968c7812b5a9",
+    "TASK_DESIGN.md": "ef593e52fe08fe13a862aa6977352bc2c889f915d042e37a8c7ff7d4758b3005",
+    "upstream/SYSTEM_PROMPT.md": "97283f66dbd0d00a41d45703ff6e4a4a3a81246f09cfc678dca357d922e60986",
+    "upstream/renderer_symbolic.py": "1df1100cc1672a40021da2a553ddf8321bcea2cf10fd01368c97567dc8fbe369",
+    "upstream/action_masking.py": "e0a201ef442e118d97ee2c01a645b6651fcb4ee8353eedd17388adef0a533ae5",
+    "upstream/constants.selected.py": "dc35dcc8649a398694ca3f1911897fe67c39cac0da2d0392d69ee9fdab58295a",
+    "upstream/coordination.selected.py": "e17989bd1b031bd5546435a966dd52b54261ddbc635c14e762be1d43540fe7a5",
+    "upstream/observation-note.txt": "35636d213b4c3079bf89f879c7d64eafac0b32d3b5e5dc82efd2aa2b57d37235"
+  }
+}
