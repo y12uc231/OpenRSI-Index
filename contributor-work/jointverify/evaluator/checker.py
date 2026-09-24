@@ -12,7 +12,7 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'manifests' / 'pilot-v1.json'
-DEFAULT_SOURCE = Path('/Users/satya/openrsi-contribution/research/CooperBench')
+DEFAULT_SOURCE = Path(os.environ.get('JOINTVERIFY_SOURCE_ROOT', 'CooperBench'))
 
 
 def load_manifest():

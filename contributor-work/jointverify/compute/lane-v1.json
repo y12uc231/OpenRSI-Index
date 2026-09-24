@@ -35,8 +35,10 @@
     "cached_input_counted": true,
     "retries_counted": true,
     "check_budget_counts_failed_attempts": true,
-    "check_and_tool_wall_seconds": "Controller-owned declared limit; must freeze before comparative score claims.",
-    "status": "Pilot capacity contract; freeze unchanged across arms before comparisons."
+    "check_and_tool_wall_seconds": 1800,
+    "status": "Frozen compatible-backend pilot launch defaults; all comparison arms must share these caps. Capacity remains unmeasured.",
+    "worker_phase_wall_seconds": 3600,
+    "mandatory_final_judge_outside_worker_budget": true
   },
   "validation_allocation": {
     "gpu_hours_cap": 8,

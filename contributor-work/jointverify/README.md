@@ -4,12 +4,12 @@
 
 JointVerify is an OpenRSI task under development: an outer research agent improves a reusable policy that allocates a fixed team budget between implementation, public integration tests, and repair. Two frozen coding workers implement interacting features in real repositories. Final correctness is measured by executable feature tests withheld from the workers.
 
-This repository contains original orchestration, budget accounting, policy controls, and a hardened pilot evaluator around existing CooperBench tasks. The underlying software problems and feature tests are CooperBench's work. The contribution is the proposed research/evaluation contract and its executable adapter, not a claim to have invented multi-agent coding or a wholly new task dataset.
+This repository contains original orchestration, budget accounting, policy controls, and a pilot evaluator with explicit isolation controls around existing CooperBench tasks. The underlying software problems and feature tests are CooperBench's work. The contribution is the proposed research/evaluation contract and its executable adapter, not a claim to have invented multi-agent coding or a wholly new task dataset.
 
 ## What exists
 
 - Two isolated coding workspaces with explicit messages and versioned peer patches. Workers can read/edit/test code and integrate each other's changes.
-- Three public-check allocation policies: periodic, unconditional and a dependency heuristic. The heuristic is a candidate, not an established improvement.
+- Five control/candidate modes: periodic checking, unconditional checking, a dependency heuristic, serial member-then-lead work, and centralized implementation. The heuristic is a candidate, not an established improvement.
 - Trusted model-call, token and tool-time accounting, including retries/failed attempts if invoked; local Codex and reproducible endpoint lanes are labeled separately.
 - Three frozen real-code feature pairs, pinned source assets and image digests, and separate public versus final grading paths.
 - Executed positive/negative evaluator controls and offline tests. See [validation evidence](evaluator/validation/summary.json).
@@ -20,7 +20,7 @@ The manipulated component is the verification/repair policy, not worker weights 
 
 The hypothesis is that a policy can exploit changed dependencies and the age of previous test evidence to spend checks where they prevent integration failures, outperforming competent fixed schedules at equal budgets. It may fail: unconditional checking or serialization could be as good. Those outcomes still answer the question.
 
-CooperBench already studies coordination prompts, and Claim Plane already studies dependency-aware admission and serialization. Our narrower research axis is **learning allocation of executable public verification and repair under a shared inference/test budget, with repository transfer**. This is a bounded novelty finding, not a guarantee that no related method exists. See the [source audit](../multi-agent-evals/COOPERBENCH-SOURCE-AUDIT.md) and [research review](../multi-agent-evals/RESEARCH.md).
+CooperBench already studies coordination prompts, and Claim Plane already studies dependency-aware admission and serialization. Our narrower research axis is **learning allocation of executable public verification and repair under a shared inference/test budget, with repository transfer**. This is a bounded novelty finding, not a guarantee that no related method exists. See the [novelty review](NOVELTY.md), [research contract](STUDY.md), [source audit](../multi-agent-evals/COOPERBENCH-SOURCE-AUDIT.md) and [research review](../multi-agent-evals/RESEARCH.md).
 
 ## Local pilot
 
@@ -42,6 +42,6 @@ Use `--mock` for an explicitly labeled no-model controller check. Raw model even
 
 ## Limits that matter
 
-The pilot covers two Python repositories and uses a narrower action proxy than the complete official CooperBench team harness. Low scores cannot establish that most models fail; high scores will be retained. The final study needs strong centralized, serial, official-team and unconditional-verification comparisons, a frozen open-weight server, and a repository-disjoint workload. The evaluator reduces accidental leakage and simple tampering but does not claim complete protection from malicious Python executed inside pytest.
+The pilot covers two Python repositories and uses a narrower action proxy than the complete official CooperBench team harness. Low scores cannot establish that most models fail; high scores will be retained. The prepared runner supports centralized, serial and unconditional-verification comparisons; their model results, a faithful official-team comparison, frozen-worker GPU validation and the larger repository-disjoint workload remain to be executed. The evaluator reduces accidental leakage and simple tampering but does not claim complete protection from malicious Python executed inside pytest.
 
 The official OpenRSI contribution is a proposal before baseline reproduction. Work here establishes a concrete implementation path and honest evidence; it does not replace the required proposal review or contributor publication metadata.

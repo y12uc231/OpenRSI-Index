@@ -4,13 +4,19 @@ These policies schedule real workers and public integration checks; they do not 
 
 ## Fixed controls and candidate
 
-| Configuration | Public-check allocation |
+| Configuration | Scheduling and public-check allocation |
 | --- | --- |
 | `configs/periodic.json` | Reasonable baseline: share latest teammate messages and check a dirty integrated candidate every two worker calls. |
 | `configs/always_verify.json` | Check each changed candidate, subject to the same check cap. |
 | `configs/adaptive.json` | Check a dirty candidate when worker edits overlap in a file or syntactic exports/imports indicate a cross-worker dependency; otherwise use a four-call periodic fallback. |
+| `configs/serial.json` | Complete the member's implementation first, then let the lead implement its feature and integrate both. Check at completion; the lead handles subsequent public-check repair. |
+| `configs/centralized.json` | Give the lead both specifications and all model calls; the member never executes. Check at completion, then let the lead repair. |
 
-All policies use identical balanced worker scheduling, teammate messages, public failure feedback, a changed-candidate repair recheck, and an affordable final public-check barrier. After a failing check, a worker gets a repair turn before unchanged code can be checked again. The runner decides when a worker is done and increments the relevant counters. File overlap and patch-derived symbol relationships are fallible heuristics, not evidence that integration is correct or incorrect. The initial runner uses regular expressions over added diff lines, not complete AST or dependency analysis; it can miss removed definitions and preexisting imports. A successful old check never certifies a changed candidate hash.
+The first three configurations use identical balanced worker scheduling. Serial and centralized are distinct scheduling controls, not verification-only treatments or reproductions of the full official CooperBench team. All five use the same actual tools, aggregate model/tool/check caps, public failure feedback, changed-candidate repair rechecks, and affordable final public-check barrier. No calls or resources are added for the centralized worker; it draws from the same shared pool. All workers may run ordinary public tests through charged shell actions.
+
+Serial keeps scheduling the member until it reports completion, then permanently hands off to the lead. The lead's first executed turn records that handoff, so a failed public check reopening both workers does not restart the member. The lead already receives both specifications in every control. Centralized uses that same lead and keeps the member's patch empty; its fixed prompt explains that no teammate will run. The serial prompt explains the member-first handoff. Neither control consumes automatic joint checks on deliberately unfinished initial work: completion triggers its first barrier, and changed repair artifacts may then be rechecked before completion. Ordinary worker testing remains available throughout.
+
+After a failing check, a worker gets a repair turn before unchanged code can be checked again. The runner decides when a worker is done and increments the relevant counters. File overlap and patch-derived symbol relationships are fallible heuristics, not evidence that integration is correct or incorrect. The initial runner uses regular expressions over added diff lines, not complete AST or dependency analysis; it can miss removed definitions and preexisting imports. A successful old check never certifies a changed candidate hash.
 
 The independent final Judge **always** runs its protected feature tests after `finish`, even if the worker or public-check budget is exhausted. Public `joint_verify` actions use only baseline tests and candidate-written tests exposed to workers. Hidden feature tests, grader feedback, and gold patches must never enter policy state or worker prompts. Public-check exhaustion does not make the final submission unscored.
 
@@ -43,6 +49,8 @@ decision = Policy(config).action(state)
 ```
 
 Required counters are nonnegative integers. `candidate_hash` is null until a candidate exists; `verified_hash` is null until public verification. It must fingerprint every relevant worker revision and integration state, including a failed merge, so changing either worker invalidates the old check. `last_verify_passed` is null before any check. Worker revision/footprint values come from observed artifacts, not unverified model completion claims. Footprints should correspond to actual branch diffs relative to the common baseline; document parser limitations consistently across controls.
+
+Serial and centralized require worker IDs `lead` and `member`; other policies preserve arbitrary distinct worker IDs. Their completion condition concerns the lead after handoff, ignoring the inactive or already handed-off member's `done` flag. Their checks run at completion and during repair, so they do not use a periodic `interval` parameter. Counters and `done` flags must be supplied by the same frozen runner across modes.
 
 The result is `{action, worker_id, integrate, message_context, reason}`. `action` is `worker`, `joint_verify`, or `finish`. A verification decision sets `integrate=true`; the runner merges and runs its public tests. A worker decision identifies the next worker and supplies latest teammate messages and public test feedback as a list of strings. A `finish` decision never substitutes for the final Judge. The callback does not mutate the supplied state or maintain hidden state between calls.
 

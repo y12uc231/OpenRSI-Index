@@ -4,6 +4,7 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
+import math
 import re
 import sys
 import time
@@ -15,6 +16,7 @@ sys.path.insert(0,str(ROOT.parent/'relayrepair'/'pilot'))
 from policies import Policy, BudgetLedger, BudgetExceeded, TelemetryError
 from codex_runner import infer as codex_infer
 from runner.worker import Worker, PrivateContainer, ACTION_SCHEMA
+from runner.compatible import infer as compatible_infer, TokenLimitExceeded
 
 
 def footprint(patch):
@@ -40,21 +42,36 @@ def evaluator_budget_exhausted(result):
                for stage in stages)
 
 
-def main():
+def parse_args(argv=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--source',type=Path,required=True)
     parser.add_argument('--task',required=True)
-    parser.add_argument('--policy',choices=['periodic','always_verify','adaptive'],default='periodic')
+    parser.add_argument('--policy',choices=['periodic','always_verify','adaptive','serial','centralized'],default='periodic')
     parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--max-calls',type=int,default=32)
+    parser.add_argument('--backend',choices=['codex','compatible'],default='codex')
+    parser.add_argument('--max-calls',type=int)
+    parser.add_argument('--max-total-tokens',type=int)
     parser.add_argument('--max-checks',type=int,default=4)
-    parser.add_argument('--max-tool-seconds',type=float,default=900)
+    parser.add_argument('--max-tool-seconds',type=float)
     parser.add_argument('--max-episode-seconds',type=float,default=3600)
     parser.add_argument('--mock',action='store_true',help='Controller wiring test only; no model inference or performance claim')
-    args=parser.parse_args()
+    args=parser.parse_args(argv)
+    if args.backend=='codex' and args.max_total_tokens is not None:
+        parser.error('--max-total-tokens requires --backend compatible; Codex CLI has no enforceable output cap')
+    if args.max_calls is None:args.max_calls=32 if args.backend=='codex' else 200
+    if args.max_tool_seconds is None:args.max_tool_seconds=900 if args.backend=='codex' else 1800
+    if args.backend=='compatible' and args.max_total_tokens is None:args.max_total_tokens=1000000
     if args.max_calls<1 or args.max_checks<0: parser.error('Invalid pilot budget')
+    if args.max_total_tokens is not None and args.max_total_tokens<0:parser.error('Token budget cannot be negative')
+    if not math.isfinite(args.max_tool_seconds) or args.max_tool_seconds<0:parser.error('Invalid tool-time budget')
+    if not math.isfinite(args.max_episode_seconds) or args.max_episode_seconds<=0:parser.error('Invalid work-time budget')
+    return args
+
+
+def main():
+    args=parse_args()
     output=args.output.resolve()
-    if ROOT.parents[1] in output.parents: parser.error('Raw runs must be outside the contribution checkout')
+    if ROOT.parents[1] in output.parents: raise ValueError('Raw runs must be outside the contribution checkout')
     output.mkdir(parents=True,exist_ok=False)
     manifest_path=ROOT/'manifests'/'pilot-v1.json'
     manifest=json.loads(manifest_path.read_text())
@@ -62,15 +79,18 @@ def main():
     config_path=ROOT/'policies'/'configs'/(args.policy+'.json')
     config=json.loads(config_path.read_text())
     policy=Policy(config)
-    ledger=BudgetLedger(max_calls=args.max_calls,max_checks=args.max_checks,max_tool_seconds=args.max_tool_seconds)
+    ledger=BudgetLedger(max_calls=args.max_calls,max_checks=args.max_checks,max_tool_seconds=args.max_tool_seconds,
+                        max_total_tokens=args.max_total_tokens)
+    adapter_path=(ROOT.parent/'relayrepair'/'pilot'/'codex_runner.py') if args.backend=='codex' else ROOT/'runner'/'compatible.py'
     run_config={'started_utc':datetime.now(timezone.utc).isoformat(),'task':args.task,'policy':config,
                 'max_calls':args.max_calls,'max_checks':args.max_checks,'max_tool_seconds':args.max_tool_seconds,
-                'max_episode_seconds':args.max_episode_seconds,
-                'inference':'MOCK_NOT_MODEL' if args.mock else 'local Codex CLI gpt-6-astra ultra; tool-free JSON action proxy',
-                'budget_lane':'call_count_and_tool_wall_time; not a matched-token study',
+                'max_episode_seconds':args.max_episode_seconds,'backend':args.backend,'max_total_tokens':args.max_total_tokens,
+                'inference':'MOCK_NOT_MODEL' if args.mock else ('local Codex CLI gpt-6-astra ultra; tool-free JSON action proxy' if args.backend=='codex'
+                    else 'frozen Qwen3-Coder-30B-A3B-Instruct via local vLLM0.10.2; tool-free JSON action proxy'),
+                'budget_lane':'call_count_and_tool_wall_time; not a matched-token study' if args.backend=='codex' else 'shared_bounded_token_reservations_and_tool_wall_time',
                 'manifest_sha256':hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
                 'policy_config_sha256':hashlib.sha256(config_path.read_bytes()).hexdigest(),
-                'inference_adapter_sha256':hashlib.sha256((ROOT.parent/'relayrepair'/'pilot'/'codex_runner.py').read_bytes()).hexdigest(),
+                'inference_adapter_sha256':hashlib.sha256(adapter_path.read_bytes()).hexdigest(),
                 'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                     for p in sorted(ROOT.rglob('*.py')) if '__pycache__' not in p.parts}}
     (output/'run_config.json').write_text(json.dumps(run_config,indent=2)+'\n')
@@ -93,6 +113,10 @@ def main():
             feature=specs[i]
             if role=='lead':
                 feature+='\n\nTEAM LEAD RESPONSIBILITY: after your own feature is implemented, inspect your teammate\'s patch, resolve integration conflicts, and ensure the resulting source supports both features. If patches cannot merge, the grader uses your lead patch. Do not assume a message means code is complete.\nTEAMMATE FEATURE:\n'+specs[1]
+            if args.policy=='centralized' and role=='lead':
+                feature+='\n\nCENTRALIZED CONTROL: your teammate will not run. Implement both feature specifications yourself and perform all integration and public-check repair in your own workspace.'
+            if args.policy=='serial':
+                feature+='\n\nSERIAL CONTROL: the member works first until completion. The lead then implements its feature, inspects and integrates the member\'s completed patch, and handles all subsequent public-check repair. The member will not run again after this handoff.'
             feature+='\n\nEDIT BOUNDARY: change runtime source under '+', '.join(case['source_prefixes'])+'. You may add or change public tests under tests/ for your own checks; the final Judge restores original tests and supplies its own. Do not change packaging, build configuration, dependencies, or runner files.'
             workers.append(Worker(role,feature,container))
         # Import trusted evaluator after setup, keeping its paths out of model prompts.
@@ -158,18 +182,50 @@ def main():
             if decision['message_context']:
                 w.history.append({'kind':'policy_context','items':decision['message_context']})
             prompt=w.prompt(peer.revision,state['worker_calls_remaining'])
-            call_ticket=ledger.reserve_call()
-            call_dir=output/f'call-{call_ticket+1:02d}-{w.worker_id}'
+            call_ticket=None
+            if args.backend=='codex':call_ticket=ledger.reserve_call()
+            call_number=(call_ticket+1) if call_ticket is not None else ledger.summary()['calls_started']+1
+            call_dir=output/f'call-{call_number:02d}-{w.worker_id}'
+            def reserve_compatible(info):
+                nonlocal call_ticket
+                if call_ticket is not None:raise TelemetryError('Repeated preflight reservation for one generation')
+                call_ticket=ledger.reserve_call(input_upper_bound=info['input_upper_bound'],
+                                                output_token_limit=info['output_token_limit'])
+                save_budget()
             if args.mock:
+                if args.backend=='compatible':reserve_compatible({'input_upper_bound':1,'output_token_limit':4096})
                 call_dir.mkdir()
                 response={'action':'finish','command':'','message':'Deterministic wiring stub; no feature implemented.','summary':'MOCK_NOT_MODEL'}
                 (call_dir/'prompt.txt').write_text(prompt)
                 (call_dir/'response.json').write_text(json.dumps(response))
-                (call_dir/'metadata.json').write_text(json.dumps({'usage':[{'input_tokens':0,'output_tokens':0}],
+                mock_usage={'input_tokens':0,'output_tokens':0} if args.backend=='codex' else {'input_tokens':1,'output_tokens':1}
+                (call_dir/'metadata.json').write_text(json.dumps({'usage':[mock_usage],
                     'measurement_type':'MOCK_NOT_MODEL'}))
-            else:
+            elif args.backend=='codex':
                 response=codex_infer(prompt,call_dir,ACTION_SCHEMA,timeout=min(480,max(1,int(args.max_episode_seconds-(time.monotonic()-started)))))
+            else:
+                try:
+                    response=compatible_infer(prompt,call_dir,ACTION_SCHEMA,
+                        timeout=min(480,max(1,int(args.max_episode_seconds-(time.monotonic()-started)))),
+                        remaining_tokens=max(0,args.max_total_tokens-ledger.known_total_tokens),
+                        on_preflight=reserve_compatible)
+                except Exception as exc:
+                    failed_metadata=json.loads((call_dir/'metadata.json').read_text()) if (call_dir/'metadata.json').exists() else {}
+                    failed_usage=failed_metadata.get('usage',[])
+                    if call_ticket is not None:
+                        if len(failed_usage)==1 and failed_metadata.get('usage_complete') is True:
+                            ledger.settle_call(call_ticket,failed_usage[0])
+                        else:
+                            # A started or uncertain request cannot become a free retry.
+                            status['inference_usage_incomplete']=True
+                            ledger.settle_call(call_ticket,None)
+                    elif failed_metadata.get('generation_requests_started',0):
+                        status['inference_usage_incomplete']=True
+                        raise TelemetryError('Generation started without its required shared reservation') from exc
+                    if isinstance(exc,TokenLimitExceeded):raise BudgetExceeded(str(exc)) from exc
+                    raise
             metadata=json.loads((call_dir/'metadata.json').read_text())
+            if call_ticket is None:raise TelemetryError('Inference returned without its required reservation')
             if len(metadata['usage'])!=1:raise TelemetryError('Expected one completed call usage record')
             ledger.settle_call(call_ticket,metadata['usage'][0])
             remaining_tool=max(0,args.max_tool_seconds-ledger.tool_seconds)
@@ -225,7 +281,8 @@ def main():
                 status['result']=judged
                 if status['status']!='incomplete':
                     status['status']='completed' if judged.get('validinfra',False) else 'infrastructure_failure'
-                if ledger.overrun or status.get('tool_time_measurement_incomplete'):
+                if (ledger.overrun or status.get('tool_time_measurement_incomplete') or
+                    (args.backend=='compatible' and (status.get('inference_usage_incomplete') or not ledger.summary()['token_telemetry_valid']))):
                     status['status']='unscored_budget_or_telemetry_failure'
             except Exception as exc:
                 status.update(status='infrastructure_failure',judge_error=str(exc))

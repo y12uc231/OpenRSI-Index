@@ -33,10 +33,10 @@ CLI:
 python3 -m evaluator.checker click2068_1_6 --lead lead.patch --member member.patch --mode public --output public.json
 python3 -m evaluator.checker click2068_1_6 --lead lead.patch --member member.patch --mode judge --output judge.json
 python3 -m unittest evaluator.test_checker -v
-python3 -m evaluator.validate
+python3 -m evaluator.validate --output-dir /absolute/path/outside-this-repository/validation
 ```
 
-The local default upstream checkout is `/Users/satya/openrsi-contribution/research/CooperBench`. Override `source_root=` / `--source-root` on another machine. It must contain the exact hashed assets in `manifests/pilot-v1.json`; the evaluator does not install dependencies or execute upstream shell runners. Pull the three manifest image digests before running on a new host. Docker must be available. No GPU or credentials are needed for scoring.
+Supply the upstream checkout using `source_root=` / `--source-root`, or set `JOINTVERIFY_SOURCE_ROOT`. Without an explicit path the fallback is `./CooperBench`. It must contain the exact hashed assets in `manifests/pilot-v1.json`; the evaluator does not install dependencies or execute upstream shell runners. Pull the three manifest image digests before running on a new host. Docker must be available. No GPU or credentials are needed for scoring.
 
 ## Merge contract
 
@@ -56,4 +56,4 @@ The oracle is upstream `combined.patch`, which can implement additional features
 
 `manifests/pilot-v1.json` freezes the pair IDs, base commits, image digests and input hashes. `manifests/judge-expectations-v1.json` freezes oracle test identities and counts from pre-model CPU calibration. Companion SHA-256 files detect accidental edits. These are reproducibility checks, not signatures against a party who can modify the whole checkout.
 
-`validation/*.json` and `validation/summary.json` contain actual local Docker base/oracle/public/integration control runs, including test logs and input hashes. They contain no model results. Base and oracle are rerunnable with `python3 -m evaluator.validate`; the command never changes frozen expectations.
+`validation/summary.json` contains actual local Docker base/oracle/public/integration control counts, input hashes and execution metadata. It contains no model results. Full raw control outputs remain outside this checkout because they include upstream reference code and test traces; the current packet publishes the aggregate evidence without redistributing those assets. Base and oracle are rerunnable with `python3 -m evaluator.validate --output-dir /absolute/local/evidence`; the command never changes frozen expectations. The recorded source hashes describe the execution-time revision; later reporting-path changes do not rewrite historical evidence.

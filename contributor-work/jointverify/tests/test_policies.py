@@ -73,6 +73,95 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(Policy({'mode': 'adaptive'}).action(view)['action'], 'worker')
 
 
+def role_state():
+    view = state()
+    for worker, role in zip(view['workers'], ['lead', 'member']):
+        worker.update(id=role, turns=0, done=False)
+    view.update(candidate_hash=None, verified_hash=None, last_verify_passed=None,
+                turns_since_verify=0, last_worker_id=None)
+    return view
+
+
+class SchedulingControlTests(unittest.TestCase):
+    def test_serial_finishes_member_before_lead_even_when_turns_are_unbalanced(self):
+        policy = Policy({'mode': 'serial'})
+        view = role_state()
+        view['workers'][1]['turns'] = 9
+        view.update(candidate_hash='member-progress', turns_since_verify=9)
+        before = deepcopy(view)
+        self.assertEqual(policy.action(view)['worker_id'], 'member')
+        self.assertEqual(view, before)
+        view['workers'][1]['done'] = True
+        self.assertEqual(policy.action(view)['worker_id'], 'lead')
+
+    def test_serial_does_not_restart_member_after_failed_barrier_reopens_workers(self):
+        policy = Policy({'mode': 'serial'})
+        view = role_state()
+        view['workers'][0].update(turns=8, done=False)
+        view['workers'][1].update(turns=2, done=False)
+        view.update(candidate_hash='failed', verified_hash='failed', last_verify_passed=False,
+                    verification_feedback='A real public regression failed.')
+        decision = policy.action(view)
+        self.assertEqual(decision['worker_id'], 'lead')
+        self.assertIn('A real public regression failed.', '\n'.join(decision['message_context']))
+        view['candidate_hash'] = 'repaired'
+        self.assertEqual(policy.action(view)['action'], 'joint_verify')
+        view.update(verified_hash='repaired', last_verify_passed=True)
+        self.assertEqual(policy.action(view)['worker_id'], 'lead')
+
+    def test_serial_barrier_waits_for_lead_completion(self):
+        policy = Policy({'mode': 'serial'})
+        view = role_state()
+        view['workers'][1].update(turns=3, done=True)
+        view['workers'][0].update(turns=2, done=False)
+        view.update(candidate_hash='joint-progress', turns_since_verify=5)
+        self.assertEqual(policy.action(view)['worker_id'], 'lead')
+        view['workers'][0]['done'] = True
+        self.assertEqual(policy.action(view)['action'], 'joint_verify')
+        view.update(verified_hash='joint-progress', last_verify_passed=True)
+        self.assertEqual(policy.action(view)['action'], 'finish')
+
+    def test_centralized_never_delegates_and_does_not_wait_for_unused_member(self):
+        policy = Policy({'mode': 'centralized'})
+        view = role_state()
+        self.assertEqual(policy.action(view)['worker_id'], 'lead')
+        view['workers'][0].update(turns=12, done=False)
+        view.update(candidate_hash='joint-progress', turns_since_verify=12)
+        self.assertEqual(policy.action(view)['worker_id'], 'lead')
+        view['workers'][0]['done'] = True
+        self.assertEqual(policy.action(view)['action'], 'joint_verify')
+        view.update(verified_hash='joint-progress', last_verify_passed=True)
+        self.assertEqual(policy.action(view)['action'], 'finish')
+        self.assertFalse(view['workers'][1]['done'])
+        self.assertEqual(view['workers'][1]['turns'], 0)
+
+    def test_centralized_failed_check_repairs_without_free_unchanged_retest(self):
+        policy = Policy({'mode': 'centralized'})
+        view = role_state()
+        view['workers'][0].update(turns=4, done=True)
+        view.update(candidate_hash='failed', verified_hash='failed', last_verify_passed=False)
+        self.assertEqual(policy.action(view)['worker_id'], 'lead')
+        view['candidate_hash'] = 'changed'
+        self.assertEqual(policy.action(view)['action'], 'joint_verify')
+
+    def test_controls_keep_final_barrier_bounded_and_do_not_cancel_judge(self):
+        for mode in ['serial', 'centralized']:
+            with self.subTest(mode=mode):
+                policy = Policy({'mode': mode})
+                view = role_state()
+                view.update(candidate_hash='partial', worker_calls_remaining=0)
+                self.assertEqual(policy.action(view)['action'], 'joint_verify')
+                view['checks_remaining'] = 0
+                decision = policy.action(view)
+                self.assertEqual(decision['action'], 'finish')
+                self.assertIn('Judge still required', decision['reason'])
+
+    def test_serial_and_centralized_require_explicit_roles(self):
+        for mode in ['serial', 'centralized']:
+            with self.subTest(mode=mode), self.assertRaises(ValueError):
+                Policy({'mode': mode}).action(state())
+
+
 class BudgetTests(unittest.TestCase):
     def test_reasoning_and_cached_tokens_are_subsets_not_extra_cost(self):
         usage = normalize_usage({'input_tokens': 100, 'output_tokens': 20,

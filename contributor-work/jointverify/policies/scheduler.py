@@ -3,11 +3,14 @@ from __future__ import annotations
 
 from copy import deepcopy
 
+MODES = {'periodic', 'always_verify', 'adaptive', 'serial', 'centralized'}
+ROLE_CONTROLS = {'serial', 'centralized'}
+
 
 class Policy:
     def __init__(self, config: dict):
         self.config = deepcopy(config)
-        if config.get('mode') not in {'periodic', 'always_verify', 'adaptive'}:
+        if config.get('mode') not in MODES:
             raise ValueError('Unknown policy mode.')
         interval = config.get('interval', 2)
         if isinstance(interval, bool) or not isinstance(interval, int) or interval < 1:
@@ -40,7 +43,7 @@ def action(state: dict, config: dict | None = None) -> dict:
     """
     config = config or {'mode': 'periodic', 'interval': 2}
     mode = config.get('mode')
-    if mode not in {'periodic', 'always_verify', 'adaptive'}:
+    if mode not in MODES:
         raise ValueError('Unknown policy mode.')
     interval = config.get('interval', 2)
     if isinstance(interval, bool) or not isinstance(interval, int) or interval < 1:
@@ -48,6 +51,8 @@ def action(state: dict, config: dict | None = None) -> dict:
     workers = state.get('workers', [])
     if not workers or len({w['id'] for w in workers}) != len(workers):
         raise ValueError('At least one worker with unique IDs is required.')
+    if mode in ROLE_CONTROLS and {w['id'] for w in workers} != {'lead', 'member'}:
+        raise ValueError('Serial and centralized controls require lead and member worker IDs.')
     for name in ['worker_calls_remaining', 'checks_remaining', 'turns_since_verify']:
         value = state.get(name, 0)
         if isinstance(value, bool) or not isinstance(value, int) or value < 0:
@@ -63,6 +68,13 @@ def action(state: dict, config: dict | None = None) -> dict:
     checks = state['checks_remaining']
     failed = state.get('last_verify_passed') is False
     all_done = all(w.get('done', False) for w in workers)
+    if mode in ROLE_CONTROLS:
+        lead = next(w for w in workers if w['id'] == 'lead')
+        member = next(w for w in workers if w['id'] == 'member')
+        # The inactive member is not a completion dependency in centralized
+        # mode. Once serial hands off, lead owns all integration and repair;
+        # public failure may reopen done flags but must not restart member.
+        all_done = lead.get('done', False) and (mode == 'centralized' or lead.get('turns', 0) > 0)
     can_verify = has_candidate and dirty and checks > 0
 
     def decision(kind, reason, worker=None):
@@ -90,7 +102,7 @@ def action(state: dict, config: dict | None = None) -> dict:
     # opportunity first, then all controls recheck its changed candidate.
     if failed and can_verify:
         return decision('joint_verify', 'retest changed candidate after public failure feedback')
-    if not failed and can_verify:
+    if not failed and can_verify and mode not in ROLE_CONTROLS:
         if mode == 'always_verify':
             return decision('joint_verify', 'candidate hash changed since public verification')
         if mode == 'adaptive':
@@ -100,10 +112,20 @@ def action(state: dict, config: dict | None = None) -> dict:
         if state['turns_since_verify'] >= interval:
             return decision('joint_verify', 'scheduled periodic public verification')
 
+    if mode == 'centralized':
+        return decision('worker', 'repair public failure' if failed else
+                        'centralized implementation of both features', lead)
+    if mode == 'serial':
+        selected = lead if lead.get('turns', 0) > 0 or member.get('done', False) else member
+        reason = ('repair public failure' if failed else
+                  'serial lead implementation and integration' if selected is lead else
+                  'serial member implementation before handoff')
+        return decision('worker', reason, selected)
+
     available = workers if failed else [w for w in workers if not w.get('done', False)]
     if not available:
         return decision('finish', 'no active worker; final Judge still required')
-    # Common scheduling for every control: fewest turns, then rotate ties away
+    # Common scheduling for the three verification policies: fewest turns, then rotate ties away
     # from the last worker, then preserve runner-supplied stable worker order.
     selected = min(available, key=lambda w: (w.get('turns', 0), w['id'] == state.get('last_worker_id')))
     return decision('worker', 'repair public failure' if failed else 'balanced worker turn', selected)

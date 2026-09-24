@@ -12,8 +12,10 @@ from .checker import DEFAULT_SOURCE, ROOT, asset_bytes, evaluate, load_manifest
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-root', type=Path, default=DEFAULT_SOURCE)
-    parser.add_argument('--output-dir', type=Path, default=ROOT / 'evaluator' / 'validation')
+    parser.add_argument('--output-dir', type=Path, required=True, help='Local raw evidence directory outside the contribution checkout')
     args = parser.parse_args()
+    if ROOT.parents[1] in args.output_dir.resolve().parents:
+        parser.error('Keep raw reference patches/test logs outside the contribution checkout; publish summary.json only')
     summaries = []
     for case in load_manifest()['cases']:
         task = case['task_id']
