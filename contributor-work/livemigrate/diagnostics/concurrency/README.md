@@ -41,3 +41,8 @@ preserve every original public/held-out score. Invalidity, timeouts and
 infrastructure remain unscored. Any future incorporation into the research
 workload requires a new declared version; the current three-family primary
 controller still uses its original three final traces per family.
+
+All three unchanged final candidates have now completed this replay: Astra
+centralized, Astra team and Sol team each passed 3/3. Complete outcomes and exact
+candidate/source/case hashes are linked from the [results record](../../results/README.md).
+This closes the declared follow-up without evidence of model weakness.

@@ -91,6 +91,17 @@ prompts, private reasoning and local metadata remain excluded. Each source expor
 records its separate manual privacy-review status; candidate code is never rewritten.
 
 The [three separately sealed concurrency probes](../diagnostics/concurrency/README.md)
-are exploratory follow-up coverage. Their outcomes must be reported separately
-from the original score, using every unchanged final candidate and no new
-inference or selected replacements.
+are exploratory follow-up coverage. Every unchanged final candidate also passed
+all three probes, with no new inference or selected replacements:
+
+| Arm | Exploratory probes passed | Replay seconds |
+| --- | ---: | ---: |
+| [Astra centralized](reservation-astra-centralized-001/exploratory-concurrency.json) | 3/3 | 123.729 |
+| [Astra team](reservation-astra-team-001/exploratory-concurrency.json) | 3/3 | 199.432 |
+| [Sol team](reservation-sol-team-001/exploratory-concurrency.json) | 3/3 | 135.016 |
+
+The candidates resolved all five calls per probe with valid observed histories,
+zero permanent violations, and the intended replay/send/acknowledgement faults.
+The runner verified frozen trusted sources, exact case bytes and candidate
+hashes before and after evaluation. These additional correlated schedules also
+show no model failure; their scores remain separate from the original study.

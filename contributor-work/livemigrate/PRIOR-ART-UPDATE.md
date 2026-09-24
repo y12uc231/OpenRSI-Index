@@ -58,3 +58,40 @@ other research objectives or incidental resource/optimizer terminology; no
 matching live reservation-migration proposal was identified. This is a bounded
 keyword screen of Discussion bodies, not a claim about private tasks, every
 comment, or worldwide novelty. [Public Discussion index](https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions).
+
+## Stronger neighboring evaluations and stopping criteria
+
+The completed reservation pilot and separate concurrency probes also saturated:
+every declared final candidate passed every case in each suite. Further migration
+complexity should therefore be justified by missing semantic coverage, not by a
+desire to force a low score.
+
+- [DSLabs Lab 4](https://github.com/emichael/dslabs/blob/master/labs/lab4-shardedstore/README.md)
+  already combines repeated shard configurations, movement and cross-group
+  transactions, including explicit guidance on configuration-tagged messages
+  and draining outstanding locks. Multi-hop/reversible movement alone would not
+  establish a new systems problem.
+- [Alem](https://alem-world.github.io/) evaluates online team behavior, including
+  synchronization and handover, with coordination reward distinct from base
+  progress. Its published low normalized achievement return is evidence about
+  its own environment and model protocols, not about LiveMigrate or a new
+  shortened episode. This is a promising alternative research substrate if the
+  current task remains saturated; its full-episode inference cost needs a
+  concrete feasibility check.
+- [Testing Interchangeability in LLM Agent Teams](https://arxiv.org/abs/2609.05279)
+  already studies teammate swaps, amnesia and fresh replacements between
+  episodes. Its reported communication penalty does not establish a large
+  task-success drop. A context-reset extension would need a narrower question
+  and strong restoration/commitment-ledger controls.
+- [CoCoBench](https://arxiv.org/abs/2608.28266) explicitly separates allocation,
+  ordering, mutual exclusion and handoff constructs. Handoff coordination or
+  construct-level diagnostics are not new by themselves.
+- [MasDrift](https://arxiv.org/abs/2608.07556) studies authorization preservation
+  across delegation structures. It is adjacent to multi-agent recovery, but
+  does not make generic safety or instruction-preservation claims novel here.
+
+These alternatives are research leads, not selected replacement tasks or new
+model measurements. A stronger task needs a runnable matched protocol and a
+measured deficit that survives competent straightforward controls. This audit
+does not justify weakening a model, withholding necessary interfaces, or
+discarding successful cases.

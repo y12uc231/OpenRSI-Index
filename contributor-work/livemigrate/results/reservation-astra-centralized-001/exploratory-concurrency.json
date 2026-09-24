@@ -1,0 +1,138 @@
+{
+  "candidate_sha256": {
+    "api": "5107600a400f8bf382f4fddcc99de9f48b5885f29ce9e31627d8d556de766458",
+    "consumer": "802ffd2c4d5ca669c2a074280991c567ad27ccc98a9b43d2bf97ea85c7d0074c",
+    "db": "241e601694339ca6572abb47d461a3307cc99fff50849ae2102cd6ddb6a0bbdf"
+  },
+  "cases": [
+    {
+      "completion": {
+        "candidate_callbacks": 392,
+        "fair_rounds": 76,
+        "passed": true,
+        "queued_messages": 0,
+        "resolved_calls": 5,
+        "total_calls": 5
+      },
+      "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history",
+      "faults": {
+        "lost_effect_ack": false,
+        "lost_output": false,
+        "lost_output_trigger": null,
+        "replayed_packets": 0
+      },
+      "history": {
+        "exhaustive": true,
+        "explored": 7,
+        "passed": true,
+        "reason": "linearizable"
+      },
+      "name": "concurrent_normal",
+      "passed": true,
+      "score": 1.0,
+      "static": {
+        "passed": true,
+        "violations": []
+      },
+      "status": "scored",
+      "trace": {
+        "passed": true,
+        "physical_fulfillments": 2,
+        "violation_count": 0,
+        "violations": []
+      }
+    },
+    {
+      "completion": {
+        "candidate_callbacks": 412,
+        "fair_rounds": 76,
+        "passed": true,
+        "queued_messages": 0,
+        "resolved_calls": 5,
+        "total_calls": 5
+      },
+      "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history",
+      "faults": {
+        "lost_effect_ack": false,
+        "lost_output": false,
+        "lost_output_trigger": null,
+        "replayed_packets": 25
+      },
+      "history": {
+        "exhaustive": true,
+        "explored": 7,
+        "passed": true,
+        "reason": "linearizable"
+      },
+      "name": "concurrent_reversed_replayed",
+      "passed": true,
+      "score": 1.0,
+      "static": {
+        "passed": true,
+        "violations": []
+      },
+      "status": "scored",
+      "trace": {
+        "passed": true,
+        "physical_fulfillments": 2,
+        "violation_count": 0,
+        "violations": []
+      }
+    },
+    {
+      "completion": {
+        "candidate_callbacks": 413,
+        "fair_rounds": 76,
+        "passed": true,
+        "queued_messages": 0,
+        "resolved_calls": 5,
+        "total_calls": 5
+      },
+      "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history",
+      "faults": {
+        "lost_effect_ack": true,
+        "lost_output": true,
+        "lost_output_trigger": {
+          "input_kind": "move",
+          "node": "source",
+          "sku": "X",
+          "step": 58
+        },
+        "replayed_packets": 25
+      },
+      "history": {
+        "exhaustive": true,
+        "explored": 7,
+        "passed": true,
+        "reason": "linearizable"
+      },
+      "name": "concurrent_finite_send_and_ack_loss",
+      "passed": true,
+      "score": 1.0,
+      "static": {
+        "passed": true,
+        "violations": []
+      },
+      "status": "scored",
+      "trace": {
+        "passed": true,
+        "physical_fulfillments": 2,
+        "violation_count": 0,
+        "violations": []
+      }
+    }
+  ],
+  "cases_sha256": "0b7164b07d6af447184620fc77b6a9b415c41ee89881ddf28087972b03e879a7",
+  "diagnostic_source_revision": "76cf41680fe8bc6180d3ad16d49e34ec2e964d8f",
+  "model_calls": 0,
+  "passed": 3,
+  "run_id": "reservation-astra-centralized-001",
+  "scope": "separate exploratory coverage; not the preregistered pilot score",
+  "score": 1.0,
+  "seconds": 123.72926070800168,
+  "source_verified": true,
+  "status": "scored",
+  "suite": "exploratory_concurrency",
+  "task_source_revision": "6a5c4e9c0750be7ef39f8216f073946e6fa4f667",
+  "total": 3
+}
