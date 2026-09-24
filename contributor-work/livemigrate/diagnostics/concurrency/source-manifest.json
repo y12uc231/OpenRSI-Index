@@ -1,0 +1,14 @@
+{
+  "task_source_revision": "6a5c4e9c0750be7ef39f8216f073946e6fa4f667",
+  "source_sha256": {
+    "families/reservation/history.py": "6e2126b5f04da34b1c299610ea155b79755df6b9b29c07c8355c6e0272a12c90",
+    "families/reservation/reference/api.py": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "families/reservation/reference/consumer.py": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44",
+    "families/reservation/reference/db.py": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "families/reservation/reference/immutable_v1.py": "ab082b2f27450622586b31ae9347054475f4d11eafa88b2ef582abebf2aaf68c",
+    "families/reservation/runtime.py": "19e4939daeacc5cb7b717c5b28a02d381c4aefc3ff0ab70e6786c48217dec2ab",
+    "families/reservation/scenarios.py": "43dde2b53012663a65763870224ec11989d678098f4b9bd0c380473d77301846",
+    "isolated.py": "84f755ce43a1bc5082ff05bc473a86f1f702a59434a42908e7bc93813ca217c1",
+    "candidate_driver.py": "4b5c6f6b17ff65cb1edb27d389e3b44e01d63322d2e7f01024b2a6133b46020f"
+  }
+}

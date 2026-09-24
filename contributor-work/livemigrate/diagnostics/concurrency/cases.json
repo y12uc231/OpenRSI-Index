@@ -1,0 +1,347 @@
+[
+  {
+    "capacities": {
+      "X": 3,
+      "Y": 3,
+      "Z": 2
+    },
+    "delivery_order": [
+      "source",
+      "A",
+      "B",
+      "gateway"
+    ],
+    "lose_output_after_fence": null,
+    "lose_output_once": null,
+    "lose_reply_once": false,
+    "name": "concurrent_normal",
+    "replay": false,
+    "steps": [
+      {
+        "call_id": "old",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 1
+        },
+        "node": "source",
+        "reservation_id": "old"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 8
+      },
+      {
+        "destination": "A",
+        "kind": "move",
+        "sku": "X"
+      },
+      {
+        "destination": "B",
+        "kind": "move",
+        "sku": "Y"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 18
+      },
+      {
+        "call_id": "race-a",
+        "kind": "client",
+        "lines": {
+          "X": 2,
+          "Y": 1
+        },
+        "node": "gateway",
+        "reservation_id": "race-a"
+      },
+      {
+        "call_id": "race-b",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 2
+        },
+        "node": "gateway",
+        "reservation_id": "race-b"
+      },
+      {
+        "blocked": [
+          [
+            "A",
+            "gateway"
+          ]
+        ],
+        "kind": "run",
+        "paused": [],
+        "rounds": 5
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 30
+      },
+      {
+        "call_id": "race-a-retry",
+        "kind": "client",
+        "lines": {
+          "X": 2,
+          "Y": 1
+        },
+        "node": "gateway",
+        "reservation_id": "race-a"
+      },
+      {
+        "call_id": "race-b-retry",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 2
+        },
+        "node": "gateway",
+        "reservation_id": "race-b"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 15
+      }
+    ]
+  },
+  {
+    "capacities": {
+      "X": 3,
+      "Y": 3,
+      "Z": 2
+    },
+    "delivery_order": [
+      "gateway",
+      "B",
+      "A",
+      "source"
+    ],
+    "lose_output_after_fence": null,
+    "lose_output_once": null,
+    "lose_reply_once": false,
+    "name": "concurrent_reversed_replayed",
+    "replay": true,
+    "steps": [
+      {
+        "call_id": "old",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 1
+        },
+        "node": "source",
+        "reservation_id": "old"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 8
+      },
+      {
+        "destination": "A",
+        "kind": "move",
+        "sku": "X"
+      },
+      {
+        "destination": "B",
+        "kind": "move",
+        "sku": "Y"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 18
+      },
+      {
+        "call_id": "race-b",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 2
+        },
+        "node": "gateway",
+        "reservation_id": "race-b"
+      },
+      {
+        "call_id": "race-a",
+        "kind": "client",
+        "lines": {
+          "X": 2,
+          "Y": 1
+        },
+        "node": "gateway",
+        "reservation_id": "race-a"
+      },
+      {
+        "blocked": [
+          [
+            "A",
+            "gateway"
+          ]
+        ],
+        "kind": "run",
+        "paused": [],
+        "rounds": 5
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 30
+      },
+      {
+        "call_id": "race-a-retry",
+        "kind": "client",
+        "lines": {
+          "X": 2,
+          "Y": 1
+        },
+        "node": "gateway",
+        "reservation_id": "race-a"
+      },
+      {
+        "call_id": "race-b-retry",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 2
+        },
+        "node": "gateway",
+        "reservation_id": "race-b"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 15
+      }
+    ]
+  },
+  {
+    "capacities": {
+      "X": 3,
+      "Y": 3,
+      "Z": 2
+    },
+    "delivery_order": [
+      "B",
+      "gateway",
+      "source",
+      "A"
+    ],
+    "lose_output_after_fence": "X",
+    "lose_output_once": "source",
+    "lose_reply_once": true,
+    "name": "concurrent_finite_send_and_ack_loss",
+    "replay": true,
+    "steps": [
+      {
+        "call_id": "old",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 1
+        },
+        "node": "source",
+        "reservation_id": "old"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 8
+      },
+      {
+        "destination": "A",
+        "kind": "move",
+        "sku": "X"
+      },
+      {
+        "destination": "B",
+        "kind": "move",
+        "sku": "Y"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 18
+      },
+      {
+        "call_id": "race-a",
+        "kind": "client",
+        "lines": {
+          "X": 2,
+          "Y": 1
+        },
+        "node": "gateway",
+        "reservation_id": "race-a"
+      },
+      {
+        "call_id": "race-b",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 2
+        },
+        "node": "gateway",
+        "reservation_id": "race-b"
+      },
+      {
+        "blocked": [
+          [
+            "A",
+            "gateway"
+          ]
+        ],
+        "kind": "run",
+        "paused": [],
+        "rounds": 5
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 30
+      },
+      {
+        "call_id": "race-a-retry",
+        "kind": "client",
+        "lines": {
+          "X": 2,
+          "Y": 1
+        },
+        "node": "gateway",
+        "reservation_id": "race-a"
+      },
+      {
+        "call_id": "race-b-retry",
+        "kind": "client",
+        "lines": {
+          "X": 1,
+          "Y": 2
+        },
+        "node": "gateway",
+        "reservation_id": "race-b"
+      },
+      {
+        "blocked": [],
+        "kind": "run",
+        "paused": [],
+        "rounds": 15
+      }
+    ]
+  }
+]
