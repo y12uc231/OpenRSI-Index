@@ -19,6 +19,10 @@ either winner and reject both commits or both spurious rejections. The reference
 serializes overlapping bundles at the gateway, which is permitted. These probes
 do not force a particular distributed deadlock or exhaust all message orders.
 
+The [isolated reference replay](reference-result.json) also passes 3/3 in
+162.805 seconds with 1,601 callbacks and unchanged verified sources. This is
+instrument validation, not a model result.
+
 Before interpreting model outcomes, validate the reference through Docker:
 
 ```sh

@@ -1,0 +1,138 @@
+{
+  "scope": "separate exploratory coverage; not the preregistered pilot score",
+  "task_source_revision": "6a5c4e9c0750be7ef39f8216f073946e6fa4f667",
+  "cases_sha256": "0b7164b07d6af447184620fc77b6a9b415c41ee89881ddf28087972b03e879a7",
+  "candidate_sha256": {
+    "db": "db19155ef3eab0cbd8067b864ef329e5454f4ae7f129220d2755f7152f86c6a2",
+    "api": "5ba01a4727ce4a201607ff2c09d80cf73c0d37025c6720aa599a7967937a547b",
+    "consumer": "b086e03ad33db216c633ea52963e77f5f5841d0c67dd5500c5aef45b67f42b44"
+  },
+  "source_verified": true,
+  "model_calls": 0,
+  "suite": "exploratory_concurrency",
+  "status": "scored",
+  "passed": 3,
+  "total": 3,
+  "score": 1.0,
+  "seconds": 162.80500670800393,
+  "cases": [
+    {
+      "name": "concurrent_normal",
+      "status": "scored",
+      "passed": true,
+      "score": 1.0,
+      "static": {
+        "passed": true,
+        "violations": []
+      },
+      "trace": {
+        "passed": true,
+        "violation_count": 0,
+        "violations": [],
+        "physical_fulfillments": 2
+      },
+      "history": {
+        "passed": true,
+        "reason": "linearizable",
+        "explored": 7,
+        "exhaustive": true
+      },
+      "completion": {
+        "passed": true,
+        "resolved_calls": 5,
+        "total_calls": 5,
+        "candidate_callbacks": 515,
+        "fair_rounds": 76,
+        "queued_messages": 2
+      },
+      "faults": {
+        "lost_output": false,
+        "lost_output_trigger": null,
+        "lost_effect_ack": false,
+        "replayed_packets": 0
+      },
+      "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history"
+    },
+    {
+      "name": "concurrent_reversed_replayed",
+      "status": "scored",
+      "passed": true,
+      "score": 1.0,
+      "static": {
+        "passed": true,
+        "violations": []
+      },
+      "trace": {
+        "passed": true,
+        "violation_count": 0,
+        "violations": [],
+        "physical_fulfillments": 2
+      },
+      "history": {
+        "passed": true,
+        "reason": "linearizable",
+        "explored": 7,
+        "exhaustive": true
+      },
+      "completion": {
+        "passed": true,
+        "resolved_calls": 5,
+        "total_calls": 5,
+        "candidate_callbacks": 542,
+        "fair_rounds": 76,
+        "queued_messages": 2
+      },
+      "faults": {
+        "lost_output": false,
+        "lost_output_trigger": null,
+        "lost_effect_ack": false,
+        "replayed_packets": 29
+      },
+      "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history"
+    },
+    {
+      "name": "concurrent_finite_send_and_ack_loss",
+      "status": "scored",
+      "passed": true,
+      "score": 1.0,
+      "static": {
+        "passed": true,
+        "violations": []
+      },
+      "trace": {
+        "passed": true,
+        "violation_count": 0,
+        "violations": [],
+        "physical_fulfillments": 2
+      },
+      "history": {
+        "passed": true,
+        "reason": "linearizable",
+        "explored": 7,
+        "exhaustive": true
+      },
+      "completion": {
+        "passed": true,
+        "resolved_calls": 5,
+        "total_calls": 5,
+        "candidate_callbacks": 544,
+        "fair_rounds": 76,
+        "queued_messages": 2
+      },
+      "faults": {
+        "lost_output": true,
+        "lost_output_trigger": {
+          "step": 55,
+          "node": "source",
+          "input_kind": "move",
+          "sku": "X"
+        },
+        "lost_effect_ack": true,
+        "replayed_packets": 29
+      },
+      "coverage": "declared causal schedules; exhaustive checker only for each observed finite client history"
+    }
+  ],
+  "artifact_type": "trusted_reference_validation_not_a_model_result",
+  "diagnostic_source_revision": "76cf41680fe8bc6180d3ad16d49e34ec2e964d8f"
+}
