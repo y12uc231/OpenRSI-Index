@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "upstream": "https://github.com/cooperbench/CooperBench",
+  "upstream_commit": "63b9d44d9f39a02fccf5bf0052db48a917a011fd",
+  "selection": "Three pre-model pilot pairs from official flash subset; selected for small Python CPU environments, three distinct base tasks across two repositories. This pilot is not a representative benchmark estimate.",
+  "merge_policy": "Pinned CooperBench naive three-way merge; if clean, score it with no fallback on test failure; if conflict/missing/failed patch, score lead only; identical patches applied once.",
+  "judge_policy": "Candidate changes outside source allowlist rejected except tests/ changes stripped in judge; base configuration and tests restored; each immutable feature test patch evaluated separately in a fresh container.",
+  "cases": [
+    {
+      "task_id": "click2068_1_6",
+      "repository": "pallets_click_task",
+      "task_number": 2068,
+      "features": [
+        1,
+        6
+      ],
+      "base_commit": "d791537317947448a3960662d00acf160eff2602",
+      "image": "akhatua/cooperbench-pallets-click@sha256:2116cc975812211cdae8b97f63069c666b7fffc490ce0d329f8853e241342386",
+      "source_prefixes": [
+        "src/click/"
+      ],
+      "public_test_targets": [
+        "tests/test_termui.py"
+      ],
+      "feature_specs": {
+        "1": {
+          "path": "dataset/pallets_click_task/task2068/feature1/feature.md",
+          "sha256": "6fc1156c2df73cb467c5742b2d0f19cc14760e1c686cd616b0ef1653df4ef606"
+        },
+        "6": {
+          "path": "dataset/pallets_click_task/task2068/feature6/feature.md",
+          "sha256": "634e4a083e1f088283f0d91dbf06d4f114228656b30493b87c706dd84cf76372"
+        }
+      },
+      "judge_test_patches": {
+        "1": {
+          "path": "dataset/pallets_click_task/task2068/feature1/tests.patch",
+          "sha256": "1816252617c144d1ab162ce93ea5f6fdad0f41bf84723adf781ea175284beb98"
+        },
+        "6": {
+          "path": "dataset/pallets_click_task/task2068/feature6/tests.patch",
+          "sha256": "bb1cfd9c608bcb786ec235cb8c0bf570ea53fe1b918704c0d24bec3287e2fb08"
+        }
+      },
+      "oracle_patch": {
+        "path": "dataset/pallets_click_task/task2068/combined.patch",
+        "sha256": "a2a27645cd6b1f140baf7bf3097a0cffee26e33e6d6f9464655b437dcc2390b2"
+      },
+      "test_timeout_seconds": 120
+    },
+    {
+      "task_id": "click2800_1_3",
+      "repository": "pallets_click_task",
+      "task_number": 2800,
+      "features": [
+        1,
+        3
+      ],
+      "base_commit": "d8763b93021c416549b5f8b4b5497234619410db",
+      "image": "akhatua/cooperbench-pallets-click@sha256:a80b15460f97844a8ac36cadeed51b21fcb68a726e3992374cc9d997fe397260",
+      "source_prefixes": [
+        "src/click/"
+      ],
+      "public_test_targets": [
+        "tests/test_shell_completion.py",
+        "tests/test_context.py"
+      ],
+      "feature_specs": {
+        "1": {
+          "path": "dataset/pallets_click_task/task2800/feature1/feature.md",
+          "sha256": "dfe8289f9ecf94afa48e111ac6d1e21f53f0d2abd4f722df001df6be37139eb4"
+        },
+        "3": {
+          "path": "dataset/pallets_click_task/task2800/feature3/feature.md",
+          "sha256": "388a8653f0d315548938b176fe1156b87a1287a94940b11d417b3e1f9b88bf82"
+        }
+      },
+      "judge_test_patches": {
+        "1": {
+          "path": "dataset/pallets_click_task/task2800/feature1/tests.patch",
+          "sha256": "685d8cb338cd0d64bfbde4a0de63f665f84c81ba8d9656a215d2c6b1ed519f8c"
+        },
+        "3": {
+          "path": "dataset/pallets_click_task/task2800/feature3/tests.patch",
+          "sha256": "c5b78220002f892bcdae5f11a9c7e4078f9b5efa8856c88162592546e20467eb"
+        }
+      },
+      "oracle_patch": {
+        "path": "dataset/pallets_click_task/task2800/combined.patch",
+        "sha256": "d7f0477dfe77af4107d5087be3ecf9fbeeeb85de51851d7bcdf4676cf49046b8"
+      },
+      "test_timeout_seconds": 120
+    },
+    {
+      "task_id": "dirty43_2_3",
+      "repository": "samuelcolvin_dirty_equals_task",
+      "task_number": 43,
+      "features": [
+        2,
+        3
+      ],
+      "base_commit": "593bcccf738ab8b724d7cb860881d74344171f5f",
+      "image": "akhatua/cooperbench-samuelcolvin-dirty-equals@sha256:c0d0ab8de32ec280797c0043d29c2904389b786cb8ad9f44fbf7b79032d68926",
+      "source_prefixes": [
+        "dirty_equals/"
+      ],
+      "public_test_targets": [
+        "tests/test_other.py"
+      ],
+      "feature_specs": {
+        "2": {
+          "path": "dataset/samuelcolvin_dirty_equals_task/task43/feature2/feature.md",
+          "sha256": "aa7bfdbf0590c17798461e5d4f87745e00648eba92b9c7dfba2342c87b5a66d4"
+        },
+        "3": {
+          "path": "dataset/samuelcolvin_dirty_equals_task/task43/feature3/feature.md",
+          "sha256": "75e3ca2ec8bd9d5b63d4a200c69cd49380b57c2c503f10e629ba8207832d4ae6"
+        }
+      },
+      "judge_test_patches": {
+        "2": {
+          "path": "dataset/samuelcolvin_dirty_equals_task/task43/feature2/tests.patch",
+          "sha256": "a9a50c38658d8075697c61cf88a2bec7ae158e77a88fe74b3c57cbb434e388eb"
+        },
+        "3": {
+          "path": "dataset/samuelcolvin_dirty_equals_task/task43/feature3/tests.patch",
+          "sha256": "c6098634297db5d329317dbb2670cf9ceddd725de004b365e9ee9adc66d265cc"
+        }
+      },
+      "oracle_patch": {
+        "path": "dataset/samuelcolvin_dirty_equals_task/task43/combined.patch",
+        "sha256": "de49f670927afa84fb60531fd764ecbb2606ca45d837fd5368c38e21a97acf33"
+      },
+      "test_timeout_seconds": 120
+    }
+  ]
+}

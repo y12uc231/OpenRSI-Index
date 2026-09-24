@@ -1,0 +1,305 @@
+{
+  "completed_at_utc": "2026-09-24T01:02:40.430472+00:00",
+  "host_system": "Darwin",
+  "host_architecture": "arm64",
+  "container_limits": {
+    "cpus": 2,
+    "memory_gib": 2,
+    "pids": 256,
+    "network": "none"
+  },
+  "source_sha256": {
+    "evaluator/__init__.py": "692216abe405e254fcd18ceaeb1ec672da7ae6b91359b7ad68879e67f0187fde",
+    "evaluator/checker.py": "034d5f7a9927a1b37a13deae96ec11b8668ac296db1573fa0277aebfc5fd8ec0",
+    "evaluator/container_check.py": "eeace2131a0e777fa4c050f85d29c601e9be340cdf50f149d7cf428cd7ee54c8",
+    "evaluator/test_checker.py": "7bc0306d1a93a56a596cf5e3359f22c1f8d0653cbd72343736617ac88234eb16",
+    "evaluator/validate.py": "8aac652809a4eef413672e754dd13fff1593adad25fa555521a7b60ba57b21d8"
+  },
+  "manifest_sha256": {
+    "manifests/judge-expectations-v1.json": "53e9bb66285832d023457cf34a116282c35a9dfd1852848fc08c03f62b7a7457",
+    "manifests/pilot-v1.json": "5052169798b4e2823ec063b5450c4c9228ffeb526bec101ef8551c0f55b6ef8e"
+  },
+  "coverage_note": "Normalize only the pinned Dirty Equals base UUID1 parameter; exact counts and other identities.",
+  "controls_only_no_model_calls": true,
+  "results": [
+    {
+      "task_id": "click2068_1_6",
+      "control": "base",
+      "validinfra": true,
+      "passed": false,
+      "merge_strategy": "three_way",
+      "features": {
+        "1": {
+          "total": 89,
+          "passed": 64,
+          "failed": 4,
+          "errors": 0,
+          "skipped": 21
+        },
+        "6": {
+          "total": 93,
+          "passed": 62,
+          "failed": 10,
+          "errors": 0,
+          "skipped": 21
+        }
+      },
+      "input_patch_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    },
+    {
+      "task_id": "click2068_1_6",
+      "control": "oracle",
+      "validinfra": true,
+      "passed": true,
+      "merge_strategy": "identical_once",
+      "features": {
+        "1": {
+          "total": 89,
+          "passed": 68,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 21
+        },
+        "6": {
+          "total": 93,
+          "passed": 72,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 21
+        }
+      },
+      "input_patch_sha256": [
+        "a2a27645cd6b1f140baf7bf3097a0cffee26e33e6d6f9464655b437dcc2390b2",
+        "a2a27645cd6b1f140baf7bf3097a0cffee26e33e6d6f9464655b437dcc2390b2"
+      ]
+    },
+    {
+      "task_id": "click2068_1_6",
+      "control": "independent_gold",
+      "validinfra": true,
+      "passed": false,
+      "merge_strategy": "lead_only",
+      "features": {
+        "1": {
+          "total": 89,
+          "passed": 68,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 21
+        },
+        "6": {
+          "total": 93,
+          "passed": 62,
+          "failed": 10,
+          "errors": 0,
+          "skipped": 21
+        }
+      },
+      "input_patch_sha256": [
+        "7bd5a2c6b9e1b814c8bc3970d3d853eccb18544c7f63d6a604da07306b231094",
+        "b1c51b84b731edf62476cff3bf1a79f217468cc11f0c7f6b40601cff02433070"
+      ]
+    },
+    {
+      "task_id": "click2068_1_6",
+      "control": "public_base",
+      "validinfra": true,
+      "passed": true,
+      "merge_strategy": "three_way",
+      "features": {},
+      "input_patch_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    },
+    {
+      "task_id": "click2800_1_3",
+      "control": "base",
+      "validinfra": true,
+      "passed": false,
+      "merge_strategy": "three_way",
+      "features": {
+        "1": {
+          "total": 68,
+          "passed": 67,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0
+        },
+        "3": {
+          "total": 72,
+          "passed": 67,
+          "failed": 5,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "input_patch_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    },
+    {
+      "task_id": "click2800_1_3",
+      "control": "oracle",
+      "validinfra": true,
+      "passed": true,
+      "merge_strategy": "identical_once",
+      "features": {
+        "1": {
+          "total": 68,
+          "passed": 68,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "3": {
+          "total": 72,
+          "passed": 72,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "input_patch_sha256": [
+        "d7f0477dfe77af4107d5087be3ecf9fbeeeb85de51851d7bcdf4676cf49046b8",
+        "d7f0477dfe77af4107d5087be3ecf9fbeeeb85de51851d7bcdf4676cf49046b8"
+      ]
+    },
+    {
+      "task_id": "click2800_1_3",
+      "control": "independent_gold",
+      "validinfra": true,
+      "passed": false,
+      "merge_strategy": "lead_only",
+      "features": {
+        "1": {
+          "total": 68,
+          "passed": 68,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "3": {
+          "total": 72,
+          "passed": 67,
+          "failed": 5,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "input_patch_sha256": [
+        "7be1f0107baf925d7d105dabd519ebd96d629da47dc4489b39e3c75b4bdb848a",
+        "f40e05bc3693103b4cc781799c3466eb68671810682f782d84a285f02f9bf9b4"
+      ]
+    },
+    {
+      "task_id": "click2800_1_3",
+      "control": "public_base",
+      "validinfra": true,
+      "passed": true,
+      "merge_strategy": "three_way",
+      "features": {},
+      "input_patch_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    },
+    {
+      "task_id": "dirty43_2_3",
+      "control": "base",
+      "validinfra": true,
+      "passed": false,
+      "merge_strategy": "three_way",
+      "features": {
+        "2": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "errors": 1,
+          "skipped": 0
+        },
+        "3": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "errors": 1,
+          "skipped": 0
+        }
+      },
+      "input_patch_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    },
+    {
+      "task_id": "dirty43_2_3",
+      "control": "oracle",
+      "validinfra": true,
+      "passed": true,
+      "merge_strategy": "identical_once",
+      "features": {
+        "2": {
+          "total": 78,
+          "passed": 78,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "3": {
+          "total": 60,
+          "passed": 60,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "input_patch_sha256": [
+        "de49f670927afa84fb60531fd764ecbb2606ca45d837fd5368c38e21a97acf33",
+        "de49f670927afa84fb60531fd764ecbb2606ca45d837fd5368c38e21a97acf33"
+      ]
+    },
+    {
+      "task_id": "dirty43_2_3",
+      "control": "independent_gold",
+      "validinfra": true,
+      "passed": false,
+      "merge_strategy": "lead_only",
+      "features": {
+        "2": {
+          "total": 78,
+          "passed": 78,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "3": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "errors": 1,
+          "skipped": 0
+        }
+      },
+      "input_patch_sha256": [
+        "c9dbdfe381dfaf4387e3694b5e77b5958dabf480ed5440489ef0691592b133a2",
+        "4720d15a14d74ad1e54019973be9ad0ff3b2560924dadd30d0e6c89c46bb10a7"
+      ]
+    },
+    {
+      "task_id": "dirty43_2_3",
+      "control": "public_base",
+      "validinfra": true,
+      "passed": true,
+      "merge_strategy": "three_way",
+      "features": {},
+      "input_patch_sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
+    }
+  ]
+}

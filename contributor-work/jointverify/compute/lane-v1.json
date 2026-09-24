@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_executed_gpu_access_pending",
+  "model_manifest": "model-artifacts-v1.json",
+  "model_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "served_model_name": "jointverify-qwen3-coder-30b",
+  "runtime": {
+    "vllm_version": "0.10.2",
+    "image": "vllm/vllm-openai@sha256:607442e407b0fea97f8a132a78b787c121a996dd4de181fa08e8da06e71ec2db",
+    "image_tag_provenance": "vllm/vllm-openai:v0.10.2",
+    "source_release": "https://github.com/vllm-project/vllm/releases/tag/v0.10.2",
+    "image_digest_resolution": "Docker Registry manifest Docker-Content-Digest header, 2026-09-23; no image pulled",
+    "dtype": "bfloat16",
+    "tensor_parallel_size": 1,
+    "max_model_len": 32768,
+    "max_num_seqs": 2,
+    "gpu_memory_utilization": 0.9,
+    "gpu_type_requested": "H100 80GB",
+    "gpu_count": 1,
+    "physical_nodes": 1,
+    "host_endpoint": "http://127.0.0.1:8000/v1"
+  },
+  "pilot_data": {
+    "path": "../manifests/pilot-v1.json",
+    "sha256": "5052169798b4e2823ec063b5450c4c9228ffeb526bec101ef8551c0f55b6ef8e",
+    "scope": "Three infrastructure-validated Python feature pairs; diagnostic pilot, not held-out cross-repository evaluation."
+  },
+  "provisional_pair_budget": {
+    "max_total_tokens": 1000000,
+    "max_model_calls": 200,
+    "max_completion_tokens_per_call": 4096,
+    "max_context_tokens_including_completion": 32768,
+    "max_public_joint_checks": 4,
+    "all_worker_and_helper_calls_share_pool": true,
+    "cached_input_counted": true,
+    "retries_counted": true,
+    "check_budget_counts_failed_attempts": true,
+    "check_and_tool_wall_seconds": "Controller-owned declared limit; must freeze before comparative score claims.",
+    "status": "Pilot capacity contract; freeze unchanged across arms before comparisons."
+  },
+  "validation_allocation": {
+    "gpu_hours_cap": 8,
+    "gpu_seconds_cap": 28800,
+    "includes_model_load_idle_and_experiment_time": true,
+    "ledger": "validation-budget.json",
+    "full_trajectory_budget_not_promised": true
+  }
+}
