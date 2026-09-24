@@ -1,7 +1,7 @@
 """Run LiveMigrate callbacks without placing candidate code in the oracle process.
 
-Only the three submitted callback files, this driver, and one database directory
-are mounted. Consumers use a separate container with a read-only database mount.
+Only submitted callback files, an optional published legacy helper, this driver,
+and one database directory are mounted. consume uses a read-only database mount.
 Each callback starts a fresh interpreter. Persistent state belongs in SQLite.
 """
 import argparse
@@ -21,7 +21,8 @@ import time
 import uuid
 
 PINNED_IMAGE = "python@sha256:23b5dc88c7dd47fec3f960b51dc30d19df9875cfbfc60f3b62d3e5b88cbccf62"
-CALLS = {"db": {"expand", "backfill", "contract"}, "api": {"handle"}, "consumer": {"consume"}}
+CALLS = {"db": {"expand", "backfill", "contract", "on_message"},
+         "api": {"handle", "on_message"}, "consumer": {"consume", "on_message"}}
 MAX_RPC_BYTES = 1024 * 1024
 CORE_ROOT = Path(__file__).resolve().parent
 
@@ -142,8 +143,22 @@ def parse_response(raw):
     raise CandidateError(result["error"][:1000])
 
 
+def database_file(conn):
+    if conn.in_transaction:
+        raise IsolationError("host transaction must close before isolated callback")
+    files = conn.execute("PRAGMA database_list").fetchall()
+    main = next((row[2] for row in files if row[1] == "main"), None)
+    if not main:
+        raise IsolationError("isolated callbacks require an on-disk SQLite database")
+    supplied = Path(main)
+    if supplied.is_symlink() or not supplied.is_file():
+        raise IsolationError("invalid database file")
+    return supplied.resolve()
+
+
 class DockerInvoker:
-    def __init__(self, candidate_dir, image=PINNED_IMAGE, callback_timeout=30, command_runner=_bounded):
+    def __init__(self, candidate_dir, image=PINNED_IMAGE, callback_timeout=30, command_runner=_bounded,
+                 legacy_helper=None):
         if not re.fullmatch(r"[A-Za-z0-9./:_-]+@sha256:[0-9a-f]{64}", image):
             raise IsolationError("image must be pinned by SHA256 digest")
         self.image = image
@@ -169,6 +184,22 @@ class DockerInvoker:
         self.containers = {}
         self.database_dir = None
         self.calls = 0
+        if legacy_helper is not None:
+            try:
+                self.install_legacy_helper(legacy_helper)
+            except BaseException:
+                self.close()
+                raise
+
+    def install_legacy_helper(self, path):
+        """Trusted host setup only; no helper path is accepted through RPC."""
+        path = Path(path)
+        if self.containers or (self.snapshot / "legacy.py").exists():
+            raise IsolationError("legacy helper must be installed exactly once before callbacks")
+        if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_RPC_BYTES:
+            raise IsolationError("legacy helper must be a regular public source file")
+        shutil.copyfile(path, self.snapshot / "legacy.py")
+        (self.snapshot / "legacy.py").chmod(0o444)
 
     def __enter__(self):
         return self
@@ -231,17 +262,8 @@ class DockerInvoker:
     def __call__(self, role, function, conn, *args):
         if role not in CALLS or function not in CALLS[role]:
             raise IsolationError("invalid callback dispatch")
-        if conn.in_transaction:
-            raise IsolationError("host transaction must close before isolated callback")
-        files = conn.execute("PRAGMA database_list").fetchall()
-        main = next((row[2] for row in files if row[1] == "main"), None)
-        if not main:
-            raise IsolationError("isolated callbacks require an on-disk SQLite database")
-        supplied_database = Path(main)
-        if supplied_database.is_symlink() or not supplied_database.is_file():
-            raise IsolationError("invalid database file")
-        database = supplied_database.resolve()
-        name = self._container(database, role == "consumer")
+        database = database_file(conn)
+        name = self._container(database, role == "consumer" and function == "consume")
         payload = json.dumps({"role": role, "function": function, "database": "/db/" + database.name,
                               "args": args}, allow_nan=False).encode()
         if len(payload) > MAX_RPC_BYTES:
@@ -264,6 +286,57 @@ class DockerInvoker:
         return parse_response(stdout)
 
 
+class MultiStoreInvoker:
+    """Reuse containers by exact database path, never sharing database mounts.
+
+    At most max_stores stores are live. Stores removed by a completed scenario
+    are pruned before the next dispatch; context exit closes every remaining
+    child, including the child whose callback failed.
+    """
+    def __init__(self, candidate_dir, image=PINNED_IMAGE, callback_timeout=30,
+                 command_runner=None, legacy_helper=None, max_stores=16):
+        if type(max_stores) is not int or not 1 <= max_stores <= 16:
+            raise IsolationError("store limit must be between 1 and 16")
+        self.candidate_dir = candidate_dir
+        self.image = image
+        self.callback_timeout = callback_timeout
+        self.command_runner = command_runner
+        self.legacy_helper = legacy_helper
+        self.max_stores = max_stores
+        self.stores = {}
+        self.calls = 0
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.close()
+
+    def close(self):
+        for child in self.stores.values():
+            child.close()
+        self.stores.clear()
+
+    def __call__(self, role, function, conn, *args):
+        if role not in CALLS or function not in CALLS[role]:
+            raise IsolationError("invalid callback dispatch")
+        database = database_file(conn)
+        for expired in [path for path in self.stores if not path.is_file()]:
+            self.stores.pop(expired).close()
+        if database not in self.stores:
+            if len(self.stores) >= self.max_stores:
+                raise IsolationError("simultaneous database store limit exceeded")
+            if self.command_runner is None:
+                child = DockerInvoker(self.candidate_dir, self.image, self.callback_timeout)
+            else:
+                child = DockerInvoker(self.candidate_dir, self.image, self.callback_timeout, self.command_runner)
+            self.stores[database] = child
+            if self.legacy_helper is not None:
+                child.install_legacy_helper(self.legacy_helper)
+        self.calls += 1
+        return self.stores[database](role, function, conn, *args)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", type=Path, required=True)
@@ -277,7 +350,11 @@ def main(argv=None):
         parser.error("callback timeout must be between 0 and 60 seconds")
     # Only trusted task files are imported here; candidates remain in Docker.
     with task_runtime(args.task_root) as runtime:
-        with DockerInvoker(args.candidate, args.image, args.callback_timeout) as invoke:
+        # This exact helper is already part of the public model packet. Its
+        # parent reference directory and the task oracle are never mounted.
+        legacy = args.task_root.resolve() / "reference" / "immutable_v1.py"
+        with MultiStoreInvoker(args.candidate, args.image, args.callback_timeout,
+                               legacy_helper=legacy if legacy.is_file() else None) as invoke:
             output = runtime.run_suite(args.candidate, args.suite, invoke=invoke)
     print(json.dumps(output, allow_nan=False, sort_keys=True))
 

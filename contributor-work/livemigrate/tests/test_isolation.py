@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from isolated import CandidateError, CandidateTimeout, DockerInvoker, IsolationError, PINNED_IMAGE, _bounded, parse_response
+from isolated import CandidateError, CandidateTimeout, DockerInvoker, MultiStoreInvoker, IsolationError, PINNED_IMAGE, _bounded, parse_response
 
 
 class RpcTests(unittest.TestCase):
@@ -104,9 +104,119 @@ class InvokerTests(unittest.TestCase):
             self.assertFalse(invoke.containers)
         self.assertTrue(any(command[1:3] == ["rm", "-f"] for command, _ in self.commands))
 
+    def test_pool_keeps_distinct_stores_reuses_containers_and_preserves_consume_readonly(self):
+        second_dir = self.root / "second-db"
+        second_dir.mkdir()
+        second = sqlite3.connect(second_dir / "state.sqlite")
+        second.execute("CREATE TABLE other(value INTEGER)")
+        second.commit()
+        helper = self.root / "public_legacy.py"
+        helper.write_text("# public helper only\n")
+        try:
+            with MultiStoreInvoker(self.candidate, command_runner=self.fake, legacy_helper=helper) as inv:
+                inv("consumer", "on_message", self.conn, {"kind": "prepare"})
+                inv("db", "on_message", second, {"kind": "prepare"})
+                inv("consumer", "on_message", self.conn, {"kind": "commit"})
+                inv("consumer", "consume", self.conn, {})
+                inv("api", "on_message", second, {"kind": "commit"})
+                self.assertEqual(len(inv.stores), 2)
+                starts = [command for command, _ in self.commands if command[1] == "run"]
+                self.assertEqual(len(starts), 3)
+                volumes = [command[command.index("--volume") + 1] for command in starts]
+                self.assertEqual(volumes, [str(self.database_dir.resolve()) + ":/db:rw",
+                                          str(second_dir.resolve()) + ":/db:rw",
+                                          str(self.database_dir.resolve()) + ":/db:ro"])
+                self.assertTrue(all(command.count("--volume") == 1 for command in starts))
+                for child in inv.stores.values():
+                    self.assertEqual((child.snapshot / "legacy.py").read_text(), helper.read_text())
+                    self.assertEqual((child.snapshot / "legacy.py").stat().st_mode & 0o777, 0o444)
+                self.assertFalse(any(str(helper) in " ".join(command) for command in starts))
+            removed = [command for command, _ in self.commands if command[1:3] == ["rm", "-f"]]
+            self.assertEqual(len(removed), 3)
+            self.assertFalse(inv.stores)
+        finally:
+            second.close()
+
+    def test_pool_store_limit_cleans_up_and_legacy_path_is_not_candidate_selected(self):
+        second_dir = self.root / "second-db"
+        second_dir.mkdir()
+        second = sqlite3.connect(second_dir / "state.sqlite")
+        second.execute("CREATE TABLE other(value INTEGER)")
+        second.commit()
+        try:
+            with MultiStoreInvoker(self.candidate, command_runner=self.fake, max_stores=1) as inv:
+                inv("db", "on_message", self.conn, {})
+                with self.assertRaisesRegex(IsolationError, "store limit"):
+                    inv("db", "on_message", second, {})
+            self.assertFalse(inv.stores)
+            self.assertEqual(len([command for command, _ in self.commands if command[1] == "run"]), 1)
+            self.assertEqual(len([command for command, _ in self.commands if command[1] == "rm"]), 1)
+            helper = self.root / "helper-link.py"
+            helper.symlink_to(self.candidate / "db.py")
+            with self.assertRaisesRegex(IsolationError, "regular public"):
+                DockerInvoker(self.candidate, command_runner=self.fake, legacy_helper=helper)
+        finally:
+            second.close()
+
 
 @unittest.skipUnless(os.environ.get("LIVEMIGRATE_DOCKER_TESTS") == "1", "opt-in local Docker test")
 class DockerIntegrationTests(unittest.TestCase):
+    def test_four_stores_writable_messages_and_readonly_consume_with_public_helper(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            candidate = root / "candidate"
+            candidate.mkdir()
+            helper = root / "immutable_v1.py"
+            helper.write_text('''
+def bump(conn, delta):
+    conn.execute("UPDATE actual SET value=value+?", (delta,))
+    return conn.execute("SELECT value FROM actual").fetchone()[0]
+''')
+            source = '''
+import legacy
+def on_message(conn, message):
+    import os
+    value = legacy.bump(conn, message["delta"])
+    return {"value": value, "files": sorted(os.listdir("/db"))}
+def consume(conn, event):
+    import sqlite3
+    blocked = []
+    for database in (conn, sqlite3.connect("/db/state.sqlite")):
+        try:
+            database.execute("UPDATE actual SET value=999")
+            database.commit()
+            blocked.append(False)
+        except sqlite3.OperationalError:
+            blocked.append(True)
+    return {"value": conn.execute("SELECT value FROM actual").fetchone()[0], "blocked": blocked}
+'''
+            for role in ("db", "api", "consumer"):
+                (candidate / (role + ".py")).write_text(source)
+            connections = []
+            try:
+                for index in range(4):
+                    store = root / ("store-" + str(index))
+                    store.mkdir()
+                    conn = sqlite3.connect(store / "state.sqlite")
+                    conn.execute("CREATE TABLE actual(value INTEGER)")
+                    conn.execute("INSERT INTO actual VALUES (?)", (10 + index,))
+                    conn.commit()
+                    connections.append(conn)
+                with MultiStoreInvoker(candidate, legacy_helper=helper) as invoke:
+                    for role, conn, expected in zip(("api", "db", "consumer", "consumer"), connections, (11, 12, 13, 14)):
+                        result = invoke(role, "on_message", conn, {"delta": 1})
+                        self.assertEqual(result["value"], expected)
+                        self.assertTrue(set(result["files"]) <= {"state.sqlite", "state.sqlite-journal", "state.sqlite-wal", "state.sqlite-shm"})
+                    self.assertEqual(invoke("consumer", "on_message", connections[2], {"delta": 2})["value"], 15)
+                    self.assertEqual(invoke("consumer", "consume", connections[2], {}), {"value": 15, "blocked": [True, True]})
+                    self.assertEqual(len(invoke.stores), 4)
+                    self.assertEqual(sum(len(child.containers) for child in invoke.stores.values()), 5)
+                self.assertFalse(invoke.stores)
+                self.assertEqual([conn.execute("SELECT value FROM actual").fetchone()[0] for conn in connections], [11, 12, 15, 14])
+            finally:
+                for conn in connections:
+                    conn.close()
+
     def test_candidate_is_separate_and_consumer_cannot_write(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

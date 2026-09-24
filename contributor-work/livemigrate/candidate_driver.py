@@ -7,7 +7,8 @@ import resource
 import sqlite3
 import sys
 
-CALLS = {"db": {"expand", "backfill", "contract"}, "api": {"handle"}, "consumer": {"consume"}}
+CALLS = {"db": {"expand", "backfill", "contract", "on_message"},
+         "api": {"handle", "on_message"}, "consumer": {"consume", "on_message"}}
 
 
 def main():
@@ -33,14 +34,22 @@ def main():
             raise ValueError("args must be an array")
         # The consumer also has a read-only filesystem mount. query_only alone
         # would not stop candidate code from opening a second connection.
-        if role == "consumer":
+        readonly = role == "consumer" and function == "consume"
+        if readonly:
             connection = sqlite3.connect("file:" + database + "?mode=ro", uri=True, timeout=1)
             connection.execute("PRAGMA query_only=ON")
         else:
             connection = sqlite3.connect(database, timeout=1)
         connection.row_factory = sqlite3.Row
-        connection.execute("BEGIN" if role == "consumer" else "BEGIN IMMEDIATE")
+        connection.execute("BEGIN" if readonly else "BEGIN IMMEDIATE")
         with open(os.devnull, "w") as sink, contextlib.redirect_stdout(sink), contextlib.redirect_stderr(sink):
+            # Optional helper path is fixed by the trusted CLI, never by RPC.
+            # Only its published source file is copied; no oracle is imported.
+            if os.path.isfile("/candidate/legacy.py"):
+                legacy_spec = importlib.util.spec_from_file_location("legacy", "/candidate/legacy.py")
+                legacy = importlib.util.module_from_spec(legacy_spec)
+                sys.modules["legacy"] = legacy
+                legacy_spec.loader.exec_module(legacy)
             spec = importlib.util.spec_from_file_location("candidate_" + role, "/candidate/" + role + ".py")
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)

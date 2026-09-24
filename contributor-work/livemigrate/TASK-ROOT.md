@@ -20,9 +20,24 @@ untrusted evaluator implementation.
 
 The core folder still supplies the pilot, Docker isolation wrapper, callback
 driver, and audited Codex transport. Candidate containers mount only the three
-candidate files, the core driver, and the working SQLite directory. Neither task
-root nor core root is mounted. The callback RPC supports any JSON-safe cursor,
+candidate files, an optional copied public legacy helper, the core driver, and
+one working SQLite directory. Neither task root nor core root is mounted.
+The callback RPC supports any JSON-safe cursor,
 including string cursors, without changes to the driver.
+
+For independently persisted services, `MultiStoreInvoker` pools containers by
+exact database file. Each node must have its own database directory; stores are
+never mounted together. New `on_message(conn,message)` callbacks may write their
+own database for any role. The existing `consumer.consume` remains read-only at
+both SQLite and filesystem boundaries. The pool is limited to 16 live stores,
+prunes removed scenario databases and closes every child on exit.
+
+The trusted CLI selects only `reference/immutable_v1.py`, already present in the
+public model packet, and copies it as read-only `legacy.py`. The driver loads it
+under the module name `legacy`. No candidate-supplied path selects a helper and
+no reference directory is mounted. Read-only source is not deep Python object
+immutability: monkeypatching helper behavior is prohibited and semantic behavior
+is checked by the independent host oracle.
 
 `source-sha256.json` includes the core Python/Markdown/JSON sources and the
 transport. A non-default family additionally contributes every such task file
