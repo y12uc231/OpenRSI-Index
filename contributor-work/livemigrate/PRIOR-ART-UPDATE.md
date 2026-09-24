@@ -49,3 +49,12 @@ documentation update does not change the frozen reservation study.
 No search can establish worldwide absence. The defensible novelty claim remains
 the particular executable evaluation contract and research artifact, with the
 overlaps and prototype limits documented above.
+
+The OpenRSI repository's public Discussion index was also screened through the
+GitHub API on 24 September 2026 UTC: all 45 returned Discussion titles and bodies,
+with `hasNextPage=false`, were searched for multi-agent, orchestration, migration,
+reservation, linearizability and coordination terms. Matching snippets concerned
+other research objectives or incidental resource/optimizer terminology; no
+matching live reservation-migration proposal was identified. This is a bounded
+keyword screen of Discussion bodies, not a claim about private tasks, every
+comment, or worldwide novelty. [Public Discussion index](https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions).
