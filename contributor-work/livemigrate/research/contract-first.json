@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "shared_instruction": "Treat the current database module and its message as the proposed shared storage contract. Before implementing, state any incompatibility with the public requirements. Preserve accepted identities and immutable events across all phases. In the second stage, use the public diagnostic and peer implementations to repair the integration, not merely your local file. Do not change requirements to fit a preferred implementation.",
+  "role_instructions": {
+    "db": "Define the cross-role storage contract concretely: tables/views, columns and their meanings, uniqueness, authoritative state during overlap, reconciliation and retirement. Explain it in your message so API and consumer authors can implement against it. Inspect their current assumptions before revising it.",
+    "api": "Use the proposed storage contract consistently. Audit every first admission, identical retry, conflicting retry and legacy rollback for atomic business-state behavior. Describe the emitted event contract in your message.",
+    "consumer": "Inspect immutable legacy events and the current proposed API/storage contracts. Support all permitted formats, permanent operation identity and immutable accepted payloads. Explain any event assumption your API peer must honor."
+  },
+  "stages": [
+    [["db"], ["api", "consumer"]],
+    [["db"], ["api", "consumer"]]
+  ]
+}

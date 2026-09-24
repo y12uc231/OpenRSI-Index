@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "shared_instruction": "",
+  "role_instructions": {"db": "", "api": "", "consumer": ""},
+  "stages": [
+    [["db", "api", "consumer"]],
+    [["db", "api", "consumer"]]
+  ]
+}

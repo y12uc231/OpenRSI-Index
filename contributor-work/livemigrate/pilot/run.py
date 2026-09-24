@@ -132,9 +132,19 @@ def main(argv=None):
                     help='Trusted task folder; defaults to the original migration family')
     ap.add_argument('--inference-timeout', type=int, default=480,
                     help='Per-call transport deadline in seconds for either backend (default: 480)')
+    ap.add_argument('--scaffold', type=Path,
+                    help='Optional declarative instructions/wave schedule; requires team mode')
     args = ap.parse_args(argv)
     if args.inference_timeout <= 0:
         ap.error('--inference-timeout must be positive')
+    policy = None
+    if args.scaffold:
+        if args.mode != 'team':
+            ap.error('--scaffold requires --mode team')
+        spec = importlib.util.spec_from_file_location('livemigrate_policy', CORE_ROOT / 'pilot' / 'scaffold.py')
+        policy_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(policy_module)
+        policy = policy_module.load(args.scaffold)
     task_root = args.task_root.resolve()
     out = args.output.resolve()
     if not (CORE_ROOT / 'isolated.py').exists():
@@ -144,6 +154,8 @@ def main(argv=None):
     start = time.monotonic()
     hashes = source_hashes(task_root)
     dump(out / 'source-sha256.json', hashes)
+    if policy is not None:
+        dump(out / 'scaffold.json', policy)
     backend = None if args.adapter_command else load_backend()
     observations, messages = [], []
     call_index = 0
@@ -163,6 +175,12 @@ def main(argv=None):
         return record_adapter_response(json.loads(process.stdout), call_dir)
 
     def task(owned, snapshot, index, stage):
+        extra = ''
+        if policy is not None:
+            if policy['shared_instruction']:
+                extra += '\nCOORDINATION INSTRUCTION:\n' + policy['shared_instruction']
+            if policy['role_instructions'][owned[0]]:
+                extra += '\nROLE INSTRUCTION:\n' + policy['role_instructions'][owned[0]]
         prompt = (
             'Implement the specified live software migration. You are writing actual Python3 source. '
             'You have no direct tools; a controller executes public checks after each group of three calls. '
@@ -171,7 +189,7 @@ def main(argv=None):
             'Return complete replacement source for your owned files and a concrete message for your teammates.\n'
             f'Own exactly: {list(owned)}. Mode: {args.mode}. Call: {index + 1}/6. Stage: {stage}.\n'
             'PUBLIC SPECIFICATION:\n' + packet + '\nCURRENT ALL-ROLE SOURCE:\n' + json.dumps(snapshot) +
-            '\nTEAM MESSAGES:\n' + json.dumps(messages) + '\nPUBLIC CHECK OBSERVATIONS:\n' + json.dumps(observations)
+            '\nTEAM MESSAGES:\n' + json.dumps(messages) + '\nPUBLIC CHECK OBSERVATIONS:\n' + json.dumps(observations) + extra
         )
         response = infer(prompt, out / f'call-{index:02d}', schema(owned))
         if set(response) != set(owned) | {'message'} or any(not isinstance(v, str) for v in response.values()):
@@ -181,15 +199,17 @@ def main(argv=None):
     try:
         for stage in range(2):
             if args.mode == 'team':
-                snapshot = dict(code)
-                with ThreadPoolExecutor(max_workers=3) as pool:
-                    futures = [pool.submit(task, (role,), snapshot, call_index + i, stage)
-                               for i, role in enumerate(ROLES)]
-                    responses = [future.result() for future in futures]
-                for role, response in zip(ROLES, responses):
-                    code[role] = response[role]
-                    messages.append({'stage': stage, 'role': role, 'message': response['message']})
-                call_index += 3
+                waves = policy['stages'][stage] if policy is not None else [ROLES]
+                for wave in waves:
+                    snapshot = dict(code)
+                    with ThreadPoolExecutor(max_workers=len(wave)) as pool:
+                        futures = [pool.submit(task, (role,), snapshot, call_index + i, stage)
+                                   for i, role in enumerate(wave)]
+                        responses = [future.result() for future in futures]
+                    for role, response in zip(wave, responses):
+                        code[role] = response[role]
+                        messages.append({'stage': stage, 'role': role, 'message': response['message']})
+                    call_index += len(wave)
             else:
                 for _ in range(3):
                     response = task(ROLES, dict(code), call_index, stage)
@@ -217,6 +237,8 @@ def main(argv=None):
                   'usage': usage_summary(out),
                   'seconds': round(time.monotonic() - start, 3),
                   'scope': 'one task family; schedules are correlated stress cases, not independent tasks'}
+        if policy is not None:
+            result['scaffold_sha256'] = hashlib.sha256((out / 'scaffold.json').read_bytes()).hexdigest()
         dump(out / 'summary.json', result)
         print(json.dumps(result), flush=True)
     except Exception as exc:

@@ -1,0 +1,20 @@
+{
+  "status": "prepared_not_gpu_validated",
+  "model_id": "Qwen/Qwen3.8-27B",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "served_model_name": "livemigrate-qwen38",
+  "vllm_version": "0.28.0",
+  "vllm_source_commit": "2cf0a6915ce544dc493a0990f2ea38d81601128a",
+  "vllm_image": "vllm/vllm-openai@sha256:2286e8533ca8b6bc777594bae30524f1426ba46ca21797524e06df6a94b06635",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "max_model_len": 32768,
+  "max_completion_tokens": 16384,
+  "transport_timeout_seconds": 1800,
+  "seed": 0,
+  "dtype": "bfloat16",
+  "physical_nodes": 1,
+  "gpu_count": 1,
+  "gpu_reference": "H100 80GB",
+  "cpu_cores_estimate": 16,
+  "host_ram_gib_estimate": 128
+}
