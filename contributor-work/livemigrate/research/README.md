@@ -36,6 +36,12 @@ The prepared research reference is `contract-first.json`; its Qwen result is
 unmeasured. Local maximum-reasoning Codex successes under the simpler scaffold
 must remain visible and are not evidence of a Qwen baseline score.
 
+`protocol-first.json` is an additional strong control prepared for the separate
+owner prototype before its model calls. It orders source/storage, API/gateway,
+then consumer/owner in each stage, so every later author sees preceding code.
+It uses the same six role calls and public-check cadence. This is not a measured
+improvement or a change to the frozen earlier pilot results.
+
 ## Fixed worker and resource opportunity
 
 Use the pinned current BF16 Qwen profile in `../compute/qwen38.json`, with the

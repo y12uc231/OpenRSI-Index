@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "shared_instruction": "Agree on the actual cross-component contract before optimizing implementation details. Follow the public specification and each role's ownership boundaries. Make interfaces concrete in source and teammate messages: persistent state, message fields, stable identities, state transitions, retry behavior, and evidence required before acknowledging success. Later authors should implement against the preceding authors' actual interfaces. In the repair stage inspect all three implementations and the public diagnostic, preserve valid behavior, and resolve disagreements explicitly. Do not assume one transaction can span independently persisted nodes. Do not rely on process globals or on an acknowledgement always arriving.",
+  "role_instructions": {
+    "db": "Establish the source/storage side of the shared contract. Your message should tell both peers exactly which interfaces your implementation offers and expects, including changes of authority and the treatment of existing obligations. Use their current code when revising the contract; an interface change requires compatible peer behavior.",
+    "api": "Implement the client-facing and coordination responsibilities assigned by the public specification. Reconcile the source/storage contract with the other component's current code. Describe any remaining peer obligations precisely, including durable request identity, decisions and response conditions. Audit changed-payload retries and failures between durable state and message delivery.",
+    "consumer": "Implement the consumer or new-owner responsibilities assigned by the public specification. You can inspect both preceding implementations. Match their actual wire and state interfaces, while checking those interfaces against the public requirements. Preserve durable obligations and permanent effect identity across repeated delivery and component changes. Explain any unresolved incompatibility in your message."
+  },
+  "stages": [
+    [["db"], ["api"], ["consumer"]],
+    [["db"], ["api"], ["consumer"]]
+  ]
+}
