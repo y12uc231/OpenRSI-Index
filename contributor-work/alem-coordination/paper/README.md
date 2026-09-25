@@ -1,7 +1,8 @@
 # Can Sol improve a trained team's coordination?
 
-Research note, 24 September 2026. Local draft; nothing in this directory has been
-submitted to OpenRSI or a publication venue.
+Research note, 24 September 2026. This completed study supports the Alem
+evaluation-task proposal to OpenRSI. It has not been submitted as an independent
+paper to a publication venue.
 
 We gave Sol six more chances to write a controller for three trained game
 agents. All six programs ran successfully on the development worlds. The best

@@ -1,9 +1,10 @@
 # Alem Coordination Lab
 
-**Current direction:** the OpenRSI submission is on hold while we assess an
-independent paper. The [Sol continuation study](paper/README.md) reports six
-additional coding calls, new-world evaluation, and a current literature review.
-The original pilot below remains a separate, unchanged result.
+**Current direction:** submit this evaluation task to OpenRSI. The completed
+[Sol continuation study](paper/README.md) reports six additional coding calls,
+new-world evaluation and a literature review. Its results support a task
+proposal; they do not yet establish a strong independent-paper claim. The
+original pilot below remains a separate, unchanged result.
 
 **Can a language model write code that helps three pretrained game agents work
 better together?** This task tests that question in

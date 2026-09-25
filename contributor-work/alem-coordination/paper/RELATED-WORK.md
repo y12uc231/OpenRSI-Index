@@ -1,8 +1,9 @@
 # Could this become an independent research paper?
 
 Literature checked on **24 September 2026**. This is a research assessment,
-not a paper submission or a claim of established novelty. The OpenRSI submission
-is on hold. The original task, pilot and results remain unchanged.
+not a paper submission or a claim of established novelty. The contributor has
+chosen to submit the evaluation task to OpenRSI. The original task, pilot and
+results remain unchanged.
 
 The main review was prepared before the six-call continuation. Its outcomes
 are reported separately in the [research note](README.md). The section on
