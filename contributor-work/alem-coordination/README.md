@@ -1,6 +1,8 @@
 # Alem Coordination Lab
 
-**Current direction:** submit this evaluation task to OpenRSI. The completed
+**Submitted:** [OpenRSI Task Ideas Discussion #132](https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions/132),
+using the personal account `y12uc231`. See the [submission record](SUBMISSION.md).
+The completed
 [Sol continuation study](paper/README.md) reports six additional coding calls,
 new-world evaluation and a literature review. Its results support a task
 proposal; they do not yet establish a strong independent-paper claim. The
